@@ -57,24 +57,6 @@ Implement `skill_and_mcp_harness.py` satisfying `REQ-0601` through `REQ-0606`:
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `.agents/skills/` and `starter/naive_crud_mcp_and_bloated_skill.py` in `/plan` mode, and list active skills with `/skills`.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_06_skills_chub_and_meta_mcp_code_mode/work/skill_and_mcp_harness.py` and `test_skill_and_mcp_harness.py`, then run:
-   ```bash
-   ./labs/lab_06_skills_chub_and_meta_mcp_code_mode/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

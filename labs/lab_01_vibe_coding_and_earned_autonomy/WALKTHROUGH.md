@@ -58,24 +58,6 @@ Implement `prompt_steerer.py` satisfying `REQ-0101` through `REQ-0106`:
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `starter/vibe_prompt_and_autonomy_blob.py` using `@labs/lab_01_vibe_coding_and_earned_autonomy/starter/vibe_prompt_and_autonomy_blob.py` in `/plan` mode and check permission settings via `/config`.
-3. Verify your workspace is clean before writing code:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_01_vibe_coding_and_earned_autonomy/work/prompt_steerer.py` and `test_prompt_steerer.py`, then run:
-   ```bash
-   ./labs/lab_01_vibe_coding_and_earned_autonomy/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

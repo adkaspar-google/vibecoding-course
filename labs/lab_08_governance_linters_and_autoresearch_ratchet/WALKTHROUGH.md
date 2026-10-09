@@ -69,24 +69,6 @@ Implement `autoresearch_harness.py` satisfying `REQ-0801` through `REQ-0806`:
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `.agents/plugins/vibe-engineering-kit/hooks.json`, `.agents/skills/architecture-guard/SKILL.md`, and `starter/dark_factory_reward_hacker.py` in `/plan` mode.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_08_governance_linters_and_autoresearch_ratchet/work/autoresearch_harness.py` and `test_autoresearch_harness.py`, then run:
-   ```bash
-   ./labs/lab_08_governance_linters_and_autoresearch_ratchet/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

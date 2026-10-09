@@ -1,5 +1,7 @@
 # Vibe Coding & Agentic Harness Engineering (`Vibe-Coding-Course`)
 
+> **You are on the `claude` branch** — it ships only the Claude Code harness (`CLAUDE.md`, `.claude/`, `.claude-plugin/`, `playbooks/CLAUDE_CODE_PLAYBOOK.md`, `tests/claude_track/`). Switch to `agy` for the Antigravity / Gemini CLI harness, or `main` for both side by side.
+
 > **A Two-Phase Hands-On University & Practitioner Course: From Vibe Coding Foundations (`agy` & `claude`) to Harness Engineering & Autonomous Agentic Loops**
 > **Author:** Alejandro Kaspar - AI Forward Deployed Engineer
 > **Dual-Branch Support:** `agy` (Google Antigravity / Gemini CLI) & `claude` (Anthropic Claude Code)

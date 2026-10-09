@@ -60,24 +60,6 @@ Implement `subagent_council.py` satisfying `REQ-0701` through `REQ-0706`:
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `.agents/agents/{code-explorer,code-architect,code-reviewer}.md`, `.agents/workflows/feature-dev.md`, and `starter/noisy_roleplay_subagents.py` in `/plan` mode.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_07_subagent_firewalls_and_peer_council/work/subagent_council.py` and `test_subagent_council.py`, then run:
-   ```bash
-   ./labs/lab_07_subagent_firewalls_and_peer_council/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

@@ -55,24 +55,6 @@ Implement `context_compactor.py` satisfying `REQ-0401` through `REQ-0406`:
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Run `/stats` to inspect current context utilization, inspect `starter/dumb_zone_session_accumulator.py` in `/plan` mode, and practice `/compress` and `/clear`.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_04_context_physics_and_rpi_compaction/work/context_compactor.py` and `test_context_compactor.py`, then run:
-   ```bash
-   ./labs/lab_04_context_physics_and_rpi_compaction/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:
