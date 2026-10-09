@@ -97,7 +97,9 @@ flowchart LR
 
 - **Student Textbook & Reference Manual PDF**: [`Student_Reference_Manual_Vibe_Coding_to_Agentic_Engineering.pdf`](Student_Reference_Manual_Vibe_Coding_to_Agentic_Engineering.pdf) (also mirrored at [`Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf`](Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf))
 - **Lecturer & Professor Instructor Manual PDF**: [`Lecturer_Manual_Vibe_Coding_to_Agentic_Engineering.pdf`](Lecturer_Manual_Vibe_Coding_to_Agentic_Engineering.pdf)
-- **Widescreen Lecture Slides & Tripartite Speaker Notes**: [`slides/Vibe_Coding_Course_Slides.pdf`](slides/Vibe_Coding_Course_Slides.pdf) and [`slides/SPEAKER_NOTES.md`](slides/SPEAKER_NOTES.md)
+- **Interactive *Learn About* Visual Study Companion (HTML5)**: [`docs/interactive_visual_guide.html`](docs/interactive_visual_guide.html) (clickable `①`–`⑤` hotspots, hoverover tooltips, *Common Misconception* cards, and *Stop & Think* reflections)
+- **Interactive Widescreen Slide Deck (HTML5 + Live Simulators)**: [`slides/interactive_slides.html`](slides/interactive_slides.html) (42 interactive slides, 355 hoverover tooltips, 8 live simulators, inline editing, and speaker notes drawer)
+- **Widescreen Lecture Slides (PDF) & Tripartite Speaker Notes**: [`slides/Vibe_Coding_Course_Slides.pdf`](slides/Vibe_Coding_Course_Slides.pdf) and [`slides/SPEAKER_NOTES.md`](slides/SPEAKER_NOTES.md)
 - **Narrated `1080p` Lecture Videos**: Regenerate or inspect via [`slides/build_video.py`](slides/build_video.py)
 - **Playbooks**: [`playbooks/DUAL_HARNESS_VIBE_CODING_PLAYBOOK.md`](playbooks/DUAL_HARNESS_VIBE_CODING_PLAYBOOK.md), [`playbooks/ANTIGRAVITY_PLAYBOOK.md`](playbooks/ANTIGRAVITY_PLAYBOOK.md), and [`playbooks/CLAUDE_CODE_PLAYBOOK.md`](playbooks/CLAUDE_CODE_PLAYBOOK.md)
 - **License & Attribution**: Dual-licensed under **Apache License 2.0** (code, scripts, and tests; see [`LICENSE`](LICENSE)) and **Creative Commons Attribution 4.0 International (CC BY 4.0)** (coursebook, lecturer manual, slides, and documentation; see [`NOTICE`](NOTICE) and [`CITATION.cff`](CITATION.cff)). **Author: Alejandro Kaspar - AI Forward Deployed Engineer**.
