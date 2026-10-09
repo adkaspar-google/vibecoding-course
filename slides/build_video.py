@@ -12,26 +12,26 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Builds the 8 Step-by-Step Module Videos and the Master 36-Slide Course Lecture Video.
+"""Builds the 8 Step-by-Step Module Videos and the Master 42-Slide Course Lecture Video.
 
 Pipeline:
-1. Parses all 36 `VERBAL SCRIPT` entries from `SPEAKER_NOTES.md`.
-2. Synthesizes `audio/slide-01.wav` .. `audio/slide-36.wav` in parallel through a pluggable
+1. Parses all 42 `VERBAL SCRIPT` entries from `SPEAKER_NOTES.md`.
+2. Synthesizes `audio/slide-01.wav` .. `audio/slide-42.wav` in parallel through a pluggable
    TTS backend (voice `Kore` by default):
      - `GEMINI_TTS_BIN=<cli>`  any CLI honoring `<cli> -output=<wav> tts -voice=<voice> "<text>"`
      - `GEMINI_API_KEY=<key>`  the public Gemini API (`gemini-2.5-flash-preview-tts`, REST via urllib)
    Existing `audio/*.wav` files are reused, so re-rendering slides never needs a backend.
-3. Renders `segments/seg-01.mp4` .. `segments/seg-36.mp4` in parallel via `ffmpeg` (`1920x1080`).
+3. Renders `segments/seg-01.mp4` .. `segments/seg-42.mp4` in parallel via `ffmpeg` (`1920x1080`).
 4. Concatenates each module's slides into 8 standalone MP4 videos under `modules/`:
-   - `Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4` (Slides 01-05)
-   - `Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4` (Slides 06-09)
-   - `Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4` (Slides 10-13)
-   - `Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4` (Slides 14-17)
-   - `Module_05_Context_Primitives_Memory_and_Lab05.mp4` (Slides 18-21)
-   - `Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4` (Slides 22-26)
-   - `Module_07_Subagent_Firewalls_Council_and_Lab07.mp4` (Slides 27-30)
-   - `Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4` (Slides 31-36)
-5. Concatenates all 36 segments into `Vibe_Coding_Course_Lecture.mp4`.
+   - `Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4` (Slides 01-07)
+   - `Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4` (Slides 08-11)
+   - `Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4` (Slides 12-15)
+   - `Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4` (Slides 16-19)
+   - `Module_05_Context_Primitives_Memory_and_Lab05.mp4` (Slides 20-23)
+   - `Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4` (Slides 24-29)
+   - `Module_07_Subagent_Firewalls_Council_and_Lab07.mp4` (Slides 30-34)
+   - `Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4` (Slides 35-42)
+5. Concatenates all 42 segments into `Vibe_Coding_Course_Lecture.mp4`.
 
 The rendered MP4s are release assets (not tracked in git); see `slides/README.md`.
 """
@@ -76,14 +76,14 @@ NO_BACKEND_HELP = (
 )
 
 MODULES = [
-    ("Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4", 1, 5),
-    ("Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4", 6, 9),
-    ("Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4", 10, 13),
-    ("Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4", 14, 17),
-    ("Module_05_Context_Primitives_Memory_and_Lab05.mp4", 18, 21),
-    ("Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4", 22, 26),
-    ("Module_07_Subagent_Firewalls_Council_and_Lab07.mp4", 27, 30),
-    ("Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4", 31, 36),
+    ("Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4", 1, 7),
+    ("Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4", 8, 11),
+    ("Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4", 12, 15),
+    ("Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4", 16, 19),
+    ("Module_05_Context_Primitives_Memory_and_Lab05.mp4", 20, 23),
+    ("Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4", 24, 29),
+    ("Module_07_Subagent_Firewalls_Council_and_Lab07.mp4", 30, 34),
+    ("Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4", 35, 42),
 ]
 
 
