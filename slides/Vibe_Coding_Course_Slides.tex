@@ -154,8 +154,8 @@
   }
 }
 
-% SLIDE 03
-\slideshell{03 / 36}{MODULE 01: 2022--2026 TIMELINE, 17-DAY PACE \& METR CURVE}{The 2022--2026 Architectural Timeline, 17-Day Flagship Pace \& RSI}{Chronological evolution + SearchIntel's quarterly release surge, inter-flagship gap compression (\texttt{37d -> 17d}), and METR curve}{
+% % SLIDE 03
+\slideshell{03 / 36}{MODULE 01: 2022--2026 TIMELINE \& ALL 3 \texttt{SearchIntel} RELEASE CHARTS}{The 2022--2026 Architectural Timeline \& 17-Day Flagship Release Pace}{Chronological evolution + all 3 \texttt{searchintel.tech} charts ($N=143$ releases across 8 lab groups, quarterly surge, and \texttt{37d -> 17d} gap)}{
   % Top 6-Era Visual Timeline Boxes (y=0 to -2.52)
   \bcard{0.00}{0}{2.32}{2.52}{gbggray}{gborder}{
     {\fontsize{11.0}{13.2}\selectfont\bfseries\textcolor{gdark}{1. Late 2022}}\\[2pt]
@@ -211,134 +211,160 @@
   }
 
   % ============================================================================
-  % Bottom 3-Panel Quantitative Chart Row (y = -2.72 to -6.30, height = 3.58in)
+  % Bottom 3-Panel SearchIntel Quantitative Chart Row (y = -2.72 to -6.30, height = 3.58in)
   % ============================================================================
 
-  % PANEL 1 (Left, x=0.00 to 4.75): SearchIntel Stacked Bar Chart — Releases per Quarter (Q4 '22 - Q3 '26)
-  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=4.75in, minimum height=3.58in] at (0.00,-2.72) {};
-  \node[anchor=north west, font=\fontsize{10.8}{13}\selectfont\bfseries, text=gnavy] at (0.15,-2.84) {1. Releases per Quarter (\code{searchintel.tech}, $N=143$)};
+  % PANEL 1 (Left, x=0.00 to 4.80): SearchIntel Chart 1 — Every Release by Lab (8-Lab Swimlane Dot-Plot, Nov '22 - Sep '26)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=4.80in, minimum height=3.58in] at (0.00,-2.72) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.14,-2.84) {1. Every Release by Lab (\code{searchintel.tech}, $N=143$)};
   % Legend
-  \fill[gblue] (0.18,-3.18) rectangle (0.30,-3.08);
-  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (0.33,-3.13) {Flagship ($57$)};
-  \fill[gslate!45] (1.45,-3.18) rectangle (1.57,-3.08);
-  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (1.60,-3.13) {Other ($86$)};
-  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gblue] at (4.62,-3.13) {Q3 '26: 22 (7F + 15O)};
-  % Axes & Grid (y_base = -5.85, y_top = -3.45 for 24 releases -> 0.10in per release)
-  \draw[gborder, dashed] (0.48,-5.35) -- (4.60,-5.35);
-  \draw[gborder, dashed] (0.48,-4.85) -- (4.60,-4.85);
-  \draw[gborder, dashed] (0.48,-4.35) -- (4.60,-4.35);
-  \draw[gborder, dashed] (0.48,-3.85) -- (4.60,-3.85);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.48,-5.85) -- (4.65,-5.85);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.48,-5.85) -- (0.48,-3.38);
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (0.44,-5.85) {0};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (0.44,-5.35) {5};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (0.44,-4.85) {10};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (0.44,-4.35) {15};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (0.44,-3.85) {20};
-  % 16 Stacked Bars (Q4'22 .. Q3'26), x0 = 0.56 + i*0.25, width = 0.17
+  \fill[gblue] (0.20,-3.14) circle (2.2pt);
+  \node[anchor=west, font=\fontsize{7.6}{9}\selectfont, text=gdark] at (0.26,-3.14) {Flagship ($57$)};
+  \draw[gsteel, line width=0.9pt, fill=white] (1.42,-3.14) circle (2.1pt);
+  \node[anchor=west, font=\fontsize{7.6}{9}\selectfont, text=gdark] at (1.48,-3.14) {Other ($86$)};
+  \node[anchor=east, font=\fontsize{7.6}{9}\selectfont\bfseries, text=gblue] at (4.68,-3.14) {8 Lab Swimlanes ('22--'26)};
+  % Swimlane horizontal guide lines & labels (8 lanes from y=-3.44 down to -5.68, step -0.32; x from 1.05 to 4.62)
+  \foreach \yl/\labname/\col in {
+    -3.44/OpenAI (38)/gblue,
+    -3.76/Anthropic (17)/gnavy,
+    -4.08/Google (23)/gsteel,
+    -4.40/Meta (12)/gslate,
+    -4.72/xAI (9)/gdark,
+    -5.04/DeepSeek (13)/gblue,
+    -5.36/China Other (20)/gsteel,
+    -5.68/Other -- Mistral (11)/gslate%
+  } {
+    \draw[gborder, densely dotted] (1.12,\yl) -- (4.64,\yl);
+    \node[anchor=east, font=\fontsize{6.8}{8}\selectfont\bfseries, text=\col] at (1.09,\yl) {\labname};
+  }
+  % Vertical year dividers (x=1.18='22, 1.38='23, 2.18='24, 2.98='25, 3.78='26, 4.62=Sep'26)
+  \foreach \xv in {1.38, 2.18, 2.98, 3.78} {
+    \draw[gborder, dashed] (\xv,-5.82) -- (\xv,-3.32);
+  }
+  \draw[-{Latex[length=1.8mm]}, line width=0.8pt, gdark] (1.12,-5.82) -- (4.68,-5.82);
+  % Lane 1: OpenAI (-3.44) — Flagships & Others
+  \foreach \dx in {1.22, 1.52, 2.02, 2.42, 2.75, 3.05, 3.18, 3.35, 3.55, 3.72, 3.92, 4.08, 4.25, 4.42, 4.56} { \fill[gblue] (\dx,-3.44) circle (2.1pt); }
+  \foreach \dx in {1.68, 2.25, 2.58, 2.88, 3.12, 3.26, 3.44, 3.64, 3.84, 4.00, 4.16, 4.34, 4.49} { \draw[gblue, fill=white, line width=0.7pt] (\dx,-3.44) circle (1.8pt); }
+  % Lane 2: Anthropic (-3.76)
+  \foreach \dx in {1.54, 1.78, 2.30, 2.55, 2.86, 3.10, 3.38, 3.56, 3.74, 3.90, 4.04, 4.18, 4.30, 4.44, 4.58} { \fill[gnavy] (\dx,-3.76) circle (2.1pt); }
+  \foreach \dx in {2.02, 2.94, 3.64} { \draw[gnavy, fill=white, line width=0.7pt] (\dx,-3.76) circle (1.8pt); }
+  % Lane 3: Google (-4.08)
+  \foreach \dx in {1.60, 2.12, 2.28, 3.12, 3.30, 3.68, 4.02, 4.22} { \fill[gsteel] (\dx,-4.08) circle (2.1pt); }
+  \foreach \dx in {1.48, 2.45, 2.65, 2.90, 3.20, 3.42, 3.55, 3.82, 3.92, 4.12, 4.35, 4.52} { \draw[gsteel, fill=white, line width=0.7pt] (\dx,-4.08) circle (1.8pt); }
+  % Lane 4: Meta (-4.40)
+  \foreach \dx in {1.46, 1.82, 2.42, 2.68, 3.24} { \fill[gslate] (\dx,-4.40) circle (2.1pt); }
+  \foreach \dx in {1.98, 2.82, 3.04, 3.50, 3.95, 4.28} { \draw[gslate, fill=white, line width=0.7pt] (\dx,-4.40) circle (1.8pt); }
+  % Lane 5: xAI (-4.72)
+  \foreach \dx in {2.08, 2.66, 3.14, 3.48, 3.96} { \fill[gdark] (\dx,-4.72) circle (2.1pt); }
+  \foreach \dx in {2.36, 3.68, 4.18, 4.46} { \draw[gdark, fill=white, line width=0.7pt] (\dx,-4.72) circle (1.8pt); }
+  % Lane 6: DeepSeek (-5.04)
+  \foreach \dx in {2.48, 2.94, 3.04, 3.22, 3.54, 3.74, 4.02} { \fill[gblue] (\dx,-5.04) circle (2.1pt); }
+  \foreach \dx in {2.05, 2.72, 3.38, 3.64, 3.88, 4.32} { \draw[gblue, fill=white, line width=0.7pt] (\dx,-5.04) circle (1.8pt); }
+  % Lane 7: China Other — Qwen, Kimi, GLM, MiniMax (-5.36)
+  \foreach \dx in {2.78, 3.06, 3.36, 3.52, 3.80, 4.06, 4.28, 4.52} { \fill[gsteel] (\dx,-5.36) circle (2.1pt); }
+  \foreach \dx in {1.92, 2.40, 3.18, 3.26, 3.44, 3.66, 3.92, 4.16, 4.40, 4.58} { \draw[gsteel, fill=white, line width=0.7pt] (\dx,-5.36) circle (1.8pt); }
+  % Lane 8: Other / Mistral (-5.68)
+  \foreach \dx in {1.96, 2.32, 2.62, 3.94} { \fill[gslate] (\dx,-5.68) circle (2.1pt); }
+  \foreach \dx in {2.48, 2.84, 3.12, 3.36, 3.60, 4.22, 4.48} { \draw[gslate, fill=white, line width=0.7pt] (\dx,-5.68) circle (1.8pt); }
+  % Year ticks
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (1.25,-5.84) {'22};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (1.78,-5.84) {2023};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (2.58,-5.84) {2024};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (3.38,-5.84) {2025};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gblue] at (4.20,-5.84) {2026};
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (0.14,-6.06) {Sparse 2023 dots $\to$ dense 8-lab wall in '25--'26 (\textbf{17d} flagship gap).};
+
+  % PANEL 2 (Center, x=4.95 to 9.75): SearchIntel Chart 2 — Releases per Quarter Stacked Bars (Q4 '22 - Q3 '26)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=4.80in, minimum height=3.58in] at (4.95,-2.72) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (5.10,-2.84) {2. Releases per Quarter (\code{4/qtr} $\to$ \code{22/qtr Peak})};
+  % Legend
+  \fill[gblue] (5.13,-3.18) rectangle (5.25,-3.08);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont, text=gdark] at (5.28,-3.13) {Flagship ($57$)};
+  \fill[gslate!45] (6.38,-3.18) rectangle (6.50,-3.08);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont, text=gdark] at (6.53,-3.13) {Other ($86$)};
+  \node[anchor=east, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gblue] at (9.62,-3.13) {Peak: 22/qtr ('25--'26)};
+  % Axes & Grid (y_base = -5.82, 0.10in per release)
+  \draw[gborder, dashed] (5.43,-5.32) -- (9.58,-5.32);
+  \draw[gborder, dashed] (5.43,-4.82) -- (9.58,-4.82);
+  \draw[gborder, dashed] (5.43,-4.32) -- (9.58,-4.32);
+  \draw[gborder, dashed] (5.43,-3.82) -- (9.58,-3.82);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (5.43,-5.82) -- (9.62,-5.82);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (5.43,-5.82) -- (5.43,-3.38);
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (5.39,-5.82) {0};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (5.39,-5.32) {5};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (5.39,-4.82) {10};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (5.39,-4.32) {15};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (5.39,-3.82) {20};
+  % 16 Stacked Bars (Q4'22 .. Q3'26), x0 = 5.51 + i*0.25, width = 0.17
   \foreach \i/\f/\o in {
     0/1/0, 1/4/0, 2/1/0, 3/2/2, 4/3/5,
     5/2/4, 6/3/4, 7/3/5, 8/4/5,
-    9/5/5, 10/4/5, 11/4/7, 12/4/9,
-    13/3/9, 14/7/11, 15/7/15
+    9/5/14, 10/4/13, 11/7/15, 12/4/10,
+    13/7/11, 14/7/14, 15/7/12%
   } {
-    \pgfmathsetmacro{\xb}{0.56 + \i*0.25}
+    \pgfmathsetmacro{\xb}{5.51 + \i*0.25}
     \pgfmathsetmacro{\xe}{\xb + 0.17}
-    \pgfmathsetmacro{\yf}{-5.85 + \f*0.10}
-    \pgfmathsetmacro{\yt}{-5.85 + (\f+\o)*0.10}
-    \fill[gblue] (\xb,-5.85) rectangle (\xe,\yf);
+    \pgfmathsetmacro{\yf}{-5.82 + \f*0.10}
+    \pgfmathsetmacro{\yt}{-5.82 + (\f+\o)*0.10}
+    \fill[gblue] (\xb,-5.82) rectangle (\xe,\yf);
     \ifnum\o>0
       \fill[gslate!45] (\xb,\yf) rectangle (\xe,\yt);
     \fi
   }
-  % Peak bar label on Q2'26 (18) and Q3'26 (22)
-  \node[anchor=south, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gdark] at (4.14,-4.05) {18};
-  \node[anchor=south, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gblue] at (4.39,-3.65) {22};
-  % Year ticks
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (0.64,-5.88) {'22};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (1.26,-5.88) {2023};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (2.26,-5.88) {2024};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (3.26,-5.88) {2025};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gblue] at (4.14,-5.88) {2026};
-  \node[anchor=north west, font=\fontsize{7.8}{9.5}\selectfont, text=gdark] at (0.15,-6.06) {$5.5\times$ quarterly volume surge (\textbf{4/qtr} in '23 $\to$ \textbf{22/qtr} in Q3 '26).};
+  \node[anchor=south, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=gblue] at (8.34,-3.62) {22};
+  \node[anchor=south, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=gdark] at (9.09,-3.72) {21};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (5.59,-5.84) {'22};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (6.21,-5.84) {2023};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (7.21,-5.84) {2024};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (8.21,-5.84) {2025};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gblue] at (9.15,-5.84) {2026};
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (5.10,-6.06) {$5.5\times$ quarterly volume surge (\textbf{4/qtr} in '23 $\to$ \textbf{18--22/qtr} in '25--'26).};
 
-  % PANEL 2 (Center, x=4.92 to 9.78): SearchIntel Line Chart — Days Between Consecutive Lab Flagships
-  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=4.86in, minimum height=3.58in] at (4.92,-2.72) {};
-  \node[anchor=north west, font=\fontsize{10.8}{13}\selectfont\bfseries, text=gnavy] at (5.07,-2.84) {2. Days Between Lab Flagships (\code{237d} $\to$ \code{18--21d})};
+  % PANEL 3 (Right, x=9.90 to 14.70): SearchIntel Chart 3 — Days Between Consecutive Lab Flagships
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=4.80in, minimum height=3.58in] at (9.90,-2.72) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (10.05,-2.84) {3. Days Between Lab Flagships (\code{237d} $\to$ \code{18--21d})};
   % Legend
-  \draw[gblue, line width=1.8pt] (5.10,-3.13) -- (5.32,-3.13);
-  \fill[gblue] (5.21,-3.13) circle (2.2pt);
-  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (5.36,-3.13) {OpenAI (\textbf{91d $\to$ 57d}, min \textbf{18d})};
-  \draw[gsteel, line width=1.8pt, densely dashed] (7.42,-3.13) -- (7.64,-3.13);
-  \fill[gsteel] (7.53,-3.13) circle (2.2pt);
-  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (7.68,-3.13) {Anthropic (\textbf{124d $\to$ 39d})};
-  % Axes & Grid (y_base = -5.85 for 0d, y_top = -3.45 for 240d -> 0.01in per day)
-  \draw[gborder, dashed] (5.42,-5.35) -- (9.62,-5.35);
-  \draw[gborder, dashed] (5.42,-4.85) -- (9.62,-4.85);
-  \draw[gborder, dashed] (5.42,-4.35) -- (9.62,-4.35);
-  \draw[gborder, dashed] (5.42,-3.85) -- (9.62,-3.85);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (5.42,-5.85) -- (9.66,-5.85);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (5.42,-5.85) -- (5.42,-3.38);
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (5.38,-5.85) {0d};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (5.38,-5.35) {50d};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (5.38,-4.85) {100d};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (5.38,-4.35) {150d};
-  \node[anchor=east, font=\fontsize{7.5}{9}\selectfont, text=gmuted] at (5.38,-3.85) {200d};
-  % OpenAI Flagship Gap Series (104, 237, 189, 122, 84, 84, 48, 113, 97, 29, 84, 49, 77, 57, 18)
+  \draw[gblue, line width=1.8pt] (10.08,-3.13) -- (10.30,-3.13);
+  \fill[gblue] (10.19,-3.13) circle (2.2pt);
+  \node[anchor=west, font=\fontsize{7.6}{9}\selectfont, text=gdark] at (10.34,-3.13) {OpenAI (\textbf{91d $\to$ 57d}, min \textbf{18d})};
+  \draw[gsteel, line width=1.8pt, densely dashed] (12.35,-3.13) -- (12.57,-3.13);
+  \fill[gsteel] (12.46,-3.13) circle (2.2pt);
+  \node[anchor=west, font=\fontsize{7.6}{9}\selectfont, text=gdark] at (12.61,-3.13) {Anthropic (\textbf{124d $\to$ 39d})};
+  % Axes & Grid (y_base = -5.82 for 0d, y_top = -3.42 for 240d -> 0.01in per day)
+  \draw[gborder, dashed] (10.38,-5.32) -- (14.54,-5.32);
+  \draw[gborder, dashed] (10.38,-4.82) -- (14.54,-4.82);
+  \draw[gborder, dashed] (10.38,-4.32) -- (14.54,-4.32);
+  \draw[gborder, dashed] (10.38,-3.82) -- (14.54,-3.82);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (10.38,-5.82) -- (14.58,-5.82);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (10.38,-5.82) -- (10.38,-3.38);
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.34,-5.82) {0d};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.34,-5.32) {50d};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.34,-4.82) {100d};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.34,-4.32) {150d};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.34,-3.82) {200d};
+  % OpenAI Flagship Gap Series
   \draw[gblue, line width=1.6pt]
-    (5.60,-4.81) -- (6.15,-3.48) -- (6.65,-3.96) -- (6.98,-4.63) -- (7.22,-5.01) --
-    (7.45,-5.01) -- (7.62,-5.37) -- (7.92,-4.72) -- (8.18,-4.88) -- (8.30,-5.56) --
-    (8.62,-5.01) -- (8.82,-5.36) -- (9.10,-5.08) -- (9.32,-5.28) -- (9.52,-5.67);
-  \foreach \px/\py in {5.60/-4.81, 6.15/-3.48, 6.65/-3.96, 6.98/-4.63, 7.22/-5.01, 7.45/-5.01, 7.62/-5.37, 7.92/-4.72, 8.18/-4.88, 8.30/-5.56, 8.62/-5.01, 8.82/-5.36, 9.10/-5.08, 9.32/-5.28, 9.52/-5.67} {
-    \fill[gblue] (\px,\py) circle (2.2pt);
+    (10.56,-4.78) -- (11.11,-3.45) -- (11.61,-3.93) -- (11.94,-4.60) -- (12.18,-4.98) --
+    (12.41,-4.98) -- (12.58,-5.34) -- (12.88,-4.69) -- (13.14,-4.85) -- (13.26,-5.53) --
+    (13.58,-4.98) -- (13.78,-5.33) -- (14.06,-5.05) -- (14.28,-5.25) -- (14.48,-5.64);
+  \foreach \px/\py in {10.56/-4.78, 11.11/-3.45, 11.61/-3.93, 11.94/-4.60, 12.18/-4.98, 12.41/-4.98, 12.58/-5.34, 12.88/-4.69, 13.14/-4.85, 13.26/-5.53, 13.58/-4.98, 13.78/-5.33, 14.06/-5.05, 14.28/-5.25, 14.48/-5.64} {
+    \fill[gblue] (\px,\py) circle (2.1pt);
   }
-  % Anthropic Flagship Gap Series (119, 237, 108, 124, 125, 87, 130, 56, 73, 70, 54, 21, 24, 39, 21)
+  % Anthropic Flagship Gap Series
   \draw[gsteel, line width=1.6pt, densely dashed]
-    (5.88,-4.66) -- (6.45,-3.48) -- (6.75,-4.77) -- (7.08,-4.61) -- (7.43,-4.60) --
-    (7.70,-4.98) -- (8.05,-4.55) -- (8.24,-5.29) -- (8.52,-5.12) -- (8.76,-5.15) --
-    (8.96,-5.31) -- (9.06,-5.64) -- (9.18,-5.61) -- (9.35,-5.46) -- (9.52,-5.64);
-  \foreach \px/\py in {5.88/-4.66, 6.45/-3.48, 6.75/-4.77, 7.08/-4.61, 7.43/-4.60, 7.70/-4.98, 8.05/-4.55, 8.24/-5.29, 8.52/-5.12, 8.76/-5.15, 8.96/-5.31, 9.06/-5.64, 9.18/-5.61, 9.35/-5.46, 9.52/-5.64} {
-    \fill[gsteel] (\px,\py) circle (2.2pt);
+    (10.84,-4.63) -- (11.41,-3.71) -- (11.71,-4.74) -- (12.04,-4.58) -- (12.39,-4.57) --
+    (12.66,-4.95) -- (13.01,-4.52) -- (13.20,-5.26) -- (13.48,-5.09) -- (13.72,-5.12) --
+    (13.92,-5.28) -- (14.02,-5.61) -- (14.14,-5.58) -- (14.31,-5.43) -- (14.48,-5.61);
+  \foreach \px/\py in {10.84/-4.63, 11.41/-3.71, 11.71/-4.74, 12.04/-4.58, 12.39/-4.57, 12.66/-4.95, 13.01/-4.52, 13.20/-5.26, 13.48/-5.09, 13.72/-5.12, 13.92/-5.28, 14.02/-5.61, 14.14/-5.58, 14.31/-5.43, 14.48/-5.61} {
+    \fill[gsteel] (\px,\py) circle (2.1pt);
   }
-  % Key Callout Labels
-  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gdark, fill=white, inner sep=1pt] at (6.50,-3.50) {237d peak ('23--'24)};
-  \node[anchor=south east, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gblue, fill=white, inner sep=1pt] at (9.60,-5.58) {18d--21d ('26)};
-  % Year ticks
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (5.95,-5.88) {2023};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (6.95,-5.88) {2024};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (7.95,-5.88) {2025};
-  \node[anchor=north, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gblue] at (9.15,-5.88) {2026};
-  \node[anchor=north west, font=\fontsize{7.8}{9.5}\selectfont, text=gdark] at (5.07,-6.06) {Industry mean flagship gap fell \textbf{37d ('23) $\to$ 17d ('26)} across 8 lab groups.};
-
-  % PANEL 3 (Right, x=9.95 to 14.70): METR Task Horizon Doubling Curve + 5-Stage RSI Benchmarks
-  \node[anchor=north west, fill=gbgsteel, draw=gsteel, line width=1pt, rounded corners=6pt, minimum width=4.75in, minimum height=3.58in] at (9.95,-2.72) {};
-  \node[anchor=north west, font=\fontsize{10.8}{13}\selectfont\bfseries, text=gsteel] at (10.10,-2.84) {3. METR Horizon Doubling \& 17d Harness Rules};
-  % Mini METR Exponential Curve (y = -4.65 to -3.35)
-  \draw[gborder, dashed] (10.45,-4.35) -- (14.45,-4.35);
-  \draw[gborder, dashed] (10.45,-3.95) -- (14.45,-3.95);
-  \draw[gborder, dashed] (10.45,-3.55) -- (14.45,-3.55);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (10.45,-4.68) -- (14.52,-4.68);
-  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (10.45,-4.68) -- (10.45,-3.32);
-  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.41,-4.64) {30s};
-  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.41,-4.35) {4m};
-  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.41,-3.95) {90m};
-  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (10.41,-3.55) {16h};
-  \draw[gblue, line width=2.0pt] (10.65,-4.62) .. controls (11.5,-4.56) and (12.1,-4.42) .. (12.45,-4.35) .. controls (13.1,-4.15) and (13.7,-3.80) .. (14.25,-3.52);
-  \foreach \px/\py/\lbl in {10.65/-4.62/30s, 11.55/-4.52/2m, 12.45/-4.35/4m, 13.35/-3.95/90m, 14.25/-3.52/12--16h} {
-    \fill[gred] (\px,\py) circle (2.3pt);
-    \node[anchor=south, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gdark, fill=white, inner sep=1pt] at (\px,\py+0.05) {\lbl};
-  }
-  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (10.65,-4.71) {'22};
-  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (11.55,-4.71) {'23};
-  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (12.45,-4.71) {'24};
-  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (13.35,-4.71) {'25};
-  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont\bfseries, text=gblue] at (14.25,-4.71) {'26};
-  % Key Bullet Takeaways below mini-chart
-  \node[anchor=north west, text width=4.45in, font=\fontsize{8.8}{11.2}\selectfont, text=gdark] at (10.10,-4.92) {
-    $\bullet$ \textbf{Anthropic RSI ('26):} \textbf{$>$80\% AI code}, \textbf{8x LOC/day}, \textbf{76\%--91\%} session pass rate, \& \textbf{52x CPU kernel} loop speedup.\\[1.5pt]
-    $\bullet$ \textbf{Model-Agnostic Harnesses:} When the frontier model shifts every \textbf{17 days}, prompt hacks decay in weeks; invest in \code{CLAUDE.md}/\code{GEMINI.md}, \code{SKILL.md}, \code{aisuite}, \& \code{Omnigent}.\\[1.5pt]
-    $\bullet$ \textbf{Date \& Model-Pin Evals:} Attach \code{(model\_id, date)} to \code{benchmark.json} \& re-verify on each flagship drop.
-  };
+  \node[anchor=west, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=gdark, fill=white, inner sep=1pt] at (11.45,-3.48) {237d peak ('23)};
+  \node[anchor=south east, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=gblue, fill=white, inner sep=1pt] at (14.54,-5.55) {18d--21d ('26)};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (10.90,-5.84) {2023};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (11.90,-5.84) {2024};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (12.90,-5.84) {2025};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gblue] at (14.10,-5.84) {2026};
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (10.05,-6.06) {Median lab cycle fell \textbf{162d $\to$ 35d}; industry gap \textbf{37d $\to$ 17d}.};
 }
 
 % SLIDE 04
@@ -1103,49 +1129,117 @@
 }
 
 % SLIDE 25
-\slideshell{25 / 36}{MODULE 06: \texttt{SkillsBench} EMPIRICAL SCIENCE}{Empirical Skill Science (\texttt{SkillsBench} arXiv:2602.12670) \& \texttt{eval-viewer}}{Why focused curated skills add \textbf{+16.6pp} (\texttt{2--3} skills peak at \textbf{+19.0pp}) while self-generated skills hurt (\textbf{$-$8.1 to $-$11.5pp})}{
-  % Left: Visual Bar Chart of SkillsBench Pass-Rate Deltas
-  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.4in, minimum height=4.10in] at (0,0) {};
-  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-0.16) {\texttt{SkillsBench} Pass-Rate Delta vs.\ No-Skill Baseline (87 Tasks, 9,396 Runs)};
-  % Zero baseline vertical axis at x=4.25 (labels end at x=2.78, negative bars live in 2.88..4.25, positive bars in 4.25..6.55)
-  \draw[gdark, line width=1.1pt] (4.25,-3.75) -- (4.25,-0.55);
-  \node[anchor=south, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gdark] at (4.25,-0.55) {0.0pp Baseline};
-  % Row 1: 2-3 Curated Skills (+19.0pp)
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gdark] at (2.78,-0.92) {2--3 Focused Curated Skills:};
-  \fill[ggreen] (4.25,-1.10) rectangle (6.52,-0.75);
-  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont\bfseries, text=ggreen] at (6.56,-0.92) {+19.0pp};
-  % Row 2: Overall Curated Skills (+16.6pp)
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gdark] at (2.78,-1.52) {Curated Skills (Overall Avg):};
-  \fill[gblue] (4.25,-1.70) rectangle (6.22,-1.35);
-  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gblue] at (6.26,-1.52) {+16.6pp};
-  % Row 3: Monolithic Documentation Dump (+4.2pp)
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (2.78,-2.12) {Monolithic Doc Dump ($>$800L):};
-  \fill[gyellow, draw=gdark] (4.25,-2.30) rectangle (4.78,-1.95);
-  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (4.84,-2.12) {+4.2pp};
-  % Row 4: >10 Overlapping Skills (-2.4pp)
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (2.78,-2.72) {$>$10 Overlapping Skills:};
-  \fill[gred!70] (3.92,-2.90) rectangle (4.25,-2.55);
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gred] at (3.86,-2.72) {$-$2.4pp};
-  % Row 5: Self-Generated Skills (-8.1 to -11.5pp)
-  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gred] at (2.78,-3.32) {LLM Self-Generated Skills:};
-  \fill[gred] (2.88,-3.50) rectangle (4.25,-3.15);
-  \node[font=\fontsize{8.6}{10.5}\selectfont\bfseries, text=white] at (3.565,-3.32) {$-$8.1 to $-$11.5pp};
+\slideshell{25 / 36}{MODULE 06: \texttt{SkillsBench} EMPIRICAL SCIENCE (4-CHART DASHBOARD)}{Empirical Skill Science (\texttt{SkillsBench} arXiv:2602.12670, $N=7,308$ Trajectories)}{All 4 benchmark charts across 84 tasks \& 11 domains: Curated (\textbf{+16.2pp}) vs.\ Self-Gen (\textbf{$-$1.3pp}), Domains, Quantity/Length, \& Failure Modes}{
+  % ============================================================================
+  % PANEL 1 (Top-Left, x=0.00 to 7.20, y=0.00 to -3.02): Model-Harness Pass Rates (No Skills vs Curated vs Self-Gen)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.02in] at (0.00,0.00) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.16,-0.12) {1. Pass Rate by Harness \& Condition (Table 3)};
+  % Legend
+  \fill[gslate!55] (4.05,-0.26) rectangle (4.20,-0.14);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (4.24,-0.20) {No Skills};
+  \fill[gblue] (5.00,-0.26) rectangle (5.15,-0.14);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gblue] at (5.19,-0.20) {Curated (+16.2pp)};
+  \fill[gred!80] (6.30,-0.26) rectangle (6.45,-0.14);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont, text=gred] at (6.49,-0.20) {Self-Gen};
+  % Horizontal bars for 4 key configurations (x_base = 2.40, scale = 0.072in per 1% up to 50% -> +3.60in at 6.00)
+  \draw[gdark, line width=0.8pt] (2.40,-2.65) -- (2.40,-0.42);
+  % Row 1: Gemini CLI + Gemini 3 Flash (31.3% -> 48.7%, +17.4pp)
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.33,-0.66) {Gemini CLI + Flash 3:};
+  \fill[gslate!55] (2.40,-0.63) rectangle (4.65,-0.50);
+  \fill[gblue] (2.40,-0.80) rectangle (5.91,-0.65);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gblue] at (5.96,-0.72) {48.7\% (+17.4pp)};
+  % Row 2: Claude Code + Opus 4.5 (22.0% -> 45.3% [+23.3pp], Self-Gen 20.7%)
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.33,-1.22) {Claude Code + Opus 4.5:};
+  \fill[gslate!55] (2.40,-1.13) rectangle (3.98,-1.01);
+  \fill[gblue] (2.40,-1.28) rectangle (5.66,-1.15);
+  \fill[gred!80] (2.40,-1.42) rectangle (3.89,-1.30);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gblue] at (5.71,-1.21) {45.3\% (+23.3pp)};
+  % Row 3: Codex CLI + GPT-5.2 (30.6% -> 44.7% [+14.1pp], Self-Gen 25.0% [-5.6pp])
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.33,-1.82) {Codex CLI + GPT-5.2:};
+  \fill[gslate!55] (2.40,-1.73) rectangle (4.60,-1.61);
+  \fill[gblue] (2.40,-1.88) rectangle (5.62,-1.75);
+  \fill[gred!80] (2.40,-2.02) rectangle (4.20,-1.90);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gred] at (4.25,-1.96) {Self-Gen: $-$5.6pp};
+  % Row 4: Claude Code + Haiku 4.5 (11.0% -> 27.7% [+16.7pp] > Opus 4.5 No-Skills 22.0%!)
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.33,-2.40) {Claude Code + Haiku 4.5:};
+  \fill[gslate!55] (2.40,-2.35) rectangle (3.19,-2.22);
+  \fill[ggreen] (2.40,-2.52) rectangle (4.39,-2.37);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=ggreen] at (4.44,-2.44) {27.7\% ($>$ Opus No-Skill 22\%!)};
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (0.16,-2.72) {Smaller model + curated Skills (\textbf{27.7\%}) beats frontier Opus without Skills (\textbf{22.0\%}).};
 
-  % Right: Paired eval-viewer & Trigger Calibration
-  \bcard{7.6}{0}{7.1}{4.10}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Why Self-Generated Skills Fail \& How to Evaluate}}\\[5pt]
-    {\fontsize{11.3}{14.8}\selectfont
-    $\bullet$ \textbf{Why Self-Generated Skills Hurt (\textbf{$-$8.1 to $-$11.5pp}):} When asked to write its own skill before solving a task, an LLM emits generic pretraining platitudes or locks in hallucinated API flags.\\[4pt]
-    $\bullet$ \textbf{Why $>10$ Skills Degrade Routing:} Overlapping descriptions cause trigger collisions and blow past the active context budget.\\[4pt]
-    $\bullet$ \textbf{Paired \code{eval-viewer} Ablation (\code{benchmark.json}):}\\[2pt]
-    1. Run every eval prompt \textbf{paired}: \code{with\_skill} vs.\ \code{without\_skill} baseline.\\[2pt]
-    2. Measure \code{delta\_pass\_rate}, \code{delta\_tokens}, and trigger discrimination (\code{should\_trigger} vs.\ \code{should\_not\_trigger} false-alarm rate).}
+  % ============================================================================
+  % PANEL 2 (Top-Right, x=7.50 to 14.70, y=0.00 to -3.02): Domain Heterogeneity (Table 4, 11 Domains)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.02in] at (7.50,0.00) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (7.66,-0.12) {2. Pass-Rate Gain by Domain (Table 4: +4.5pp to +51.9pp)};
+  \draw[gdark, line width=0.8pt] (9.95,-2.65) -- (9.95,-0.42);
+  % 6 Domain Horizontal Bars (x_base = 9.95, scale = 0.07in per pp -> +51.9pp = +3.63in at 13.58)
+  \foreach \yl/\dname/\pp/\w/\col in {
+    -0.62/Healthcare (Clinical SOPs)/+51.9pp/3.63/ggreen,
+    -0.98/Manufacturing (FJSP Opt.)/+41.9pp/2.93/ggreen,
+    -1.34/Cybersecurity \& SecOps/+23.2pp/1.62/gblue,
+    -1.70/Natural Sciences (USGS)/+21.9pp/1.53/gblue,
+    -2.06/Finance \& SEC 13F/+15.1pp/1.06/gsteel,
+    -2.42/Software Eng (Strong Prior)/+4.5pp/0.32/gslate%
+  } {
+    \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (9.88,\yl) {\dname:};
+    \fill[\col] (9.95,\yl-0.11) rectangle ({9.95+\w},\yl+0.11);
+    \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=\col] at ({10.01+\w},\yl) {\pp};
   }
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (7.66,-2.72) {Specialized SOPs gain up to \textbf{+85.7pp} (\code{sales-pivot}); \textbf{16/84} tasks drop when skills conflict.};
 
-  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Experience Before Theory: Craft Skills from Real Failure Trajectories \& Keep Active Skills at \texttt{2--3}}}\\[4pt]
-    $\bullet$ Only promote a skill to the team repository if its paired \code{benchmark.json} demonstrates a strictly positive \code{delta\_pass\_rate} without inflating token consumption on non-matching tasks.
-  }
+  % ============================================================================
+  % PANEL 3 (Bottom-Left, x=0.00 to 7.20, y=-3.22 to -6.30): Quantity (Table 5) & Complexity/Length (Table 6)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.08in] at (0.00,-3.22) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.16,-3.34) {3. Skill Quantity (Table 5) \& Documentation Length (Table 6)};
+  % Zero baseline at x=3.10
+  \draw[gdark, line width=0.9pt] (3.10,-5.92) -- (3.10,-3.68);
+  % Sub-group A: Quantity per Task
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.60,-3.88) {2--3 Modular Skills (Optimal):};
+  \fill[ggreen] (3.10,-4.00) rectangle (5.90,-3.76);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=ggreen] at (5.95,-3.88) {+18.6pp Peak};
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (2.60,-4.24) {1 Focused Skill:};
+  \fill[gblue] (3.10,-4.36) rectangle (5.77,-4.12);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gblue] at (5.82,-4.24) {+17.8pp};
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont, text=gdark] at (2.60,-4.60) {4+ Skills (Cognitive Overload):};
+  \fill[gsteel] (3.10,-4.72) rectangle (3.98,-4.48);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gsteel] at (4.03,-4.60) {+5.9pp (Drops $-$12.7pp!)};
+  % Sub-group B: Documentation Complexity / Length
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (2.60,-5.02) {Detailed / Compact Manual:};
+  \fill[gblue] (3.10,-5.14) rectangle (5.92,-4.90);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gblue] at (5.97,-5.02) {+18.8pp / +17.1pp};
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gred] at (2.60,-5.38) {Comprehensive Dump ($>$500L):};
+  \fill[gred] (2.66,-5.50) rectangle (3.10,-5.26);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gred] at (3.16,-5.38) {$-$2.9pp (Hurts Pass Rate!)};
+  \node[anchor=east, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gred] at (2.60,-5.74) {Self-Generated Skills (Avg):};
+  \fill[gred!80] (2.90,-5.86) rectangle (3.10,-5.62);
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gred] at (3.16,-5.74) {$-$1.3pp Avg ($-$5.6pp Codex)};
+  \node[anchor=north west, font=\fontsize{7.6}{9.2}\selectfont, text=gdark] at (0.16,-6.00) {\textbf{Less is more:} Keep \code{2--3} focused skills ($\le 500$ lines); exhaustive manuals hurt (\textbf{$-$2.9pp}).};
+
+  % ============================================================================
+  % PANEL 4 (Bottom-Right, x=7.50 to 14.70, y=-3.22 to -6.30): Failure Taxonomy Shift (Table 17) & Cost Pareto
+  % ============================================================================
+  \node[anchor=north west, fill=gbgblue, draw=gblue, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.08in] at (7.50,-3.22) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gblue] at (7.66,-3.34) {4. Trajectory Failures Cut by Skills ($N=5,171$) \& Cost Pareto};
+  % Mini comparison bars for Failure Reduction (Table 17)
+  \node[anchor=west, font=\fontsize{8.2}{10}\selectfont\bfseries, text=gdark] at (7.66,-3.74) {Quality Below Threshold (49.8\% of all failures):};
+  \fill[gslate!60] (7.66,-4.00) rectangle (11.20,-3.84);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (11.25,-3.92) {1,184 (No Skills)};
+  \fill[ggreen] (7.66,-4.18) rectangle (10.11,-4.02);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=ggreen] at (10.16,-4.10) {819 With Skills ($-$30.8\% Reduction!)};
+
+  \node[anchor=west, font=\fontsize{8.2}{10}\selectfont\bfseries, text=gdark] at (7.66,-4.44) {Incomplete Solution / Premature Stop (Coherence):};
+  \fill[gslate!60] (7.66,-4.70) rectangle (9.60,-4.54);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (9.65,-4.62) {243 (No Skills)};
+  \fill[gblue] (7.66,-4.88) rectangle (8.91,-4.72);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gblue] at (8.96,-4.80) {156 With Skills ($-$35.8\% Reduction!)};
+
+  \node[anchor=north west, text width=6.88in, font=\fontsize{8.3}{10.6}\selectfont, text=gdark] at (7.66,-5.02) {
+    $\bullet$ \textbf{Cost-Performance Pareto (Fig.\ 4):} \code{Gemini 3 Flash + Skills} reaches \textbf{48.7\%} at \textbf{\$0.57/trial} (\textbf{47\% cheaper} than Pro at \$1.06); prompt caching hits \textbf{63--99\%}.\\[1.5pt]
+    $\bullet$ \textbf{Paired \code{eval-viewer} Gate (\code{benchmark.json}):} Always test \code{with\_skill} vs.\ \code{without\_skill} to catch the \textbf{16/84} negative-delta tasks before team rollout!
+  };
 }
 
 % SLIDE 26
@@ -1302,44 +1396,81 @@
 % ============================================================================
 
 % SLIDE 31
-\slideshell{31 / 36}{MODULE 08: 4-TIER ``GOVERNED BY DESIGN'' \& META-HARNESS CONTROL}{4-Tier ``Governed by Design'' (\texttt{openworker}), \texttt{Omnigent} \& Hooks}{Hard Floors, Earned Autonomy, Stateful Contextual Policies, and Egress-Proxy Sandboxing}{
-  % 4 Visual Tier Pillars across top (y=0 to -3.95)
-  \bcard{0.00}{0}{3.42}{3.95}{gbggray}{gslate}{
-    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gnavy}{Tier 1: Hard Floors}}\\[5pt]
-    {\fontsize{10.6}{13.8}\selectfont
-    \textbf{Unbypassable Gates:}\\[2pt]
-    $\bullet$ \emph{``The fixer is never the only checker.''}\\[2pt]
-    $\bullet$ \code{PreToolUse} hook returning \textbf{Exit Code \code{2}} deterministically blocks edits to locked tests, secrets, or prod configs.\\[2pt]
-    $\bullet$ No prompt or \code{auto} mode can talk past a Hard Floor.}
+\slideshell{31 / 36}{MODULE 08: 4-TIER GOVERNANCE, DURABLE REPLAY \& \texttt{Omnigent} META-HARNESS}{4-Tier Governance (\texttt{openworker}), Durable Replay (\texttt{Temporal}) \& \texttt{Omnigent}}{Hard Floors, Earned Autonomy, Durable Event Replay, and Databricks \texttt{Omnigent} Meta-Harness Architecture}{
+  % Top Row (y=0.00 to -2.85): 4 Governance & Durability Pillars
+  \bcard{0.00}{0}{3.45}{2.85}{gbggray}{gslate}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gnavy}{1. Hard Floors (Exit 2)}}\\[3pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \emph{``Fixer $\neq$ only checker.''}\\[1.5pt]
+    $\bullet$ \code{PreToolUse} \textbf{Exit Code \code{2}} blocks edits to locked tests, secrets, or evaluators.\\[1.5pt]
+    $\bullet$ Unbypassable by \code{auto} mode.}
   }
-  \bcard{3.76}{0}{3.42}{3.95}{gbgindigo}{gnavy}{
-    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gdark}{Tier 2: Earned Autonomy}}\\[5pt]
-    {\fontsize{10.6}{13.8}\selectfont
-    \textbf{Stateful \& Reviewer Gates:}\\[2pt]
-    $\bullet$ Independent reviewer model + \code{semgrep} gates auto-mode.\\[2pt]
-    $\bullet$ \textbf{\code{Omnigent} Stateful Policies:} Escalates \code{git push} to human approval \emph{after} \code{npm install}, and pauses after every \textbf{\$100} of LLM spend.}
+  \bcard{3.75}{0}{3.45}{2.85}{gbgindigo}{gnavy}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gdark}{2. Earned Autonomy}}\\[3pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ Reviewer model + \code{semgrep} gates auto-edits.\\[1.5pt]
+    $\bullet$ \textbf{Stateful Policies:} Escalates \code{git push} after \code{npm install}; pauses every \textbf{\$100} spend.}
   }
-  \bcard{7.52}{0}{3.42}{3.95}{gbgblue}{gblue}{
-    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gblue}{Tier 3: Audit Provenance}}\\[5pt]
-    {\fontsize{10.6}{13.8}\selectfont
-    \textbf{Tamper-Evident Ledger:}\\[2pt]
-    $\bullet$ Every tool invocation is logged with \code{user-approved}, \code{auto-approved}, or \code{denied}.\\[2pt]
-    $\bullet$ Records exact command hash, reviewer rationale, and git tree state.\\[2pt]
-    $\bullet$ Enables full post-incident replay.}
+  \bcard{7.50}{0}{3.45}{2.85}{gbgblue}{gblue}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gblue}{3. Durable Event Replay}}\\[3pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{\code{Temporal} / \code{DBOS} / \code{Restate}:} Deterministic \code{Workflow} loop + checkpointed \code{Activities}.\\[1.5pt]
+    $\bullet$ Survives 16h crashes \& 429s via Event-History Replay.}
   }
-  \bcard{11.28}{0}{3.42}{3.95}{gbgsteel}{gsteel}{
-    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gsteel}{Tier 4: Egress Sandbox}}\\[5pt]
-    {\fontsize{10.6}{13.8}\selectfont
-    \textbf{\texttt{OpenShell} \& \texttt{Omnigent}:}\\[2pt]
-    $\bullet$ Agent commands run in a local/cloud container (\code{Modal}/\code{Daytona}).\\[2pt]
-    $\bullet$ \textbf{Egress-Proxy Token Injection:} The agent \emph{never} sees raw GitHub tokens; tokens are injected only in the egress proxy!}
+  \bcard{11.25}{0}{3.45}{2.85}{gbgsteel}{gsteel}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gsteel}{4. Egress-Proxy Sandbox}}\\[3pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{\code{OpenShell} / \code{Modal} / \code{Daytona}:} Isolated container runtime.\\[1.5pt]
+    $\bullet$ \textbf{Egress-Proxy Token Injection:} Agent never sees raw GitHub/cloud credentials!}
   }
 
-  \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Deterministic Lifecycle Hooks Across \texttt{claude} (\texttt{.claude/settings.json}), \texttt{agy} (\texttt{.agents/plugins/}) \& \texttt{Omnigent}}}\\[4pt]
-    $\bullet$ \textbf{\code{PreToolUse} (Feedforward Gate):} Inspects tool JSON on stdin; \code{exit 0} allows, \textbf{\code{exit 2} blocks} and feeds \code{stderr} back to the agent.\\[2pt]
-    $\bullet$ \textbf{\code{PostToolUse} (Feedback Sensor):} Runs auto-formatters and remediation linters immediately after every \code{Write}/\code{Edit}. \quad $\bullet$ \textbf{\code{Stop}:} Blocks turn completion until tests pass.
-  }
+  % Bottom Row (y=-3.05 to -6.30): Full Databricks Omnigent Meta-Harness Architecture Diagram (omnigent_fig1_arch.png)
+  \node[anchor=north west, fill=gbggray, draw=gnavy, line width=1pt, rounded corners=6pt, minimum width=14.70in, minimum height=3.25in] at (0.00,-3.05) {};
+  \node[anchor=north west, font=\fontsize{11.2}{13.5}\selectfont\bfseries, text=gnavy] at (0.18,-3.17) {Databricks \texttt{Omnigent} Meta-Harness Architecture (\texttt{omnigent.ai}, Zaharia et al.): Combine, Control \& Share Agents};
+
+  % Stage 1 (Left, x=0.20 to 3.35): CLI Agents + Custom Agents
+  \node[anchor=north west, fill=gbgblue, draw=gblue, line width=0.9pt, rounded corners=5pt, minimum width=3.15in, minimum height=2.55in] at (0.20,-3.55) {};
+  \node[anchor=north west, font=\fontsize{9.6}{11.5}\selectfont\bfseries, text=gblue] at (0.32,-3.65) {1. Heterogeneous Agents (Combine)};
+  \node[anchor=north west, text width=2.90in, font=\fontsize{8.5}{10.6}\selectfont, text=gdark] at (0.32,-3.90) {
+    $\bullet$ \textbf{CLI Harnesses:} \code{Claude Code}, \code{Codex}, \code{OpenCode}, \code{agy}, \code{Pi} (1-line YAML swap).\\[2pt]
+    $\bullet$ \textbf{Custom Agents:} Declarative \code{YAML}, \code{OpenAI Agents SDK}, \code{LlamaIndex}, \code{Claude SDK}.\\[2pt]
+    $\bullet$ \textbf{Domain Compositions:} \emph{Harvey} legal advisor + coding agent; \emph{Genie} data routing.
+  };
+
+  \draw[-{Latex[length=2.4mm]}, line width=1.4pt, gnavy] (3.38,-4.82) -- (3.72,-4.82);
+
+  % Stage 2 (Center-Left, x=3.75 to 6.55): Runner (Sandboxing & Reliability)
+  \node[anchor=north west, fill=gbgsteel, draw=gsteel, line width=0.9pt, rounded corners=5pt, minimum width=2.80in, minimum height=2.55in] at (3.75,-3.55) {};
+  \node[anchor=north west, font=\fontsize{9.6}{11.5}\selectfont\bfseries, text=gsteel] at (3.87,-3.65) {2. Omnigent Runner};
+  \node[anchor=north west, text width=2.55in, font=\fontsize{8.5}{10.6}\selectfont, text=gdark] at (3.87,-3.90) {
+    $\bullet$ \textbf{Sandboxing:} Isolated local/cloud containers (\code{Docker}, \code{Modal}, \code{Daytona}).\\[2pt]
+    $\bullet$ \textbf{Reliability:} Crash recovery, tool retries, \& \code{PreToolUse} / \code{PostToolUse} hooks.\\[2pt]
+    $\bullet$ \textbf{Egress Proxy:} Injects auth tokens outside the sandbox.
+  };
+
+  \draw[-{Latex[length=2.4mm]}, line width=1.4pt, gnavy] (6.58,-4.82) -- (6.92,-4.82);
+
+  % Stage 3 (Center-Right, x=6.95 to 11.15): Omnigent Server (Control Plane + Infra)
+  \node[anchor=north west, fill=gbgindigo, draw=gnavy, line width=0.9pt, rounded corners=5pt, minimum width=4.20in, minimum height=2.55in] at (6.95,-3.55) {};
+  \node[anchor=north west, font=\fontsize{9.6}{11.5}\selectfont\bfseries, text=gdark] at (7.07,-3.65) {3. Omnigent Server (Control Plane \& Memory)};
+  \node[anchor=north west, text width=3.95in, font=\fontsize{8.5}{10.6}\selectfont, text=gdark] at (7.07,-3.90) {
+    $\bullet$ \textbf{6 Core Modules:} \code{History} $\cdot$ \code{Catalog} $\cdot$ \code{Policies} (stateful contextual rules) $\cdot$ \code{MCPs} $\cdot$ \code{Artifacts} $\cdot$ \code{Skills}.\\[2pt]
+    $\bullet$ \textbf{Backing Store \& Tracing:} \code{PostgreSQL} + \code{Docker / Railway / Fly.io} + \code{MLflow} observability.\\[2pt]
+    $\bullet$ \textbf{Context Opt:} \code{GEPA} prompt evolution, \code{MemEx} RL compaction, \& \code{RLM}.
+  };
+
+  \draw[-{Latex[length=2.4mm]}, line width=1.4pt, gnavy] (11.18,-4.82) -- (11.52,-4.82);
+
+  % Stage 4 (Right, x=11.55 to 14.50): 5 Multiplayer Surfaces
+  \node[anchor=north west, fill=white, draw=gslate, line width=0.9pt, rounded corners=5pt, minimum width=2.95in, minimum height=2.55in] at (11.55,-3.55) {};
+  \node[anchor=north west, font=\fontsize{9.6}{11.5}\selectfont\bfseries, text=gnavy] at (11.67,-3.65) {4. Five Surfaces (Share)};
+  \node[anchor=north west, text width=2.70in, font=\fontsize{8.5}{10.6}\selectfont, text=gdark] at (11.67,-3.90) {
+    1. \textbf{Terminal UI (TUI)} (\code{omnigent})\\[1.5pt]
+    2. \textbf{Web UI} (Multiplayer URL sharing + inline code diff comments!)\\[1.5pt]
+    3. \textbf{Native Desktop App}\\[1.5pt]
+    4. \textbf{Mobile UI} (Remote HITL sign-off)\\[1.5pt]
+    5. \textbf{REST API} (CI/CD \& webhooks)
+  };
 }
 
 % SLIDE 32
@@ -1369,33 +1500,98 @@
 }
 
 % SLIDE 33
-\slideshell{33 / 36}{MODULE 08: KARPATHY'S \texttt{autoresearch} \& \texttt{program.md}}{Bounded Autonomous Loops: Karpathy's \texttt{autoresearch} \& \texttt{program.md}}{The 3-File Harness Separation, The Simplicity Criterion, and the Automated Git Keep-or-Revert Ratchet}{
-  % Top 3 Cards: 3-File Harness Separation
-  \bcard{0.00}{0}{4.70}{3.75}{gbggray}{gslate}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{1. \texttt{prepare.py} (Immutable Sensor)}}\\[5pt]
-    {\fontsize{10.8}{14}\selectfont
-    $\bullet$ \textbf{Read-Only Ground Truth:} Contains dataset prep, fixed 5-minute wall-clock budget, and \code{evaluate\_bpb()}.\\[3pt]
-    $\bullet$ Protected by \code{PreToolUse} Exit-Code-2 Hard Floor: the agent is \textbf{strictly forbidden from editing the evaluator} or installing packages.}
+\slideshell{33 / 36}{MODULE 08: KARPATHY'S \texttt{autoresearch} \& \texttt{val\_bpb} RATCHET CHART}{Karpathy's \texttt{autoresearch} (\texttt{program.md}) \& Overnight \texttt{val\_bpb} Ratchet}{3-File Harness Separation + \texttt{progress.png}: 83 Overnight Experiments, 15 Kept Improvements (\texttt{0.9979 -> 0.9773})}{
+  % Top 3 Cards: 3-File Harness Separation (y=0.00 to -2.18)
+  \bcard{0.00}{0}{4.70}{2.18}{gbggray}{gslate}{
+    {\fontsize{12.0}{14.5}\selectfont\bfseries\textcolor{gnavy}{1. \texttt{prepare.py} (Immutable Sensor)}}\\[2pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{Read-Only Ground Truth:} BPE tokenizer, dataloader, fixed \textbf{5-min wall-clock budget}, and \code{evaluate\_bpb()}.\\[1.5pt]
+    $\bullet$ Protected by \code{PreToolUse} Exit-Code-2 Hard Floor.}
   }
-  \bcard{5.00}{0}{4.70}{3.75}{gbgblue}{gblue}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gblue}{2. \texttt{train.py} (Bounded Action Space)}}\\[5pt]
-    {\fontsize{10.8}{14}\selectfont
-    $\bullet$ \textbf{Single Mutable File:} The \emph{only} file the autonomous agent is permitted to edit (model architecture, optimizer, schedule).\\[3pt]
-    $\bullet$ Eliminates cross-repo blast radius so every experiment is a clean, self-contained diff.}
+  \bcard{5.00}{0}{4.70}{2.18}{gbgblue}{gblue}{
+    {\fontsize{12.0}{14.5}\selectfont\bfseries\textcolor{gblue}{2. \texttt{train.py} (Bounded Action Space)}}\\[2pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{Single Mutable File:} The \emph{only} file the agent edits (GPT architecture, Muon+AdamW optimizer, schedule).\\[1.5pt]
+    $\bullet$ Zero cross-repo blast radius; every trial is 1 commit.}
   }
-  \bcard{10.00}{0}{4.70}{3.75}{gbgsteel}{gsteel}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gsteel}{3. \texttt{program.md} (``Research Org Code'')}}\\[5pt]
-    {\fontsize{10.8}{14}\selectfont
-    $\bullet$ \textbf{Human-Authored Harness Spec:} The Markdown instructions programming the autonomous research loop.\\[3pt]
-    $\bullet$ Enforces output backpressure (\code{> run.log 2>\&1}) and the \textbf{Simplicity Criterion}.}
+  \bcard{10.00}{0}{4.70}{2.18}{gbgsteel}{gsteel}{
+    {\fontsize{12.0}{14.5}\selectfont\bfseries\textcolor{gsteel}{3. \texttt{program.md} (``Research Org Code'')}}\\[2pt]
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{Human-Authored Markdown Spec:} Programs the autonomous research loop, output redirection (\code{> run.log 2>\&1}), and the \textbf{Simplicity Criterion}.}
   }
 
-  % Bottom Visual Ratchet Loop + Simplicity Criterion
-  \bcard{0}{-3.95}{14.7}{2.35}{gbggray}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The Automated Git Keep-or-Revert Ratchet ($\sim$12 Experiments/Hr, $\sim$100 Overnight) \& The Simplicity Criterion}}\\[5pt]
-    {\fontsize{11.3}{14.8}\selectfont
-    $\bullet$ \textbf{Closed-Loop Ratchet:} \code{1. Propose Hypothesis} $\to$ \code{2. Edit train.py \& git commit} $\to$ \code{3. Run 5-min budget (> run.log 2>\&1)} $\to$ \code{4. Parse val\_bpb \& log to untracked results.tsv} $\to$ \textbf{If improved \& passes Simplicity Criterion:} \textcolor{ggreen}{\textbf{KEEP commit (ratchet advances)}} $\to$ \textbf{If worse or crash:} \textcolor{gred}{\textbf{\code{git reset --hard HEAD\textasciicircum{}} (instant revert)}}!\\[3pt]
-    $\bullet$ \textbf{Karpathy's Simplicity Criterion:} \emph{``All else being equal, simpler is better. A 0.001 improvement that adds 20 lines of hacky code? Revert. A 0.001 improvement from deleting code? Definitely keep!''}}
+  % Bottom Left (x=0.00 to 9.65, y=-2.35 to -6.30): Karpathy autoresearch progress.png Chart (83 Experiments, 15 Kept Improvements)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=9.65in, minimum height=3.95in] at (0.00,-2.35) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.18,-2.47) {\texttt{Autoresearch Progress: 83 Exps, 15 Kept} (\code{progress.png})};
+  % Legend
+  \fill[gslate!60] (5.55,-2.56) circle (2.0pt);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont, text=gdark] at (5.62,-2.56) {Discarded / Reverted ($68$)};
+  \fill[ggreen, draw=gdark, line width=0.5pt] (7.45,-2.56) circle (2.5pt);
+  \draw[ggreen, line width=1.6pt] (7.30,-2.56) -- (7.60,-2.56);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=ggreen] at (7.66,-2.56) {Kept Running Best ($15$)};
+
+  % Axes & Grid: x from 0.82 (Exp 0) to 9.32 (Exp 85) -> 0.10in per exp; y from -5.82 (0.975) to -2.82 (1.000) -> 120in per 1.0 bpb (0.12in per 0.001 bpb)
+  \foreach \yl/\bpb in {-5.82/0.975, -5.22/0.980, -4.62/0.985, -4.02/0.990, -3.42/0.995, -2.82/1.000} {
+    \draw[gborder, dashed] (0.82,\yl) -- (9.35,\yl);
+    \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (0.78,\yl) {\bpb};
+  }
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.82,-5.82) -- (9.42,-5.82);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.82,-5.82) -- (0.82,-2.75);
+  \foreach \xl/\expn in {0.82/Exp 0, 2.82/20, 4.82/40, 6.82/60, 8.82/80} {
+    \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (\xl,-5.85) {\expn};
+  }
+
+  % Discarded Gray Dots (68 reverted experiments scattered above the running best staircase)
+  \foreach \dx/\dy in {
+    1.12/-3.59, 1.22/-3.56, 1.32/-3.61, 1.52/-3.98, 1.72/-3.82, 1.82/-3.91, 1.92/-4.00, 2.02/-3.62, 2.12/-3.96,
+    2.32/-3.55, 2.42/-3.42, 2.52/-4.55, 2.62/-3.66, 2.72/-4.28, 2.92/-4.62, 3.02/-3.06, 3.22/-4.50, 3.32/-4.69,
+    3.52/-4.68, 3.62/-4.42, 3.82/-4.60, 3.92/-4.32, 4.12/-4.84, 4.22/-4.81, 4.42/-4.85, 4.52/-4.82, 4.72/-5.20,
+    4.92/-5.20, 5.02/-4.88, 5.22/-5.22, 5.32/-5.28, 5.42/-5.12, 5.52/-5.20, 5.62/-4.91, 5.72/-4.86, 5.82/-5.13,
+    5.92/-4.56, 6.02/-4.48, 6.12/-5.31, 6.22/-5.33, 6.32/-5.14, 6.42/-5.28, 6.52/-5.28, 6.62/-4.99, 6.72/-4.74,
+    6.82/-5.25, 6.92/-5.30, 7.12/-5.19, 7.62/-5.46, 7.82/-5.46, 7.92/-5.46, 8.02/-5.36, 8.12/-5.36, 8.32/-5.34,
+    8.42/-4.98, 8.52/-5.50, 8.62/-5.52, 8.72/-5.38, 8.82/-5.28, 8.92/-5.49, 9.02/-5.36%
+  } {
+    \fill[gslate!55] (\dx,\dy) circle (1.5pt);
+  }
+
+  % Step-Down Running Best Staircase (15 Kept Improvements from 0.9979 -> 0.9773)
+  \draw[ggreen, line width=1.9pt]
+    (0.82,-3.07) -| (1.02,-3.94) -| (1.42,-4.07) -| (1.62,-4.33) -| (2.22,-4.68) -|
+    (3.12,-4.75) -| (3.62,-4.82) -| (4.02,-4.97) -| (4.62,-5.23) -| (4.72,-5.27) -|
+    (5.12,-5.35) -| (7.22,-5.42) -| (7.32,-5.45) -| (7.52,-5.48) -| (8.22,-5.54) -- (9.12,-5.54);
+
+  % 15 Kept Green Circles on Staircase Corners
+  \foreach \kx/\ky in {
+    0.82/-3.07, 1.02/-3.94, 1.42/-4.07, 1.62/-4.33, 2.22/-4.68,
+    3.12/-4.75, 3.62/-4.82, 4.02/-4.97, 4.62/-5.23, 4.72/-5.27,
+    5.12/-5.35, 7.22/-5.42, 7.32/-5.45, 7.52/-5.48, 8.22/-5.54%
+  } {
+    \fill[ggreen, draw=gdark, line width=0.5pt] (\kx,\ky) circle (2.3pt);
+  }
+
+  % Callout Annotations on Key Kept Milestones
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont\bfseries, text=ggreen] at (0.88,-2.98) {0.9979 baseline};
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gdark] at (1.08,-3.84) {batch 524K$\to$262K};
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont, text=gdark] at (1.68,-4.23) {+5\% warmup};
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gblue] at (2.28,-4.58) {depth 9 aspect 57};
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont, text=gdark] at (4.08,-4.88) {SSSSL sliding window};
+  \node[anchor=west, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gblue] at (4.78,-5.16) {short window 1/8 ctx};
+  \node[anchor=south west, font=\fontsize{6.8}{8}\selectfont, text=gdark] at (7.05,-5.40) {RoPE 10k$\to$200k};
+  \node[anchor=north, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=ggreen] at (8.72,-5.56) {0.9773 (\#15 Kept!)};
+  \node[anchor=north west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (0.18,-6.05) {Each step is a verified Git commit advancing the lower envelope; gray dots are \code{git reset --hard HEAD\textasciicircum{}} reverts.};
+
+  % Bottom Right (x=9.85 to 14.70, y=-2.35 to -6.30): Closed-Loop Ratchet & Simplicity Criterion
+  \bcard{9.85}{-2.35}{4.85}{3.95}{gbgindigo}{gnavy}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{gdark}{The Keep-or-Revert Ratchet}}\\[4pt]
+    {\fontsize{9.8}{12.6}\selectfont
+    $\bullet$ \textbf{Overnight Loop ($\sim$12 Exps/Hr):}\\[1.5pt]
+    1. Edit \code{train.py} \& \code{git commit}.\\[1pt]
+    2. Run \code{uv run train.py > run.log 2>\&1} (5-min fixed budget; zero stdout pollution).\\[1pt]
+    3. Extract \code{grep "\textasciicircum{}val\_bpb:" run.log} and append to untracked \code{results.tsv}.\\[1pt]
+    4. \textbf{If improved \& simple:} \textcolor{ggreen}{\textbf{KEEP commit}}.\\[1pt]
+    5. \textbf{If worse/crash:} \textcolor{gred}{\textbf{\code{git reset --hard HEAD\textasciicircum{}}}}!\\[4pt]
+    $\bullet$ \textbf{Karpathy's Simplicity Criterion:}\\[1.5pt]
+    \emph{``A 0.001 improvement that adds 20 lines of hacky code? Revert. A 0.001 improvement from deleting code? Definitely keep!''}}
   }
 }
 
@@ -1438,33 +1634,158 @@
 }
 
 % SLIDE 35
-\slideshell{35 / 36}{MODULE 08: DURABLE EXECUTION, META-HARNESSES \& RSI}{Durable Execution (\texttt{Temporal}), Meta-Harnesses (\texttt{Omnigent}) \& 52x RSI}{Surviving 12--16 hr runs with \texttt{Temporal}/\texttt{DBOS}, orchestrating via \texttt{Omnigent}, and Out-of-Tree Holdouts}{
-  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{1. Durable Agent Execution}}\\[4pt]
-    \textbf{\code{Temporal}, \code{LangGraph}, \code{DBOS}, \code{Restate}, \code{Inngest}:}\\[2pt]
-    {\fontsize{10.5}{13.6}\selectfont
-    $\bullet$ Why 12--16 hr loops crash in raw Python: \code{429} rate limits, MCP timeouts, or worker restarts at turn 18 wipe state and burn tokens.\\[2pt]
-    $\bullet$ \textbf{\code{Temporal} Pattern:} Deterministic Agent Loop (\code{Workflow}) + non-deterministic LLM/MCP calls (\code{Activities}) $\to$ \textbf{Event-History Replay} \& zero-compute \textbf{HITL Signals}!}
+\slideshell{35 / 36}{MODULE 08: ANTHROPIC RSI — ALL 4 QUANTITATIVE CHARTS}{When AI Builds Itself (\texttt{anthropic.com/institute/recursive-self-improvement})}{All 3 Anthropic Institute charts (\textbf{8.0x} LOC/person, \textbf{26\%$\to$91\%} open-ended success, \textbf{64\%} next-step win rate) + METR \& 52x Kernel Loop}{
+  % ============================================================================
+  % PANEL 1 (Top-Left, x=0.00 to 7.20, y=0.00 to -3.02): Anthropic Chart 1 — Code Contributed per Person, by Quarter (Q2 '21 - Q2 '26)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.02in] at (0.00,0.00) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.16,-0.12) {1. Code Contributed per Person, by Quarter (Q2 '21 -- Q2 '26)};
+  \node[anchor=east, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gblue] at (7.04,-0.20) {Multiple of pre-2025 avg (\textbf{1.0x $\to$ 8.0x})};
+  % Axes & Grid (y_base = -2.52 for 0x, y_top = -0.52 for 8.0x -> 0.25in per 1x)
+  \draw[gborder, dashed] (0.58,-2.27) -- (6.95,-2.27); % 1x baseline
+  \draw[gborder, dashed] (0.58,-2.02) -- (6.95,-2.02); % 2x
+  \draw[gborder, dashed] (0.58,-1.52) -- (6.95,-1.52); % 4x
+  \draw[gborder, dashed] (0.58,-1.02) -- (6.95,-1.02); % 6x
+  \draw[gborder, dashed] (0.58,-0.52) -- (6.95,-0.52); % 8x
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.58,-2.52) -- (7.02,-2.52);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (0.58,-2.52) -- (0.58,-0.42);
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (0.54,-2.27) {1x};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (0.54,-2.02) {2x};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (0.54,-1.52) {4x};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont, text=gmuted] at (0.54,-1.02) {6x};
+  \node[anchor=east, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gblue] at (0.54,-0.52) {8x};
+  % 21 Quarterly Bars (Q2'21 .. Q2'26), x0 = 0.66 + i*0.295, width = 0.20
+  \foreach \i/\mult/\col in {
+    0/1.2/gslate!55, 1/1.2/gslate!55, 2/0.8/gslate!55, 3/1.1/gslate!55, 4/0.9/gslate!55,
+    5/1.0/gslate!55, 6/0.9/gslate!55, 7/1.0/gslate!55, 8/1.0/gslate!55, 9/0.9/gslate!55,
+    10/1.0/gslate!55, 11/1.1/gslate!55, 12/1.1/gslate!55, 13/0.9/gslate!55, 14/0.9/gslate!55,
+    15/1.2/gsteel, 16/1.5/gsteel, 17/1.9/gblue, 18/2.5/gblue, 19/5.8/gnavy, 20/8.0/ggreen%
+  } {
+    \pgfmathsetmacro{\xb}{0.66 + \i*0.295}
+    \pgfmathsetmacro{\xe}{\xb + 0.20}
+    \pgfmathsetmacro{\yt}{-2.52 + \mult*0.25}
+    \fill[\col] (\xb,-2.52) rectangle (\xe,\yt);
   }
-  \bcard{5.0}{0}{4.7}{4.10}{gbgindigo}{gnavy}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{2. Meta-Harness (\texttt{Omnigent})}}\\[4pt]
-    \textbf{Databricks \code{omnigent.ai} (Zaharia et al.):}\\[2pt]
-    {\fontsize{10.5}{13.6}\selectfont
-    $\bullet$ \textbf{Combine:} Compose heterogeneous harnesses (\code{Claude Code}, \code{Codex}, \code{agy}, \code{Pi}) in YAML with 1-line swaps (\emph{Harvey} advisor, \emph{Genie} routing).\\[2pt]
-    $\bullet$ \textbf{Control \& Share:} Stateful policies, egress-proxy token injection, and live multiplayer URL sharing + \code{GEPA}/\code{MemEx}/\code{RLM}.}
-  }
-  \bcard{10.0}{0}{4.7}{4.10}{gbgsteel}{gsteel}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gsteel}{3. 52x RSI \& Holdouts}}\\[4pt]
-    \textbf{Anthropic RSI, Holdouts \& Amdahl's Law:}\\[2pt]
-    {\fontsize{10.5}{13.6}\selectfont
-    $\bullet$ \textbf{52x Kernel Speedup:} Bounded single-kernel action space + cycle timer achieved \textbf{52x speedup in 8 hrs} (vs.\ 4x human baseline).\\[2pt]
-    $\bullet$ \textbf{Out-of-Tree Holdouts \& Amdahl's Law:} Grade commits against isolated holdout suites; human leverage shifts to Program Design \& Verification.}
-  }
+  % Vertical model release dashed lines & labels
+  \draw[gslate, densely dashed] (5.34,-2.52) -- (5.34,-0.55);
+  \node[anchor=east, font=\fontsize{6.8}{8}\selectfont, text=gdark] at (5.30,-0.72) {Claude Code / Claude 4};
+  \node[anchor=south, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gnavy] at (6.36,-1.07) {5.8x};
+  \node[anchor=south, font=\fontsize{7.6}{9}\selectfont\bfseries, text=ggreen] at (6.68,-0.52) {8.0x};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (1.05,-2.54) {2021};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (2.23,-2.54) {2022};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (3.41,-2.54) {2023};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (4.59,-2.54) {2024};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (5.77,-2.54) {2025};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont\bfseries, text=gblue] at (6.60,-2.54) {'26};
+  \node[anchor=north west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (0.16,-2.73) {Flat \textbf{1.0x} across '21--'24 $\to$ \textbf{2.5x} (Opus 4.5 Q4 '25) $\to$ \textbf{5.8x} (Q1 '26) $\to$ \textbf{8.0x} (Mythos Q2 '26).};
 
-  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The Complete 2026 Production Stack: Program Design + Durable Loops + Meta-Harness Governance}}\\[4pt]
-    $\bullet$ \textbf{Durable Engines (\code{Temporal}/\code{DBOS}):} Guarantee fault-tolerant state replay across multi-hour runs. \quad $\bullet$ \textbf{Meta-Harnesses (\code{Omnigent}):} Combine specialized harnesses, enforce stateful egress-proxy security, and share live multiplayer sessions.
+  % ============================================================================
+  % PANEL 2 (Top-Right, x=7.50 to 14.70, y=0.00 to -3.02): Anthropic Chart 2 — Claude Code Session Success Rate (Sep '25 - Sep '26)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.02in] at (7.50,0.00) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (7.66,-0.12) {2. Claude Code Session Success Rate by Tier (Sep '25 -- Sep '26)};
+  % Legend for 4 Task Difficulty Tiers
+  \draw[gslate, line width=1.4pt] (7.68,-0.40) -- (7.88,-0.40);
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (7.91,-0.40) {Trivial (79$\to$89\%)};
+  \draw[gsteel, line width=1.4pt] (9.35,-0.40) -- (9.55,-0.40);
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont, text=gdark] at (9.58,-0.40) {Routine (66$\to$92\%)};
+  \draw[gblue, line width=1.5pt] (11.10,-0.40) -- (11.30,-0.40);
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont, text=gblue] at (11.33,-0.40) {Substantial (38$\to$92\%)};
+  \draw[ggreen, line width=1.8pt] (13.00,-0.40) -- (13.20,-0.40);
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=ggreen] at (13.23,-0.40) {Open-Ended (26$\to$91\%)};
+  % Axes & Grid (y_base = -2.52 for 0%, y_top = -0.52 for 100% -> 0.02in per 1%; x from 8.08 [Sep'25] to 14.48 [Sep'26])
+  \foreach \yl/\pct in {-2.52/0\%, -2.02/25\%, -1.52/50\%, -1.02/75\%, -0.52/100\%} {
+    \draw[gborder, dashed] (8.08,\yl) -- (14.48,\yl);
+    \node[anchor=east, font=\fontsize{7.0}{8.5}\selectfont, text=gmuted] at (8.04,\yl) {\pct};
   }
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (8.08,-2.52) -- (14.54,-2.52);
+  \draw[-{Latex[length=2mm]}, line width=0.9pt, gdark] (8.08,-2.52) -- (8.08,-0.48);
+  % Vertical dashed marker for Mythos Preview (Mar/Apr '26 at x=11.55)
+  \draw[gnavy, densely dashed] (11.55,-2.52) -- (11.55,-0.52);
+  \node[anchor=north west, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gnavy] at (11.58,-2.12) {Mythos Preview (Mar '26)};
+  % Curve 1: Trivial tasks (79% -> 89%)
+  \draw[gslate, line width=1.3pt] (8.15,-0.94) -- (9.20,-0.90) -- (10.50,-0.82) -- (11.80,-0.74) -- (13.10,-0.74) -- (14.40,-0.74);
+  % Curve 2: Routine tasks (66% -> 92%)
+  \draw[gsteel, line width=1.4pt] (8.15,-1.20) -- (9.20,-1.14) -- (10.50,-1.04) -- (11.80,-0.78) -- (13.10,-0.72) -- (14.40,-0.68);
+  % Curve 3: Substantial tasks (38% -> 53% -> 78% -> 92%)
+  \draw[gblue, line width=1.6pt] (8.15,-1.76) -- (9.20,-1.64) -- (10.50,-1.46) -- (11.80,-0.96) -- (13.10,-0.84) -- (14.40,-0.68);
+  % Curve 4: Open-ended problems (26% -> 11% dip Oct'25 -> 38% Feb'26 -> 71% Apr'26 -> 76% May'26 -> 91% Sep'26)
+  \draw[ggreen, line width=2.1pt] (8.15,-2.00) -- (8.68,-2.30) -- (9.75,-1.88) -- (10.80,-1.76) -- (11.80,-1.10) -- (12.40,-1.00) -- (13.40,-0.88) -- (14.40,-0.70);
+  \foreach \px/\py in {8.15/-2.00, 8.68/-2.30, 10.80/-1.76, 11.80/-1.10, 12.40/-1.00, 14.40/-0.70} {
+    \fill[ggreen] (\px,\py) circle (2.2pt);
+  }
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=gred] at (8.72,-2.30) {11\% (Oct '25)};
+  \node[anchor=south east, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=ggreen, fill=white, inner sep=1pt] at (14.42,-0.68) {88\%--92\% All Tiers!};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (8.25,-2.54) {Sep '25};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (10.30,-2.54) {Jan '26};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont, text=gdark] at (12.35,-2.54) {May '26};
+  \node[anchor=north, font=\fontsize{7.0}{8.5}\selectfont\bfseries, text=gblue] at (14.20,-2.54) {Sep '26};
+  \node[anchor=north west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (7.66,-2.73) {Open-ended research tasks surged \textbf{26\% (Sep '25) $\to$ 76\% (May '26) $\to$ 91\% (Sep '26)}.};
+
+  % ============================================================================
+  % PANEL 3 (Bottom-Left, x=0.00 to 7.20, y=-3.22 to -6.30): Anthropic Chart 3 — Where a Researcher Went Wrong ($n=129$)
+  % ============================================================================
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.08in] at (0.00,-3.22) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gnavy] at (0.16,-3.34) {3. Where a Researcher Went Wrong, Could Claude Do Better? ($n=129$)};
+  % Legend
+  \fill[gblue] (0.20,-3.66) rectangle (0.34,-3.54);
+  \node[anchor=west, font=\fontsize{7.4}{8.8}\selectfont\bfseries, text=gblue] at (0.38,-3.60) {Beat Human (\%)};
+  \fill[gsteel!45] (1.68,-3.66) rectangle (1.82,-3.54);
+  \node[anchor=west, font=\fontsize{7.4}{8.8}\selectfont, text=gdark] at (1.86,-3.60) {Tie (\%)};
+  % Horizontal Stacked Bars across 6 representative models (x_base = 2.35, scale = 0.045in per 1% -> 100% = +4.50in at 6.85)
+  \draw[gdark, line width=0.8pt] (2.35,-5.92) -- (2.35,-3.74);
+  % 50% Human Baseline & 90% Practical Ceiling vertical dashed lines
+  \draw[gslate, dashed, line width=0.9pt] (4.60,-5.92) -- (4.60,-3.74);
+  \node[anchor=south, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gslate] at (4.60,-3.74) {50\% Human};
+  \draw[ggreen, dashed, line width=1.0pt] (6.40,-5.92) -- (6.40,-3.74);
+  \node[anchor=south, font=\fontsize{6.8}{8}\selectfont\bfseries, text=ggreen] at (6.40,-3.74) {90\% Ceiling};
+  \foreach \yl/\mname/\win/\tie/\wlen/\tlen in {
+    -3.92/Haiku 3 (Mar '24)/22\%/10\%/0.99/0.45,
+    -4.28/Sonnet 4 (May '25)/48\%/11\%/2.16/0.50,
+    -4.64/Opus 4.5 (Nov '25)/51\%/10\%/2.30/0.45,
+    -5.00/Opus 4.6 (Feb '26)/55\%/14\%/2.48/0.63,
+    -5.36/Opus 4.7 (Apr '26)/59\%/12\%/2.66/0.54,
+    -5.72/Mythos Preview ('26)/64\%/9\%/2.88/0.41%
+  } {
+    \node[anchor=east, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=gdark] at (2.28,\yl) {\mname:};
+    \fill[gblue] (2.35,\yl-0.11) rectangle ({2.35+\wlen},\yl+0.11);
+    \fill[gsteel!45] ({2.35+\wlen},\yl-0.11) rectangle ({2.35+\wlen+\tlen},\yl+0.11);
+    \node[anchor=west, font=\fontsize{7.5}{9}\selectfont\bfseries, text=gdark] at ({2.40+\wlen+\tlen},\yl) {\win{} + \tie{}};
+  }
+  \node[anchor=north west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (0.16,-6.00) {Blind peer review ($n=129$ dead-ends): \textbf{Mythos Preview beats human next-step 64\%} (+9\% tie = \textbf{73\%}).};
+
+  % ============================================================================
+  % PANEL 4 (Bottom-Right, x=7.50 to 14.70, y=-3.22 to -6.30): METR Task Horizon Doubling & 52x Kernel RSI Loop
+  % ============================================================================
+  \node[anchor=north west, fill=gbgsteel, draw=gsteel, line width=1pt, rounded corners=6pt, minimum width=7.20in, minimum height=3.08in] at (7.50,-3.22) {};
+  \node[anchor=north west, font=\fontsize{10.5}{12.5}\selectfont\bfseries, text=gsteel] at (7.66,-3.34) {4. METR Horizon Doubling (\code{30s $\to$ 16h}) \& 52x Kernel RSI};
+  % Mini METR Exponential Curve on Left half of Panel 4 (x=8.05 to 11.15, y=-5.15 to -3.72)
+  \draw[gborder, dashed] (8.05,-4.80) -- (11.10,-4.80);
+  \draw[gborder, dashed] (8.05,-4.35) -- (11.10,-4.35);
+  \draw[gborder, dashed] (8.05,-3.90) -- (11.10,-3.90);
+  \draw[-{Latex[length=1.8mm]}, line width=0.8pt, gdark] (8.05,-5.15) -- (11.18,-5.15);
+  \draw[-{Latex[length=1.8mm]}, line width=0.8pt, gdark] (8.05,-5.15) -- (8.05,-3.68);
+  \node[anchor=east, font=\fontsize{6.8}{8}\selectfont, text=gmuted] at (8.01,-5.10) {30s};
+  \node[anchor=east, font=\fontsize{6.8}{8}\selectfont, text=gmuted] at (8.01,-4.80) {4m};
+  \node[anchor=east, font=\fontsize{6.8}{8}\selectfont, text=gmuted] at (8.01,-4.35) {90m};
+  \node[anchor=east, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gblue] at (8.01,-3.90) {16h};
+  \draw[gblue, line width=1.9pt] (8.20,-5.08) .. controls (8.80,-5.02) and (9.30,-4.88) .. (9.60,-4.80) .. controls (10.15,-4.55) and (10.60,-4.15) .. (10.95,-3.86);
+  \foreach \px/\py/\lbl in {8.20/-5.08/30s, 8.90/-4.96/2m, 9.60/-4.80/4m, 10.30/-4.35/90m, 10.95/-3.86/16h} {
+    \fill[gred] (\px,\py) circle (2.1pt);
+    \node[anchor=south, font=\fontsize{6.8}{8}\selectfont\bfseries, text=gdark, fill=white, inner sep=0.8pt] at (\px,\py+0.04) {\lbl};
+  }
+  % Mini Bar Comparison on Right half of Panel 4: 4x Human vs 52x Claude RSI Kernel Loop
+  \node[anchor=west, font=\fontsize{8.0}{9.5}\selectfont\bfseries, text=gdark] at (11.35,-3.82) {CPU Kernel Speedup (8h):};
+  \fill[gslate!65] (11.35,-4.22) rectangle (11.75,-4.00);
+  \node[anchor=west, font=\fontsize{7.5}{9}\selectfont, text=gdark] at (11.80,-4.11) {4x (2hr Human Exam)};
+  \fill[ggreen] (11.35,-4.55) rectangle (14.05,-4.30);
+  \node[anchor=west, font=\fontsize{7.8}{9.2}\selectfont\bfseries, text=ggreen] at (14.08,-4.42) {52x};
+  \node[anchor=west, font=\fontsize{7.2}{8.5}\selectfont\bfseries, text=white] at (11.42,-4.42) {Claude Overnight Loop (52x)};
+
+  \node[anchor=north west, text width=6.88in, font=\fontsize{8.1}{10.2}\selectfont, text=gdark] at (7.66,-5.26) {
+    $\bullet$ \textbf{Why RSI Works Here:} Single-kernel scope + instant cycle-timer oracle + automated Git ratchet.\\[1pt]
+    $\bullet$ \textbf{Out-of-Tree Holdouts \& Amdahl's Law:} Block \code{return true} reward hacking via isolated holdout scenarios; as coding accelerates \textbf{8x}, human leverage shifts to \textbf{Program Design \& Verification}.
+  };
 }
 
 % SLIDE 36
