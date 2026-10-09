@@ -93,18 +93,18 @@
 % SLIDE 01
 \slideshell{01 / 36}{MODULE 01: FOUNDATIONS \& ARCHITECTURE}{From Vibe Coding to Agentic Engineering (\texttt{agy} \& \texttt{claude})}{The Prerequisite Engineering Course Preceding Spec-Driven Development (\texttt{SDD-Crash-Course})}{
   \bcard{0}{0}{4.7}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gblue}{1. Conceptual Models \& Language Games}}\\[7pt]
-    \textbf{Fowler (May 2026) \& Wittgenstein:}\\[4pt]
+    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gblue}{1. Code as Model \& Language as Action}}\\[7pt]
+    \textbf{Fowler (May 2026) \& Wittgenstein's 2 Theories:}\\[4pt]
     $\bullet$ Code is not merely syntax for a machine; it is an explicit \textbf{model of understanding}.\\[4pt]
-    $\bullet$ Eliminate \textbf{Cognitive Debt} via Ubiquitous Language value objects (\code{AccountId}, \code{MoneyCents}).\\[4pt]
-    $\bullet$ Bound agents in explicit language games with \textbf{Epistemic Honesty} confidence gates (\code{Lab 01}).
+    $\bullet$ Early \emph{Tractatus} (Picture Theory / formal code) vs.\ Late \emph{Investigations} (Language as Action).\\[4pt]
+    $\bullet$ Shared domain vocabulary + coworker clarification gates (\code{Lab 01}).
   }
   \bcard{5.0}{0}{4.7}{4.1}{gbggreen}{ggreen}{
     {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{2. Context, Memory \& Curated Skills}}\\[7pt]
     \textbf{Progressive Disclosure \& \code{SkillsBench}:}\\[4pt]
     $\bullet$ Concise root context ($\le 40$ lines) with on-demand \code{@docs/*.md} imports + Git-worktree Auto-Memory (\code{Lab 02}).\\[4pt]
     $\bullet$ Craft \code{agentskills.io} skills manually (\textbf{+16.6 pp}); never self-generate (\textbf{$-$8.1 to $-$11.5 pp}) (\code{Lab 03}).\\[4pt]
-    $\bullet$ Cap active skills at \code{2--3} \& calibrate with \code{eval-viewer} + Signal Detection Theory $d'$ (\code{Lab 04}).
+    $\bullet$ Cap active skills at \code{2--3} \& calibrate triggers with \code{eval-viewer} + Signal Detection Theory (\code{Lab 04}).
   }
   \bcard{10.0}{0}{4.7}{4.1}{gbgyellow}{gyellow}{
     {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gdark}{3. Multi-Agent, Plugins \& SDD Bridge}}\\[7pt]
@@ -116,9 +116,9 @@
 
   \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{Dual-Branch Parity (\texttt{agy} for Antigravity / Gemini CLI $\times$ \texttt{claude} for Claude Code) + 6 Self-Diagnosing Python Labs}}\\[5pt]
-    $\bullet$ \textbf{Module 01:} Foundations, Fowler, Wittgenstein \& Dual Harnesses \quad $\bullet$ \textbf{Module 02 (Lab 01):} Ubiquitous Language \& Epistemic Confidence Gates\\[2pt]
+    $\bullet$ \textbf{Module 01:} Foundations, Fowler, Wittgenstein's 2 Theories \& Dual Harnesses \quad $\bullet$ \textbf{Module 02 (Lab 01):} Shared Vocabulary \& Clarification Gates\\[2pt]
     $\bullet$ \textbf{Module 03 (Lab 02):} \code{CLAUDE.md}/\code{GEMINI.md} \& Worktree Memory \quad $\bullet$ \textbf{Module 04 (Lab 03):} Crafting \code{anthropic-brand/} Skills Manually\\[2pt]
-    $\bullet$ \textbf{Module 05 (Lab 04):} \code{eval-viewer}, Skill Overload \& SDT $d'$ \quad $\bullet$ \textbf{Module 06 (Lab 05):} 7-Phase \code{feature-dev} Multi-Agent \quad $\bullet$ \textbf{Module 07 (Lab 06):} Plugins, MCP \& SDD Bridge
+    $\bullet$ \textbf{Module 05 (Lab 04):} \code{eval-viewer} \& Skill Overload \quad $\bullet$ \textbf{Module 06 (Lab 05):} 7-Phase \code{feature-dev} Multi-Agent \quad $\bullet$ \textbf{Module 07 (Lab 06):} Plugins, MCP \& SDD Bridge
   }
 }
 
@@ -146,32 +146,30 @@
 }
 
 % SLIDE 03
-\slideshell{03 / 36}{MODULE 01: WITTGENSTEIN \& LANGUAGE GAMES}{Grounding AI with Wittgenstein: From Language Games to Epistemic Honesty}{Why we must talk to AI agents the same way we onboard and collaborate with human engineering coworkers}{
+\slideshell{03 / 36}{MODULE 01: LANGUAGE AS ACTION}{Wittgenstein's Two Theories of Language: How Language Produces Actions \& Code}{Why Vibe Coding requires both Early Wittgenstein's formal precision and Late Wittgenstein's collaborative language-as-action}{
   \bcard{0}{0}{4.7}{4.05}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{1. Situated Language Games}}\\[6pt]
-    \textbf{He (\code{SciTePress 139777}, 2025):}\\[4pt]
-    $\bullet$ Synthesizes Wittgenstein's \emph{Sprachspiele} \& Heidegger's \emph{Being-in-the-world}.\\[4pt]
-    $\bullet$ Words do not carry meaning via static lookup; meaning arises from \textbf{rule-governed situated use}.\\[4pt]
-    $\bullet$ Onboarding an agent requires sharing the team's domain rules, types, and verification rituals.
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Early Theory: Picture Theory}}\\[5pt]
+    \textbf{\emph{Tractatus Logico-Philosophicus} (1921):}\\[3pt]
+    $\bullet$ Language as a strict, formal, 1-to-1 logical picture of facts in the world.\\[3pt]
+    $\bullet$ \textbf{Software Analog:} Programming languages, compilers, type systems (\code{AccountId}, \code{MoneyCents}), and unit tests.\\[3pt]
+    $\bullet$ Gives the machine an unambiguous formal specification.
   }
   \bcard{5.0}{0}{4.7}{4.05}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{2. MaKTO Decision-Language Alignment}}\\[6pt]
-    \textbf{Ye et al.\ (\code{arXiv:2501.14225}, 2025):}\\[4pt]
-    $\bullet$ Multi-Agent Kahneman--Tversky Optimization grounds dialogue in state-action values.\\[4pt]
-    $\bullet$ Achieves \textbf{61\% win rate}: \textbf{+23.0\% over GPT-4o}, \textbf{+10.9\% over RL}, \textbf{60\% vs.\ human experts}.\\[4pt]
-    $\bullet$ \textbf{49\% blind Turing detectability}: grounded agents collaborate like human peers.
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. Late Theory: Meaning as Use}}\\[5pt]
+    \textbf{\emph{Philosophical Investigations} (1953):}\\[3pt]
+    $\bullet$ Words are tools in a collaborative \textbf{Language Game} (\emph{Builder \& Assistant}, \code{§2}, \code{§43}).\\[3pt]
+    $\bullet$ \textbf{Vibe Coding Analog:} Using natural language with an AI coworker inside a shared context (\code{CLAUDE.md}/\code{GEMINI.md}, Skills) to coordinate actions and produce code (\code{arXiv:2302.01570}).
   }
   \bcard{10.0}{0}{4.7}{4.05}{gbgyellow}{gyellow}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gdark}{3. Epistemic Honesty (\code{LGDL})}}\\[6pt]
-    \textbf{Marco Graziano (\code{LGDL}, 2025):}\\[4pt]
-    $\bullet$ By Wittgenstein's \emph{Private Language Argument}, ungrounded token prediction has no truth criterion.\\[4pt]
-    $\bullet$ \code{confidence >= 0.85} $\to$ \code{GROUNDED\_EXECUTE}.\\[4pt]
-    $\bullet$ \code{0.40 <= confidence < 0.85} $\to$ \textbf{\code{CLARIFICATION\_REQUIRED}} (ask coworker questions, never guess!).
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Empirical Proof in Coding Agents}}\\[5pt]
+    \textbf{Stanford \code{SHRDLURN} (\code{arXiv:1606.02447}):}\\[3pt]
+    $\bullet$ 100 players instructing an AI builder via language: success depends on \textbf{avoiding synonyms} \& \textbf{reusable abstractions} (Skills).\\[3pt]
+    $\bullet$ \textbf{MaKTO (\code{arXiv:2501.14225}) \& \code{LGDL}:} Grounded dialogue wins \textbf{61\%} (\textbf{+23\% vs.\ GPT-4o}); asks clarifying questions when $\text{conf} < 0.85$.
   }
 
   \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{The Coworker Communication Law: Talk to AI the Exact Way You Talk to Senior Engineering Teammates}}\\[5pt]
-    $\bullet$ Give explicit domain context, shared vocabulary (\code{CLAUDE.md} / \code{GEMINI.md}), procedural playbooks (\code{SKILL.md}), and require the agent to \textbf{ask clarifying questions} whenever a requirement, exchange rate, or policy boundary is underspecified.
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{The Vibe Coding Synthesis: Late Wittgenstein Drives the Conversation $\to$ Early Wittgenstein Verifies the Code}}\\[5pt]
+    $\bullet$ We use \textbf{Late Wittgenstein's collaborative language-as-action} to align intent, vocabulary (\code{CLAUDE.md}/\code{GEMINI.md}), and skills (\code{SKILL.md}) with our AI coworker---so the agent produces \textbf{Early Wittgenstein's formal code} verified by types and tests (\emph{Winograd \& Flores, 1986}).
   }
 }
 
@@ -241,7 +239,7 @@
     \code{domain\_ledger.py} (\code{REQ-0101..0106})\\[3pt]
     $\bullet$ \code{AccountId} \& \code{MoneyCents} value objects.\\[2pt]
     $\bullet$ Double-entry \code{SettlementBatch}.\\[2pt]
-    $\bullet$ 3-way Wittgensteinian confidence gate.
+    $\bullet$ 3-way coworker clarification gate.
   }
   \bcard{5.0}{0}{4.7}{2.95}{gbggreen}{ggreen}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Lab 02: Context \& Memory}}\\[5pt]
@@ -258,11 +256,11 @@
     $\bullet$ Rejects self-generated filler phrases.
   }
   \bcard{0}{-3.20}{4.7}{2.95}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Lab 04: \texttt{eval-viewer} \& SDT $d'$}}\\[5pt]
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Lab 04: \texttt{eval-viewer} \& Overload}}\\[5pt]
     \code{skill\_eval\_engine.py} (\code{REQ-0401..0406})\\[3pt]
     $\bullet$ Paired \code{with\_skill} vs.\ \code{without\_skill}.\\[2pt]
     $\bullet$ \code{2--3} skill cap \& Reference-First merge.\\[2pt]
-    $\bullet$ SDT $d'$, bias $c$, \& \code{eval-viewer} HTML.
+    $\bullet$ Trigger calibration \& \code{eval-viewer} HTML.
   }
   \bcard{5.0}{-3.20}{4.7}{2.95}{gbgblue}{gblue}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Lab 05: Multi-Agent \texttt{feature-dev}}}\\[5pt]
@@ -281,7 +279,7 @@
 }
 
 % ============================================================================
-% MODULE 02: LAB 01 STEP-BY-STEP — VOCABULARY & BOUNDED LANGUAGE GAMES (SLIDES 07-11)
+% MODULE 02: LAB 01 STEP-BY-STEP — VOCABULARY & COWORKER CLARIFICATION (SLIDES 07-11)
 % ============================================================================
 
 % SLIDE 07
@@ -296,13 +294,13 @@
     $\bullet$ When asked to settle \code{JPY -> USD} without a grounded FX rate, it silently invents \code{rate = 1.0} and executes!
   }
   \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{Target Architecture: Bounded Engineering Language Game}}\\[7pt]
+    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{Target Architecture: Shared Vocabulary \& Clarification Gate}}\\[7pt]
     \textbf{1. Ubiquitous Language Value Objects (\code{REQ-0101..0102}):}\\[3pt]
     $\bullet$ Frozen \code{AccountId} (\code{\textasciicircum{}ACCT-[A-Z0-9]\{4,12\}\$}) and \code{MoneyCents(amount\_cents: int, currency: str)}.\\[4pt]
     \textbf{2. Double-Entry Conservation (\code{REQ-0103}):}\\[3pt]
     $\bullet$ \code{SettlementBatch.apply\_postings()} enforces $\sum \text{debits} = \sum \text{credits}$ and non-negative balances.\\[4pt]
-    \textbf{3. Epistemic Honesty Gate (\code{REQ-0104..0105}):}\\[3pt]
-    $\bullet$ \code{evaluate\_language\_game\_move()} returns \code{CLARIFICATION\_REQUIRED} when FX rates or vocabulary are ungrounded.
+    \textbf{3. Coworker Clarification Gate (\code{REQ-0104..0105}):}\\[3pt]
+    $\bullet$ \code{evaluate\_request\_readiness()} returns \code{CLARIFICATION\_REQUIRED} when FX rates or vocabulary are ungrounded.
   }
 
   \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
@@ -356,7 +354,7 @@
 }
 
 % SLIDE 10
-\slideshell{10 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (4 / 5)}{Lab 01 Step 3 (\texttt{REQ-0104..0105}): Wittgensteinian Epistemic Confidence Gate}{Implementing Marco Graziano's Language-Game Description Language (\texttt{LGDL}) gate in \texttt{evaluate\_language\_game\_move()}}{
+\slideshell{10 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (4 / 5)}{Lab 01 Step 3 (\texttt{REQ-0104..0105}): Coworker Readiness \& Clarification Gate}{Evaluating settlement instructions in \texttt{evaluate\_request\_readiness()} (aliased as \texttt{evaluate\_language\_game\_move()})}{
   \bcard{0}{0}{4.7}{4.15}{gbgred}{gred}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{1. \texttt{ESCALATE\_OUT\_OF\_BOUNDS}}}\\[6pt]
     \textbf{Policy Violation ($\text{conf} = 0.0$):}\\[4pt]
@@ -365,20 +363,20 @@
   }
   \bcard{5.0}{0}{4.7}{4.15}{gbgyellow}{gyellow}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{2. \texttt{CLARIFICATION\_REQUIRED}}}\\[6pt]
-    \textbf{Ambiguous Move ($\text{conf} < 0.85$):}\\[4pt]
+    \textbf{Ambiguous Request ($\text{conf} < 0.85$):}\\[4pt]
     $\bullet$ Penalties for drift terms (\code{client\_id}, \code{tx\_amt}, \code{fee\_float}), float amounts, or missing \code{(src, dst)} FX rate in \code{known\_fx\_basis\_points}.\\[4pt]
-    $\bullet$ Returns explicit coworker-style \code{clarifying\_questions} instead of guessing!
+    $\bullet$ Returns explicit coworker-style \code{questions} instead of guessing!
   }
   \bcard{10.0}{0}{4.7}{4.15}{gbggreen}{ggreen}{
     {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{3. \texttt{GROUNDED\_EXECUTE}}}\\[6pt]
-    \textbf{Grounded Move ($\text{conf} \ge 0.85$):}\\[4pt]
+    \textbf{Grounded Request ($\text{conf} \ge 0.85$):}\\[4pt]
     $\bullet$ Canonical \code{AccountId}s, integer \code{amount\_cents}, and verified currency/FX rate.\\[4pt]
     $\bullet$ Safely constructs and returns the normalized \code{LedgerPosting}.
   }
 
   \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Epistemic Honesty Invariant (\texttt{REQ-0105}): Never Invent Missing FX Rates or Business Policy}}\\[4pt]
-    $\bullet$ When \code{source\_currency != target\_currency} and \code{(src, dst)} is missing from \code{known\_fx\_basis\_points}, confidence drops by \code{0.45} ($\to 0.55 < 0.85$) and the agent asks for the integer basis-point rate.
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Coworker Clarification Invariant (\texttt{REQ-0105}): Never Invent Missing FX Rates or Business Policy}}\\[4pt]
+    $\bullet$ When \code{source\_currency != target\_currency} and \code{(src, dst)} is missing from \code{known\_fx\_basis\_points}, confidence drops below \code{0.85} and the agent asks for the authoritative basis-point rate.
   }
 }
 

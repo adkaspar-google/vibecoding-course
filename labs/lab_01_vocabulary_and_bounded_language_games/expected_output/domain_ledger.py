@@ -180,7 +180,7 @@ def audit_vocabulary_drift(payload: dict[str, Any]) -> list[dict[str, str]]:
 
 @dataclass(frozen=True)
 class LanguageGameEvaluation:
-  """Result of evaluating a request through the Wittgensteinian Epistemic Gate."""
+  """Result of evaluating a request through the Coworker Readiness & Clarification Gate."""
 
   action: EpistemicAction
   confidence: float
@@ -189,16 +189,20 @@ class LanguageGameEvaluation:
   escalation_reason: str | None = None
 
 
-def evaluate_language_game_move(
+RequestReadinessEvaluation = LanguageGameEvaluation
+
+
+def evaluate_request_readiness(
     request: dict[str, Any],
     known_fx_basis_points: dict[tuple[str, str], int] | None = None,
     policy_limit_cents: int = 10_000_00,
     target_currency: str = "USD",
 ) -> LanguageGameEvaluation:
-  """Evaluates a settlement instruction with epistemic honesty (REQ-0104, REQ-0105).
+  """Evaluates a settlement instruction for readiness and clarification (REQ-0104, REQ-0105).
 
-  Instead of guessing missing parameters (Private Language fallacy), this gate
-  checks whether every term is grounded in the shared Language Game:
+  Instead of silently guessing missing parameters, this gate checks whether
+  every term is grounded in the shared domain vocabulary (Wang, Liang, &
+  Manning, ACL 2016 arXiv:1606.02447; Molino & Tagliabue arXiv:2302.01570):
   - Returns ESCALATE_OUT_OF_BOUNDS if policy limits or structural invariants fail.
   - Returns CLARIFICATION_REQUIRED with coworker-style questions if vocabulary
     drifts, fields are ambiguous, or FX conversion rates are ungrounded.
@@ -294,3 +298,7 @@ def evaluate_language_game_move(
       questions=(),
       normalized_posting=posting,
   )
+
+
+# Backward-compatible alias for Lab 01 language-game evaluation tests
+evaluate_language_game_move = evaluate_request_readiness

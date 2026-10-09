@@ -28,13 +28,14 @@ This playbook serves as the architectural reference for **Vibe-Coding-Course**, 
 
 ---
 
-## 3. Core Empirical & Philosophical Foundations
+## 3. Core Empirical & Conceptual Foundations
 
 1. **Code as Conceptual Model (Unmesh Joshi, *What Is Code?*, martinfowler.com, May 2026)**:
    - Code is both machine instructions and a **model of understanding**. Passive review of generated code accumulates **Cognitive Debt** (synonym drift and ungrounded abstractions).
-2. **Wittgenstein's Language Games & Epistemic Honesty (`SciTePress 139777`, `MaKTO arXiv:2501.14225`, Marco Graziano `LGDL`)**:
-   - By Wittgenstein's *Private Language Argument*, statistical token prediction has no intrinsic criterion of correctness. Bounding agents in explicit Language-Games with confidence gates enforces **Epistemic Honesty** (`GROUNDED_EXECUTE` vs `CLARIFICATION_REQUIRED` vs `ESCALATE_OUT_OF_BOUNDS`).
-   - **Coworker Principle**: Talk to AI the same way we talk to human coworkers—onboarding them with explicit domain vocabulary, progressive context, and clarification checkpoints.
+2. **Wittgenstein's Two Theories of Language — How Language Produces Actions & Code**:
+   - **Early Wittgenstein (*Tractatus Logico-Philosophicus*, 1921) — Picture Theory of Language:** Language as a strict, formal, 1-to-1 logical picture of facts $\leftrightarrow$ traditional programming languages, type systems, and unit tests (*instructions for a machine*).
+   - **Late Wittgenstein (*Philosophical Investigations*, 1953) — Meaning as Use & Language as Action:** Natural language as a collaborative toolbox used between a builder and an assistant to coordinate real actions (`Molino & Tagliabue, arXiv:2302.01570`; `Winograd & Flores, 1986`).
+   - **Empirical Proof in Interactive Coding Agents (`Wang, Liang, & Manning, ACL 2016, arXiv:1606.02447`; `MaKTO arXiv:2501.14225`; `Marco Graziano LGDL`; `SciTePress 139777`):** In Stanford's `SHRDLURN` study of 100 human players instructing an AI assistant solely through natural language to perform block-building actions, task completion depended on **(a) avoiding synonyms** (consistent domain vocabulary) and **(b) compositionality** (defining reusable higher-level instructions, exactly like Skills), paired with coworker-style clarification gates (`GROUNDED_EXECUTE` vs `CLARIFICATION_REQUIRED` vs `ESCALATE_OUT_OF_BOUNDS`).
 3. **Why Loop vs. How Loop & "On-the-Loop" Harness Engineering (Kief Morris, Mar 2026)**:
    - Humans own the **Why Loop**; agents execute the nested **How Loop**. When an agent errs, an **On-the-Loop** engineer upgrades the harness (`CLAUDE.md`/`GEMINI.md`, `MEMORY.md`/`KNOWLEDGE.md`, `SKILL.md`, `PreToolUse` hook, or MCP tool).
 4. **Empirical Science of Skills (`SkillsBench` `arXiv:2602.12670v4`, 87 tasks, 9,396 trajectories)**:
