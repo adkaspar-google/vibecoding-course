@@ -95,9 +95,10 @@ flowchart LR
 
 ## 6. Course Deliverables & License
 
-- **Coursebook PDF**: [`Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf`](Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf)
+- **Student Textbook & Reference Manual PDF**: [`Student_Reference_Manual_Vibe_Coding_to_Agentic_Engineering.pdf`](Student_Reference_Manual_Vibe_Coding_to_Agentic_Engineering.pdf) (also mirrored at [`Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf`](Coursebook_Vibe_Coding_to_Agentic_Engineering.pdf))
+- **Lecturer & Professor Instructor Manual PDF**: [`Lecturer_Manual_Vibe_Coding_to_Agentic_Engineering.pdf`](Lecturer_Manual_Vibe_Coding_to_Agentic_Engineering.pdf)
 - **Widescreen Lecture Slides & Tripartite Speaker Notes**: [`slides/Vibe_Coding_Course_Slides.pdf`](slides/Vibe_Coding_Course_Slides.pdf) and [`slides/SPEAKER_NOTES.md`](slides/SPEAKER_NOTES.md)
 - **Narrated `1080p` Lecture Videos**: Regenerate or inspect via [`slides/build_video.py`](slides/build_video.py)
 - **Playbooks**: [`playbooks/DUAL_HARNESS_VIBE_CODING_PLAYBOOK.md`](playbooks/DUAL_HARNESS_VIBE_CODING_PLAYBOOK.md), [`playbooks/ANTIGRAVITY_PLAYBOOK.md`](playbooks/ANTIGRAVITY_PLAYBOOK.md), and [`playbooks/CLAUDE_CODE_PLAYBOOK.md`](playbooks/CLAUDE_CODE_PLAYBOOK.md)
-- **License & Attribution**: Dual-licensed under **Apache License 2.0** (code, scripts, and tests; see [`LICENSE`](LICENSE)) and **Creative Commons Attribution 4.0 International (CC BY 4.0)** (coursebook, slides, and documentation; see [`NOTICE`](NOTICE) and [`CITATION.cff`](CITATION.cff)). **Author: Alejandro Kaspar - AI Forward Deployed Engineer**.
+- **License & Attribution**: Dual-licensed under **Apache License 2.0** (code, scripts, and tests; see [`LICENSE`](LICENSE)) and **Creative Commons Attribution 4.0 International (CC BY 4.0)** (coursebook, lecturer manual, slides, and documentation; see [`NOTICE`](NOTICE) and [`CITATION.cff`](CITATION.cff)). **Author: Alejandro Kaspar - AI Forward Deployed Engineer**.
 - **Next Course in the Series**: After completing this Two-Phase course, continue to `SDD-Crash-Course` (Spec-Driven Development) for multi-service distributed system specifications.
