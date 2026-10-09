@@ -1151,28 +1151,31 @@
 }
 
 % SLIDE 29
-\slideshell{29 / 36}{MODULE 07: \texttt{llm-council} \& \texttt{git worktree} ISOLATION}{Karpathy's \texttt{llm-council} (Anonymized Peer Review) \& \texttt{git worktree} Isolation}{3-stage anonymized cross-model peer ranking and running parallel subagents in isolated worktrees}{
+\slideshell{29 / 36}{MODULE 07: \texttt{llm-council}, \texttt{git worktree} \& JUJUTSU (\texttt{jj})}{Karpathy's \texttt{llm-council} \& Agentic VCS: \texttt{git worktree} vs.\ Jujutsu (\texttt{jj})}{3-stage anonymized peer ranking + \texttt{git worktree} (Provisioning Cost) vs.\ colocated \texttt{jj} (Integration Cost, \texttt{wavect.io})}{
   % Left: Karpathy's llm-council 3-Stage Protocol
   \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Karpathy's \texttt{llm-council}: 3-Stage Verification Protocol}}\\[6pt]
-    $\bullet$ \textbf{Why Single-Model Self-Review Fails:} A single model evaluating its own design exhibits strong self-preference bias and misses its own blind spots.\\[4pt]
-    $\bullet$ \textbf{Stage 1 -- Independent First Opinions:} Query $K$ diverse models/agents in parallel on the architectural problem.\\[3pt]
-    $\bullet$ \textbf{Stage 2 -- Anonymized Cross-Model Peer Review:} Strip model identities (\code{Response A}, \code{Response B}, \code{Response C}) so reviewers \textbf{cannot play favorites}, and score each on accuracy, simplicity, and edge-case coverage.\\[3pt]
-    $\bullet$ \textbf{Stage 3 -- Chairman Synthesis:} Aggregate Borda count rankings + peer critiques into one unified architectural decision.
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Karpathy's \texttt{llm-council}: 3-Stage Verification Protocol}}\\[5pt]
+    {\fontsize{11.0}{14.2}\selectfont
+    $\bullet$ \textbf{Why Single-Model Self-Review Fails:} A single model evaluating its own design exhibits self-preference bias and misses its own blind spots.\\[3pt]
+    $\bullet$ \textbf{Stage 1 -- Independent First Opinions:} Query $K$ diverse models in parallel.\\[2pt]
+    $\bullet$ \textbf{Stage 2 -- Anonymized Peer Review:} Strip model identities (\code{Response A..C}) so reviewers score accuracy and simplicity without playing favorites.\\[2pt]
+    $\bullet$ \textbf{Stage 3 -- Chairman Synthesis:} Aggregate Borda count rankings + peer critiques into one unified architectural decision.}
   }
-  % Right: Parallel git worktree Isolation
+  % Right: Parallel git worktree vs Colocated Jujutsu (jj)
   \bcard{7.6}{0}{7.1}{4.10}{gbgsteel}{gsteel}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gsteel}{Workspace Isolation: \texttt{inherit} vs.\ \texttt{git worktree}}}\\[6pt]
-    $\bullet$ \textbf{Read-Only Subagents (\code{inherit}):} \code{code-explorer} and \code{code-reviewer} share the main working tree safely because write tools are disabled.\\[4pt]
-    $\bullet$ \textbf{Parallel Write Subagents (\code{git worktree}):} When 2+ agents implement disjoint features or competing prototypes simultaneously, sharing one working tree causes index lock collisions and interleaved edits.\\[4pt]
-    $\bullet$ \textbf{Native Harness Support:}\\[2pt]
-    1. \textbf{Google Antigravity 2.0:} Spawn parallel isolated worktree agents in \textbf{Mission Control (Agent Manager)}.\\[2pt]
-    2. \textbf{Claude Code:} Run \code{claude --worktree} or set \code{isolation: worktree} in \code{.claude/agents/*.md}.
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gsteel}{Agentic VCS: \texttt{git worktree} vs.\ Jujutsu (\texttt{jj}) (\texttt{wavect.io})}}\\[5pt]
+    {\fontsize{10.7}{13.8}\selectfont
+    $\bullet$ \textbf{\code{git worktree} (Cuts Provisioning Cost):} Shares one \code{.git} object store across Antigravity Mission Control \& \code{claude {-\/-}worktree} (+ \code{{-\/-}filter=blob:none}).\\[2.5pt]
+    $\bullet$ \textbf{Colocated Jujutsu (\code{jj git init {-\/-}colocate} + \code{jj workspace add}):}\\[1.5pt]
+    1. \textbf{Working Copy = Commit (\code{@}) \& Stable Change IDs:} Zero-ceremony auto-snapshots on every command; Change IDs survive rewrites.\\[1.5pt]
+    2. \textbf{First-Class Conflict Algebra ($\Delta M$):} Rebases \textbf{never abort mid-loop}; conflicts store in commits, descendants auto-evolve, and N-parent stacks (\code{jj new A B}) rebase cleanly.\\[1.5pt]
+    3. \textbf{Transactional Time-Travel:} \code{jj op log}, \code{jj undo}, \code{jj squash -u}, \code{jj split -m}, \code{jj absorb}.}
   }
 
   \bcard{0}{-4.30}{14.7}{2.00}{gbgindigo}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Rule of Parallel Agent Execution: Never Run Concurrent Write Agents in the Same Working Tree}}\\[4pt]
-    $\bullet$ Enforce disjoint file ownership or dedicated \code{git worktree add ../wt-<feature> -b feat/<feature>} branches whenever running parallel implementation agents.
+    {\fontsize{13.0}{16.5}\selectfont\bfseries\textcolor{gdark}{2026 Agentic VCS Decision Rule (\texttt{wavect.io} \& \texttt{jj-vcs/jj}): Hybrid \texttt{git worktree} + Colocated \texttt{jj}}}\\[3pt]
+    {\fontsize{11.0}{14.2}\selectfont
+    $\bullet$ Use \code{git worktree} + shared cache for fast cold starts (or when Git LFS / submodules / \code{.gitattributes} are required); layer colocated \code{jj workspace} when parallel agents rewrite stacked PRs, resolve conflicts asynchronously, and need instant \code{jj undo} rollback.}
   }
 }
 

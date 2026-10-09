@@ -17,8 +17,10 @@
    - **Stage 2 (Anonymized Peer Review & Ranking)**: Strip model identities (`Response A`, `Response B`, `Response C`) so models cannot bias toward their own family, then aggregate peer rankings via **Borda count**.
    - **Stage 3 (Chairman Synthesis)**: Synthesize the top-ranked analysis into the final architectural decision.
 
-4. **Workspace Isolation (`inherit` vs. `git worktree`)**:
-   Read-only subagents share the parent workspace (`inherit`), whereas parallel implementation subagents run in isolated `git worktree` directories (`claude --worktree` or Antigravity Mission Control worktrees) with **strictly disjoint file ownership**.
+4. **Workspace Isolation & Stacked Change Management (`inherit` vs. `git worktree` vs. Colocated Jujutsu `jj`, `wavect.io` & `jj-vcs/jj`)**:
+   - Read-only subagents share the parent workspace (`inherit`), whereas parallel write subagents require isolated workspaces with **strictly disjoint file ownership**.
+   - **Provisioning Cost vs. Integration Cost (`wavect.io`, Kevin Riedl, 2026)**: Native `git worktree` (`claude --worktree` or Antigravity 2.0 Mission Control worktrees) paired with a shared `.git` object store or `--filter=blob:none` partial clone slashes cold-start **Provisioning Cost** while preserving Git LFS, submodules, and `.gitattributes`.
+   - **Colocated Jujutsu (`jj git init --colocate` + `jj workspace add`) for Agentic Change Management**: When parallel agents continuously rewrite stacked commits or hit rebase conflicts, colocating open-source Jujutsu (`github.com/jj-vcs/jj`, `docs.jj-vcs.dev`) slashes **Integration Cost** via: (a) **Working Copy Is a Commit (`@`)** (auto-snapshotted on every command without `git add`/`stash`), (b) **Stable Change IDs (`k–z`)** that survive rewrites (`jj workspace update-stale`), (c) **First-Class Conflict Algebra** ($\Delta M = \text{Tree}(M) - \text{AutoMerge}(P_1, P_2)$) where rebases never abort mid-loop, descendants auto-rebase immediately, and N-parent integration stacks (`jj new changeA changeB`) rebase cleanly, and (d) **Transactional Time-Travel (`jj op log`, `jj undo`, `jj op restore`)** + non-interactive `jj split -m`, `jj squash --into <REV> -u`, `jj absorb`, and `jj converge --no-interactive`.
 
 ---
 
