@@ -28,6 +28,9 @@
    - **`program.md` (Human-Authored "Research Org Code")**: Defines the loop rules and the **Simplicity Criterion**:
      > *"All else being equal, simpler is better. A 0.001 val_bpb improvement that adds 20 lines of hacky code? Probably not worth it. A 0.001 val_bpb improvement from deleting code? Definitely keep."*
 
+5. **Durable Execution Frameworks for Long-Running Tasks (`Temporal`, `LangGraph`, `DBOS`, `Restate`, `Inngest`)**:
+   As autonomous task horizons scaled from 4 minutes to **12–16 hours** (and multi-day workflows), fragile single-process loops required **Durable Execution**: wrapping the deterministic agent orchestration loop in a replayable **Workflow** (`Temporal` `@workflow.defn` / `LangGraph` checkpointers / `DBOS` / `Restate`) while executing non-deterministic LLM calls and MCP tools as **Activities** (`@activity.defn`) with event-history replay, exponential retry policies, and zero-compute Human-in-the-Loop (HITL) signals.
+
 ---
 
 ## 2. Inspecting the Flawed Baseline (`starter/dark_factory_reward_hacker.py`)

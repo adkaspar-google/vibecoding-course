@@ -170,19 +170,20 @@
   }
   \bcard{4.94}{0}{2.32}{2.75}{gbggreen}{ggreen}{
     {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{ggreen}{3. 2024}}\\[3pt]
-    {\fontsize{10}{12.5}\selectfont
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{LangGraph} state (Jan)\\
     $\bullet$ \textbf{1M--2M Context} (Feb)\\
     $\bullet$ \textbf{\code{.cursorrules}} (Jun)\\
     $\bullet$ \textbf{OpenAI \code{o1}} RL (Sep)\\
-    $\bullet$ \textbf{Anthropic MCP} (Nov)\\[2pt]
-    \emph{Test-time CoT \& USB-C tools.}}
+    $\bullet$ \textbf{Anthropic MCP} (Nov)\\[1pt]
+    \emph{Checkpointers \& MCP bus.}}
   }
   \bcard{7.41}{0}{2.32}{2.75}{gbgyellow}{gyellow}{
     {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gdark}{4. Early 2025}}\\[3pt]
-    {\fontsize{10}{12.5}\selectfont
-    $\bullet$ \textbf{DeepSeek-R1 RLVR}\\
-    $\bullet$ Karpathy \textbf{Vibe Coding}\\
+    {\fontsize{9.6}{12.0}\selectfont
+    $\bullet$ \textbf{R1 RLVR} \& \textbf{Vibe Coding}\\
     $\bullet$ \textbf{Claude Code} + \code{CLAUDE.md}\\
+    $\bullet$ \textbf{Temporal} + Agents SDK\\
     $\bullet$ \textbf{Google A2A} \& \textbf{Claude 4}\\
     $\bullet$ \textbf{Gemini CLI} \code{GEMINI.md} + \code{AGENTS.md}}
   }
@@ -197,12 +198,12 @@
   }
   \bcard{12.35}{0}{2.35}{2.75}{gbgblue}{gnavy}{
     {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gnavy}{6. 2026 -- NOW}}\\[3pt]
-    {\fontsize{10}{12.5}\selectfont
+    {\fontsize{9.6}{12.0}\selectfont
     $\bullet$ \textbf{Harness Engineering}\\
-    $\bullet$ Karpathy \textbf{\code{autoresearch}} / \code{program.md}\\
+    $\bullet$ \textbf{Temporal / DBOS / Restate}\\
+    $\bullet$ Karpathy \textbf{\code{autoresearch}}\\
     $\bullet$ Ng \textbf{\code{OpenWorker}} \& \textbf{\code{chub}}\\
-    $\bullet$ Stanford \textbf{CS146S} \code{RePPIT}\\
-    $\bullet$ \textbf{Anthropic RSI}}
+    $\bullet$ \textbf{CS146S} \& \textbf{Anthropic RSI}}
   }
 
   % Bottom Left: Visual Exponential Curve Chart (METR Task Horizon Doubling)
@@ -1340,31 +1341,34 @@
 }
 
 % SLIDE 35
-\slideshell{35 / 36}{MODULE 08: RECURSIVE SELF-IMPROVEMENT \& HOLDOUTS}{Closing the Loop: Recursive Self-Improvement \& Out-of-Tree Holdouts}{Anthropic's 52x Kernel RSI Loop, StrongDM's Out-of-Tree Scenario Holdouts, and Amdahl's Law}{
+\slideshell{35 / 36}{MODULE 08: DURABLE EXECUTION, RSI \& HOLDOUTS}{Long-Horizon Durable Execution (\texttt{Temporal}), RSI \& Out-of-Tree Holdouts}{Surviving 12--16 hr runs with \texttt{Temporal}/\texttt{LangGraph}/\texttt{DBOS}, Anthropic's 52x RSI Loop, and Out-of-Tree Holdouts}{
   \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Anthropic's 52x RSI Loop}}\\[5pt]
-    \textbf{\code{recursive-self-improvement}:}\\[3pt]
-    $\bullet$ When optimizing a production CPU training kernel with an exact deterministic benchmark sensor, an autonomous Claude loop achieved a \textbf{52x speedup in 8 hours} (vs.\ a \textbf{4x} human engineer baseline).\\[3pt]
-    $\bullet$ Why it succeeded: bounded single-kernel action space + objective hardware cycle timer + automatic revert ratchet.
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{1. Durable Agent Execution}}\\[4pt]
+    \textbf{\code{Temporal}, \code{LangGraph}, \code{DBOS}, \code{Restate}, \code{Inngest}:}\\[2pt]
+    {\fontsize{10.5}{13.6}\selectfont
+    $\bullet$ Why 12--16 hr loops crash in raw Python: \code{429} rate limits, MCP timeouts, or worker restarts at turn 18 wipe state and burn tokens.\\[2pt]
+    $\bullet$ \textbf{\code{Temporal} Pattern:} Deterministic Agent Loop (\code{Workflow}) + non-deterministic LLM/MCP calls (\code{Activities}) $\to$ \textbf{Event-History Replay} \& zero-compute \textbf{HITL Signals}!}
   }
   \bcard{5.0}{0}{4.7}{4.10}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{2. Out-of-Tree Holdouts}}\\[5pt]
-    \textbf{Defeating Reward Hacking (StrongDM):}\\[3pt]
-    $\bullet$ If an autonomous agent can read the exact test assertions it is graded against, RLVR optimization pressure can induce \textbf{reward hacking} (special-casing test inputs or weakening assertions).\\[3pt]
-    $\bullet$ \textbf{Solution:} Evaluate candidate commits against \textbf{Out-of-Tree Scenario Holdouts} stored outside the agent's readable workspace mount!
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gred}{2. 52x RSI \& Out-of-Tree Holdouts}}\\[4pt]
+    \textbf{Anthropic RSI \& StrongDM Holdouts:}\\[2pt]
+    {\fontsize{10.5}{13.6}\selectfont
+    $\bullet$ \textbf{52x Kernel Speedup:} Bounded single-kernel action space + cycle timer achieved \textbf{52x speedup in 8 hrs} (vs.\ 4x human baseline).\\[2pt]
+    $\bullet$ \textbf{Defeating Reward Hacking:} Grade candidate commits against \textbf{Out-of-Tree Scenario Holdouts} stored outside the agent's readable mount.}
   }
   \bcard{10.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{3. Amdahl's Law in 2026}}\\[5pt]
-    \textbf{Where Human Engineers Create Value:}\\[3pt]
-    $\bullet$ As code generation speed approaches $8\text{x}..50\text{x}$, Amdahl's Law dictates that total delivery speed is bottlenecked by the \textbf{non-automated steps}:\\[2pt]
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{ggreen}{3. Amdahl's Law in 2026}}\\[4pt]
+    \textbf{Where Human Engineers Create Value:}\\[2pt]
+    {\fontsize{10.5}{13.6}\selectfont
+    $\bullet$ As code generation speed approaches $8\text{x}..50\text{x}$, Amdahl's Law dictates that total delivery speed is bottlenecked by:\\[2pt]
     1. \textbf{Program Design} (types, interfaces, call-trees).\\[2pt]
-    2. \textbf{Harness \& Sensor Engineering}.\\[2pt]
-    3. \textbf{Holdout Verification \& Architecture Review}.
+    2. \textbf{Durable Harness \& Sensor Engineering}.\\[2pt]
+    3. \textbf{Holdout Verification \& Architecture Review}.}
   }
 
   \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
     {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{When Autonomous Loops Succeed vs.\ When Humans Must Steer}}\\[4pt]
-    $\bullet$ \textbf{Use Bounded Autonomous Loops (\code{autoresearch} / \code{/goal}):} When the objective is a scalar metric (latency, \code{val\_bpb}, coverage) inside a fixed interface.\\[2pt]
+    $\bullet$ \textbf{Use Durable Bounded Loops (\code{Temporal} + \code{autoresearch} / \code{/goal}):} For multi-hour/day workflows with replayable activities and scalar sensors.\\[2pt]
     $\bullet$ \textbf{Use Human-in-the-Loop Program Design (\code{RePPIT}):} Whenever introducing new domain concepts, public APIs, or cross-service boundaries.
   }
 }
