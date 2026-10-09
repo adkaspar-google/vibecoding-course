@@ -206,8 +206,8 @@
     {\fontsize{9.6}{12.0}\selectfont
     $\bullet$ \textbf{Harness Engineering}\\
     $\bullet$ \textbf{Temporal / DBOS / Restate}\\
+    $\bullet$ \textbf{Omnigent} Meta-Harness\\
     $\bullet$ Karpathy \textbf{\code{autoresearch}}\\
-    $\bullet$ Ng \textbf{\code{OpenWorker}} \& \textbf{\code{chub}}\\
     $\bullet$ \textbf{CS146S} \& \textbf{Anthropic RSI}}
   }
 
@@ -1209,7 +1209,7 @@
 % ============================================================================
 
 % SLIDE 31
-\slideshell{31 / 36}{MODULE 08: 4-TIER ``GOVERNED BY DESIGN'' HARNESS}{4-Tier ``Governed by Design'' Harness (\texttt{openworker}) \& Lifecycle Hooks}{Hard Floors, Earned Autonomy, Provenance Audit Trails, and \texttt{OpenShell} Container Sandboxing}{
+\slideshell{31 / 36}{MODULE 08: 4-TIER ``GOVERNED BY DESIGN'' \& META-HARNESS CONTROL}{4-Tier ``Governed by Design'' (\texttt{openworker}), \texttt{Omnigent} \& Hooks}{Hard Floors, Earned Autonomy, Stateful Contextual Policies, and Egress-Proxy Sandboxing}{
   % 4 Visual Tier Pillars across top (y=0 to -3.95)
   \bcard{0.00}{0}{3.42}{3.95}{gbggray}{gslate}{
     {\fontsize{13}{16}\selectfont\bfseries\textcolor{gnavy}{Tier 1: Hard Floors}}\\[5pt]
@@ -1222,10 +1222,9 @@
   \bcard{3.76}{0}{3.42}{3.95}{gbgindigo}{gnavy}{
     {\fontsize{13}{16}\selectfont\bfseries\textcolor{gdark}{Tier 2: Earned Autonomy}}\\[5pt]
     {\fontsize{10.6}{13.8}\selectfont
-    \textbf{Reviewer \& Circuit Breaker:}\\[2pt]
-    $\bullet$ Routine actions graduate from manual approval $\to$ standing allowlist.\\[2pt]
-    $\bullet$ Independent reviewer model + deterministic scanner (\code{semgrep}) gates auto-mode.\\[2pt]
-    $\bullet$ Consecutive denials trip the \textbf{circuit breaker}.}
+    \textbf{Stateful \& Reviewer Gates:}\\[2pt]
+    $\bullet$ Independent reviewer model + \code{semgrep} gates auto-mode.\\[2pt]
+    $\bullet$ \textbf{\code{Omnigent} Stateful Policies:} Escalates \code{git push} to human approval \emph{after} \code{npm install}, and pauses after every \textbf{\$100} of LLM spend.}
   }
   \bcard{7.52}{0}{3.42}{3.95}{gbgblue}{gblue}{
     {\fontsize{13}{16}\selectfont\bfseries\textcolor{gblue}{Tier 3: Audit Provenance}}\\[5pt]
@@ -1236,15 +1235,15 @@
     $\bullet$ Enables full post-incident replay.}
   }
   \bcard{11.28}{0}{3.42}{3.95}{gbgsteel}{gsteel}{
-    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gsteel}{Tier 4: OS Sandboxing}}\\[5pt]
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gsteel}{Tier 4: Egress Sandbox}}\\[5pt]
     {\fontsize{10.6}{13.8}\selectfont
-    \textbf{\texttt{NVIDIA OpenShell} / OS Box:}\\[2pt]
-    $\bullet$ Agent commands execute inside a container mounting \emph{only} the workspace folder and allow-listed network.\\[2pt]
-    $\bullet$ Model API keys and cloud credentials stay \textbf{outside the wall} so prompt injection lands in an empty box.}
+    \textbf{\texttt{OpenShell} \& \texttt{Omnigent}:}\\[2pt]
+    $\bullet$ Agent commands run in a local/cloud container (\code{Modal}/\code{Daytona}).\\[2pt]
+    $\bullet$ \textbf{Egress-Proxy Token Injection:} The agent \emph{never} sees raw GitHub tokens; tokens are injected only in the egress proxy!}
   }
 
   \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Deterministic Lifecycle Hooks Across \texttt{claude} (\texttt{.claude/settings.json}) and \texttt{agy} (\texttt{.agents/plugins/})}}\\[4pt]
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Deterministic Lifecycle Hooks Across \texttt{claude} (\texttt{.claude/settings.json}), \texttt{agy} (\texttt{.agents/plugins/}) \& \texttt{Omnigent}}}\\[4pt]
     $\bullet$ \textbf{\code{PreToolUse} (Feedforward Gate):} Inspects tool JSON on stdin; \code{exit 0} allows, \textbf{\code{exit 2} blocks} and feeds \code{stderr} back to the agent.\\[2pt]
     $\bullet$ \textbf{\code{PostToolUse} (Feedback Sensor):} Runs auto-formatters and remediation linters immediately after every \code{Write}/\code{Edit}. \quad $\bullet$ \textbf{\code{Stop}:} Blocks turn completion until tests pass.
   }
@@ -1346,7 +1345,7 @@
 }
 
 % SLIDE 35
-\slideshell{35 / 36}{MODULE 08: DURABLE EXECUTION, RSI \& HOLDOUTS}{Long-Horizon Durable Execution (\texttt{Temporal}), RSI \& Out-of-Tree Holdouts}{Surviving 12--16 hr runs with \texttt{Temporal}/\texttt{LangGraph}/\texttt{DBOS}, Anthropic's 52x RSI Loop, and Out-of-Tree Holdouts}{
+\slideshell{35 / 36}{MODULE 08: DURABLE EXECUTION, META-HARNESSES \& RSI}{Durable Execution (\texttt{Temporal}), Meta-Harnesses (\texttt{Omnigent}) \& 52x RSI}{Surviving 12--16 hr runs with \texttt{Temporal}/\texttt{DBOS}, orchestrating via \texttt{Omnigent}, and Out-of-Tree Holdouts}{
   \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
     {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{1. Durable Agent Execution}}\\[4pt]
     \textbf{\code{Temporal}, \code{LangGraph}, \code{DBOS}, \code{Restate}, \code{Inngest}:}\\[2pt]
@@ -1354,27 +1353,24 @@
     $\bullet$ Why 12--16 hr loops crash in raw Python: \code{429} rate limits, MCP timeouts, or worker restarts at turn 18 wipe state and burn tokens.\\[2pt]
     $\bullet$ \textbf{\code{Temporal} Pattern:} Deterministic Agent Loop (\code{Workflow}) + non-deterministic LLM/MCP calls (\code{Activities}) $\to$ \textbf{Event-History Replay} \& zero-compute \textbf{HITL Signals}!}
   }
-  \bcard{5.0}{0}{4.7}{4.10}{gbggray}{gslate}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{2. 52x RSI \& Out-of-Tree Holdouts}}\\[4pt]
-    \textbf{Anthropic RSI \& StrongDM Holdouts:}\\[2pt]
+  \bcard{5.0}{0}{4.7}{4.10}{gbgindigo}{gnavy}{
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{2. Meta-Harness (\texttt{Omnigent})}}\\[4pt]
+    \textbf{Databricks \code{omnigent.ai} (Zaharia et al.):}\\[2pt]
     {\fontsize{10.5}{13.6}\selectfont
-    $\bullet$ \textbf{52x Kernel Speedup:} Bounded single-kernel action space + cycle timer achieved \textbf{52x speedup in 8 hrs} (vs.\ 4x human baseline).\\[2pt]
-    $\bullet$ \textbf{Defeating Reward Hacking:} Grade candidate commits against \textbf{Out-of-Tree Scenario Holdouts} stored outside the agent's readable mount.}
+    $\bullet$ \textbf{Combine:} Compose heterogeneous harnesses (\code{Claude Code}, \code{Codex}, \code{agy}, \code{Pi}) in YAML with 1-line swaps (\emph{Harvey} advisor, \emph{Genie} routing).\\[2pt]
+    $\bullet$ \textbf{Control \& Share:} Stateful policies, egress-proxy token injection, and live multiplayer URL sharing + \code{GEPA}/\code{MemEx}/\code{RLM}.}
   }
   \bcard{10.0}{0}{4.7}{4.10}{gbgsteel}{gsteel}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gsteel}{3. Amdahl's Law in 2026}}\\[4pt]
-    \textbf{Where Human Engineers Create Value:}\\[2pt]
+    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gsteel}{3. 52x RSI \& Holdouts}}\\[4pt]
+    \textbf{Anthropic RSI, Holdouts \& Amdahl's Law:}\\[2pt]
     {\fontsize{10.5}{13.6}\selectfont
-    $\bullet$ As code generation speed approaches $8\text{x}..50\text{x}$, Amdahl's Law dictates that total delivery speed is bottlenecked by:\\[2pt]
-    1. \textbf{Program Design} (types, interfaces, call-trees).\\[2pt]
-    2. \textbf{Durable Harness \& Sensor Engineering}.\\[2pt]
-    3. \textbf{Holdout Verification \& Architecture Review}.}
+    $\bullet$ \textbf{52x Kernel Speedup:} Bounded single-kernel action space + cycle timer achieved \textbf{52x speedup in 8 hrs} (vs.\ 4x human baseline).\\[2pt]
+    $\bullet$ \textbf{Out-of-Tree Holdouts \& Amdahl's Law:} Grade commits against isolated holdout suites; human leverage shifts to Program Design \& Verification.}
   }
 
   \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{When Autonomous Loops Succeed vs.\ When Humans Must Steer}}\\[4pt]
-    $\bullet$ \textbf{Use Durable Bounded Loops (\code{Temporal} + \code{autoresearch} / \code{/goal}):} For multi-hour/day workflows with replayable activities and scalar sensors.\\[2pt]
-    $\bullet$ \textbf{Use Human-in-the-Loop Program Design (\code{RePPIT}):} Whenever introducing new domain concepts, public APIs, or cross-service boundaries.
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The Complete 2026 Production Stack: Program Design + Durable Loops + Meta-Harness Governance}}\\[4pt]
+    $\bullet$ \textbf{Durable Engines (\code{Temporal}/\code{DBOS}):} Guarantee fault-tolerant state replay across multi-hour runs. \quad $\bullet$ \textbf{Meta-Harnesses (\code{Omnigent}):} Combine specialized harnesses, enforce stateful egress-proxy security, and share live multiplayer sessions.
   }
 }
 
