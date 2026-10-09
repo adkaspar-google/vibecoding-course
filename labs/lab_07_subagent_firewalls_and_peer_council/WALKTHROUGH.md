@@ -75,21 +75,3 @@ Implement `subagent_council.py` satisfying `REQ-0701` through `REQ-0706`:
    ```bash
    ./labs/lab_07_subagent_firewalls_and_peer_council/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, inspect `.claude/agents/{code-explorer,code-architect,code-reviewer}.md`, `.claude/commands/feature-dev.md`, and `starter/noisy_roleplay_subagents.py`.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_07_subagent_firewalls_and_peer_council/work/subagent_council.py` and `test_subagent_council.py`, then verify:
-   ```bash
-   ./labs/lab_07_subagent_firewalls_and_peer_council/self_diagnose.sh work
-   ```

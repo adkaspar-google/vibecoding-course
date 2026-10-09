@@ -70,21 +70,3 @@ Implement `context_compactor.py` satisfying `REQ-0401` through `REQ-0406`:
    ```bash
    ./labs/lab_04_context_physics_and_rpi_compaction/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, run `/context` and `/btw` to observe how Claude Code tracks token utilization and sandboxed side-queries, then inspect `starter/dumb_zone_session_accumulator.py`.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_04_context_physics_and_rpi_compaction/work/context_compactor.py` and `test_context_compactor.py`, then verify:
-   ```bash
-   ./labs/lab_04_context_physics_and_rpi_compaction/self_diagnose.sh work
-   ```

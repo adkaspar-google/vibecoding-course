@@ -84,21 +84,3 @@ Implement `autoresearch_harness.py` satisfying `REQ-0801` through `REQ-0806`:
    ```bash
    ./labs/lab_08_governance_linters_and_autoresearch_ratchet/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, inspect `.claude-plugin/plugin.json`, `.claude/skills/architecture-guard/SKILL.md`, and `starter/dark_factory_reward_hacker.py`.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_08_governance_linters_and_autoresearch_ratchet/work/autoresearch_harness.py` and `test_autoresearch_harness.py`, then verify:
-   ```bash
-   ./labs/lab_08_governance_linters_and_autoresearch_ratchet/self_diagnose.sh work
-   ```

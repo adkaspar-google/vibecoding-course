@@ -73,21 +73,3 @@ Implement `prompt_steerer.py` satisfying `REQ-0101` through `REQ-0106`:
    ```bash
    ./labs/lab_01_vibe_coding_and_earned_autonomy/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode` (`Shift+Tab`), inspect `starter/vibe_prompt_and_autonomy_blob.py` and identify all missing engineering constraints and ungoverned permission paths.
-3. Verify no files were mutated during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_01_vibe_coding_and_earned_autonomy/work/prompt_steerer.py` and `test_prompt_steerer.py`, then verify:
-   ```bash
-   ./labs/lab_01_vibe_coding_and_earned_autonomy/self_diagnose.sh work
-   ```

@@ -1,9 +1,0 @@
-{
-  "name": "vibe-engineering-kit",
-  "version": "1.2.0",
-  "description": "Versioned Claude Code plugin bundling skills, feature-dev subagents, PreToolUse immutable-verifier hooks, and an MCP harness server.",
-  "author": {
-    "name": "Agentic Engineering Course"
-  },
-  "license": "Apache-2.0"
-}

@@ -68,21 +68,3 @@ Implement `reppit_orchestrator.py` satisfying `REQ-0301` through `REQ-0306`:
    ```bash
    ./labs/lab_03_reppit_workflow_and_reflection/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, inspect `starter/impulsive_feature_coder.py`, formulate two orthogonal proposals, and practice `/clear` after selecting the winning proposal.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_03_reppit_workflow_and_reflection/work/reppit_orchestrator.py` and `test_reppit_orchestrator.py`, then verify:
-   ```bash
-   ./labs/lab_03_reppit_workflow_and_reflection/self_diagnose.sh work
-   ```

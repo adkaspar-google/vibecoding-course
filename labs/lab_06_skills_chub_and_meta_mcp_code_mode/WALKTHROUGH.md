@@ -72,21 +72,3 @@ Implement `skill_and_mcp_harness.py` satisfying `REQ-0601` through `REQ-0606`:
    ```bash
    ./labs/lab_06_skills_chub_and_meta_mcp_code_mode/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, inspect `.claude/skills/` and `starter/naive_crud_mcp_and_bloated_skill.py`, and check MCP token usage via `/context`.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_06_skills_chub_and_meta_mcp_code_mode/work/skill_and_mcp_harness.py` and `test_skill_and_mcp_harness.py`, then verify:
-   ```bash
-   ./labs/lab_06_skills_chub_and_meta_mcp_code_mode/self_diagnose.sh work
-   ```
