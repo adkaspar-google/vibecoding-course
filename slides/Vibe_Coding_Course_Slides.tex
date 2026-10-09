@@ -155,7 +155,7 @@
 }
 
 % SLIDE 03
-\slideshell{03 / 36}{MODULE 01: 2022--2026 TIMELINE \& METR CURVE}{The 2022--2026 Architectural Timeline \& Anthropic's 5-Stage Evolution}{Chronological evolution from autocomplete to Harness Engineering + METR 4-month autonomous task-horizon doubling}{
+\slideshell{03 / 36}{MODULE 01: 2022--2026 TIMELINE, 17-DAY PACE \& METR CURVE}{The 2022--2026 Architectural Timeline, 17-Day Flagship Pace \& RSI}{Chronological evolution from autocomplete to Harness Engineering + METR 4-month doubling \& 17-day flagship release cadence}{
   % Top 6-Era Visual Timeline Boxes (y=0 to -2.75)
   \bcard{0.00}{0}{2.32}{2.75}{gbggray}{gborder}{
     {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gdark}{1. Late 2022}}\\[3pt]
@@ -166,12 +166,12 @@
     \emph{Ghost-text Tab \& copy-paste chat.}}
   }
   \bcard{2.47}{0}{2.32}{2.75}{gbgblue}{gblue}{
-    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gblue}{2. 2023}}\\[3pt]
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gblue}{2. 2023 (\textbf{37d} Gap)}}\\[3pt]
     {\fontsize{10}{12.5}\selectfont
     $\bullet$ \textbf{Cursor} launch (Mar)\\
     $\bullet$ \textbf{Function Calling} \code{gpt-4-0613} (Jun)\\
     $\bullet$ \textbf{Parallel \code{tools}} \& \textbf{SWE-bench}\\[2pt]
-    \emph{JSON \code{tool\_calls} \& \code{@Codebase}.}}
+    \emph{7 Jan--Sept flagships (\textbf{37d} interval).}}
   }
   \bcard{4.94}{0}{2.32}{2.75}{gbgsteel}{gsteel}{
     {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gsteel}{3. 2024}}\\[3pt]
@@ -202,18 +202,18 @@
     $\bullet$ \textbf{\code{agentskills.io}} (Dec)}
   }
   \bcard{12.35}{0}{2.35}{2.75}{gbgblue}{gnavy}{
-    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gnavy}{6. 2026 -- NOW}}\\[3pt]
-    {\fontsize{9.6}{12.0}\selectfont
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gnavy}{6. 2026 (\textbf{17d} Gap)}}\\[3pt]
+    {\fontsize{9.5}{11.8}\selectfont
     $\bullet$ \textbf{Harness Engineering}\\
     $\bullet$ \textbf{Temporal / DBOS / Restate}\\
     $\bullet$ \textbf{Omnigent} Meta-Harness\\
     $\bullet$ Karpathy \textbf{\code{autoresearch}}\\
-    $\bullet$ \textbf{CS146S} \& \textbf{Anthropic RSI}}
+    $\bullet$ \textbf{17d Flagship Pace} \& \textbf{RSI}}
   }
 
-  % Bottom Left: Visual Exponential Curve Chart (METR Task Horizon Doubling)
+  % Bottom Left: Visual Exponential Curve Chart (METR Task Horizon Doubling + 17d Flagship Cadence)
   \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=8.2in, minimum height=3.35in] at (0,-2.95) {};
-  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-3.10) {METR 50\%-Reliable Autonomous Task Horizon (Doubling Every $\sim$4 Months)};
+  \node[anchor=north west, font=\fontsize{12.2}{15}\selectfont\bfseries, text=gnavy] at (0.20,-3.10) {METR 4-Mo Horizon Doubling \& 17-Day Flagship Cadence (\code{searchintel.tech})};
   % Axes
   \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.65,-5.85) -- (7.85,-5.85);
   \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.65,-5.85) -- (0.65,-3.50);
@@ -228,26 +228,26 @@
   \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.60,-3.95) {12--16h};
   % X labels
   \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (1.10,-5.90) {2022};
-  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (2.60,-5.90) {2023};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (2.60,-5.90) {2023 (37d)};
   \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (4.10,-5.90) {2024};
   \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (5.65,-5.90) {2025};
-  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gblue] at (7.30,-5.90) {2026};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gblue] at (7.30,-5.90) {2026 (17d)};
   % Curve
   \draw[gblue, line width=2.2pt] (1.10,-5.78) .. controls (2.5,-5.70) and (3.6,-5.45) .. (4.10,-5.30) .. controls (5.0,-5.00) and (6.2,-4.45) .. (7.30,-3.85);
   \foreach \px/\py/\lbl in {1.10/-5.78/30s, 2.60/-5.60/2m, 4.10/-5.30/4m (SWE), 5.65/-4.65/90m (RLVR), 7.30/-3.85/12--16 hrs} {
     \fill[gred] (\px,\py) circle (3pt);
     \node[anchor=south, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gdark, fill=white, inner sep=1.5pt] at (\px,\py+0.07) {\lbl};
   }
+  \node[anchor=north west, fill=white, draw=gblue, rounded corners=3pt, inner sep=3pt, font=\fontsize{8.5}{10.5}\selectfont, text=gnavy] at (0.85,-3.62) {\textbf{143 Releases / 57 Flagships (8 Labs):} Flagship gap \textbf{37d ('23) $\to$ 17d ('26)}};
 
-  % Bottom Right: Anthropic's 5-Stage Evolution & 2026 Production Metrics
+  % Bottom Right: Anthropic's 5-Stage Evolution, SearchIntel 17-Day Pace & 2026 Metrics
   \bcard{8.45}{-2.95}{6.25}{3.35}{gbgsteel}{gsteel}{
-    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gsteel}{Anthropic's 5-Stage Evolution \& 2026 Empirical Benchmarks}}\\[4pt]
-    {\fontsize{11.2}{14.5}\selectfont
-    \textbf{1. Manual (2021--23)} $\to$ \textbf{2. Chatbots (2023--25)} $\to$ \textbf{3. Coding Agents (2025)} $\to$ \textbf{4. Long-Horizon Agents (Today)} $\to$ \textbf{5. Recursive Loop}\\[4pt]
-    $\bullet$ \textbf{$>$80\% of Production Code} at Anthropic authored by Claude (\textbf{8x daily LOC} per engineer).\\[2pt]
-    $\bullet$ \textbf{Open-Ended Session Success:} Climbed from \textbf{26\% $\to$ 76\%--91\%} across 2025--2026.\\[2pt]
-    $\bullet$ \textbf{52x CPU Training Kernel Speedup} in an 8-hr autonomous loop (vs.\ 4x human baseline).\\[2pt]
-    $\bullet$ \textbf{Amdahl's Law Shift:} Bottleneck moved from \emph{writing syntax} to \textbf{architecture \& verification}.}
+    {\fontsize{13.0}{16.2}\selectfont\bfseries\textcolor{gsteel}{5-Stage Evolution, 17-Day Model Pace \& 2026 Benchmarks}}\\[3pt]
+    {\fontsize{10.4}{13.3}\selectfont
+    \textbf{1. Manual ('21--23)} $\to$ \textbf{2. Chatbots ('23--25)} $\to$ \textbf{3. Coding Agents ('25)} $\to$ \textbf{4. Long-Horizon ('26)} $\to$ \textbf{5. Recursive Loop}\\[2pt]
+    $\bullet$ \textbf{17-Day Flagship Cadence (\code{searchintel.tech}):} Across \textbf{143 releases (57 flagships)}, industry flagship interval dropped \textbf{37d $\to$ 17d} (Anthropic \textbf{124d $\to$ 39d}; OpenAI \textbf{91d $\to$ 57d}; \textbf{22 releases} in Q3 '26).\\[2pt]
+    $\bullet$ \textbf{$>$80\% AI Code \& 76\%--91\% Session Success:} \textbf{8x LOC/day} per engineer \& \textbf{52x CPU kernel RSI} speedup (vs.\ 4x human baseline).\\[2pt]
+    $\bullet$ \textbf{Harness Imperative:} A \textbf{17-day model half-life} requires \textbf{model-agnostic harnesses} (\code{aisuite}, \code{Omnigent}) \& \code{(model, date)}-pinned evals.}
   }
 }
 
