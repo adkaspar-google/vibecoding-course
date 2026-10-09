@@ -1,44 +1,31 @@
-# Dual-Harness Vibe Coding to Agentic Engineering Playbook (`agy` & `claude`)
+# Dual-Harness Vibe Coding & Agentic Engineering Playbook (`agy` & `claude`)
 
-This playbook serves as the architectural reference for **Vibe-Coding-Course**, the foundational prerequisite to **SDD-Crash-Course** (Spec-Driven Development). It maps the 1-to-1 correspondence between the **Antigravity (`agy` branch)** and **Claude Code (`claude` branch)** harnesses across six engineering layers.
-
----
-
-## 1. Why Vibe Coding Precedes SDD: The 3-Tier Steering Taxonomy
-
-| Paradigm | Human Steering Layer | Primary Harness Artifacts | Strengths | Scale Limit (Why SDD Follows) |
-| :--- | :--- | :--- | :--- | :--- |
-| **1. AI-Assisted Coding** | **Syntax / Line Layer** | Autocomplete + inline diffs | High precision on single functions | Human types or micromanages every file |
-| **2. Disciplined Vibe Coding (This Course)** | **Intent, Vocabulary & Harness Layer** | `CLAUDE.md` / `GEMINI.md`, Auto-Memory, `SKILL.md`, `feature-dev` subagents, Plugins + Hooks | Rapid 0-to-1 features, bounded modules, interactive flow with "On-the-Loop" guardrails | Multi-service brownfield contract drift across $>3$ services requires persistent system specs |
-| **3. Spec-Driven Development (Follow-On Course)** | **System Specification Layer** | `proposal.md`, `spec.md`, `design.md`, `tasks.md`, `SPEC.md` SSOT | Scales to multi-team distributed architectures & clean-room rebuilds | Higher ceremony than needed for 0-to-1 spikes |
+This playbook serves as the architectural reference for **Vibe-Coding-Course**, mapping the 1-to-1 correspondence between the **Google Antigravity (`agy` branch)** and **Anthropic Claude Code (`claude` branch)** harnesses across **Phase 1 (Vibe Coding Foundations & Daily Workflows)** and **Phase 2 (Harness Engineering & Agentic Engineering Loops)**.
 
 ---
 
-## 2. Master 1-to-1 Harness Architecture Matrix (`claude` vs. `agy`)
+## 1. The 2022–2026 Architectural & Human-Interaction Evolution
 
-| Layer | Claude Code (`claude` branch) | Antigravity / Gemini CLI (`agy` branch) |
+| Era | Milestone & Protocol Breakthroughs | Model Paradigm Shift | Human-Agent Interaction Pattern |
+| :--- | :--- | :--- | :--- |
+| **Late 2022** | GitHub Copilot GA (Jun 2022), ReAct (`arXiv:2210.03629`, Oct 2022), ChatGPT (Nov 30, 2022) | Next-token code completion & single-turn RLHF chat | Ghost-text `Tab` autocomplete & copy-pasting snippets between browser and IDE |
+| **2023** | Cursor launch (Mar 2023), OpenAI `Function Calling` (`gpt-4-0613`, Jun 2023), SWE-bench (Oct 2023), Parallel `tools` API (Nov 2023) | Fine-tuned JSON schema `tool_calls` emission | In-editor `@Codebase` RAG & inline `Cmd+K` diff generation |
+| **2024** | Gemini 1.5 Pro 1M–2M Context (Feb 2024), SWE-agent ACI (Apr 2024), Claude 3.5 Sonnet + `.cursorrules` (Jun 2024), OpenAI `o1` RL reasoning (Sep 2024), **MCP open-sourced** (Nov 25, 2024) | Test-time RL reasoning chains + MCP universal tool bus | Multi-file IDE composers & static repository rules files |
+| **Early–Mid 2025** | DeepSeek-R1 `RLVR` (Jan 2025), **Karpathy coins "Vibe Coding"** (Feb 2, 2025), **Claude Code + `CLAUDE.md`** (Feb 24, 2025), **Google A2A Protocol** (Apr 2025), Claude 4 interleaved tool thinking (May 2025), **Gemini CLI (`GEMINI.md`) + `AGENTS.md`** (Jun 2025) | RL with Verifiable Rewards (compilers/tests) & interleaved reasoning across multi-step tool loops | Conversational Vibe Coding & terminal-native agents guided by `CLAUDE.md` / `GEMINI.md` / `AGENTS.md` |
+| **Late 2025** | Claude Code Subagents & Hooks (Summer 2025), Plugins (Oct 2025), Agent Skills `SKILL.md` (Oct 2025), **Google Antigravity & Gemini 3** (Nov 18, 2025), **`agentskills.io` Standard** (Dec 18, 2025) | 3-level progressive disclosure (`YAML -> SKILL.md -> scripts/`) & subagent context firewalls | Agent-first Mission Control (`Implementation Plan` & `Walkthrough` Artifacts, Browser Subagent, Knowledge Items) |
+| **2026 – NOW** | **Harness Engineering** (OpenAI, Fowler/Böckeler/Morris, `SkillsBench`), **Karpathy's `autoresearch` (`program.md`)**, **Antigravity 2.0 (`agy`)**, **Andrew Ng's *AI Skills Map*, `OpenWorker` & `context-hub` (`chub`)**, **Stanford CS146S (`RePPIT` & Meta-MCP Code Mode)**, **Anthropic *Recursive Self-Improvement*** | Long-horizon autonomous loops (METR 4-month doubling horizon to 12–16 hrs) governed by deterministic sensors & ratchets | **Harness Engineering**: 4-tier governance, remediation linters, front-loaded Program Design (types/call-trees), and closed-loop Keep-or-Revert ratchets |
+
+---
+
+## 2. Master 1-to-1 Dual-Harness Architecture Matrix (`claude` vs. `agy`)
+
+| Capability Layer | Claude Code (`claude` branch) | Google Antigravity (`agy` branch) |
 | :--- | :--- | :--- |
-| **1. Persistent Project Context** | `CLAUDE.md` ($\le 40$ lines) with `@docs/*.md` on-demand imports + `.claude/rules/*.md` (`paths:` globs) | `GEMINI.md` & `AGENTS.md` ($\le 40$ lines) with `@docs/*.md` on-demand references + `.agents/rules/*.md` (`trigger: always_on \| model_decision \| glob \| manual`) |
-| **2. Cross-Session Auto-Memory** | `~/.claude/projects/<project>/memory/MEMORY.md` (derived from git repo root; shared across worktrees; 200-line / 25 KB startup cap) + `topics/*.md` | `~/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md` (Knowledge Items + `topics/*.md` with epistemic tags `#direct`, `#commit:<sha>`, `#time:<date>`, `#session:<id>`) |
-| **3. Context & Memory Commands** | `/context`, `/memory`, `/clear`, `/compact` | `/stats`, `/memory` (`show \| add \| refresh`), `/skills`, `/plan`, `/clear`, `/compress` |
-| **4. Progressive-Disclosure Skills** | `.claude/skills/<name>/SKILL.md` (`agentskills.io` spec), invoked via `/skillname` (e.g., `/anthropic-brand` with `docs.md`, `slides-deck.md`, `apply_template.md`) | `.agents/skills/<name>/SKILL.md` (`agentskills.io` spec), invoked via `/skillname` (e.g., `/anthropic-brand` with `docs.md`, `slides-deck.md`, `apply_template.md`) |
-| **5. Skill Evaluation & Trigger Tuning** | Anthropic `skill-creator` (`with_skill` vs `without_skill`), `grading.json`, `benchmark.json`, `eval-viewer/generate_review.py`, 60/40 description loop | `skill-creator` + paired ablation (`with_skill` vs `without_skill`), `eval-viewer`, Signal Detection Theory (`d'`, criterion `c`, utility `U`) |
-| **6. Multi-Agent Collaboration (`feature-dev`)** | `.claude/agents/{code-explorer,code-architect,code-reviewer}.md` + `/feature-dev` 7-phase command | `.agents/agents/{code-explorer,code-architect,code-reviewer}.md` + `.agents/workflows/feature-dev.md` (`/feature-dev`) & `/plan` |
-| **7. Versioned Plugins, Hooks & MCP** | `.claude-plugin/plugin.json` + `.mcp.json` + `hooks/hooks.json` (`PreToolUse`, `PostToolUse`, `Stop`) | `.agents/plugins/<name>/plugin.json` + `mcp_config.json` + `hooks.json` (`PreToolUse`, `PostToolUse`, `Stop`) |
-
----
-
-## 3. Core Empirical & Conceptual Foundations
-
-1. **Code as Conceptual Model (Unmesh Joshi, *What Is Code?*, martinfowler.com, May 2026)**:
-   - Code is both machine instructions and a **model of understanding**. Passive review of generated code accumulates **Cognitive Debt** (synonym drift and ungrounded abstractions).
-2. **Wittgenstein's Two Theories of Language — How Language Produces Actions & Code**:
-   - **Early Wittgenstein (*Tractatus Logico-Philosophicus*, 1921) — Picture Theory of Language:** Language as a strict, formal, 1-to-1 logical picture of facts $\leftrightarrow$ traditional programming languages, type systems, and unit tests (*instructions for a machine*).
-   - **Late Wittgenstein (*Philosophical Investigations*, 1953) — Meaning as Use & Language as Action:** Natural language as a collaborative toolbox used between a builder and an assistant to coordinate real actions (`Molino & Tagliabue, arXiv:2302.01570`; `Winograd & Flores, 1986`).
-   - **Empirical Proof in Interactive Coding Agents (`Wang, Liang, & Manning, ACL 2016, arXiv:1606.02447`; `MaKTO arXiv:2501.14225`; `Marco Graziano LGDL`; `SciTePress 139777`):** In Stanford's `SHRDLURN` study of 100 human players instructing an AI assistant solely through natural language to perform block-building actions, task completion depended on **(a) avoiding synonyms** (consistent domain vocabulary) and **(b) compositionality** (defining reusable higher-level instructions, exactly like Skills), paired with coworker-style clarification gates (`GROUNDED_EXECUTE` vs `CLARIFICATION_REQUIRED` vs `ESCALATE_OUT_OF_BOUNDS`).
-3. **Why Loop vs. How Loop & "On-the-Loop" Harness Engineering (Kief Morris, Mar 2026)**:
-   - Humans own the **Why Loop**; agents execute the nested **How Loop**. When an agent errs, an **On-the-Loop** engineer upgrades the harness (`CLAUDE.md`/`GEMINI.md`, `MEMORY.md`/`KNOWLEDGE.md`, `SKILL.md`, `PreToolUse` hook, or MCP tool).
-4. **Empirical Science of Skills (`SkillsBench` `arXiv:2602.12670v4`, 87 tasks, 9,396 trajectories)**:
-   - **Human-Authored Skills ("A Conciencia")**: **+16.6 pp** average pass-rate lift (`33.9% -> 50.5%`; **+24.8 pp on Gemini CLI**, **+18.2 pp on Claude Code**).
-   - **Self-Generated Skills Degrade Performance**: **$-8.1\text{ pp}$ on Claude Code**, **$-11.3\text{ pp}$ on Codex**, and **$-11.5\text{ pp}$ on Gemini CLI** below the No-Skills baseline due to training-data regurgitation and hallucinated unit conversions (`1000x` trap).
-   - **Skill Overload Penalty**: `2–3` focused skills achieve peak lift (**+19.0 pp**), whereas `>= 4` skills drop to **+10.1 pp** due to routing collisions.
+| **1. Permission Modes & Earned Autonomy** | `.claude/settings.json` (`plan`, `default`, `acceptEdits`, `auto`) + `Shift+Tab` | `~/.gemini/antigravity-cli/settings.json` (`strict`, `request-review`, `proceed-in-sandbox`, `always-proceed`) + `/config` |
+| **2. Daily `RePPIT` Workflow** | `plan mode` $\to$ Orthogonal Proposals + `/clear` $\to$ Plan (`Ctrl+G`) $\to$ Implement $\to$ Verify + `/rewind` (`Esc+Esc`) | `/grill-me` $\to$ Orthogonal Proposals + `/clear` $\to$ `/plan` (`Implementation Plan` Artifact) $\to$ Implement $\to$ `/browser` + `Walkthrough` Artifact |
+| **3. Context Physics (`<= 40%` Smart Zone)** | `/context`, `/btw` (sandboxed side-query), `/compact [focus]`, `/clear` | `/stats`, `/compress`, `/clear`, `> run.log 2>&1` backpressure |
+| **4. Persistent Project Context Map** | `CLAUDE.md` ($\le 45$ lines) with `@docs/*.md` lazy imports + `.claude/rules/*.md` (`paths:`) | `GEMINI.md` & `AGENTS.md` ($\le 45$ lines) with `@docs/*.md` lazy imports + `.agents/rules/*.md` (`trigger:`) |
+| **5. Cross-Session Memory & Provenance** | `~/.claude/projects/<project>/memory/MEMORY.md` (git-worktree-shared, 200-line cap) + `/memory` | `~/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md` (`#direct`, `#commit`, `#time`, `#session`) + `/memory show\|add\|refresh` |
+| **6. Progressive Skills & `chub` Grounding** | `.claude/skills/{context-hub-docs,reppit-workflow,architecture-guard,harness-audit}/SKILL.md` | `.agents/skills/{context-hub-docs,reppit-workflow,architecture-guard,harness-audit}/SKILL.md` + `/skills` |
+| **7. Subagent Context Firewalls & Council** | `.claude/agents/{code-explorer,code-architect,code-reviewer}.md` + `/feature-dev` + `claude --worktree` | `.agents/agents/{code-explorer,code-architect,code-reviewer}.md` + `.agents/workflows/feature-dev.md` + Mission Control worktrees |
+| **8. Governance Hooks & Closed-Loop Ratchets** | `.claude-plugin/plugin.json` + `PreToolUse` (Exit Code `2`) + `PostToolUse` remediation linter | `.agents/plugins/vibe-engineering-kit/{plugin.json,mcp_config.json,hooks.json}` (`PreToolUse` Exit Code `2`) |

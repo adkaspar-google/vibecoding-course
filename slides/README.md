@@ -1,37 +1,38 @@
-# `slides/` — 36-Slide Widescreen Deck & 7-Module End-to-End Video Curriculum
+# `slides/` — 36-Slide Widescreen Deck & 8-Module End-to-End Video Curriculum
 
-This directory contains the complete widescreen (`16:9`) presentation slide deck, tripartite speaker notes, and the pipeline that renders the narrated `1080p` step-by-step lecture videos for **`Vibe-Coding-Course`** (*From Vibe Coding to Agentic Engineering: Antigravity (`agy`) & Claude Code (`claude`)*).
+This directory contains the complete widescreen (`16:9`) presentation slide deck, tripartite speaker notes, and the pipeline that renders the narrated `1080p` step-by-step lecture videos for **`Vibe-Coding-Course`** (*From Vibe Coding to Agentic Harness Engineering: Antigravity (`agy`) & Claude Code (`claude`)*).
 
 ## 1. Files in `slides/`
 
-- **[`Vibe_Coding_Course_Slides.pdf`](./Vibe_Coding_Course_Slides.pdf)**: Compiled 36-slide widescreen (`16:9`) presentation PDF covering Foundations + Labs 01–06 step-by-step across both the `agy` and `claude` tracks.
+- **[`Vibe_Coding_Course_Slides.pdf`](./Vibe_Coding_Course_Slides.pdf)**: Compiled 36-slide widescreen (`16:9`) presentation PDF covering Phase 1 (Vibe Coding Foundations & Daily Workflows, Modules 1–4) and Phase 2 (Harness Engineering & Agentic Loops, Modules 5–8) across both the `agy` and `claude` branches.
 - **[`Vibe_Coding_Course_Slides.tex`](./Vibe_Coding_Course_Slides.tex)**: Editable LaTeX/TikZ source for all 36 slides.
 - **[`SPEAKER_NOTES.md`](./SPEAKER_NOTES.md)**: Complete 36-slide instructor script with `PURPOSE`, `VERBAL SCRIPT`, and `TRANSITION` for every slide.
-- **[`build_video.py`](./build_video.py)**: Automated parallel TTS + FFmpeg video synthesis pipeline that builds both the 7 standalone module MP4s (`modules/`) and the master full-course video `Vibe_Coding_Course_Lecture.mp4`.
+- **[`build_video.py`](./build_video.py)**: Automated parallel TTS + FFmpeg video synthesis pipeline that builds both the 8 standalone module MP4s (`modules/`) and the master full-course video `Vibe_Coding_Course_Lecture.mp4`.
 
 > [!NOTE]
-> The rendered videos (`Vibe_Coding_Course_Lecture.mp4`, 30 min / ≈47 MB, and the 7 module MP4s, ≈6–9 MB each) are **not tracked in git**. Download them from the course's release assets, or regenerate them locally with the recipe in §3.
+> The rendered videos (`Vibe_Coding_Course_Lecture.mp4` and the 8 module MP4s under `modules/`) are release assets (**not tracked in git**). Download them from the course's release assets, or regenerate them locally with the recipe in §3.
 
 ## 2. Step-by-Step Module Videos (`slides/modules/`)
 
-| Module | Video File | Slide Range | Topics & Lab Walkthrough |
-| :--- | :--- | :--- | :--- |
-| **Module 01** | `modules/Module_01_Foundations_and_Dual_Harnesses.mp4` | Slides 01–06 | Why Pure Vibe Coding Collapses, Joshi's Code as a Model of Understanding, Wittgenstein's Two Theories of Language (*Early Picture Theory* vs. *Late Meaning-as-Use / Language as Action*), Kief Morris's Why/How Loops, `agy` vs. `claude` Architecture Mapping, and `self_diagnose_all.sh` |
-| **Module 02 (Lab 01)** | `modules/Module_02_Lab01_Domain_Vocabulary_and_Language_Games.mp4` | Slides 07–11 | **Lab 01 Step-by-Step**: Shared Domain Vocabulary & Coworker Clarification in `domain_ledger.py` (`REQ-0101..0106`), replacing float dicts with frozen `AccountId` & `MoneyCents`, double-entry `SettlementBatch`, `evaluate_request_readiness()`, and `./self_diagnose.sh` |
-| **Module 03 (Lab 02)** | `modules/Module_03_Lab02_Persistent_Context_and_Auto_Memory.mp4` | Slides 12–16 | **Lab 02 Step-by-Step**: Persistent Context (`CLAUDE.md` with `@docs/*.md` vs. `GEMINI.md` + `.agents/rules/*.md`), Auto Memory (`MEMORY.md` 200-line/25KB cap vs. `KNOWLEDGE.md` Knowledge Items), `/context` (Claude Code) / `/stats` (Gemini CLI) & `/memory`, and `./self_diagnose.sh` |
-| **Module 04 (Lab 03)** | `modules/Module_04_Lab03_Crafting_Skills_Manually.mp4` | Slides 17–21 | **Lab 03 Step-by-Step**: Skillsbench Empirical Proof (`+16.6 pp` curated vs. `-8.1` to `-11.5 pp` self-generated), `agentskills.io` 3-Level Progressive Disclosure, Building `anthropic-brand` (`SKILL.md`, `docs.md`, `slides-deck.md`, `apply_template.md`), and `./self_diagnose.sh` |
-| **Module 05 (Lab 04)** | `modules/Module_05_Lab04_Eval_Viewer_Overload_and_SDT.mp4` | Slides 22–26 | **Lab 04 Step-by-Step**: Skill Catalog Overload & Trigger Confusion, Signal Detection Theory (`d'` Sensitivity & Criterion Bias `c`), `eval-viewer` With-Skill vs. Without-Skill Ablation (`delta_pass_rate`, `token_efficiency_ratio`), Pruning Redundant Skills, and `./self_diagnose.sh` |
-| **Module 06 (Lab 05)** | `modules/Module_06_Lab05_Multi_Agent_Feature_Dev.mp4` | Slides 27–31 | **Lab 05 Step-by-Step**: Anthropic's 7-Phase `feature-dev` Pipeline, Phase-Gated Context Isolation (`code-explorer`, `code-architect`, `code-reviewer`), Phase 3 Clarifying Gate & Phase 6 Confidence-Scored Review (`>= 80`), and `./self_diagnose.sh` |
-| **Module 07 (Lab 06)** | `modules/Module_07_Lab06_Plugins_MCP_and_SDD_Bridge.mp4` | Slides 32–36 | **Lab 06 Capstone Step-by-Step**: Skills vs. Plugins Decision Matrix, Cross-Branch Plugin Manifest (`plugin.json` + `mcp_config.json` + `hooks.json`), Bridging Vibe Coding to SDD (`VibeSpecBridge` -> 8-Section `SPEC.md`), and `./self_diagnose_all.sh` |
+| Phase | Module | Video File | Slide Range | Topics & Lab Walkthrough |
+| :--- | :--- | :--- | :--- | :--- |
+| **Phase 1** | **Module 01 (Lab 01)** | `modules/Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4` | Slides 01–05 | Why Language Produces Code & Actions (Unmesh Joshi/Martin Fowler, Wittgenstein's *Tractatus* vs. *Philosophical Investigations*, Andrew Ng's SE Fundamentals), 2022–2026 Timeline & METR 4-Month Doubling Curve, 4-Pillar AI Engineering Skills Map, Ladder of Earned Autonomy, and **Lab 01 (`prompt_steerer.py`)** |
+| **Phase 1** | **Module 02 (Lab 02)** | `modules/Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4` | Slides 06–09 | 3-Layer Agent Stack (`aisuite` & CS146S Lecture 2), Swiss Army Knife Primitives vs. 150-Tool Bloat, Google Antigravity (`agy`) 101, Anthropic Claude Code (`claude`) 101, and **Lab 02 (`wire_trace_inspector.py`)** |
+| **Phase 1** | **Module 03 (Lab 03)** | `modules/Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4` | Slides 10–13 | Task Complexity vs. Workflow Rigor, Socratic `/grill-me`, the 5-Step `RePPIT` Loop (Orthogonal Proposals + Context Reset, `Out of Scope` Guardrail, Phase Model Routing, Reflection), `agy` vs. `claude` Execution & Time-Travel, and **Lab 03 (`reppit_orchestrator.py`)** |
+| **Phase 1** | **Module 04 (Lab 04)** | `modules/Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4` | Slides 14–17 | Stateless Context Physics (`NextAction = LLM(ContextWindow)`), the 40% "Dumb Zone", Output-Redirection Backpressure (`> run.log 2>&1`) & `rendergit`, Frequent Intentional Compaction (FIC) & Leverage Pyramid, and **Lab 04 (`context_compactor.py`)** |
+| **Phase 2** | **Module 05 (Lab 05)** | `modules/Module_05_Context_Primitives_Memory_and_Lab05.mp4` | Slides 18–21 | Cybernetic 2x2 Control Matrix (Guidance vs. Sensors $\times$ Computational vs. Inferential), 150-Instruction Cliff (`ETH Zurich` & `IFScale`), 60-Line `CLAUDE.md`/`GEMINI.md` Map Rule, Cross-Session Memory (`MEMORY.md` vs. `KNOWLEDGE.md`), and **Lab 05 (`context_compiler.py`)** |
+| **Phase 2** | **Module 06 (Lab 06)** | `modules/Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4` | Slides 22–26 | `agentskills.io` 3-Level Progressive Disclosure, Andrew Ng's `context-hub` (`chub` Feedback Loop), Ergonomic MCP Tool Design & Meta-MCP "Code Mode" (`>90%` Token Savings), `SkillsBench` (`+16.6pp` Curated vs. `-1.3pp` Self-Generated) & SDT $d'$, and **Lab 06 (`skill_and_mcp_harness.py`)** |
+| **Phase 2** | **Module 07 (Lab 07)** | `modules/Module_07_Subagent_Firewalls_Council_and_Lab07.mp4` | Slides 27–30 | Subagents as Context Firewalls (`0%` Parent Exploration Bloat), 7-Phase `feature-dev` Pipeline, CS146S Actionable PR Triage (`Must Fix` / `Recommended` / `Consider`) & Karpathy's `llm-council`, and **Lab 07 (`subagent_council.py`)** |
+| **Phase 2** | **Module 08 (Lab 08)** | `modules/Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4` | Slides 31–36 | 4-Tier "Governed by Design" Hooks (`PreToolUse` Exit Code `2`), Custom Remediation Linters (`[VIOLATION] -> [WHY] -> [HOW TO FIX]`), Karpathy's `autoresearch` & `program.md` Ratchet, Why "Lights-Off" Software Factories Fail, Recursive Self-Improvement & Holdout Verification, and **Lab 08 (`autoresearch_harness.py`)** |
 
 ## 3. Regenerating the Deck and Videos Locally
 
 ```bash
-# 1. Slides -> PDF -> 150 DPI PNG frames (needs pdflatex + poppler-utils)
+# 1. Slides -> PDF -> 1920x1080 PNG frames (needs pdflatex + poppler-utils)
 cd slides
 pdflatex -interaction=nonstopmode Vibe_Coding_Course_Slides.tex
 pdflatex -interaction=nonstopmode Vibe_Coding_Course_Slides.tex
-rm -rf png && mkdir -p png && pdftoppm -png -r 150 Vibe_Coding_Course_Slides.pdf png/slide
+rm -rf png && mkdir -p png && pdftoppm -png -r 120 Vibe_Coding_Course_Slides.pdf png/slide
 
 # 2. Pick ONE text-to-speech backend for the 36 narration tracks (needs ffmpeg on PATH)
 export GEMINI_API_KEY=...            # Backend B: public Gemini API (gemini-2.5-flash-preview-tts), no SDK needed

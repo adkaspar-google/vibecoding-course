@@ -63,8 +63,8 @@
   \node[anchor=north east, fill=gbggray, draw=gborder, line width=0.8pt, rounded corners=4pt, inner xsep=10pt, inner ysep=4pt, font=\fontsize{10}{12}\selectfont\bfseries, text=gmuted] at ($(current page.north east)+(-0.65,-0.32)$) {VIBE-CODING-COURSE \quad|\quad SLIDE #1};
 
   % Title & Subtitle
-  \node[anchor=north west, font=\fontsize{25}{30}\selectfont\bfseries, text=gdark, text width=14.7in] at ($(current page.north west)+(0.65,-0.76)$) {#3};
-  \node[anchor=north west, font=\fontsize{13.5}{17}\selectfont, text=gmuted, text width=14.7in] at ($(current page.north west)+(0.65,-1.26)$) {#4};
+  \node[anchor=north west, font=\fontsize{23.5}{28}\selectfont\bfseries, text=gdark, text width=14.7in] at ($(current page.north west)+(0.65,-0.76)$) {#3};
+  \node[anchor=north west, font=\fontsize{13}{16.5}\selectfont, text=gmuted, text width=14.7in] at ($(current page.north west)+(0.65,-1.26)$) {#4};
   \draw[gborder, line width=0.8pt] ($(current page.north west)+(0.65,-1.62)$) -- ($(current page.north east)+(-0.65,-1.62)$);
 
   % Slide Content Area Origin: (0.65, -1.85) to (15.35, -8.40) -> width 14.7in, height 6.55in
@@ -74,973 +74,1325 @@
 
   % Footer
   \draw[gborder, line width=0.6pt] ($(current page.south west)+(0.65,0.48)$) -- ($(current page.south east)+(-0.65,0.48)$);
-  \node[anchor=south west, font=\fontsize{10}{12}\selectfont, text=gmuted] at ($(current page.south west)+(0.65,0.18)$) {Vibe-Coding-Course (Branches: \code{agy} \& \code{claude}) \quad $\bullet$ \quad Apache-2.0 Open-Access Prerequisite to SDD-Crash-Course};
-  \node[anchor=south east, font=\fontsize{10}{12}\selectfont\bfseries, text=gblue] at ($(current page.south east)+(-0.65,0.18)$) {Conceptual Models $\times$ Language Games $\times$ Skills $\times$ Multi-Agent};
+  \node[anchor=south west, font=\fontsize{9.5}{12}\selectfont, text=gmuted] at ($(current page.south west)+(0.65,0.18)$) {Author: Alejandro Kaspar - AI Forward Deployed Engineer \quad $\bullet$ \quad Licensed under CC BY 4.0 \& Apache 2.0 (Branches: \code{agy} \& \code{claude})};
+  \node[anchor=south east, font=\fontsize{9.5}{12}\selectfont\bfseries, text=gblue] at ($(current page.south east)+(-0.65,0.18)$) {Phase 1: Vibe Coding Foundations \quad|\quad Phase 2: Agentic Harness Engineering};
 \end{tikzpicture}%
 }
 
 \newcommand{\bcard}[7]{% x, y, w, h, fill, border, title+body
   \node[anchor=north west, fill=#5, draw=#6, line width=1.1pt, rounded corners=6pt, minimum width=#3in, minimum height=#4in, inner sep=0pt] at (#1,#2) {};
-  \node[anchor=north west, text width=#3in-0.44in, align=left, font=\fontsize{12.5}{16.5}\selectfont, text=gdark] at ($(#1,#2)+(0.22,-0.18)$) {#7};
+  \node[anchor=north west, text width=#3in-0.44in, align=left, font=\fontsize{12}{15.8}\selectfont, text=gdark] at ($(#1,#2)+(0.22,-0.18)$) {#7};
 }
 
 \begin{document}
 
 % ============================================================================
-% MODULE 01: FOUNDATIONS, CONCEPTUAL MODELS & DUAL-BRANCH ARCHITECTURE (SLIDES 01-06)
+% MODULE 01 (SLIDES 01-05): FROM NATURAL LANGUAGE TO EXECUTABLE CODE:
+% THE 2022-2026 EVOLUTION, VIBE CODING & THE AI ENGINEERING SKILLS MAP (LAB 01)
 % ============================================================================
 
 % SLIDE 01
-\slideshell{01 / 36}{MODULE 01: FOUNDATIONS \& ARCHITECTURE}{From Vibe Coding to Agentic Engineering (\texttt{agy} \& \texttt{claude})}{The Prerequisite Engineering Course Preceding Spec-Driven Development (\texttt{SDD-Crash-Course})}{
-  \bcard{0}{0}{4.7}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gblue}{1. Code as Model \& Language as Action}}\\[7pt]
-    \textbf{Fowler (May 2026) \& Wittgenstein's 2 Theories:}\\[4pt]
-    $\bullet$ Code is not merely syntax for a machine; it is an explicit \textbf{model of understanding}.\\[4pt]
-    $\bullet$ Early \emph{Tractatus} (Picture Theory / formal code) vs.\ Late \emph{Investigations} (Language as Action).\\[4pt]
-    $\bullet$ Shared domain vocabulary + coworker clarification gates (\code{Lab 01}).
+\slideshell{01 / 36}{MODULE 01: TWO-PHASE COURSE OVERVIEW}{From Vibe Coding to Agentic Harness Engineering (\texttt{agy} \& \texttt{claude})}{Two-Phase Intensive Engineering Course \quad|\quad Author: Alejandro Kaspar - AI Forward Deployed Engineer (\texttt{CC BY 4.0} / \texttt{Apache 2.0})}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{15}{19}\selectfont\bfseries\textcolor{gblue}{Phase 1 (Modules 1--4): Vibe Coding Foundations \& Workflows}}\\[6pt]
+    \textbf{Mastering Daily Execution in Google Antigravity (\code{agy}) \& Claude Code (\code{claude}):}\\[4pt]
+    $\bullet$ \textbf{Module 1 (Lab 01):} Language-to-code foundations, the 2022--2026 evolution, Andrew Ng's 4-Pillar AI Engineering Skills Map, and the Ladder of Earned Autonomy (\code{prompt\_steerer.py}).\\[3pt]
+    $\bullet$ \textbf{Module 2 (Lab 02):} Inside the 3-Layer Agent Stack, \code{agy} 101, \code{claude} 101, Swiss Army Knife tool primitives, and Wireshark-style harness trace inspection (\code{wire\_trace\_inspector.py}).\\[3pt]
+    $\bullet$ \textbf{Module 3 (Lab 03):} The 5-step \code{RePPIT} loop (\code{Research $\to$ Propose $\to$ Plan $\to$ Implement $\to$ Verify}), orthogonal proposals + context reset, and reflection (\code{reppit\_orchestrator.py}).\\[3pt]
+    $\bullet$ \textbf{Module 4 (Lab 04):} Stateless context window physics, the \textbf{40\% ``Dumb Zone''}, output-redirection backpressure, and Frequent Intentional Compaction (\code{context\_compactor.py}).
   }
-  \bcard{5.0}{0}{4.7}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{2. Context, Memory \& Curated Skills}}\\[7pt]
-    \textbf{Progressive Disclosure \& \code{SkillsBench}:}\\[4pt]
-    $\bullet$ Concise root context ($\le 40$ lines) with on-demand \code{@docs/*.md} imports + Git-worktree Auto-Memory (\code{Lab 02}).\\[4pt]
-    $\bullet$ Craft \code{agentskills.io} skills manually (\textbf{+16.6 pp}); never self-generate (\textbf{$-$8.1 to $-$11.5 pp}) (\code{Lab 03}).\\[4pt]
-    $\bullet$ Cap active skills at \code{2--3} \& calibrate triggers with \code{eval-viewer} + Signal Detection Theory (\code{Lab 04}).
-  }
-  \bcard{10.0}{0}{4.7}{4.1}{gbgyellow}{gyellow}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gdark}{3. Multi-Agent, Plugins \& SDD Bridge}}\\[7pt]
-    \textbf{\code{feature-dev}, MCP \& Harness Flywheel:}\\[4pt]
-    $\bullet$ Orchestrate read-only \code{code-explorer}, \code{code-architect}, and \code{code-reviewer} subagents (\code{Lab 05}).\\[4pt]
-    $\bullet$ Bundle skills, subagents, \code{PreToolUse} hooks, and MCP servers into versioned plugins (\code{Lab 06}).\\[4pt]
-    $\bullet$ Escalate $\ge 3$-service brownfield changes to \textbf{Spec-Driven Development} (\code{SDD-Crash-Course}).
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{15}{19}\selectfont\bfseries\textcolor{ggreen}{Phase 2 (Modules 5--8): Harness Engineering \& Agentic Loops}}\\[6pt]
+    \textbf{Architecting $\text{Agent} = \text{Model} + \text{Harness}$ for Production Codebases:}\\[4pt]
+    $\bullet$ \textbf{Module 5 (Lab 05):} Cybernetic 2x2 Control Matrix, the 150-Instruction Cliff, the 60-line \code{CLAUDE.md}/\code{GEMINI.md} map rule, and cross-session auto-memory (\code{context\_compiler.py}).\\[3pt]
+    $\bullet$ \textbf{Module 6 (Lab 06):} \code{agentskills.io} 3-level progressive disclosure, \code{context-hub} (\code{chub}) self-annotating docs, \code{SkillsBench} (\textbf{+16.6pp}), and Meta-MCP ``Code Mode'' (\textbf{$>$90\%} savings).\\[3pt]
+    $\bullet$ \textbf{Module 7 (Lab 07):} Subagents as context firewalls, 7-phase \code{feature-dev}, CS146S PR triage (\code{Must Fix / Recommended / Consider}), and Karpathy's \code{llm-council} (\code{subagent\_council.py}).\\[3pt]
+    $\bullet$ \textbf{Module 8 (Lab 08):} 4-Tier ``Governed by Design'' hooks, remediation linters, Karpathy's \code{autoresearch} ratchet, why dark factories fail, and Recursive Self-Improvement (\code{autoresearch\_harness.py}).
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{Dual-Branch Parity (\texttt{agy} for Antigravity / Gemini CLI $\times$ \texttt{claude} for Claude Code) + 6 Self-Diagnosing Python Labs}}\\[5pt]
-    $\bullet$ \textbf{Module 01:} Foundations, Fowler, Wittgenstein's 2 Theories \& Dual Harnesses \quad $\bullet$ \textbf{Module 02 (Lab 01):} Shared Vocabulary \& Clarification Gates\\[2pt]
-    $\bullet$ \textbf{Module 03 (Lab 02):} \code{CLAUDE.md}/\code{GEMINI.md} \& Worktree Memory \quad $\bullet$ \textbf{Module 04 (Lab 03):} Crafting \code{anthropic-brand/} Skills Manually\\[2pt]
-    $\bullet$ \textbf{Module 05 (Lab 04):} \code{eval-viewer} \& Skill Overload \quad $\bullet$ \textbf{Module 06 (Lab 05):} 7-Phase \code{feature-dev} Multi-Agent \quad $\bullet$ \textbf{Module 07 (Lab 06):} Plugins, MCP \& SDD Bridge
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{14}{17.5}\selectfont\bfseries\textcolor{gnavy}{1-to-1 Dual-Branch Parity (\texttt{agy} \& \texttt{claude}) + 8 Self-Diagnosing Python Labs (\texttt{./self\_diagnose\_all.sh} in $< 1\text{s}$)}}\\[4pt]
+    $\bullet$ \textbf{Google Antigravity (\code{agy}) Branch:} \code{GEMINI.md} / \code{AGENTS.md}, \code{.agents/rules/}, \code{.agents/skills/}, \code{.agents/agents/}, \code{.agents/workflows/}, \code{.agents/plugins/}, and \code{KNOWLEDGE.md}.\\[2pt]
+    $\bullet$ \textbf{Anthropic Claude Code (\code{claude}) Branch:} \code{CLAUDE.md}, \code{.claude/rules/}, \code{.claude/skills/}, \code{.claude/agents/}, \code{.claude-plugin/plugin.json}, and \code{MEMORY.md}.\\[2pt]
+    $\bullet$ \textbf{Open-Source Licensing:} Dual-licensed under \textbf{CC BY 4.0} and \textbf{Apache 2.0} with zero external package dependencies required to run all 8 labs.
   }
 }
 
 % SLIDE 02
-\slideshell{02 / 36}{MODULE 01: PHILOSOPHY OF CODE}{Unmesh Joshi's ``What Is Code?'' (May 2026): Code as a Model of Understanding}{Why cheaper LLM syntax makes domain vocabulary, explicit conceptual models, and active thinking more important than ever}{
-  \bcard{0}{0}{7.1}{3.95}{gbgred}{gred}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gred}{The Trap: ``Ralph Wiggum'' Vibe Coding \& Cognitive Debt}}\\[7pt]
-    \textbf{1. Passive Diff Review:} Treating the LLM as a black-box syntax generator and judging output only by whether a demo runs.\\[4pt]
-    \textbf{2. Vocabulary \& Synonym Drift:} Across three prompts, the agent invents \code{client\_id}, \code{cust\_acct}, and \code{user\_id} for the same account entity.\\[4pt]
-    \textbf{3. IEEE-754 Float Corruption:} Mixing \code{tx\_amt = 19.99} floats instead of integer minor units (\code{MoneyCents}), breaking conservation.\\[4pt]
-    \textbf{4. Silent Hallucination:} Guessing missing exchange rates (\code{rate = 1.0}) instead of asking a coworker-style clarifying question.
+\slideshell{02 / 36}{MODULE 01: LANGUAGE, CODE \& SE FUNDAMENTALS}{Why Language Produces Code \& Actions: Fowler, Wittgenstein \& Ng}{Unmesh Joshi \& Martin Fowler (\emph{What Is Code?}), Wittgenstein's Two Theories of Language, and Andrew Ng's SE Steering Rule}{
+  \bcard{0}{0}{4.7}{4.05}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Unmesh Joshi \& Martin Fowler}}\\[5pt]
+    \textbf{\emph{What Is Code?} (\code{martinfowler.com}):}\\[3pt]
+    $\bullet$ Code is not merely syntax for a machine; it is an explicit \textbf{externalized conceptual model}.\\[3pt]
+    $\bullet$ Passive ``vibe reviewing'' creates massive \textbf{Cognitive Debt} (synonym drift, untyped dicts, silent assumptions).\\[3pt]
+    $\bullet$ As syntax becomes cheap, \textbf{discovering precise domain vocabulary} and invariants becomes the core engineering bottleneck.
   }
-  \bcard{7.6}{0}{7.1}{3.95}{gbggreen}{ggreen}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{The Solution: Explicit Conceptual Models \& Vocabulary}}\\[7pt]
-    \textbf{1. Unmesh Joshi's Thesis (martinfowler.com):} ``We are not meant to be passive reviewers of generated code. The act of writing code is itself part of our thinking.''\\[4pt]
-    \textbf{2. Ubiquitous Language Value Objects:} Encode domain nouns and invariants directly into frozen types (\code{AccountId}, \code{MoneyCents}, \code{SettlementBatch}).\\[4pt]
-    \textbf{3. Iterative Vocabulary Refinement:} Refine domain terms through feedback, domain expertise, and deterministic tests.\\[4pt]
-    \textbf{4. Foundation for Humans + LLMs:} Clean abstractions compress context so both humans and agents reason accurately.
+  \bcard{5.0}{0}{4.7}{4.05}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. Wittgenstein's Two Theories}}\\[5pt]
+    \textbf{Why Natural Language Coordinates Code:}\\[3pt]
+    $\bullet$ \textbf{Early \emph{Tractatus} (Picture Theory):} Formal 1-to-1 logical structure---analogous to compilers, static types, and deterministic unit tests.\\[3pt]
+    $\bullet$ \textbf{Late \emph{Investigations} (Language-as-Action):} Words are active tools in a shared workspace (\code{arXiv:1606.02447}, \code{arXiv:2302.01570}).\\[3pt]
+    $\bullet$ Collaborative prompting aligns intent so the agent emits formal, test-verified code.
+  }
+  \bcard{10.0}{0}{4.7}{4.05}{gbgyellow}{gyellow}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Andrew Ng's SE Steering Rule}}\\[5pt]
+    \textbf{Why Fundamentals Beat Raw Vibes:}\\[3pt]
+    $\bullet$ A novice who vibe codes without \textbf{Software Engineering Fundamentals} lets the agent make poor default tradeoffs.\\[3pt]
+    $\bullet$ Without explicit constraints, agents ignore \textbf{latency, consistency, idempotency, reliability, maintainability, and blast radius}.\\[3pt]
+    $\bullet$ Precise architectural vocabulary is the steering wheel of an AI coding agent.
   }
 
-  \bcard{0}{-4.20}{14.7}{2.10}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Core Principle: Code Is Still Instructions for a Machine---But Primarily a Model of Understanding}}\\[5pt]
-    $\bullet$ ``As LLMs make code generation cheaper, the mechanical act of writing instructions becomes less central. What becomes more important is \textbf{making the conceptual model explicit, discovering the right vocabulary, and refining that vocabulary through iteration, domain expertise, and feedback}.'' --- \emph{Unmesh Joshi, martinfowler.com, May 2026}
+  \bcard{0}{-4.25}{14.7}{2.05}{gbggray}{gnavy}{
+    {\fontsize{14}{17.5}\selectfont\bfseries\textcolor{gnavy}{The Conceptual Synthesis: Conversational Alignment $\to$ Architectural Constraints $\to$ Deterministic Verification}}\\[4pt]
+    $\bullet$ \textbf{Naive Vibe Prompt:} \code{"Build a webhook payment handler"} $\to$ Produces non-idempotent float math, unbounded retries, and SQL injection vectors.\\[2pt]
+    $\bullet$ \textbf{SE-Steered Prompt:} \code{"Implement an idempotent webhook handler using integer minor units, p99 < 50ms bounded retries, and strict schema validation."}
   }
 }
 
 % SLIDE 03
-\slideshell{03 / 36}{MODULE 01: LANGUAGE AS ACTION}{Wittgenstein's Two Theories of Language: How Language Produces Actions \& Code}{Why Vibe Coding requires both Early Wittgenstein's formal precision and Late Wittgenstein's collaborative language-as-action}{
-  \bcard{0}{0}{4.7}{4.05}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Early Theory: Picture Theory}}\\[5pt]
-    \textbf{\emph{Tractatus Logico-Philosophicus} (1921):}\\[3pt]
-    $\bullet$ Language as a strict, formal, 1-to-1 logical picture of facts in the world.\\[3pt]
-    $\bullet$ \textbf{Software Analog:} Programming languages, compilers, type systems (\code{AccountId}, \code{MoneyCents}), and unit tests.\\[3pt]
-    $\bullet$ Gives the machine an unambiguous formal specification.
+\slideshell{03 / 36}{MODULE 01: 2022--2026 TIMELINE \& METR CURVE}{The 2022--2026 Architectural Timeline \& Anthropic's 5-Stage Evolution}{Chronological evolution from autocomplete to Harness Engineering + METR 4-month autonomous task-horizon doubling}{
+  % Top 6-Era Visual Timeline Boxes (y=0 to -2.75)
+  \bcard{0.00}{0}{2.32}{2.75}{gbggray}{gborder}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gdark}{1. Late 2022}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{Copilot GA} (Jun '22)\\
+    $\bullet$ \textbf{ReAct} (\code{2210.03629})\\
+    $\bullet$ \textbf{ChatGPT} (Nov '22)\\[2pt]
+    \emph{Ghost-text Tab \& copy-paste chat.}}
   }
-  \bcard{5.0}{0}{4.7}{4.05}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. Late Theory: Meaning as Use}}\\[5pt]
-    \textbf{\emph{Philosophical Investigations} (1953):}\\[3pt]
-    $\bullet$ Words are tools in a collaborative \textbf{Language Game} (\emph{Builder \& Assistant}, \code{§2}, \code{§43}).\\[3pt]
-    $\bullet$ \textbf{Vibe Coding Analog:} Using natural language with an AI coworker inside a shared context (\code{CLAUDE.md}/\code{GEMINI.md}, Skills) to coordinate actions and produce code (\code{arXiv:2302.01570}).
+  \bcard{2.47}{0}{2.32}{2.75}{gbgblue}{gblue}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gblue}{2. 2023}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{Cursor} launch (Mar)\\
+    $\bullet$ \textbf{Function Calling} \code{gpt-4-0613} (Jun)\\
+    $\bullet$ \textbf{Parallel \code{tools}} \& \textbf{SWE-bench}\\[2pt]
+    \emph{JSON \code{tool\_calls} \& \code{@Codebase}.}}
   }
-  \bcard{10.0}{0}{4.7}{4.05}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Empirical Proof in Coding Agents}}\\[5pt]
-    \textbf{Stanford \code{SHRDLURN} (\code{arXiv:1606.02447}):}\\[3pt]
-    $\bullet$ 100 players instructing an AI builder via language: success depends on \textbf{avoiding synonyms} \& \textbf{reusable abstractions} (Skills).\\[3pt]
-    $\bullet$ \textbf{MaKTO (\code{arXiv:2501.14225}) \& \code{LGDL}:} Grounded dialogue wins \textbf{61\%} (\textbf{+23\% vs.\ GPT-4o}); asks clarifying questions when $\text{conf} < 0.85$.
+  \bcard{4.94}{0}{2.32}{2.75}{gbggreen}{ggreen}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{ggreen}{3. 2024}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{1M--2M Context} (Feb)\\
+    $\bullet$ \textbf{\code{.cursorrules}} (Jun)\\
+    $\bullet$ \textbf{OpenAI \code{o1}} RL (Sep)\\
+    $\bullet$ \textbf{Anthropic MCP} (Nov)\\[2pt]
+    \emph{Test-time CoT \& USB-C tools.}}
+  }
+  \bcard{7.41}{0}{2.32}{2.75}{gbgyellow}{gyellow}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gdark}{4. Early 2025}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{DeepSeek-R1 RLVR}\\
+    $\bullet$ Karpathy \textbf{Vibe Coding}\\
+    $\bullet$ \textbf{Claude Code} + \code{CLAUDE.md}\\
+    $\bullet$ \textbf{Google A2A} \& \textbf{Claude 4}\\
+    $\bullet$ \textbf{Gemini CLI} \code{GEMINI.md} + \code{AGENTS.md}}
+  }
+  \bcard{9.88}{0}{2.32}{2.75}{gbgred}{gred}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gred}{5. Late 2025}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{Subagents \& Hooks}\\
+    $\bullet$ \textbf{Plugins} (Oct '25)\\
+    $\bullet$ \textbf{\code{SKILL.md}} (Oct '25)\\
+    $\bullet$ \textbf{Google Antigravity} (Nov '25)\\
+    $\bullet$ \textbf{\code{agentskills.io}} (Dec)}
+  }
+  \bcard{12.35}{0}{2.35}{2.75}{gbgblue}{gnavy}{
+    {\fontsize{11.5}{14}\selectfont\bfseries\textcolor{gnavy}{6. 2026 -- NOW}}\\[3pt]
+    {\fontsize{10}{12.5}\selectfont
+    $\bullet$ \textbf{Harness Engineering}\\
+    $\bullet$ Karpathy \textbf{\code{autoresearch}} / \code{program.md}\\
+    $\bullet$ Ng \textbf{\code{OpenWorker}} \& \textbf{\code{chub}}\\
+    $\bullet$ Stanford \textbf{CS146S} \code{RePPIT}\\
+    $\bullet$ \textbf{Anthropic RSI}}
   }
 
-  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{The Vibe Coding Synthesis: Late Wittgenstein Drives the Conversation $\to$ Early Wittgenstein Verifies the Code}}\\[5pt]
-    $\bullet$ We use \textbf{Late Wittgenstein's collaborative language-as-action} to align intent, vocabulary (\code{CLAUDE.md}/\code{GEMINI.md}), and skills (\code{SKILL.md}) with our AI coworker---so the agent produces \textbf{Early Wittgenstein's formal code} verified by types and tests (\emph{Winograd \& Flores, 1986}).
+  % Bottom Left: Visual Exponential Curve Chart (METR Task Horizon Doubling)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=8.2in, minimum height=3.35in] at (0,-2.95) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-3.10) {METR 50\%-Reliable Autonomous Task Horizon (Doubling Every $\sim$4 Months)};
+  % Axes
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.65,-5.85) -- (7.85,-5.85);
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.65,-5.85) -- (0.65,-3.50);
+  % Grid lines
+  \draw[gborder, dashed] (0.65,-5.30) -- (7.70,-5.30);
+  \draw[gborder, dashed] (0.65,-4.65) -- (7.70,-4.65);
+  \draw[gborder, dashed] (0.65,-3.95) -- (7.70,-3.95);
+  % Y labels
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.60,-5.80) {30s};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.60,-5.30) {4m};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.60,-4.65) {1h};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.60,-3.95) {12--16h};
+  % X labels
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (1.10,-5.90) {2022};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (2.60,-5.90) {2023};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (4.10,-5.90) {2024};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (5.65,-5.90) {2025};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gblue] at (7.30,-5.90) {2026};
+  % Curve
+  \draw[gblue, line width=2.2pt] (1.10,-5.78) .. controls (2.5,-5.70) and (3.6,-5.45) .. (4.10,-5.30) .. controls (5.0,-5.00) and (6.2,-4.45) .. (7.30,-3.85);
+  \foreach \px/\py/\lbl in {1.10/-5.78/30s, 2.60/-5.60/2m, 4.10/-5.30/4m (SWE), 5.65/-4.65/90m (RLVR), 7.30/-3.85/12--16 hrs} {
+    \fill[gred] (\px,\py) circle (3pt);
+    \node[anchor=south, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gdark, fill=white, inner sep=1.5pt] at (\px,\py+0.07) {\lbl};
+  }
+
+  % Bottom Right: Anthropic's 5-Stage Evolution & 2026 Production Metrics
+  \bcard{8.45}{-2.95}{6.25}{3.35}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Anthropic's 5-Stage Evolution \& 2026 Empirical Benchmarks}}\\[4pt]
+    {\fontsize{11.2}{14.5}\selectfont
+    \textbf{1. Manual (2021--23)} $\to$ \textbf{2. Chatbots (2023--25)} $\to$ \textbf{3. Coding Agents (2025)} $\to$ \textbf{4. Long-Horizon Agents (Today)} $\to$ \textbf{5. Recursive Loop}\\[4pt]
+    $\bullet$ \textbf{$>$80\% of Production Code} at Anthropic authored by Claude (\textbf{8x daily LOC} per engineer).\\[2pt]
+    $\bullet$ \textbf{Open-Ended Session Success:} Climbed from \textbf{26\% $\to$ 76\%--91\%} across 2025--2026.\\[2pt]
+    $\bullet$ \textbf{52x CPU Training Kernel Speedup} in an 8-hr autonomous loop (vs.\ 4x human baseline).\\[2pt]
+    $\bullet$ \textbf{Amdahl's Law Shift:} Bottleneck moved from \emph{writing syntax} to \textbf{architecture \& verification}.}
   }
 }
 
 % SLIDE 04
-\slideshell{04 / 36}{MODULE 01: ON-THE-LOOP HARNESS ENGINEERING}{Humans and Agents in Software Engineering Loops (Kief Morris, martinfowler.com, Mar 2026)}{Separating the human-owned ``Why Loop'' from the agent-executed nested ``How Loops'' via Harness Engineering}{
-  \bcard{0}{0}{3.45}{3.95}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Human ``Why Loop''}}\\[6pt]
-    \textbf{Problem \& Value Framing:}\\[4pt]
-    $\bullet$ Define business outcomes, domain boundaries, and Ubiquitous Language.\\[4pt]
-    $\bullet$ Own the conceptual model and ethical/architectural trade-offs.\\[4pt]
-    $\bullet$ Never abdicate the \emph{Why} to statistical token generation.
+\slideshell{04 / 36}{MODULE 01: AI SKILLS MAP \& VIBE CODING SPECTRUM}{Andrew Ng's 4-Pillar AI Engineering Skills Map \& Earned Autonomy}{Mapping DeepLearning.AI's 20 skills across 4 Pillars + Karpathy's Vibe Coding Spectrum \& \texttt{openworker} Earned Autonomy}{
+  \bcard{0.00}{0}{3.50}{3.75}{gbgblue}{gblue}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gblue}{Pillar 01: Building AI Apps}}\\[4pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{1.1 LLM Foundations:} Tokenization, context windows, cache hits, tool calling.\\[2pt]
+    $\bullet$ \textbf{1.2 Grounding:} Prompt vs.\ on-demand retrieval (\code{chub}).\\[2pt]
+    $\bullet$ \textbf{1.3 Agentic Systems:} Harnesses, MCP, memory, guardrails.\\[2pt]
+    $\bullet$ \textbf{1.4--1.6 Evals \& Prod:} Deterministic + LLM-judge evals.}
   }
-  \bcard{3.75}{0}{3.45}{3.95}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. Outer ``How Loop''}}\\[6pt]
-    \textbf{Context \& Memory Harness:}\\[4pt]
-    $\bullet$ Root \code{CLAUDE.md} / \code{GEMINI.md} ($\le 40$ lines) + \code{@docs/*.md} imports.\\[4pt]
-    $\bullet$ Worktree-shared Auto-Memory (\code{MEMORY.md} / \code{KNOWLEDGE.md}) with \code{\#direct} provenance.
+  \bcard{3.73}{0}{3.50}{3.75}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Pillar 02: SE Fundamentals}}\\[4pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{2.1--2.2 Full-Stack \& Data:} Schemas, transactions, state.\\[2pt]
+    $\bullet$ \textbf{2.3 System Architecture:} Latency, consistency, modularity.\\[2pt]
+    $\bullet$ \textbf{2.4 Security \& Reliability:} Shift-left scanning, blast radius.\\[2pt]
+    $\bullet$ \textbf{2.5 Prod Ops:} Observability \& resilience steering.}
   }
-  \bcard{7.50}{0}{3.45}{3.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Middle ``How Loop''}}\\[6pt]
-    \textbf{Skills \& Subagents:}\\[4pt]
-    $\bullet$ Manually crafted \code{SKILL.md} manuals (\code{2--3} active skills sweet spot).\\[4pt]
-    $\bullet$ 7-phase \code{feature-dev} orchestration (\code{code-explorer}, \code{code-architect}, \code{code-reviewer}).
+  \bcard{7.46}{0}{3.50}{3.75}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Pillar 03: Coding Agents}}\\[4pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{3.1 Directing Workflow:} Upfront planning vs.\ fast execution.\\[2pt]
+    $\bullet$ \textbf{3.2 Enabling Autonomy:} Permission tiers \& subagents.\\[2pt]
+    $\bullet$ \textbf{3.3 Reviewing Work:} Diffs, browser receipts, evals.\\[2pt]
+    $\bullet$ \textbf{3.4--3.5 Customizing Harness:} \code{CLAUDE.md}/\code{GEMINI.md}, Skills, Hooks.}
   }
-  \bcard{11.25}{0}{3.45}{3.95}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{4. Inner ``How Loop''}}\\[6pt]
-    \textbf{TDD \& Immutable Verifier:}\\[4pt]
-    $\bullet$ Fast code generation verified by deterministic unit tests.\\[4pt]
-    $\bullet$ Protected by \code{PreToolUse} hooks blocking edits to \code{adversarial\_tests/}.
+  \bcard{11.20}{0}{3.50}{3.75}{gbgred}{gred}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gred}{Pillar 04: Shaping the Build}}\\[4pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{4.1 Driving the Build Loop:} Rapid Idea $\to$ MVP $\to$ Prod in small batches.\\[2pt]
+    $\bullet$ \textbf{4.2 Product Decisions:} Scoping vertical slices.\\[2pt]
+    $\bullet$ \textbf{4.3--4.4 High Agency:} ``The Conductor Mindset''---orchestrating over abdicating.}
   }
 
-  \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gnavy}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{Kief Morris's ``On-the-Loop'' Harness Flywheel (Implemented in Lab 06 \texttt{harness\_flywheel.py})}}\\[5pt]
-    $\bullet$ \textbf{In-the-Loop (Bottleneck):} Human manually fixes every broken code line in the Inner How Loop. \quad $\bullet$ \textbf{On-the-Loop (Flywheel):} Whenever an artifact defect escapes, upgrade the \textbf{Harness} (\code{ROOT\_CONTEXT\_RULE}, \code{AUTO\_MEMORY}, \code{CURATED\_SKILL}, or \code{PRE\_TOOL\_USE\_HOOK}) so that entire class of errors never recurs.
+  % Bottom Visual Spectrum: Karpathy's Vibe Coding vs Conductor Mindset & Ladder of Earned Autonomy
+  \bcard{0}{-3.95}{14.7}{2.35}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Karpathy's Vibe Coding Spectrum \& \texttt{andrewyng/openworker}'s Ladder of Earned Autonomy}}\\[5pt]
+    {\fontsize{11.5}{15}\selectfont
+    \textbf{1. Tier 0 -- Pure Weekend Vibe Coding (\code{MenuGen} / \code{llm-council} hack):} Accept all diffs, ignore code $\to$ \emph{Only for throwaway prototypes.}\\[2pt]
+    \textbf{2. Tier 1 -- Approval-Gated Steering (\code{agy request-review} / \code{claude default}):} Human reviews every edit and shell command.\\[2pt]
+    \textbf{3. Tier 2 -- Sandboxed Auto-Edit (\code{agy proceed-in-sandbox} / \code{claude acceptEdits}):} Auto-approves local file edits; gates network/shell.\\[2pt]
+    \textbf{4. Tier 3 -- Bounded Autonomous Loop (\code{agy always-proceed} / \code{claude auto}):} Reviewer-gated with \textbf{Hard Floors} (never self-approves destructive ops).}
   }
 }
 
 % SLIDE 05
-\slideshell{05 / 36}{MODULE 01: DUAL-HARNESS PARITY}{1-to-1 Architectural Parity: \texttt{claude} Branch vs.\ \texttt{agy} Branch}{Master portable engineering principles once and execute natively in both Claude Code and Antigravity / Gemini CLI}{
-  \bcard{0}{0}{7.1}{4.25}{gbgblue}{gblue}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gblue}{\texttt{claude} Branch (Claude Code Harness)}}\\[7pt]
-    $\bullet$ \textbf{Persistent Context:} \code{CLAUDE.md} ($\le 40$ lines) with \code{@docs/*.md} imports + \code{.claude/rules/*.md} (\code{paths:} globs).\\[4pt]
-    $\bullet$ \textbf{Auto-Memory:} \code{\textasciitilde{}/.claude/projects/<git-repo>/memory/MEMORY.md} (shared across git worktrees; first 200 lines / 25 KB auto-loaded).\\[4pt]
-    $\bullet$ \textbf{Skills \& Evaluation:} \code{.claude/skills/anthropic-brand/SKILL.md} invoked via \code{/anthropic-brand}; evaluated with \code{eval-viewer}.\\[4pt]
-    $\bullet$ \textbf{Multi-Agent \& Plugins:} \code{.claude/agents/\{code-explorer, code-architect, code-reviewer\}.md} + \code{.claude-plugin/plugin.json} \& \code{.mcp.json}.\\[4pt]
-    $\bullet$ \textbf{Session Commands:} \code{/context}, \code{/memory}, \code{/feature-dev}, \code{/compact}, \code{/clear}.
+\slideshell{05 / 36}{MODULE 01: LAB 01 WALKTHROUGH}{Lab 01: Architecture-Guided Steering \& Earned Autonomy (\texttt{prompt\_steerer.py})}{Walking through \texttt{labs/lab\_01\_vibe\_coding\_and\_earned\_autonomy/} across \texttt{agy} and \texttt{claude}}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: SE Prompt Scorer \& Autonomy Tier Router}}\\[6pt]
+    $\bullet$ \textbf{Auditing Naive vs.\ SE-Steered Prompts (\code{score\_prompt\_steering}):}\\[3pt]
+    1. Flags underspecified ``pure vibe'' prompts lacking architectural constraints.\\[2pt]
+    2. Scores explicit \textbf{Pillar 02 SE dimensions}: \code{latency\_sla}, \code{consistency\_model}, \code{failure\_handling}, \code{security\_boundary}, and \code{verification\_command}.\\[4pt]
+    $\bullet$ \textbf{Dual-Harness Permission Mapping (\code{resolve\_autonomy\_tier}):}\\[3pt]
+    Maps risk profiles to \code{\textasciitilde{}/.gemini/antigravity-cli/settings.json} (\code{request-review}, \code{proceed-in-sandbox}, \code{always-proceed}, \code{strict}) and \code{.claude/settings.json} (\code{default}, \code{acceptEdits}, \code{plan}, \code{auto}).
   }
-  \bcard{7.6}{0}{7.1}{4.25}{gbggreen}{ggreen}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{\texttt{agy} Branch (Antigravity / Gemini CLI Harness)}}\\[7pt]
-    $\bullet$ \textbf{Persistent Context:} \code{GEMINI.md} \& \code{AGENTS.md} ($\le 40$ lines) with \code{@docs/*.md} imports + \code{.agents/rules/*.md} (\code{always\_on} \textbar{} \code{model\_decision}).\\[4pt]
-    $\bullet$ \textbf{Knowledge Base:} \code{\textasciitilde{}/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md} + \code{\#direct}, \code{\#commit}, \code{\#time}, \code{\#session} tags.\\[4pt]
-    $\bullet$ \textbf{Skills \& Evaluation:} \code{.agents/skills/anthropic-brand/SKILL.md}; evaluated with paired \code{eval-viewer} \& SDT $d'$.\\[4pt]
-    $\bullet$ \textbf{Multi-Agent \& Plugins:} \code{.agents/agents/*.md} + \code{.agents/workflows/feature-dev.md} + \code{.agents/plugins/vibe-engineering-kit/plugin.json}.\\[4pt]
-    $\bullet$ \textbf{Session Commands:} \code{/stats}, \code{/memory} (\code{show \textbar{} add \textbar{} refresh}), \code{/skills}, \code{/plan}, \code{/compress}.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: Hard Floors \& Circuit-Breaker Verification}}\\[6pt]
+    $\bullet$ \textbf{\code{openworker} Hard Floor Invariant:} Even in \code{always-proceed} or \code{auto} mode, destructive commands (\code{rm -rf}, \code{git push --force}, prod DB drops, secret exfiltration) hit an unbypassable \code{HARD\_FLOOR\_BLOCK}.\\[4pt]
+    $\bullet$ \textbf{Earned Autonomy Graduation:} Repeated verified runs promote commands from one-off approval $\to$ standing allowlist rule; consecutive reviewer denials trip the \textbf{circuit breaker} back to \code{plan} / \code{request-review}.\\[4pt]
+    $\bullet$ \textbf{Run Self-Diagnosis in $< 0.05\text{s}$:}\\[2pt]
+    \code{./labs/lab\_01\_vibe\_coding\_and\_earned\_autonomy/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.45}{14.7}{1.85}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Verified by Automated Track Suites (\texttt{tests/claude\_track/} \& \texttt{tests/agy\_track/})}}\\[4pt]
-    $\bullet$ Both branches run identical domain labs (\code{labs/lab\_01..06}) plus dedicated harness contract test suites (\code{CI=true python3 -m unittest discover -s tests -p "test\_*.py" -v}).
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Lab 01 Key Takeaway: Autonomy Is Earned by Harness Boundaries, Never Granted Blindly}}\\[4pt]
+    $\bullet$ Combine \textbf{Pillar 02 Software Engineering Vocabulary} in your prompt with \textbf{Pillar 03 Permission Tiers \& Hard Floors} in your harness settings before letting an agent execute multi-file changes.
   }
 }
+
+% ============================================================================
+% MODULE 02 (SLIDES 06-09): INSIDE THE AGENTIC LOOP: GOOGLE ANTIGRAVITY (agy),
+% CLAUDE CODE (claude) 101 & HARNESS WIRE-TRACE INSPECTION (LAB 02)
+% ============================================================================
 
 % SLIDE 06
-\slideshell{06 / 36}{MODULE 01: HANDS-ON PLAYGROUND}{The 6 Self-Diagnosing Python Labs (\texttt{./self\_diagnose\_all.sh} in $< 1\text{s}$)}{Every lab includes a broken vibe-coded \texttt{starter/}, a verified \texttt{solution/}, and read-only \texttt{adversarial\_tests/}}{
-  \bcard{0}{0}{4.7}{2.95}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Lab 01: Domain Vocabulary}}\\[5pt]
-    \code{domain\_ledger.py} (\code{REQ-0101..0106})\\[3pt]
-    $\bullet$ \code{AccountId} \& \code{MoneyCents} value objects.\\[2pt]
-    $\bullet$ Double-entry \code{SettlementBatch}.\\[2pt]
-    $\bullet$ 3-way coworker clarification gate.
+\slideshell{06 / 36}{MODULE 02: WIRE-TRACE ANATOMY \& 3-LAYER STACK}{Anatomy of a Coding Agent on the Wire (\texttt{aisuite} \& Stanford CS146S Lecture 2)}{The 3-Layer Agent Stack, 200-line minimal agent vs.\ production JSONL wire trace, and ``Swiss Army Knife'' primitives}{
+  % Left: 3-Layer Agent Stack + 200-Line Loop vs Production Wire Trace
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{The 3-Layer Agent Stack (\texttt{andrewyng/aisuite}) \& Wire Trace}}\\[5pt]
+    {\fontsize{11.3}{14.8}\selectfont
+    \textbf{Layer 1:} \code{Chat Completions API} (Stateless \code{messages[]} $\to$ \code{provider:model}).\\[2pt]
+    \textbf{Layer 2:} \code{Agents API $\cdot$ Toolkits (files, git, shell) $\cdot$ MCP}.\\[2pt]
+    \textbf{Layer 3:} \code{Agent Harness} (Context compiler, permissions, hooks, compaction).\\[5pt]
+    \textbf{200-Line Minimal Agent vs.\ Production HTTP/JSONL Payload:}\\[2pt]
+    $\bullet$ \emph{Minimal Loop:} \code{while tool\_calls: run(read|write|edit|bash)}.\\[2pt]
+    $\bullet$ \emph{Prod Wire Trace:} \code{System Prompt} + \code{CLAUDE.md}/\code{GEMINI.md} + \code{Rules} + \code{Skill YAML Catalog} + \code{Native Tool Schemas} + \code{mcp\_\_* Schemas} + \code{Message History}.}
   }
-  \bcard{5.0}{0}{4.7}{2.95}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Lab 02: Context \& Memory}}\\[5pt]
-    \code{context\_memory\_manager.py} (\code{REQ-0201..0206})\\[3pt]
-    $\bullet$ $\le 40$-line root context + \code{@docs/*.md}.\\[2pt]
-    $\bullet$ Git-worktree Auto-Memory path resolver.\\[2pt]
-    $\bullet$ \code{\#direct} provenance \& 200-line cap.
+  % Right: Visual Comparison of 150-Tool Bloat vs Swiss Army Knife Primitives
+  \bcard{7.6}{0}{7.1}{4.10}{gbgred}{gred}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Why ``Swiss Army Knife'' Primitives Beat 150 CRUD Tools}}\\[5pt]
+    {\fontsize{11.3}{14.8}\selectfont
+    \textbf{CS146S Lecture 2 Wire-Trace Discovery:}\\[2pt]
+    $\bullet$ Mounting a naive 150-endpoint GitHub/Jira MCP server injects \textbf{10,000+ lines of JSON schema definitions} for just \textbf{600 lines of conversation}!\\[4pt]
+    \textbf{The ``Swiss Army Knife'' Consolidation Principle:}\\[2pt]
+    $\bullet$ Production harnesses rely on \textbf{5--8 composable primitives}: \code{Bash}, \code{Read}, \code{Write}, \code{Edit}, \code{Grep}, \code{Glob}, and \code{LSP}.\\[2pt]
+    $\bullet$ Frontier models have deep post-trained fluency in \code{git}, \code{gh}, \code{jq}, \code{ripgrep}, and \code{pytest} via \code{Bash}---saving $>85\%$ of schema tokens!}
   }
-  \bcard{10.0}{0}{4.7}{2.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{Lab 03: Crafting Skills}}\\[5pt]
-    \code{skill\_validator.py} (\code{REQ-0301..0306})\\[3pt]
-    $\bullet$ \code{agentskills.io} frontmatter validator.\\[2pt]
-    $\bullet$ \code{anthropic-brand/} 4-file anatomy.\\[2pt]
-    $\bullet$ Rejects self-generated filler phrases.
-  }
-  \bcard{0}{-3.20}{4.7}{2.95}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Lab 04: \texttt{eval-viewer} \& Overload}}\\[5pt]
-    \code{skill\_eval\_engine.py} (\code{REQ-0401..0406})\\[3pt]
-    $\bullet$ Paired \code{with\_skill} vs.\ \code{without\_skill}.\\[2pt]
-    $\bullet$ \code{2--3} skill cap \& Reference-First merge.\\[2pt]
-    $\bullet$ Trigger calibration \& \code{eval-viewer} HTML.
-  }
-  \bcard{5.0}{-3.20}{4.7}{2.95}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Lab 05: Multi-Agent \texttt{feature-dev}}}\\[5pt]
-    \code{feature\_dev\_orchestrator.py} (\code{REQ-0501..0506})\\[3pt]
-    $\bullet$ Parallel \code{code-explorer} (\code{file:line}).\\[2pt]
-    $\bullet$ Phase 3 \code{ClarificationGateError} STOP.\\[2pt]
-    $\bullet$ Tri-lens \code{code-architect} \& $\ge 80$ review.
-  }
-  \bcard{10.0}{-3.20}{4.7}{2.95}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Lab 06: Plugins, MCP \& SDD}}\\[5pt]
-    \code{harness\_flywheel.py} (\code{REQ-0601..0606})\\[3pt]
-    $\bullet$ \code{plugin.json} + JSON-RPC MCP tool.\\[2pt]
-    $\bullet$ \code{PreToolUse} immutable test guard.\\[2pt]
-    $\bullet$ Flywheel router $\to$ \code{ESCALATE\_TO\_SDD\_SPEC}.
-  }
+
+  % Bottom Visual Wire Payload Bar Diagram
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=14.7in, minimum height=2.00in] at (0,-4.30) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.22,-4.42) {Wire-Trace Token Breakdown: Bloated 150-Tool Harness vs.\ Lean ``Swiss Army Knife'' Harness};
+  % Bar 1: Bloated
+  \node[anchor=west, font=\fontsize{10.5}{13}\selectfont\bfseries, text=gdark] at (0.22,-4.95) {Bloated (150 MCP Tools):};
+  \fill[gblue] (2.70,-5.12) rectangle (3.50,-4.78);
+  \node[font=\fontsize{8.5}{10}\selectfont\bfseries, text=white] at (3.10,-4.95) {Sys/MD};
+  \fill[gred] (3.50,-5.12) rectangle (12.30,-4.78);
+  \node[font=\fontsize{9.5}{11}\selectfont\bfseries, text=white] at (7.90,-4.95) {10,000+ Lines of Granular JSON Tool Schemas (42,000 tok)};
+  \fill[ggreen] (12.30,-5.12) rectangle (14.40,-4.78);
+  \node[font=\fontsize{8.5}{10}\selectfont\bfseries, text=white] at (13.35,-4.95) {Chat (600L)};
+  % Bar 2: Lean Swiss Army Knife
+  \node[anchor=west, font=\fontsize{10.5}{13}\selectfont\bfseries, text=gdark] at (0.22,-5.60) {Swiss Army Knife (Lean):};
+  \fill[gblue] (2.70,-5.77) rectangle (3.50,-5.43);
+  \node[font=\fontsize{8.5}{10}\selectfont\bfseries, text=white] at (3.10,-5.60) {Sys/MD};
+  \fill[ggreen] (3.50,-5.77) rectangle (5.10,-5.43);
+  \node[font=\fontsize{8.5}{10}\selectfont\bfseries, text=white] at (4.30,-5.60) {Core Primitives (3k)};
+  \fill[gbgblue, draw=gblue] (5.10,-5.77) rectangle (14.40,-5.43);
+  \node[font=\fontsize{9.5}{11}\selectfont\bfseries, text=gnavy] at (9.75,-5.60) {88\% Free Smart-Zone Headroom for Codebase Reasoning \& Verification};
 }
 
-% ============================================================================
-% MODULE 02: LAB 01 STEP-BY-STEP — VOCABULARY & COWORKER CLARIFICATION (SLIDES 07-11)
-% ============================================================================
-
 % SLIDE 07
-\slideshell{07 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (1 / 5)}{Lab 01 Problem: The ``Vibe-Coded'' Payments Ledger Disaster}{Inspecting \texttt{labs/lab\_01\_vocabulary\_and\_bounded\_language\_games/starter/domain\_ledger.py}}{
-  \bcard{0}{0}{7.1}{4.1}{gbgred}{gred}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{gred}{What the Ungrounded ``Vibe-Coded'' Starter Does Wrong}}\\[7pt]
-    \textbf{1. Synonym Soup (\code{starter/domain\_ledger.py}):}\\[3pt]
-    $\bullet$ Accepts arbitrary dict keys (\code{acct}, \code{client\_id}, \code{cust\_acct}, \code{user\_id}) with zero regex or type validation.\\[4pt]
-    \textbf{2. IEEE-754 Float Drift:}\\[3pt]
-    $\bullet$ Uses \code{float(entry.get("tx\_amt", 0.0))}, accumulating \code{0.1 + 0.2 != 0.3} penny errors across settlement batches.\\[4pt]
-    \textbf{3. Silent FX Hallucination:}\\[3pt]
-    $\bullet$ When asked to settle \code{JPY -> USD} without a grounded FX rate, it silently invents \code{rate = 1.0} and executes!
+\slideshell{07 / 36}{MODULE 02: GOOGLE ANTIGRAVITY (\texttt{agy}) 101}{Google Antigravity (\texttt{agy}) 101: Mission Control, IDE, Artifacts \& CLI}{Grounded in \texttt{getting-started-google-antigravity}, \texttt{antigravity-cli-hands-on} \& \texttt{build-and-deploy-gcp-with-antigravity}}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Mission Control \& IDE}}\\[5pt]
+    \textbf{Antigravity 2.0 Desktop \& Editor:}\\[3pt]
+    $\bullet$ \textbf{Agent Manager (Mission Control):} Spawn parallel workspace agents across multi-folder Projects.\\[3pt]
+    $\bullet$ \textbf{In-Editor Shortcuts:} \code{Cmd+L} (AI chat pane), \code{Tab to Jump} (next logical edit point), and inline \code{Explain and fix}.\\[3pt]
+    $\bullet$ \textbf{\code{/browser} Chrome Subagent:} Live DOM inspection, console log capture, and visual verification screenshots.
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.5}{19}\selectfont\bfseries\textcolor{ggreen}{Target Architecture: Shared Vocabulary \& Clarification Gate}}\\[7pt]
-    \textbf{1. Ubiquitous Language Value Objects (\code{REQ-0101..0102}):}\\[3pt]
-    $\bullet$ Frozen \code{AccountId} (\code{\textasciicircum{}ACCT-[A-Z0-9]\{4,12\}\$}) and \code{MoneyCents(amount\_cents: int, currency: str)}.\\[4pt]
-    \textbf{2. Double-Entry Conservation (\code{REQ-0103}):}\\[3pt]
-    $\bullet$ \code{SettlementBatch.apply\_postings()} enforces $\sum \text{debits} = \sum \text{credits}$ and non-negative balances.\\[4pt]
-    \textbf{3. Coworker Clarification Gate (\code{REQ-0104..0105}):}\\[3pt]
-    $\bullet$ \code{evaluate\_request\_readiness()} returns \code{CLARIFICATION\_REQUIRED} when FX rates or vocabulary are ungrounded.
+  \bcard{5.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. First-Class Artifacts}}\\[5pt]
+    \textbf{Verifiable Deliverables over Raw Chat:}\\[3pt]
+    $\bullet$ \textbf{\code{Task List}:} Live structured progress checklist updated autonomously.\\[3pt]
+    $\bullet$ \textbf{\code{Implementation Plan}:} Blueprint supporting \textbf{Google Docs-style inline comments} before clicking \textbf{Proceed}.\\[3pt]
+    $\bullet$ \textbf{\code{Walkthrough} (Run Receipt):} Post-implementation proof bundling diffs, test logs, and browser recordings.
+  }
+  \bcard{10.0}{0}{4.7}{4.10}{gbgyellow}{gyellow}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Antigravity CLI (\texttt{agy})}}\\[5pt]
+    \textbf{Terminal \& Headless Automation:}\\[3pt]
+    $\bullet$ \textbf{Core CLI:} \code{agy --version}, \code{agy models}, \code{agy -p "..." --model ...}, and \code{!} Shell Mode toggle.\\[3pt]
+    $\bullet$ \textbf{Settings:} \code{\textasciitilde{}/.gemini/antigravity-cli/settings.json} \& \code{/config}.\\[3pt]
+    $\bullet$ \textbf{Power Slash Commands:} \code{/plan}, \code{/artifact}, \code{/grill-me}, \code{/goal}, \code{/schedule}, \code{/stats}, \code{/memory}, \code{/skills}, \code{/compress}, \code{/clear}.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Terminal Command to Witness the Starter Failure vs.\ Solution Pass}}\\[4pt]
-    $\bullet$ \code{./labs/lab\_01\_vocabulary\_and\_bounded\_language\_games/self\_diagnose.sh labs/lab\_01\_vocabulary\_and\_bounded\_language\_games/starter} \quad $\to$ \textbf{FAILS} on float \& FX checks!
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Antigravity Customization Hierarchy (\texttt{GEMINI.md} + \texttt{AGENTS.md} + \texttt{.agents/})}}\\[4pt]
+    $\bullet$ \textbf{Workspace Configs:} Root \code{GEMINI.md} \& \code{AGENTS.md} $\to$ \code{.agents/rules/*.md} $\to$ \code{.agents/skills/<name>/SKILL.md} $\to$ \code{.agents/agents/*.md} $\to$ \code{.agents/workflows/*.md}.\\[2pt]
+    $\bullet$ \textbf{Persistent Knowledge Items:} Stored at \code{\textasciitilde{}/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md} and managed via \code{/memory show|add|refresh}.
   }
 }
 
 % SLIDE 08
-\slideshell{08 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (2 / 5)}{Lab 01 Step 1 (\texttt{REQ-0101..0102}): Ubiquitous Language Value Objects}{Replacing untyped dicts and IEEE-754 floats with frozen \texttt{AccountId} and \texttt{MoneyCents} dataclasses}{
-  \bcard{0}{0}{7.1}{4.2}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{\texttt{AccountId} \& \texttt{MoneyCents} Invariants (\texttt{REQ-0101})}}\\[6pt]
-    $\bullet$ \textbf{\code{AccountId(value: str)}:} Frozen dataclass validating \code{\textasciicircum{}ACCT-[A-Z0-9]\{4,12\}\$}. Rejects drift synonyms (\code{cust\_acct\_99}) with \code{DomainVocabularyError}.\\[5pt]
-    $\bullet$ \textbf{\code{MoneyCents(amount\_cents: int, currency: str)}:} Rejects \code{float} and \code{bool} with \code{TypeError} (\code{isinstance(amount\_cents, bool) or not isinstance(amount\_cents, int)}).\\[5pt]
-    $\bullet$ \textbf{Supported Currencies:} Validates \code{currency in \{"USD", "EUR", "GBP", "JPY"\}} and enforces currency match on \code{add()} / \code{subtract()}.
+\slideshell{08 / 36}{MODULE 02: CLAUDE CODE (\texttt{claude}) 101}{Anthropic Claude Code (\texttt{claude}) 101: Surfaces, Modes \& Slash Commands}{Grounded in Anthropic Academy's \texttt{claude-code-101} and DeepLearning.AI's \emph{Claude Code: A Highly Agentic Coding Assistant}}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Core Loop \& Surfaces}}\\[5pt]
+    \textbf{Gather Context $\to$ Act $\to$ Verify:}\\[3pt]
+    $\bullet$ Runs natively in \textbf{Terminal CLI (\code{claude})}, \textbf{VS Code / JetBrains}, \textbf{Desktop App}, and \textbf{Web}.\\[3pt]
+    $\bullet$ \textbf{Context Pinning:} Use \code{@file} and \code{@dir/} to inject exact source files without noisy grep searches.\\[3pt]
+    $\bullet$ \textbf{Direct Bash Mode:} Prefix any command with \code{!} (e.g., \code{!pytest -q}) to run shell commands directly in transcript.
   }
-  \bcard{7.6}{0}{7.1}{4.2}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Deterministic Basis-Point Allocation (\texttt{REQ-0102})}}\\[6pt]
-    $\bullet$ \textbf{Why Floats Fail in Fee Calculation:} Computing \code{round(10005 * 0.0029)} in floating point introduces representation drift.\\[5pt]
-    $\bullet$ \textbf{Half-Up Integer Arithmetic:} \code{allocate\_fee\_bps(fee\_bps: int)} computes:\\[4pt]
-    \code{numerator = self.amount\_cents * fee\_bps}\\[2pt]
-    \code{fee\_cents = (numerator + 5000) // 10000}\\[5pt]
-    $\bullet$ Returns \code{(net\_money, fee\_money)} where \code{net\_money.add(fee\_money) == self} holds as an exact mathematical identity.
+  \bcard{5.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. 3-Stage In-Editor Cycle}}\\[5pt]
+    \textbf{Interactive Steering \& \code{Shift+Tab}:}\\[3pt]
+    $\bullet$ \textbf{\code{Shift+Tab} Mode Cycling:} Toggle instantly between \code{Normal} $\to$ \code{Auto-Accept Edits} $\to$ \code{Plan Mode}.\\[3pt]
+    $\bullet$ \textbf{Real-Time Interruption:} Queue follow-up messages mid-flight or press \code{Esc} to halt a runaway tool loop.\\[3pt]
+    $\bullet$ \textbf{Headless CI/Script Mode:} Run \code{claude -p "review diff" --output-format json}.
+  }
+  \bcard{10.0}{0}{4.7}{4.10}{gbgyellow}{gyellow}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Context \& Time-Travel}}\\[5pt]
+    \textbf{Essential Session Commands:}\\[3pt]
+    $\bullet$ \textbf{\code{/init} \& \code{/memory}:} Bootstrap and edit \code{CLAUDE.md} and project \code{MEMORY.md}.\\[3pt]
+    $\bullet$ \textbf{\code{/context}:} Inspect live token usage across system, files, MCP, and messages.\\[3pt]
+    $\bullet$ \textbf{\code{/compact [focus]} \& \code{/clear}:} Compress or wipe history between tasks.\\[3pt]
+    $\bullet$ \textbf{\code{/rewind} (\code{Esc+Esc}) \& \code{/btw}:} Checkpoint rollback and zero-history side queries.
   }
 
-  \bcard{0}{-4.40}{14.7}{1.90}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Fowler Takeaway: The Type System Is Your Shared Vocabulary Contract}}\\[4pt]
-    $\bullet$ Once \code{AccountId} and \code{MoneyCents} are referenced in \code{CLAUDE.md} / \code{GEMINI.md}, every subsequent prompt uses the exact same domain nouns and integer arithmetic.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{1-to-1 Command Translation Cheat Sheet (\texttt{agy} $\leftrightarrow$ \texttt{claude})}}\\[4pt]
+    $\bullet$ \textbf{Inspect Context:} \code{agy /stats} $\leftrightarrow$ \code{claude /context} \quad $\bullet$ \textbf{Compress / Reset:} \code{agy /compress, /clear} $\leftrightarrow$ \code{claude /compact, /clear}\\[2pt]
+    $\bullet$ \textbf{Plan Mode:} \code{agy /plan} (\code{Implementation Plan} Artifact) $\leftrightarrow$ \code{claude Shift+Tab} (\code{Ctrl+G} editor) \quad $\bullet$ \textbf{Shell Toggle:} \code{!} in both CLIs.
   }
 }
 
 % SLIDE 09
-\slideshell{09 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (3 / 5)}{Lab 01 Step 2 (\texttt{REQ-0103}): Bounded-Context Double-Entry Conservation}{Enforcing strict conservation of money and non-negative balances in \texttt{SettlementBatch.apply\_postings()}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{\texttt{LedgerPosting} \& \texttt{SettlementBatch} Contract}}\\[6pt]
-    $\bullet$ \textbf{\code{LedgerPosting}:} Pairs \code{debit\_account: AccountId}, \code{credit\_account: AccountId}, \code{amount: MoneyCents}, and a non-empty \code{narrative: str}.\\[5pt]
-    $\bullet$ \textbf{Self-Transfer Guard:} Rejects \code{debit\_account == credit\_account} and \code{amount.amount\_cents <= 0} with \code{LedgerConservationError}.\\[5pt]
-    $\bullet$ \textbf{Currency Homogeneity:} Every posting in a \code{SettlementBatch} must match the batch's base currency before any balance is mutated.
+\slideshell{09 / 36}{MODULE 02: LAB 02 WALKTHROUGH}{Lab 02: Wireshark-Style Harness Trace Inspector (\texttt{wire\_trace\_inspector.py})}{Inspecting JSONL wire traces, tool schema bloat, and loop circuit breakers in \texttt{labs/lab\_02\_agent\_loop\_and\_harness\_wire\_trace/}}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: Parsing the Wire Trace \& Schema Overhead}}\\[6pt]
+    $\bullet$ \textbf{Inspecting Full HTTP/JSONL Payloads (\code{inspect\_wire\_trace}):}\\[3pt]
+    1. Dissects a captured agent request into \code{system\_prompt}, \code{standing\_context} (\code{CLAUDE.md}/\code{GEMINI.md}), \code{native\_tools}, \code{mcp\_tools}, and \code{messages}.\\[2pt]
+    2. Computes exact token shares and flags when \code{mcp\_tools} schema bloat exceeds the \textbf{15\% schema budget cap}.\\[4pt]
+    $\bullet$ \textbf{Consolidating to Swiss Army Knife Primitives (\code{prune\_to\_core\_primitives}):}\\[3pt]
+    Replaces redundant REST CRUD tool definitions with composable \code{Bash}/\code{Read}/\code{Edit}/\code{Grep} primitives, recovering $>80\%$ of fixed startup overhead.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Atomic Conservation Verification (\texttt{REQ-0103})}}\\[6pt]
-    $\bullet$ \textbf{Pre-Execution Snapshot:} Computes \code{before\_total = sum(b.amount\_cents for b in updated.values())}.\\[5pt]
-    $\bullet$ \textbf{Overdraft Prevention:} If any debit exceeds the source account's current balance, raises \code{LedgerConservationError} without mutating caller state.\\[5pt]
-    $\bullet$ \textbf{Post-Execution Invariant:} Verifies \code{after\_total == before\_total} ($\sum \text{debits} = \sum \text{credits}$), returning a brand-new immutable balance map.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: Runaway Loop Detection \& Self-Diagnosis}}\\[6pt]
+    $\bullet$ \textbf{Detecting Spin Loops on the Wire (\code{detect\_runaway\_tool\_loop}):}\\[3pt]
+    1. Identifies repeated identical tool invocations (\code{tool\_name + canonical\_args}) or oscillating edit-fail-revert cycles across consecutive turns.\\[2pt]
+    2. Trips a deterministic \code{CircuitBreakerError} after $N=3$ repeated failures and emits a structured prompt reset recommendation.\\[4pt]
+    $\bullet$ \textbf{Verify Lab 02 in $< 0.05\text{s}$:}\\[3pt]
+    \code{./labs/lab\_02\_agent\_loop\_and\_harness\_wire\_trace/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Wittgensteinian Lesson: Situated Rules Define Valid Moves in the Game}}\\[4pt]
-    $\bullet$ Just as chess rules forbid moving a rook diagonally, \code{SettlementBatch} makes an unbalanced or overdraft settlement move unrepresentable at runtime.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Lab 02 Key Takeaway: Never Debug an Agent Blind---Inspect the Wire Payload}}\\[4pt]
+    $\bullet$ Whenever an agent behaves erratically or runs slow, inspect the wire trace (\code{/stats} or \code{/context}): 90\% of failures stem from hidden schema bloat or polluted message turns.
   }
 }
 
+% ============================================================================
+% MODULE 03 (SLIDES 10-13): DIRECTING THE DAILY WORKFLOW:
+% RESEARCH -> PROPOSE -> PLAN -> IMPLEMENT -> VERIFY (RePPIT, LAB 03)
+% ============================================================================
+
 % SLIDE 10
-\slideshell{10 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (4 / 5)}{Lab 01 Step 3 (\texttt{REQ-0104..0105}): Coworker Readiness \& Clarification Gate}{Evaluating settlement instructions in \texttt{evaluate\_request\_readiness()} (aliased as \texttt{evaluate\_language\_game\_move()})}{
-  \bcard{0}{0}{4.7}{4.15}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{1. \texttt{ESCALATE\_OUT\_OF\_BOUNDS}}}\\[6pt]
-    \textbf{Policy Violation ($\text{conf} = 0.0$):}\\[4pt]
-    $\bullet$ Triggered when a prompt attempts a prohibited move (\code{override\_audit}, \code{bypass\_conservation}, \code{negative\_settlement}).\\[4pt]
-    $\bullet$ Immediately halts and escalates to a human operator.
+\slideshell{10 / 36}{MODULE 03: WORKFLOW RIGOR \& SOCRATIC INTERVIEWING}{Task Complexity vs.\ Workflow Rigor \& Defeating ``Silent Assumption Syndrome''}{Calibrating process overhead to task blast radius (Stanford CS146S Lecture 3) and Socratic Inversion-of-Control via \texttt{/grill-me}}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Task Complexity vs.\ Workflow Rigor Spectrum}}\\[6pt]
+    $\bullet$ \textbf{Level 1 -- Copy / Typo / Single-Function Tweak:}\\[2pt]
+    \emph{Workflow:} Direct vanilla prompt with \code{@file} pin ($\sim$1 turn).\\[4pt]
+    $\bullet$ \textbf{Level 2 -- Small Multi-File Bugfix or Endpoint (2--4 files):}\\[2pt]
+    \emph{Workflow:} Single \textbf{Plan Mode} pass (\code{agy /plan} or \code{claude Shift+Tab}) $\to$ Execute $\to$ Test.\\[4pt]
+    $\bullet$ \textbf{Level 3 -- Medium Feature or Schema Change (4--12 files):}\\[2pt]
+    \emph{Workflow:} Full 5-Step \textbf{\code{RePPIT} Loop} (\code{Research $\to$ Propose $\to$ Plan $\to$ Implement $\to$ Verify}).\\[4pt]
+    $\bullet$ \textbf{Level 4 -- Large Cross-Module Refactor / Migration ($>$12 files):}\\[2pt]
+    \emph{Workflow:} Multi-session stacked vertical slices with isolated \code{git worktree} subagents.
   }
-  \bcard{5.0}{0}{4.7}{4.15}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{2. \texttt{CLARIFICATION\_REQUIRED}}}\\[6pt]
-    \textbf{Ambiguous Request ($\text{conf} < 0.85$):}\\[4pt]
-    $\bullet$ Penalties for drift terms (\code{client\_id}, \code{tx\_amt}, \code{fee\_float}), float amounts, or missing \code{(src, dst)} FX rate in \code{known\_fx\_basis\_points}.\\[4pt]
-    $\bullet$ Returns explicit coworker-style \code{questions} instead of guessing!
-  }
-  \bcard{10.0}{0}{4.7}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{3. \texttt{GROUNDED\_EXECUTE}}}\\[6pt]
-    \textbf{Grounded Request ($\text{conf} \ge 0.85$):}\\[4pt]
-    $\bullet$ Canonical \code{AccountId}s, integer \code{amount\_cents}, and verified currency/FX rate.\\[4pt]
-    $\bullet$ Safely constructs and returns the normalized \code{LedgerPosting}.
+  \bcard{7.6}{0}{7.1}{4.10}{gbgred}{gred}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Defeating ``Silent Assumption Syndrome'' via \texttt{/grill-me}}}\\[6pt]
+    $\bullet$ \textbf{Why RLHF Models Guess Silently:} Standard LLMs are post-trained to be ``helpful immediately,'' causing them to silently guess auth schemes, pagination limits, error formats, and retry policies.\\[5pt]
+    $\bullet$ \textbf{Socratic Inversion of Control (\code{/grill-me} \& Plan Mode):}\\[3pt]
+    Instead of asking the agent to write code immediately, invert control:\\[3pt]
+    \code{"Interview me relentlessly about every ambiguity, edge case, and architectural trade-off in this feature. Do NOT write code until all questions are resolved."}\\[4pt]
+    $\bullet$ Surfaces hidden requirements in 2 minutes before a single line of code is written.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Coworker Clarification Invariant (\texttt{REQ-0105}): Never Invent Missing FX Rates or Business Policy}}\\[4pt]
-    $\bullet$ When \code{source\_currency != target\_currency} and \code{(src, dst)} is missing from \code{known\_fx\_basis\_points}, confidence drops below \code{0.85} and the agent asks for the authoritative basis-point rate.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Skills Map 3.1 Rule: Match Upfront Planning Depth to Blast Radius}}\\[4pt]
+    $\bullet$ Under-planning a medium feature causes architectural rewrite loops; over-planning a 3-line CSS fix wastes tokens. Use the 4-level spectrum above on every task.
   }
 }
 
 % SLIDE 11
-\slideshell{11 / 36}{MODULE 02: LAB 01 STEP-BY-STEP (5 / 5)}{Lab 01 Step 4 (\texttt{REQ-0106}): Self-Diagnosis \& Adversarial Verification}{Verifying \texttt{domain\_ledger.py} against unit tests and locked \texttt{adversarial\_tests/}}{
-  \bcard{0}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Running Lab 01 Self-Diagnosis (\texttt{self\_diagnose.sh})}}\\[6pt]
-    $\bullet$ \textbf{Command:}\\[3pt]
-    \code{./labs/lab\_01\_vocabulary\_and\_bounded\_language\_games/self\_diagnose.sh}\\[5pt]
-    $\bullet$ \textbf{Two-Stage Verification Gate:}\\[3pt]
-    1. Runs \code{solution/test\_domain\_ledger.py} (6 unit tests covering \code{REQ-0101..0106}).\\[3pt]
-    2. Runs \code{adversarial\_tests/test\_domain\_ledger\_verifier.py} (3 Clean-Room adversarial tests).\\[4pt]
-    $\bullet$ Executes in \textbf{$< 0.02\text{s}$} using Python's standard library only.
+\slideshell{11 / 36}{MODULE 03: THE 5-STEP \texttt{RePPIT} LOOP}{The 5-Step \texttt{RePPIT} Loop (\texttt{themodernsoftware.dev} CS146S Lecture 3)}{Research $\to$ Propose (+ Context Reset!) $\to$ Plan (+ Out of Scope) $\to$ Implement (Model Routing) $\to$ Verify \& Reflect}{
+  % 5 Horizontal Connected Pipeline Stages (y=0 to -3.85)
+  \bcard{0.00}{0}{2.72}{3.85}{gbgblue}{gblue}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{gblue}{1. RESEARCH}}\\[4pt]
+    {\fontsize{10.5}{13.5}\selectfont
+    \textbf{Objective Discovery:}\\[3pt]
+    $\bullet$ Document \emph{only what exists today} with exact \code{file:line} citations.\\[3pt]
+    $\bullet$ Strictly \textbf{forbidden from proposing solutions} during research.\\[3pt]
+    $\bullet$ Builds both compressed agent context and the \textbf{human's mental model}.}
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{What the Locked Adversarial Verifier Catches}}\\[6pt]
-    $\bullet$ \textbf{Boolean Subtype Trap:} In Python, \code{isinstance(True, int)} is \code{True}! The adversarial verifier checks that \code{MoneyCents(True, "USD")} raises \code{TypeError}.\\[5pt]
-    $\bullet$ \textbf{Mutating Input Dicts:} Verifies that a failed \code{SettlementBatch.apply\_postings()} call leaves the caller's original \code{balances} dictionary 100\% untouched.\\[5pt]
-    $\bullet$ \textbf{Missing Cross-Currency FX:} Verifies that \code{JPY -> USD} without an FX entry returns \code{CLARIFICATION\_REQUIRED}.
+  \bcard{2.99}{0}{2.72}{3.85}{gbgyellow}{gyellow}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{gdark}{2. PROPOSE + RESET}}\\[4pt]
+    {\fontsize{10.5}{13.5}\selectfont
+    \textbf{Orthogonal Options:}\\[3pt]
+    $\bullet$ Force \textbf{2 orthogonal proposals} (e.g., sync DB vs.\ async queue) with trade-offs.\\[3pt]
+    $\bullet$ \textbf{\textcolor{gred}{Post-Proposal Context Reset:}} Once Proposal B is picked, \textbf{purge Proposal A from context} so rejected tokens never confuse coding!}
+  }
+  \bcard{5.98}{0}{2.72}{3.85}{gbggreen}{ggreen}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{ggreen}{3. PLAN}}\\[4pt]
+    {\fontsize{10.5}{13.5}\selectfont
+    \textbf{Locked Blueprint:}\\[3pt]
+    $\bullet$ File-and-line edit list in \code{Implementation Plan} Artifact or \code{Ctrl+G}.\\[3pt]
+    $\bullet$ Mandatory \textbf{\code{Out of Scope / Do NOT Touch}} guardrail section blocking scope creep.\\[3pt]
+    $\bullet$ Explicit test verification matrix.}
+  }
+  \bcard{8.97}{0}{2.72}{3.85}{gbgblue}{gnavy}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{gnavy}{4. IMPLEMENT}}\\[4pt]
+    {\fontsize{10.5}{13.5}\selectfont
+    \textbf{Phase Model Routing:}\\[3pt]
+    $\bullet$ Use a \textbf{frontier reasoning model} for Steps 1--3 (\emph{Research, Propose, Plan}).\\[3pt]
+    $\bullet$ Route Step 4 (\emph{Implement}) to a \textbf{fast, cost-efficient coding model} once the design is locked!}
+  }
+  \bcard{11.96}{0}{2.74}{3.85}{gbgred}{gred}{
+    {\fontsize{12.5}{15.5}\selectfont\bfseries\textcolor{gred}{5. VERIFY \& REFLECT}}\\[4pt]
+    {\fontsize{10.5}{13.5}\selectfont
+    \textbf{Critique \& Evidence:}\\[3pt]
+    $\bullet$ Run \code{translation-agent} \textbf{Reflection pass} (\code{Draft $\to$ Critique $\to$ Refine}).\\[3pt]
+    $\bullet$ Execute unit tests + live \code{/browser} / Playwright visual evidence in \code{Walkthrough}.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Module 02 Complete $\to$ Next: Persistent Context (\texttt{CLAUDE.md} / \texttt{GEMINI.md}) \& Cross-Session Auto-Memory (Lab 02)}}\\[4pt]
-    $\bullet$ Now that our domain vocabulary is encoded in types, how do we persist project rules and agent learnings across fresh context windows without bloating startup tokens?
+  % Bottom Flow Banner highlighting the 2 game-changing CS146S rules
+  \bcard{0}{-4.05}{14.7}{2.25}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Two High-Leverage \texttt{RePPIT} Rules That Eliminate 80\% of Agent Hallucinations}}\\[5pt]
+    $\bullet$ \textbf{Rule 1 -- Post-Proposal Context Reset:} If an agent generates 1,500 tokens describing Rejected Proposal A and 1,500 tokens describing Chosen Proposal B, leaving Proposal A in the chat history causes the model to accidentally blend Proposal A's types into Proposal B's implementation. Always compact/reset after choosing!\\[3pt]
+    $\bullet$ \textbf{Rule 2 -- Explicit ``Out of Scope / Do NOT Touch'' Section:} Coding agents love ``helpful'' drive-by refactors. Listing forbidden files/modules in the plan keeps diffs surgical.
   }
 }
 
-% ============================================================================
-% MODULE 03: LAB 02 STEP-BY-STEP — PERSISTENT CONTEXT & AUTO-MEMORY (SLIDES 12-16)
-% ============================================================================
-
 % SLIDE 12
-\slideshell{12 / 36}{MODULE 03: LAB 02 STEP-BY-STEP (1 / 5)}{Lab 02 Problem: Fresh Context Windows, Monolithic Bloat \& Memory Poisoning}{Inspecting \texttt{labs/lab\_02\_persistent\_context\_and\_memory\_hygiene/starter/context\_memory\_manager.py}}{
-  \bcard{0}{0}{7.1}{4.1}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Three Context \& Memory Failure Modes in the Starter}}\\[6pt]
-    \textbf{1. 500-Line Monolithic \code{CLAUDE.md} / \code{GEMINI.md}:}\\[3pt]
-    $\bullet$ Dumping every schema, runbook, and historical postmortem into the root file wastes thousands of startup tokens on every turn.\\[4pt]
-    \textbf{2. Worktree Memory Fragmentation:}\\[3pt]
-    $\bullet$ Using \code{os.getcwd()} instead of the git repository root creates disconnected memory silos across git worktrees and subdirectories.\\[4pt]
-    \textbf{3. Provenance Poisoning (\code{\#direct} Abuse):}\\[3pt]
-    $\bullet$ Tagging unverified agent hypotheses with \code{\#direct} turns transient guesses into permanent rules.
+\slideshell{12 / 36}{MODULE 03: DAILY EXECUTION \& TIME-TRAVEL RECOVERY}{Side-by-Side Daily Execution in \texttt{agy} vs.\ \texttt{claude} \& Time-Travel Recovery}{Reviewing plans inline, capturing Run Receipts, and recovering instantly from bad trajectories}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Google Antigravity (\texttt{agy}) Execution \& Recovery}}\\[6pt]
+    $\bullet$ \textbf{Inline Plan Co-Editing:} Open the generated \code{Implementation Plan} Artifact, highlight any over-engineered function or missing edge case, and leave a \textbf{Google Docs-style inline comment} before clicking \textbf{Proceed}.\\[4pt]
+    $\bullet$ \textbf{Browser Verification Receipt:} Invoke \code{/browser} to upload synthetic test data, inspect console errors, and attach screenshots automatically to the \code{Walkthrough} Artifact.\\[4pt]
+    $\bullet$ \textbf{Time-Travel Checkpoint Rollback:} Click \textbf{\code{Undo changes up to this point}} on any earlier step in the trajectory to revert both workspace files and conversation state simultaneously.
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Two Mechanisms Carry Knowledge Across Fresh Windows}}\\[6pt]
-    \textbf{1. Persistent Project Context (Human-Written):}\\[3pt]
-    $\bullet$ Concise $\le 40$-line \code{CLAUDE.md} (\code{claude}) or \code{GEMINI.md}/\code{AGENTS.md} (\code{agy}) with \code{@docs/*.md} on-demand references.\\[4pt]
-    \textbf{2. Cross-Session Auto-Memory (Agent-Written):}\\[3pt]
-    $\bullet$ Git-worktree-shared \code{\textasciitilde{}/.claude/projects/<project>/memory/MEMORY.md} (\code{claude}, capped at \textbf{200 lines / 25 KB}) or per-project \code{\textasciitilde{}/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md} (\code{agy}).
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Anthropic Claude Code (\texttt{claude}) Execution \& Recovery}}\\[6pt]
+    $\bullet$ \textbf{Interactive Plan Editing (\code{Ctrl+G}):} Enter Plan Mode via \code{Shift+Tab}, let Claude draft the plan, and press \code{Ctrl+G} to open the plan directly in your text editor to trim scope before execution.\\[4pt]
+    $\bullet$ \textbf{Playwright MCP Verification:} Connect Playwright MCP to launch headless browser checks and verify rendered DOM state alongside \code{!pytest}.\\[4pt]
+    $\bullet$ \textbf{Time-Travel via \code{/rewind} (\code{Esc+Esc}):} Press \code{Esc} twice (or run \code{/rewind}) to open the checkpoint menu and restore code only, conversation only, or both.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{The Fundamental Equation of Context Engineering: $\text{Output} = f(\text{Context})$}}\\[4pt]
-    $\bullet$ Model reasoning quality peaks at \textbf{40\%--60\% context utilization} and degrades past \textbf{60\%}. Startup context + memory must consume $< 5\%$ of the context window.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Why Time-Travel Beats ``Arguing in Chat''}}\\[4pt]
+    $\bullet$ When an agent takes a wrong architectural turn, \textbf{never spend 5 turns arguing with it in chat} (which fills the context window with broken code and error logs). Rewind to the plan checkpoint, tighten the constraint in 1 line, and re-run cleanly!
   }
 }
 
 % SLIDE 13
-\slideshell{13 / 36}{MODULE 03: LAB 02 STEP-BY-STEP (2 / 5)}{Lab 02 Step 1 (\texttt{REQ-0201..0202}): Concise Root Context \& \texttt{@path} Imports}{Auditing root \texttt{CLAUDE.md} / \texttt{GEMINI.md} files and loading \texttt{@docs/*.md} references on demand}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Auditing Root Context (\texttt{audit\_root\_context\_file})}}\\[6pt]
-    $\bullet$ \textbf{Hard Line Budget (\code{REQ-0201}):} Enforces \code{line\_count <= 40} (configured via \code{MAX\_ROOT\_CONTEXT\_LINES = 40}).\\[5pt]
-    $\bullet$ \textbf{3 Required Onboarding Sections:}\\[3pt]
-    1. \textbf{Commands \& Environment} (exact test/build commands).\\[2pt]
-    2. \textbf{Architecture \& Directory Map} (high-level package layout).\\[2pt]
-    3. \textbf{Core Conventions} (non-obvious project invariants).\\[4pt]
-    $\bullet$ Extracts all \code{@relative/path.md} tokens via regex \code{r"(?<!\textbackslash{}w)@([a-zA-Z0-9\_./-]+\\.md)"}.
+\slideshell{13 / 36}{MODULE 03: LAB 03 WALKTHROUGH}{Lab 03: End-to-End \texttt{RePPIT} Orchestrator (\texttt{reppit\_orchestrator.py})}{Walking through \texttt{labs/lab\_03\_reppit\_workflow\_and\_reflection/} step by step}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1, 2 \& 3: Research Audit, Proposals \& Context Reset}}\\[6pt]
+    $\bullet$ \textbf{Step 1 -- Pure Research Validator (\code{validate\_research\_artifact}):}\\[2pt]
+    Verifies every claim cites an existing \code{file:line} and rejects premature code snippets or solution proposals.\\[4pt]
+    $\bullet$ \textbf{Step 2 -- Orthogonal Proposal \& Context Reset (\code{select\_proposal\_and\_reset}):}\\[2pt]
+    Requires $\ge 2$ distinct architectural proposals with explicit trade-off matrices, locks the chosen proposal, and \textbf{purges rejected proposal tokens} from the active context state.\\[4pt]
+    $\bullet$ \textbf{Step 3 -- Plan Gate (\code{validate\_implementation\_plan}):}\\[2pt]
+    Enforces non-empty \code{target\_files}, \code{verification\_steps}, and \code{out\_of\_scope} guardrails.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Progressive \texttt{@path} Loading (\texttt{resolve\_on\_demand\_references})}}\\[6pt]
-    $\bullet$ \textbf{Selective Expansion (\code{REQ-0202}):} Takes \code{active\_topics: set[str]} and resolves only matching \code{@docs/<topic>.md} files.\\[5pt]
-    $\bullet$ \textbf{Path-Traversal Security Guard:} Resolves \code{(project\_root / rel\_path).resolve()} and verifies \code{candidate.relative\_to(root)} so malicious \code{@../../etc/passwd.md} imports raise \code{ContextHygieneError}.\\[5pt]
-    $\bullet$ Saves $>80\%$ of startup context tokens compared to inlining all docs.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 4 \& 5: Model Routing, Reflection \& Run Receipt}}\\[6pt]
+    $\bullet$ \textbf{Step 4 -- Phase-Based Model Router (\code{route\_phase\_model}):}\\[2pt]
+    Routes \code{RESEARCH}, \code{PROPOSE}, and \code{PLAN} to the frontier reasoning tier, and routes \code{IMPLEMENT} to the fast execution tier while checking that zero \code{out\_of\_scope} files were modified.\\[4pt]
+    $\bullet$ \textbf{Step 5 -- \code{translation-agent} Reflection Pass (\code{run\_reflection\_pass}):}\\[2pt]
+    Executes \code{Draft $\to$ Critique $\to$ Refine} against domain invariants and compiles the verified \code{Walkthrough} Run Receipt.\\[4pt]
+    $\bullet$ \textbf{Verify Lab 03:} \code{./labs/lab\_03\_reppit\_workflow\_and\_reflection/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Key Analogy: \texttt{@docs/*.md} inside \texttt{CLAUDE.md}/\texttt{GEMINI.md} Works Just Like Progressive Disclosure in Skills}}\\[4pt]
-    $\bullet$ Keep the root file as a high-signal index ($\le 40$ lines); pull \code{@docs/architecture.md} or \code{@docs/testing-conventions.md} only when the task touches those subsystems.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Lab 03 Key Takeaway: Discipline at the Proposal \& Plan Gates Makes Implementation Trivial}}\\[4pt]
+    $\bullet$ By purging rejected proposals, locking \code{Out of Scope} files, and running a reflection pass before commit, Lab 03 eliminates scope creep and silent regressions.
   }
 }
 
+% ============================================================================
+% MODULE 04 (SLIDES 14-17): CONTEXT WINDOW PHYSICS, THE 40% "DUMB ZONE"
+% & FREQUENT INTENTIONAL COMPACTION (LAB 04)
+% ============================================================================
+
 % SLIDE 14
-\slideshell{14 / 36}{MODULE 03: LAB 02 STEP-BY-STEP (3 / 5)}{Lab 02 Step 2 (\texttt{REQ-0203}): Git-Worktree Auto-Memory Resolution}{Why all subdirectories and git worktrees in the same repository share one unified Auto-Memory directory}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Claude Code Memory Path (\texttt{derive\_claude\_memory\_dir})}}\\[6pt]
-    $\bullet$ \textbf{Rule:} Each project gets its own memory directory at \code{\textasciitilde{}/.claude/projects/<project>/memory/}.\\[5pt]
-    $\bullet$ \textbf{Git Worktree Sharing:} When \code{git\_common\_root} is provided, all worktrees (\code{/worktrees/feat-a/src/api}, \code{/worktrees/bugfix-b/tests}) resolve to the \textbf{exact same canonical git root} before slugifying \code{/} $\to$ \code{-}.\\[5pt]
-    $\bullet$ \textbf{Fallback Outside Git:} Outside a git repository, \code{working\_dir.resolve()} is used as the project root instead.
-  }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Antigravity Knowledge Base (\texttt{KNOWLEDGE.md})}}\\[6pt]
-    $\bullet$ \textbf{Workspace Knowledge Base:} Persisted per project at\\ \code{\textasciitilde{}/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md}\\ with YAML frontmatter \code{scope: workspace}.\\[5pt]
-    $\bullet$ \textbf{Structured Knowledge Items:} \code{topics/<domain>.md} and \code{projects/<name>.md} store cross-session architectural and debugging insights.\\[5pt]
-    $\bullet$ \textbf{Session Memory Commands:} Inspect and refresh active workspace memory via \code{/memory show}, \code{/memory add}, and \code{/memory refresh}.
+\slideshell{14 / 36}{MODULE 04: CONTEXT WINDOW PHYSICS}{Context Window Physics (\texttt{rmvDxxNubIg}): The 40\% ``Dumb Zone''}{Stateless $\text{NextAction} = \text{LLM}(\text{ContextWindow})$ physics and why ``not all 1M tokens are created equal''}{
+  % Left: Visual Curve Chart of Smart Zone (0-40%) vs Dumb Zone (>40%)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.3in, minimum height=4.10in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{13}{16}\selectfont\bfseries, text=gnavy] at (0.22,-0.16) {Reasoning \& Instruction-Following Quality vs.\ Context Utilization};
+  % Smart Zone & Dumb Zone Shaded Regions
+  \fill[gbggreen] (0.75,-3.45) rectangle (3.35,-0.65);
+  \fill[gbgred]   (3.35,-3.45) rectangle (6.95,-0.65);
+  \draw[gred, dashed, line width=1.4pt] (3.35,-3.45) -- (3.35,-0.60);
+  \node[anchor=north, font=\fontsize{10}{12}\selectfont\bfseries, text=ggreen] at (2.05,-0.72) {SMART ZONE (0\%--40\%)};
+  \node[anchor=north, font=\fontsize{10}{12}\selectfont\bfseries, text=gred] at (5.15,-0.72) {THE ``DUMB ZONE'' ($>$40\% Context Rot)};
+  % Axes
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-3.45) -- (7.05,-3.45);
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-3.45) -- (0.75,-0.55);
+  % Y labels
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-1.05) {100\%};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-2.20) {60\%};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-3.35) {20\%};
+  % X labels
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (0.85,-3.50) {0\%};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (2.10,-3.50) {20\%};
+  \node[anchor=north, font=\fontsize{9}{11}\selectfont\bfseries, text=gred] at (3.35,-3.50) {40\% Threshold};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (4.60,-3.50) {60\%};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (5.85,-3.50) {80\%};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (6.80,-3.50) {100\%};
+  % Quality Curve
+  \draw[gblue, line width=2.4pt] (0.85,-1.05) .. controls (1.80,-1.05) and (2.70,-1.12) .. (3.35,-1.30) .. controls (4.20,-1.75) and (5.30,-2.75) .. (6.80,-3.25);
+  \fill[gred] (3.35,-1.30) circle (3.5pt);
+  \node[anchor=west, font=\fontsize{8.5}{10.5}\selectfont\bfseries, text=gdark, fill=white, inner sep=2pt] at (3.45,-1.30) {Onset of Context Rot};
+
+  % Right Card: Dex Horthy's Stateless Physics & What Pushes You into the Dumb Zone
+  \bcard{7.6}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Dex Horthy's First Law of Coding Agents (\texttt{rmvDxxNubIg})}}\\[5pt]
+    {\fontsize{11.4}{14.8}\selectfont
+    $\bullet$ \textbf{Stateless Function Physics:} Every single turn, an LLM computes $\text{NextAction} = \text{LLM}(\text{ContextWindow})$ from scratch. The only lever you have to improve the next action is the \textbf{signal-to-noise ratio of the context window}.\\[4pt]
+    $\bullet$ \textbf{What Floods Context Past 40\% into the ``Dumb Zone'':}\\[2pt]
+    1. Unfiltered \code{grep} or \code{find} dumps across \code{node\_modules/} or build logs.\\[2pt]
+    2. Verbose test/training stdout (\code{5,000 lines} of progress bars and tracebacks).\\[2pt]
+    3. Multi-turn ``That's still wrong, try again'' correction loops.\\[2pt]
+    4. Bloated MCP tool schemas and monolithic 500-line instruction files.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Why Worktree Sharing Matters for Parallel Agent Engineering}}\\[4pt]
-    $\bullet$ When you run 3 parallel agent sessions in separate git worktrees (\code{git worktree add}), lessons learned in one worktree are immediately available to the others.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{4-Dimension Context Optimization Hierarchy: Correctness $>$ Completeness $>$ Size ($<$40\%) $>$ Trajectory}}\\[4pt]
+    $\bullet$ \textbf{1. No Incorrect Information} (worst poison) $\to$ \textbf{2. No Missing Information} $\to$ \textbf{3. Minimal Noise ($<$40\% capacity)} $\to$ \textbf{4. Clean Forward Trajectory} (never argue with a polluted history).
   }
 }
 
 % SLIDE 15
-\slideshell{15 / 36}{MODULE 03: LAB 02 STEP-BY-STEP (4 / 5)}{Lab 02 Step 3 (\texttt{REQ-0204..0205}): Provenance Tags \& The 200-Line Memory Cap}{Preventing memory poisoning with \texttt{\#direct} provenance validation and overflow topic routing}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Epistemic Provenance Discipline (\texttt{REQ-0204})}}\\[6pt]
-    $\bullet$ \textbf{The \code{\#direct} Rule:} Reserve \code{\#direct} \emph{strictly} for facts, instructions, or preferences explicitly stated by the user (\code{is\_explicit\_user\_statement=True}).\\[5pt]
-    $\bullet$ \textbf{Indirect Observations:} Facts discovered by reading code, logs, or tests MUST omit \code{\#direct} and instead carry relativity anchors:\\[3pt]
-    -- \code{\#commit:<git\_sha>} (repository commit anchor)\\[2pt]
-    -- \code{\#time:<YYYY-MM-DD>} (wall-clock anchor)\\[2pt]
-    -- \code{\#session:<session\_id>} (session transcript link).
+\slideshell{15 / 36}{MODULE 04: BACKPRESSURE, \texttt{rendergit} \& SIDE-QUERIES}{Context Backpressure (\texttt{karpathy/autoresearch} \& \texttt{rendergit}) \& Side-Queries}{Preventing stdout floods via shell redirection, dual-view repo packing, and zero-history \texttt{/btw} queries}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Output-Redirection Backpressure}}\\[5pt]
+    \textbf{Karpathy's \code{autoresearch} Rule:}\\[3pt]
+    $\bullet$ Never let a test suite or training job stream raw output into the LLM context window (\emph{``do NOT use tee or let output flood your context''}).\\[3pt]
+    $\bullet$ \textbf{Canonical Pattern:}\\[2pt]
+    \code{uv run train.py > run.log 2>\&1}\\[2pt]
+    \code{grep "\textasciicircum{}val\_bpb:\textbackslash{}|\textasciicircum{}peak\_vram:" run.log}\\[3pt]
+    $\bullet$ On crash, read only \code{tail -n 50 run.log}. Compresses 50,000 log tokens to \textbf{40 tokens}!
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{The 200-Line / 25 KB \texttt{MEMORY.md} Cap (\texttt{REQ-0205})}}\\[6pt]
-    $\bullet$ \textbf{Why Cap \code{MEMORY.md}:} Claude Code auto-loads only the first \textbf{200 lines / 25 KB} of \code{MEMORY.md} at session start.\\[5pt]
-    $\bullet$ \textbf{\code{compile\_memory\_index()}:} Places \code{priority=True} entries in \code{MEMORY.md} up to \code{max\_index\_lines} (200) and \code{max\_bytes} (25,000).\\[5pt]
-    $\bullet$ \textbf{Topic Overflow Routing:} Routes non-priority or overflow notes into \code{topics/<topic>.md} and appends markdown links (\code{- [debugging](topics/debugging.md)}) to \code{MEMORY.md}.
+  \bcard{5.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. \texttt{karpathy/rendergit} Dual View}}\\[5pt]
+    \textbf{Human HTML vs.\ LLM CXML View:}\\[3pt]
+    $\bullet$ When ingesting a small repository or module, \code{rendergit} provides two tailored representations:\\[3pt]
+    1. \textbf{Human View:} Syntax-highlighted static HTML with navigable directory tree sidebar.\\[2pt]
+    2. \textbf{LLM CXML View:} Clean, token-counted XML document boundaries (\code{<document path="...">}) stripping binary/lockfile noise.\\[3pt]
+    $\bullet$ Pair with \code{karpathy/nanochat} minimalism.
+  }
+  \bcard{10.0}{0}{4.7}{4.10}{gbgyellow}{gyellow}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. Sandboxed Side-Queries (\texttt{/btw})}}\\[5pt]
+    \textbf{Zero-Footprint Tangents:}\\[3pt]
+    $\bullet$ Mid-implementation, you often need to ask a quick question (\emph{``What flag does \code{pytest} use for Doctests?''}).\\[3pt]
+    $\bullet$ Asking in the main chat appends the tangent to every future turn.\\[3pt]
+    $\bullet$ \textbf{Claude Code \code{/btw <question>}:} Answers in a modal using current context, then \textbf{discards the Q\&A from history}!\\[3pt]
+    $\bullet$ Monitor budget via \code{/context} \& \code{/stats}.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Security Guard: \texttt{validate\_and\_format\_memory\_entry()} Rejects Spoofed \texttt{\#direct} Tags}}\\[4pt]
-    $\bullet$ Even if an agent passes \code{"\#direct"} inside raw \code{text} when \code{is\_explicit\_user\_statement=False}, Lab 02 raises \code{MemoryProvenanceError}.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Wrapper Script Pattern for Deterministic Backpressure}}\\[4pt]
+    $\bullet$ Wrap noisy build/test commands in a helper script that outputs \code{[PASS] 24 tests (0.12s)} on success and prints \emph{only} the failing assertion traceback on error.
   }
 }
 
 % SLIDE 16
-\slideshell{16 / 36}{MODULE 03: LAB 02 STEP-BY-STEP (5 / 5)}{Lab 02 Step 4 (\texttt{REQ-0206}): \texttt{/context}, \texttt{/memory}, \texttt{/clear} \& Verification}{Inspecting live context utilization and verifying \texttt{context\_memory\_manager.py}}{
-  \bcard{0}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Interactive Context \& Memory Commands}}\\[6pt]
-    $\bullet$ \textbf{\code{/context} (\code{claude}) \& \code{/stats} (\code{agy}):} Display live token usage across system prompt, \code{CLAUDE.md}/\code{GEMINI.md}, memory, MCP tools, and skills.\\[5pt]
-    $\bullet$ \textbf{\code{/memory} (\code{claude} \& \code{agy}):} Inspects loaded memory files (\code{/memory show | add | refresh} in Gemini CLI) and prunes stale cross-session notes.\\[5pt]
-    $\bullet$ \textbf{\code{/clear} \& \code{/compact} (\code{/compress}):} Reset between unrelated tasks or compact history before hitting the 60\% degradation wall.
-  }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Running Lab 02 Self-Diagnosis (\texttt{self\_diagnose.sh})}}\\[6pt]
-    $\bullet$ \textbf{Command:}\\[3pt]
-    \code{./labs/lab\_02\_persistent\_context\_and\_memory\_hygiene/self\_diagnose.sh}\\[5pt]
-    $\bullet$ \textbf{Verified Invariants (\code{REQ-0201..0206}):}\\[3pt]
-    -- Bloated $>40$-line root context flagged.\\[2pt]
-    -- Path-traversal \code{@../secret.md} blocked.\\[2pt]
-    -- Worktrees share identical \code{MEMORY.md} path.\\[2pt]
-    -- Spoofed \code{\#direct} tags rejected; overflow routed to \code{topics/*.md}.
-  }
+\slideshell{16 / 36}{MODULE 04: FREQUENT INTENTIONAL COMPACTION \& LEVERAGE PYRAMID}{Frequent Intentional Compaction (FIC), \texttt{RPI} \& The Human Leverage Pyramid}{Sawtooth context management via \texttt{research.md} / \texttt{plan.md} handoffs and why 1 line of plan review saves 1,000 lines of code}{
+  % Left: Visual Sawtooth Compaction Chart
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.3in, minimum height=4.10in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-0.16) {Sawtooth Context Utilization: Naive Accumulation vs.\ FIC (\texttt{RPI})};
+  % 40% line
+  \draw[gred, dashed, line width=1.2pt] (0.70,-1.95) -- (7.00,-1.95);
+  \node[anchor=south east, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (7.00,-1.93) {40\% Dumb Zone Threshold};
+  % Axes
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.70,-3.55) -- (7.05,-3.55);
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.70,-3.55) -- (0.70,-0.55);
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.65,-1.95) {40\%};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.65,-0.85) {90\%};
+  % Naive Red Curve going into Dumb Zone
+  \draw[gred, line width=2pt] (0.80,-3.40) -- (2.50,-2.00) -- (4.50,-1.15) -- (6.75,-0.75);
+  \node[anchor=south west, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (3.85,-1.08) {Naive Chat (Context Rot)};
+  % Sawtooth Green Curve staying under 40%
+  \draw[ggreen, line width=2.2pt] (0.80,-3.40) -- (2.55,-2.10) -- (2.65,-3.35) -- (4.65,-2.15) -- (4.75,-3.30) -- (6.75,-2.10);
+  \node[anchor=north, font=\fontsize{8}{9.5}\selectfont\bfseries, text=gblue] at (1.70,-3.58) {1. Research};
+  \node[anchor=north, font=\fontsize{8}{9.5}\selectfont\bfseries, text=ggreen] at (2.65,-3.35) {\code{/clear}};
+  \node[anchor=north, font=\fontsize{8}{9.5}\selectfont\bfseries, text=gblue] at (3.70,-3.58) {2. Plan};
+  \node[anchor=north, font=\fontsize{8}{9.5}\selectfont\bfseries, text=ggreen] at (4.75,-3.30) {\code{/clear}};
+  \node[anchor=north, font=\fontsize{8}{9.5}\selectfont\bfseries, text=gblue] at (5.80,-3.58) {3. Implement};
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Module 03 Complete $\to$ Next: Crafting \texttt{agentskills.io} Skills Manually vs.\ Self-Generated Traps (Lab 03)}}\\[4pt]
-    $\bullet$ How do we package domain workflows into reusable instruction manuals (\code{SKILL.md}) that lift pass rates by \textbf{+16.6 pp} without polluting the context window?
+  % Right: Visual Human Leverage Pyramid
+  \node[anchor=north west, fill=gbgblue, draw=gblue, line width=1pt, rounded corners=6pt, minimum width=7.1in, minimum height=4.10in] at (7.6,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gblue] at (7.82,-0.16) {The Human Attention Leverage Pyramid (\texttt{rmvDxxNubIg})};
+  % Pyramid Tiers
+  \fill[gred, draw=gdark, line width=0.8pt]   (9.65,-0.70) -- (12.65,-0.70) -- (13.15,-1.55) -- (9.15,-1.55) -- cycle;
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=white, align=center] at (11.15,-1.12) {1 Bad Line of \texttt{research.md}\\($\to$ Corrupts Entire Architecture)};
+  \fill[gyellow, draw=gdark, line width=0.8pt] (9.15,-1.62) -- (13.15,-1.62) -- (13.75,-2.50) -- (8.55,-2.50) -- cycle;
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=gdark, align=center] at (11.15,-2.06) {10 Bad Lines of \texttt{plan.md}\\($\to$ Corrupts Module Design)};
+  \fill[ggreen, draw=gdark, line width=0.8pt]  (8.55,-2.57) -- (13.75,-2.57) -- (14.40,-3.50) -- (7.90,-3.50) -- cycle;
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=white, align=center] at (11.15,-3.03) {1,000 Lines of Broken Generated Code\\(Low-Leverage Line-by-Line PR Triage)};
+  \node[anchor=north, font=\fontsize{9.5}{12}\selectfont\bfseries, text=gnavy] at (11.15,-3.62) {Shift Human Review to the Top of the Pyramid!};
+
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{How Frequent Intentional Compaction (FIC) Works Between \texttt{RPI} Phases}}\\[4pt]
+    $\bullet$ At the end of \textbf{Research}, write verified findings + exact \code{file:line} citations to \code{research.md} and run \code{/clear}.\\[2pt]
+    $\bullet$ Start \textbf{Plan} with a fresh window reading only \code{research.md} $\to$ write \code{plan.md} $\to$ run \code{/clear} $\to$ execute \textbf{Implement} in the Smart Zone ($<25\%$ utilization)!
   }
 }
-
-% ============================================================================
-% MODULE 04: LAB 03 STEP-BY-STEP — CRAFTING AGENT SKILLS MANUALLY (SLIDES 17-21)
-% ============================================================================
 
 % SLIDE 17
-\slideshell{17 / 36}{MODULE 04: LAB 03 STEP-BY-STEP (1 / 5)}{Lab 03 Problem \& Empirical Proof (\texttt{SkillsBench arXiv:2602.12670})}{Why manually written skills (``a conciencia'') boost pass rates by +16.6 pp while self-generated skills hurt performance}{
-  \bcard{0}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Curated Human-Authored Skills: +16.6 pp Average Lift}}\\[6pt]
-    \textbf{\code{SkillsBench} (87 Tasks, 8 Domains, 9,396 Trajectories):}\\[4pt]
-    $\bullet$ \textbf{Gemini CLI + Gemini 3.1 Pro:} \code{36.0\%} $\to$ \textbf{\code{60.8\%} (+24.8 pp)}.\\[4pt]
-    $\bullet$ \textbf{Claude Code + Opus 4.7:} \code{43.0\%} $\to$ \textbf{\code{61.2\%} (+18.2 pp)}.\\[4pt]
-    $\bullet$ \textbf{Codex CLI + GPT-5.5:} \code{46.8\%} $\to$ \textbf{\code{62.9\%} (+16.1 pp)}.\\[4pt]
-    $\bullet$ \textbf{Procedural Tasks:} Up to \textbf{+92.6 pp} lift (\code{llm-prefix-cache-replay}: \code{1.9\% -> 94.4\%}) when encoding non-obvious procedural gotchas.
+\slideshell{17 / 36}{MODULE 04: LAB 04 WALKTHROUGH}{Lab 04: Context Budget Profiler \& \texttt{RPI} Compaction Engine (\texttt{context\_compactor.py})}{Walking through \texttt{labs/lab\_04\_context\_physics\_and\_rpi\_compaction/} step by step}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: 40\% Dumb-Zone Profiler \& Log Backpressure}}\\[6pt]
+    $\bullet$ \textbf{Step 1 -- Context Budget Profiler (\code{profile\_context\_window}):}\\[2pt]
+    1. Computes total utilization ratio across system instructions, tool schemas, file reads, and tool outputs against the model's context window.\\[2pt]
+    2. Flags \code{DUMB\_ZONE\_WARNING} the moment utilization crosses \textbf{0.40 (40\%)}.\\[4pt]
+    $\bullet$ \textbf{Step 2 -- Output-Redirection Backpressure (\code{apply\_log\_backpressure}):}\\[2pt]
+    Filters multi-thousand-line test/training stdout logs down to summary metrics (\code{val\_bpb}, \code{passed/failed} counts) + the final 30 traceback lines on failure.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Self-Generated Skills: $-$8.1 to $-$11.5 pp Degradation!}}\\[6pt]
-    \textbf{When the LLM Generates Its Own Skill Before Solving:}\\[4pt]
-    $\bullet$ \textbf{Claude Code + Opus 4.7:} \code{43.0\%} $\to$ \textbf{\code{34.9\%} ($-$8.1 pp)}.\\[4pt]
-    $\bullet$ \textbf{Codex CLI + GPT-5.5:} \code{46.8\%} $\to$ \textbf{\code{35.5\%} ($-$11.3 pp)}.\\[4pt]
-    $\bullet$ \textbf{Gemini CLI + Gemini 3.1 Pro:} \code{36.0\%} $\to$ \textbf{\code{24.5\%} ($-$11.5 pp)}.\\[4pt]
-    $\bullet$ \textbf{Root Cause:} Self-generated skills either repeat generic training-data platitudes (\emph{``write clean code''}) or lock in hallucinated rules (e.g.\ \code{3d-scan-calc} $\times 1000$ unit bug).
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: \texttt{RPI} Artifact Compaction \& Self-Diagnosis}}\\[6pt]
+    $\bullet$ \textbf{Step 3 -- Intentional Compaction Engine (\code{compact\_to\_rpi\_artifact}):}\\[2pt]
+    1. Distills a noisy exploration transcript into a structured \code{research.md} or \code{plan.md} handoff artifact.\\[2pt]
+    2. Validates that every retained claim preserves its canonical \code{path/to/file.py:L10-L25} citation and strips failed search dead-ends.\\[3pt]
+    3. Resets active session utilization from \textbf{$>$65\% back down to $<$12\%}.\\[4pt]
+    $\bullet$ \textbf{Verify Lab 04 in $< 0.05\text{s}$:}\\[2pt]
+    \code{./labs/lab\_04\_context\_physics\_and\_rpi\_compaction/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{The Golden Law of Skill Authoring: ``Experience Before Theory'' \& ``Signal Not Noise''}}\\[4pt]
-    $\bullet$ Never ask an LLM to generate a skill zero-shot. Run the agent \emph{without} a skill first, observe where it fails, and manually write only the \textbf{Delta} from baseline.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Phase 1 Complete! You Now Command Daily Vibe Coding \& Context Hygiene in \texttt{agy} and \texttt{claude}}}\\[4pt]
+    $\bullet$ Next, in \textbf{Phase 2 (Modules 5--8)}, we transition from operating the agent interactively to \textbf{Harness Engineering}---designing the rules, skills, MCP code mode, subagent firewalls, and ratchets around the model.
   }
 }
 
+% ============================================================================
+% MODULE 05 (SLIDES 18-21): PHASE 2 / HARNESS ENGINEERING LAYER 1:
+% THE THREE CONTEXT PRIMITIVES (CLAUDE.md / GEMINI.md), RULES & AUTO-MEMORY (LAB 05)
+% ============================================================================
+
 % SLIDE 18
-\slideshell{18 / 36}{MODULE 04: LAB 03 STEP-BY-STEP (2 / 5)}{Lab 03 Step 1 (\texttt{REQ-0301..0302}): \texttt{agentskills.io} Spec \& Progressive Disclosure}{Enforcing strict YAML frontmatter rules and 3-level progressive disclosure in \texttt{skill\_validator.py}}{
-  \bcard{0}{0}{4.7}{4.15}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Level 1: Startup Metadata}}\\[6pt]
-    \textbf{$\approx 100$ Tokens at Session Start:}\\[4pt]
-    $\bullet$ \code{name}: $1..64$ chars matching \code{\textasciicircum{}[a-z0-9]+(-[a-z0-9]+)*\$} and parent folder name.\\[4pt]
-    $\bullet$ \code{description}: $1..1024$ chars with positive (\code{Use when...}) and negative (\code{Don't use for...}) triggers.
+\slideshell{18 / 36}{MODULE 05: ENTERING PHASE 2 — HARNESS ENGINEERING}{Entering Phase 2: Harness Engineering ($\text{Agent} = \text{Model} + \text{Harness}$)}{Birgitta B\"ockeler \& Kief Morris's 2x2 Cybernetic Control Matrix (\texttt{martinfowler.com}) and Why Loop vs.\ How Loop}{
+  % Left: Visual 2x2 Cybernetic Control Matrix
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=8.5in, minimum height=4.15in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{13}{16}\selectfont\bfseries, text=gnavy] at (0.20,-0.15) {The 2x2 Cybernetic Control Matrix (B\"ockeler \& Morris, \texttt{martinfowler.com})};
+  % Column Headers
+  \node[font=\fontsize{10.5}{13}\selectfont\bfseries, text=gblue] at (3.25,-0.58) {GUIDES (Feedforward / Before Action)};
+  \node[font=\fontsize{10.5}{13}\selectfont\bfseries, text=ggreen] at (6.75,-0.58) {SENSORS (Feedback / After Action)};
+  % Row Labels (rotated)
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=gdark, rotate=90] at (0.32,-1.48) {COMPUTATIONAL};
+  \node[font=\fontsize{8.5}{10}\selectfont, text=gmuted, rotate=90] at (0.55,-1.48) {(Deterministic CPU)};
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=gdark, rotate=90] at (0.32,-3.18) {INFERENTIAL};
+  \node[font=\fontsize{8.5}{10}\selectfont, text=gmuted, rotate=90] at (0.55,-3.18) {(Semantic LLM)};
+  % Quadrant 1: Top-Left (Computational Guides)
+  \bcard{0.85}{-0.78}{3.65}{1.55}{gbgblue}{gblue}{
+    {\fontsize{11}{13.5}\selectfont\bfseries\textcolor{gblue}{1. Deterministic Guides}}\\[2pt]
+    {\fontsize{9.8}{12.5}\selectfont
+    $\bullet$ OS/Container Sandboxes (\code{OpenShell})\\
+    $\bullet$ Tool allowlists \& \code{PreToolUse} Exit-2 gates\\
+    $\bullet$ Codemods \& static project templates}
   }
-  \bcard{5.0}{0}{4.7}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Level 2: \texttt{SKILL.md} Router}}\\[6pt]
-    \textbf{Loaded Only on Activation:}\\[4pt]
-    $\bullet$ Invoked manually via \code{/skillname} (e.g.\ \code{/anthropic-brand}) or auto-matched by description.\\[4pt]
-    $\bullet$ Body kept between \textbf{50 and 500 lines} ($< 5{,}000$ tokens) with core invariants + routing table.
+  % Quadrant 2: Top-Right (Computational Sensors)
+  \bcard{4.65}{-0.78}{3.65}{1.55}{gbggreen}{ggreen}{
+    {\fontsize{11}{13.5}\selectfont\bfseries\textcolor{ggreen}{2. Deterministic Sensors}}\\[2pt]
+    {\fontsize{9.8}{12.5}\selectfont
+    $\bullet$ Compiler \& Static Typecheckers\\
+    $\bullet$ Unit/Integration Tests \& \code{PostToolUse}\\
+    $\bullet$ Remediation-Aware Structural Linters}
   }
-  \bcard{10.0}{0}{4.7}{4.15}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{Level 3: Companion Files}}\\[6pt]
-    \textbf{0 Tokens Until Needed:}\\[4pt]
-    $\bullet$ Artifact-specific markdown files (\code{docs.md}, \code{slides-deck.md}, \code{apply\_template.md}).\\[4pt]
-    $\bullet$ Loaded one level deep \emph{only} for the requested artifact type ($>75\%$ token savings).
+  % Quadrant 3: Bottom-Left (Inferential Guides)
+  \bcard{0.85}{-2.45}{3.65}{1.55}{gbgyellow}{gyellow}{
+    {\fontsize{11}{13.5}\selectfont\bfseries\textcolor{gdark}{3. Inferential Guides}}\\[2pt]
+    {\fontsize{9.8}{12.5}\selectfont
+    $\bullet$ \code{CLAUDE.md} / \code{GEMINI.md} (60-line map)\\
+    $\bullet$ Glob-scoped \code{rules/*.md} \& \code{SKILL.md}\\
+    $\bullet$ Curated API Grounding (\code{chub})}
+  }
+  % Quadrant 4: Bottom-Right (Inferential Sensors)
+  \bcard{4.65}{-2.45}{3.65}{1.55}{gbgred}{gred}{
+    {\fontsize{11}{13.5}\selectfont\bfseries\textcolor{gred}{4. Inferential Sensors}}\\[2pt]
+    {\fontsize{9.8}{12.5}\selectfont
+    $\bullet$ Multi-Agent PR Review Subagents\\
+    $\bullet$ Karpathy's \code{llm-council} Peer Review\\
+    $\bullet$ \code{translation-agent} Reflection Pass}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Validation Invariant (\texttt{REQ-0301..0302}): Why \texttt{Description} Must State Both Positive \& Negative Triggers}}\\[4pt]
-    $\bullet$ Without \code{Use when...} and \code{Don't use for...} clauses in \code{description}, the router either misses relevant tasks or false-alarms on unrelated prompts.
+  % Right Card: Why Loop vs How Loop & The Harness Flywheel
+  \bcard{8.75}{0}{5.95}{4.15}{gbgblue}{gnavy}{
+    {\fontsize{14}{17.5}\selectfont\bfseries\textcolor{gnavy}{Kief Morris: ``Why Loop'' vs.\ ``How Loop''}}\\[5pt]
+    {\fontsize{11.2}{14.6}\selectfont
+    $\bullet$ \textbf{Human-Owned ``Why Loop'':} Defines business outcomes, domain architecture, program design (types/interfaces), and trade-offs.\\[4pt]
+    $\bullet$ \textbf{Agent-Executed ``How Loop'':} Explores files, drafts code, runs tests, and self-repairs inside the harness.\\[4pt]
+    $\bullet$ \textbf{The ``On-the-Loop'' Harness Flywheel:}\\[2pt]
+    Whenever a defect escapes the How Loop, \textbf{do not merely patch the code line}---upgrade one of the 4 Cybernetic Quadrants so that entire class of failure can never recur!}
+  }
+
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The Golden Rule of Harness Engineering: Prefer Computational (CPU) Checks Over Inferential (LLM) Hopes}}\\[4pt]
+    $\bullet$ Never write a 20-line prose paragraph in \code{CLAUDE.md} begging the model to format imports or forbid a deprecated API if a 10-line \textbf{Deterministic Linter or \code{PreToolUse} Hook} can enforce it with 100\% certainty at zero token cost!
   }
 }
 
 % SLIDE 19
-\slideshell{19 / 36}{MODULE 04: LAB 03 STEP-BY-STEP (3 / 5)}{Lab 03 Step 2 (\texttt{REQ-0303..0304}): The Multi-File \texttt{anthropic-brand/} Skill}{Inspecting the 4-file progressive disclosure directory in \texttt{.claude/skills/anthropic-brand/} and \texttt{.agents/skills/anthropic-brand/}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{\texttt{anthropic-brand/SKILL.md} (Level 2 Core Router)}}\\[6pt]
-    $\bullet$ \textbf{Core Palette Tokens:} Warm Ivory \code{\#FAF9F5}, Charcoal Slate \code{\#141413}, Terracotta \code{\#D97757}, Muted Stone \code{\#5E5D59}.\\[5pt]
-    $\bullet$ \textbf{Experience-Grounded Gotcha:} Never pair Terracotta (\code{\#D97757}) text directly on Muted Stone (\code{\#5E5D59}) backgrounds (contrast $2.1:1 < 4.5:1$ WCAG AA minimum).\\[5pt]
-    $\bullet$ \textbf{Selective Routing Table:} Directs the agent to read \emph{only} the companion file matching the target deliverable.
-  }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Level 3 Companion Files (Loaded on Demand)}}\\[6pt]
-    $\bullet$ \textbf{1. \code{docs.md}:} Loaded only for RFCs, Markdown docs, or LaTeX/PDF reports (72ch measure, callout borders, table formatting).\\[5pt]
-    $\bullet$ \textbf{2. \code{slides-deck.md}:} Loaded only for \code{16:9} widescreen presentations ($1920 \times 1080$ grid, $\le 3$ cards/row, $28\text{pt}$ title minimum).\\[5pt]
-    $\bullet$ \textbf{3. \code{apply\_template.md}:} Loaded when retrofitting an existing draft (4-step audit, token replacement, contrast verification).
+\slideshell{19 / 36}{MODULE 05: CONTEXT PRIMITIVES \& THE 60-LINE MAP RULE}{The Three Context Primitives, The 150-Instruction Cliff \& The 60-Line Map Rule}{Prompts vs.\ Rules vs.\ Skills, why 500-line instruction files overfit (OpenAI \& CS146S), and progressive \texttt{@docs/} imports}{
+  % Left: Visual Curve of the 150-Instruction Cliff + 3 Primitives Table
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.1in, minimum height=4.10in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-0.16) {The 150-Instruction Compliance Cliff (Why Monolithic Rules Fail)};
+  % Axes
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-2.35) -- (6.80,-2.35);
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-2.35) -- (0.75,-0.55);
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-0.75) {98\%};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-1.55) {70\%};
+  \node[anchor=east, font=\fontsize{8.5}{10}\selectfont, text=gmuted] at (0.70,-2.25) {35\%};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=ggreen] at (1.50,-2.40) {$\le$60 Lines};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (3.45,-2.40) {150 Rules Cliff};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (6.15,-2.40) {500+ Lines (Overfit)};
+  \draw[gred, dashed, line width=1.2pt] (3.45,-2.35) -- (3.45,-0.55);
+  \draw[gblue, line width=2.3pt] (0.85,-0.75) .. controls (1.80,-0.76) and (2.80,-0.82) .. (3.45,-1.05) .. controls (4.30,-1.45) and (5.20,-2.05) .. (6.50,-2.22);
+  \fill[ggreen] (1.50,-0.77) circle (3.5pt);
+  \fill[gred] (3.45,-1.05) circle (3.5pt);
+  % Mini comparison of the 3 Context Primitives inside bottom of left card
+  \node[anchor=north west, text width=6.65in, font=\fontsize{10.2}{13.2}\selectfont, text=gdark] at (0.22,-2.68) {
+    \textbf{The Three Context Primitives:}\\[2pt]
+    1. \textbf{Prompts / Slash Workflows:} Ephemeral per-turn user instructions (\code{/plan}, \code{/grill-me}).\\
+    2. \textbf{Rules (\code{CLAUDE.md}/\code{GEMINI.md}, \code{rules/*.md}):} Standing constraints (always-on or glob-scoped).\\
+    3. \textbf{Skills (\code{SKILL.md}):} On-demand procedural manuals (\code{$\sim$100 tok} YAML until triggered).
+  };
+
+  % Right: The Minimalist 60-Line Map Rule (OpenAI & Stanford CS146S)
+  \bcard{7.5}{0}{7.2}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{The Minimalist 60-Line Map Rule (OpenAI \& CS146S)}}\\[5pt]
+    {\fontsize{11.3}{14.8}\selectfont
+    $\bullet$ \textbf{Why 500-Line Files Hurt:} Over-stuffed instruction files consume instruction budget, contradict stale modules, and \textbf{overfit agent exploration}.\\[4pt]
+    $\bullet$ \textbf{What Belongs in Root \code{CLAUDE.md} / \code{GEMINI.md} ($\le 60$ lines):}\\[2pt]
+    1. \textbf{Exact Build / Test / Lint / Server Commands} (e.g., \code{./self\_diagnose\_all.sh}).\\[2pt]
+    2. \textbf{Concise Architecture \& Directory Map} (top-level package boundaries).\\[2pt]
+    3. \textbf{Progressive \code{@docs/*.md} Pointers} (loaded only when relevant to the task).\\[2pt]
+    4. \textbf{Cross-Tool Symlink:} Symlink \code{CLAUDE.md <-> AGENTS.md} (and \code{GEMINI.md}).\\[4pt]
+    $\bullet$ \textbf{Path-Scoped Rules:} Move folder-specific rules into \code{.claude/rules/api.md} (\code{paths: ["src/api/**"]}) and \code{.agents/rules/api.md}.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Why One-Level-Deep Links Matter (\texttt{REQ-0304})}}\\[4pt]
-    $\bullet$ \code{SKILL.md} links directly to \code{docs.md}, \code{slides-deck.md}, and \code{apply\_template.md}. Never chain \code{SKILL.md -> a.md -> b.md -> c.md} (agents lose track of multi-hop links).
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Context Economy Rule: Treat Root Instruction Lines Like L1 CPU Cache}}\\[4pt]
+    $\bullet$ If a rule applies to $<20\%$ of tasks (e.g., database migration conventions or frontend CSS tokens), move it out of root \code{CLAUDE.md}/\code{GEMINI.md} into a path-scoped \code{rules/*.md} file or an on-demand \code{SKILL.md}.
   }
 }
 
 % SLIDE 20
-\slideshell{20 / 36}{MODULE 04: LAB 03 STEP-BY-STEP (4 / 5)}{Lab 03 Step 3 (\texttt{REQ-0305}): Rejecting Self-Generated Filler vs.\ High-Signal Rules}{How \texttt{audit\_skill\_signal\_quality()} detects low-signal LLM-generated skills}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Rejected: Self-Generated Filler (\texttt{bad\_self\_generated\_skill/})}}\\[6pt]
-    $\bullet$ \textbf{YAML Violations:} \code{name: Bad\_Self\_Gen\_Skill} (uppercase + underscores), vague 5-word description with no \code{Use when}/\code{Don't use for}.\\[5pt]
-    $\bullet$ \textbf{Training-Data Platitudes Flagged by \code{SELF\_GEN\_FILLER\_PHRASES}:}\\[3pt]
-    -- \emph{``write clean, modular, maintainable code''}\\[2pt]
-    -- \emph{``follow industry best practices and design patterns''}\\[2pt]
-    -- \emph{``make sure there are no bugs''}\\[2pt]
-    -- \emph{``handle edge cases appropriately''}.\\[4pt]
-    $\bullet$ Zero concrete hex codes, commands, or failure gotchas!
+\slideshell{20 / 36}{MODULE 05: CROSS-SESSION AUTO-MEMORY}{Cross-Session Auto-Memory \& Retrospectives (\texttt{MEMORY.md} vs.\ \texttt{KNOWLEDGE.md})}{Persisting durable architectural decisions across sessions while pruning stale assumptions}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Claude Code Auto-Memory (\texttt{MEMORY.md})}}\\[6pt]
+    $\bullet$ \textbf{Storage Path:} \code{\textasciitilde{}/.claude/projects/<git-repo>/memory/MEMORY.md} (shared across all \code{git worktree} checkouts of the repository).\\[4pt]
+    $\bullet$ \textbf{Startup Cap:} Only the first \textbf{200 lines / 25 KB} of \code{MEMORY.md} are auto-loaded; detailed sub-notes route to \code{topics/<slug>.md}.\\[4pt]
+    $\bullet$ \textbf{Interactive Inspection:} Run \code{/memory} to inspect, edit, or delete entries when project architecture changes.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Approved: Manually Crafted High-Signal Skill (\texttt{REQ-0305})}}\\[6pt]
-    $\bullet$ \textbf{High-Signal Density Checks in \code{audit\_skill\_signal\_quality()}:}\\[4pt]
-    1. \textbf{Line Count Gate:} $35 \le \text{lines} \le 500$ (neither a stub nor an encyclopedia).\\[3pt]
-    2. \textbf{Zero Filler Phrases:} 0 matches against generic pretraining platitudes.\\[3pt]
-    3. \textbf{Concrete Prescriptive Artifacts:} $\ge 3$ concrete hex tokens, file paths, or fenced commands.\\[3pt]
-    4. \textbf{Grounded Gotchas:} Explicit \code{Gotcha}/\code{Trap}/\code{Never} failure-mode section.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Google Antigravity Knowledge Items (\texttt{KNOWLEDGE.md})}}\\[6pt]
+    $\bullet$ \textbf{Storage Path:} \code{\textasciitilde{}/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md} with structured topic summaries and artifact pointers.\\[4pt]
+    $\bullet$ \textbf{Interactive CLI Commands:} Manage standing knowledge directly via \code{/memory show}, \code{/memory add}, and \code{/memory refresh}.\\[4pt]
+    $\bullet$ \textbf{Post-Run Retrospectives (Skills Map 3.4):} After non-trivial sessions, capture discovered gotchas and \textbf{update downstream entries} when assumptions change.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Anthropic \& Google \texttt{skill-creator} Rule: Explain the ``Why'', Not Just Rigid ``ALWAYS/NEVER'' Screaming}}\\[4pt]
-    $\bullet$ Explaining \emph{why} a rule exists (e.g.\ WCAG $2.1:1$ contrast failure) lets the model generalize intelligently to novel edge cases.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgred}{gred}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gred}{Preventing Memory Poisoning: Provenance Tagging \& Stale-Assumption Pruning}}\\[4pt]
+    $\bullet$ Never let an agent record speculative hypotheses or transient debugging state as permanent rules. Require explicit \textbf{source provenance} (user instruction vs.\ commit-verified fact) and prune superseded entries on architecture updates.
   }
 }
 
 % SLIDE 21
-\slideshell{21 / 36}{MODULE 04: LAB 03 STEP-BY-STEP (5 / 5)}{Lab 03 Step 4 (\texttt{REQ-0306}): Selective Artifact Loading \& Lab 03 Verification}{Measuring progressive disclosure token savings and running \texttt{./labs/lab\_03.../self\_diagnose.sh}}{
-  \bcard{0}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Selective Reference Loader (\texttt{select\_references\_for\_artifact})}}\\[6pt]
-    $\bullet$ \textbf{\code{artifact\_type = "doc"}:} Loads \code{["SKILL.md", "docs.md"]} (skips \code{slides-deck.md} \& \code{apply\_template.md}).\\[5pt]
-    $\bullet$ \textbf{\code{artifact\_type = "slides"}:} Loads \code{["SKILL.md", "slides-deck.md"]}.\\[5pt]
-    $\bullet$ \textbf{\code{artifact\_type = "retrofit\_doc"}:} Loads \code{["SKILL.md", "docs.md", "apply\_template.md"]}.\\[5pt]
-    $\bullet$ Rejects unknown artifact types with \code{SkillSpecificationError}.
+\slideshell{21 / 36}{MODULE 05: LAB 05 WALKTHROUGH}{Lab 05: Context Compiler \& Persistent Memory Architecture (\texttt{context\_compiler.py})}{Walking through \texttt{labs/lab\_05\_context\_primitives\_and\_memory/} step by step}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: 60-Line Map Compiler \& Path-Scoped Rules}}\\[6pt]
+    $\bullet$ \textbf{Step 1 -- Monolith-to-Map Refactorer (\code{compile\_root\_context\_map}):}\\[2pt]
+    1. Audits a bloated 400-line instruction file and enforces the strict \textbf{60-line root cap}.\\[2pt]
+    2. Extracts domain-specific sections into \code{@docs/<topic>.md} lazy imports with path-traversal security checks (\code{relative\_to(project\_root)}).\\[4pt]
+    $\bullet$ \textbf{Step 2 -- Glob-Scoped Rule Matcher (\code{match\_scoped\_rules}):}\\[2pt]
+    Loads \code{.claude/rules/*.md} and \code{.agents/rules/*.md} only when the active file set matches the rule's frontmatter \code{paths:} globs.
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Running Lab 03 Self-Diagnosis (\texttt{self\_diagnose.sh})}}\\[6pt]
-    $\bullet$ \textbf{Command:}\\[3pt]
-    \code{./labs/lab\_03\_crafting\_agent\_skills\_progressive\_disclosure/self\_diagnose.sh}\\[5pt]
-    $\bullet$ \textbf{Verified Invariants (\code{REQ-0301..0306}):}\\[3pt]
-    -- Valid \code{anthropic-brand/} passes all frontmatter, link, and signal gates.\\[2pt]
-    -- \code{bad\_self\_generated\_skill/} fails deterministically.\\[2pt]
-    -- Broken relative links and chained multi-hop links are caught.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: Worktree Memory Store \& Self-Diagnosis}}\\[6pt]
+    $\bullet$ \textbf{Step 3 -- Cross-Session Memory \& Retrospectives (\code{MemoryStore}):}\\[2pt]
+    1. Resolves canonical git-worktree memory paths for both \code{MEMORY.md} and \code{KNOWLEDGE.md}.\\[2pt]
+    2. Enforces the \textbf{200-line / 25 KB index cap} (routing overflow into \code{topics/*.md}) and superseding stale assumptions during post-run retrospectives.\\[4pt]
+    $\bullet$ \textbf{Verify Lab 05 in $< 0.05\text{s}$:}\\[2pt]
+    \code{./labs/lab\_05\_context\_primitives\_and\_memory/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Module 04 Complete $\to$ Next: Evaluating Skills (\texttt{eval-viewer}), Skill Overload \& Trigger Calibration (Lab 04)}}\\[4pt]
-    $\bullet$ Once we write a skill manually, how do we prove it actually helps (`eval-viewer`) and prevent too many skills from confusing the router?
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Lab 05 Key Takeaway: 82\% Startup Token Reduction with Zero Loss of Domain Guidance}}\\[4pt]
+    $\bullet$ Refactoring a monolithic prompt into a 60-line root map + glob-scoped rules + topic-overflow memory keeps baseline context under $4\%$ of the window.
   }
 }
 
 % ============================================================================
-% MODULE 05: LAB 04 STEP-BY-STEP — EVAL-VIEWER, SKILL OVERLOAD & SDT (SLIDES 22-26)
+% MODULE 06 (SLIDES 22-26): HARNESS ENGINEERING LAYER 2: PROGRESSIVE-DISCLOSURE
+% SKILLS (agentskills.io), CURATED GROUNDING (context-hub), ERGONOMIC MCP & META-MCP (LAB 06)
 % ============================================================================
 
 % SLIDE 22
-\slideshell{22 / 36}{MODULE 05: LAB 04 STEP-BY-STEP (1 / 5)}{Lab 04 Problem: Skill Catalog Overload \& Uncalibrated Trigger Descriptions}{Why adding $\ge 4$ skills causes an 8.9 percentage-point drop and why raw Hit Rate is a trap}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Problem 1: Skill Count Overload (\texttt{SkillsBench} Table 8)}}\\[6pt]
-    \textbf{The More Skills You Add, The More Confused the Router Gets:}\\[4pt]
-    $\bullet$ \textbf{\code{1} Skill:} \textbf{+18.0 pp} lift (\code{36.6\% -> 54.6\%}).\\[4pt]
-    $\bullet$ \textbf{\code{2--3} Skills (Peak Sweet Spot):} \textbf{+19.0 pp} lift (\code{32.2\% -> 51.2\%}).\\[4pt]
-    $\bullet$ \textbf{\code{>= 4} Skills (Overload Collapse):} Drops to \textbf{+10.1 pp} (\textbf{$-$8.9 pp collapse} from peak!).\\[4pt]
-    $\bullet$ Overlapping micro-skills (\code{git-commit}, \code{git-branch}, \code{git-pr}, \code{git-rebase}) compete in the startup system prompt.
+\slideshell{22 / 36}{MODULE 06: PROGRESSIVE-DISCLOSURE SKILLS (\texttt{agentskills.io})}{Skills as On-Demand Procedural Manuals (\texttt{agentskills.io})}{3-Level Progressive Disclosure (\texttt{YAML $\to$ SKILL.md $\to$ scripts/references}) and the 3-Stage Skill Maturity Lifecycle}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Level 1: Discovery Catalog}}\\[5pt]
+    \textbf{YAML Frontmatter ($\sim$100 Tokens):}\\[3pt]
+    $\bullet$ Only \code{name} (lowercase-hyphenated matching folder) and \code{description} load at session startup.\\[3pt]
+    $\bullet$ Must state both positive triggers (\code{Use when...}) and negative boundaries (\code{Don't use for...}).\\[3pt]
+    $\bullet$ 20 installed skills cost just $\sim$2,000 startup tokens!
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbgyellow}{gyellow}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gdark}{Problem 2: The Trigger ``Trade-Off Trap''}}\\[6pt]
-    \textbf{Why Optimizing Raw Hit Rate Alone Fails:}\\[4pt]
-    $\bullet$ Broadening a skill's \code{description} raises Hit Rate from \code{85\% -> 100\%}, but False Alarms jump from \code{5\% -> 40\%}!\\[4pt]
-    $\bullet$ Every False Alarm injects thousands of irrelevant Level 2 tokens into unrelated user tasks.\\[4pt]
-    $\bullet$ We need \textbf{Signal Detection Theory ($d'$, $c$)} and paired \textbf{\code{eval-viewer}} benchmarking (\code{with\_skill} vs.\ \code{without\_skill}).
+  \bcard{5.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Level 2: Core Manual}}\\[5pt]
+    \textbf{\code{SKILL.md} Body ($\le 500$ Lines):}\\[3pt]
+    $\bullet$ Loaded on-demand only when invoked via \code{/skill-name} or matched by the semantic router.\\[3pt]
+    $\bullet$ Contains concrete workflow steps, exact CLI recipes, and \textbf{experience-grounded gotchas}.\\[3pt]
+    $\bullet$ Links one level deep to Level 3 files.
+  }
+  \bcard{10.0}{0}{4.7}{4.10}{gbgyellow}{gyellow}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{Level 3: Bundled Resources}}\\[5pt]
+    \textbf{\code{scripts/}, \code{references/}, \code{assets/}:}\\[3pt]
+    $\bullet$ \textbf{\code{scripts/}:} Deterministic Python/Bash verifiers executed via shell without reading code into context!\\[3pt]
+    $\bullet$ \textbf{\code{references/}:} Deep domain tables/schemas read selectively per sub-task.\\[3pt]
+    $\bullet$ Costs \textbf{0 tokens} until explicitly accessed.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{The Reference-First Consolidation Rule (\texttt{REQ-0404})}}\\[4pt]
-    $\bullet$ Never create a standalone skill under \textbf{50 lines}. Merge micro-skills into \code{references/<subtopic>.md} inside one parent CUJ skill (\textbf{0 startup tokens, 0 extra routing targets}).
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The 3-Stage Skill Maturity Lifecycle (Skills Map 3.4): Prototype $\to$ Team Preview $\to$ Production GA (+ Pruning)}}\\[4pt]
+    $\bullet$ \textbf{1. Personal Prototype} (captured from a real debugging trajectory) $\to$ \textbf{2. Team Preview} (checked into \code{.agents/skills/} \& \code{.claude/skills/}) $\to$ \textbf{3. Production GA} (gated by paired \code{benchmark.json} evals) $\to$ \textbf{4. Retire/Prune} when newer frontier model weights absorb the capability natively!
   }
 }
 
 % SLIDE 23
-\slideshell{23 / 36}{MODULE 05: LAB 04 STEP-BY-STEP (2 / 5)}{Lab 04 Step 1 (\texttt{REQ-0401..0402}): Paired \texttt{with\_skill} vs.\ \texttt{without\_skill} Benchmarking}{Computing \texttt{benchmark.json} deltas and enforcing the \texttt{11/11} zero-flake binomial reliability gate}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Anthropic \texttt{skill-creator} Paired Eval (\texttt{compute\_paired\_benchmark})}}\\[6pt]
-    $\bullet$ \textbf{Paired Runs:} Executes every eval prompt twice in parallel: \code{with\_skill} and \code{without\_skill} (baseline).\\[5pt]
-    $\bullet$ \textbf{Per-Assertion Grading (\code{grading.json}):} Grades each expectation into \code{\{text, passed, evidence\}}.\\[5pt]
-    $\bullet$ \textbf{Regression Detection:} Tracks \code{regressions\_count} (assertions that passed in baseline but failed \code{with\_skill}). Any regression fails the promotion gate!
+\slideshell{23 / 36}{MODULE 06: CURATED API GROUNDING (\texttt{context-hub})}{Curated API Grounding \& Self-Improving Annotations (\texttt{andrewyng/context-hub})}{How \texttt{@aisuite/chub} (\texttt{get-api-docs/SKILL.md}) eliminates stale-API hallucinations and compounds session discoveries}{
+  % Visual Architecture Flow Diagram across top (4 connected boxes)
+  \bcard{0.00}{0}{3.42}{3.95}{gbgblue}{gblue}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gblue}{1. Stale Pretraining Problem}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ LLMs hallucinate deprecated SDK methods (e.g., old \code{openai.ChatCompletion.create} or stale Stripe webhook signatures).\\[4pt]
+    $\bullet$ Raw web search pulls noisy HTML ads and mismatched versions.}
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Why 3/3 Passes Is Not Enough: The \texttt{11/11} Rule}}\\[6pt]
-    $\bullet$ \textbf{Binomial Reliability ($p^n \le 1 - C$):} To be $C = 70\%$ confident that true pass rate is $p \ge 0.90$, how many consecutive passes $n$ are required?\\[5pt]
-    $\bullet$ At $n = 3$: $0.90^3 = 0.729 \implies$ only \textbf{27\%--34\% confidence}!\\[4pt]
-    $\bullet$ At \textbf{$n = 11$}: $0.90^{11} = 0.313 \implies$ \textbf{72\% statistical confidence} of $\ge 90\%$ reliability.\\[4pt]
-    $\bullet$ \code{promotion\_approved} requires \code{mean\_delta\_pass\_rate > 0} and \code{regressions\_count == 0}.
+  \bcard{3.76}{0}{3.42}{3.95}{gbggreen}{ggreen}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{ggreen}{2. \texttt{chub} Curated Fetch}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ Agent triggers \code{get-api-docs/SKILL.md} and runs:\\[3pt]
+    \code{chub search stripe}\\
+    \code{chub get stripe/api --lang py}\\[4pt]
+    $\bullet$ Injects clean, versioned, language-specific Markdown docs on demand.}
+  }
+  \bcard{7.52}{0}{3.42}{3.95}{gbgyellow}{gyellow}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gdark}{3. Local Self-Annotation}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ When the agent discovers a non-obvious SDK quirk during testing, it persists a local note:\\[3pt]
+    \code{chub annotate stripe/api "Requires raw bytes payload for HMAC check"}\\[4pt]
+    $\bullet$ Stored locally for future sessions!}
+  }
+  \bcard{11.28}{0}{3.42}{3.95}{gbgred}{gred}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gred}{4. Guarded Re-Use \& Feedback}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ Future sessions run \code{chub get ... --with-annotations} (wrapped as untrusted context so notes cannot inject commands).\\[4pt]
+    $\bullet$ Emits quality signal upstream via \code{chub feedback up|down}.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Starter Bug in \texttt{starter/skill\_eval\_engine.py}: Averaging \texttt{with\_skill} Only}}\\[4pt]
-    $\bullet$ The broken starter ignored the \code{without\_skill} baseline completely---approving skills that actually caused regressions!
+  \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Why \texttt{andrewyng/context-hub} Outperforms Static RAG and Raw Documentation Scraping}}\\[4pt]
+    $\bullet$ By combining \textbf{curated version-pinned Markdown packages} with \textbf{local agent-authored annotations (\code{chub annotate})}, the harness turns every hard-won API debugging discovery into permanent institutional memory across sessions.
   }
 }
 
 % SLIDE 24
-\slideshell{24 / 36}{MODULE 05: LAB 04 STEP-BY-STEP (3 / 5)}{Lab 04 Step 2 (\texttt{REQ-0403..0404}): Auditing Skill Catalog Overload}{Enforcing the \texttt{2--3} active skill sweet spot and consolidating micro-skills into \texttt{references/*.md}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Catalog Overload Detector (\texttt{audit\_skill\_catalog\_overload})}}\\[6pt]
-    $\bullet$ \textbf{Rule 1 (Active Count $> 3$):} Flags \code{overload\_detected = True} when more than \code{MAX\_OPTIMAL\_ACTIVE\_SKILLS = 3} skills are active simultaneously (\code{SkillsBench} Table 8).\\[5pt]
-    $\bullet$ \textbf{Rule 2 (Micro-Skills $< 50$ Lines):} Flags any standalone skill with \code{line\_count < 50} for consolidation into \code{references/<name>.md}.\\[5pt]
-    $\bullet$ \textbf{Rule 3 (Lexical Jaccard Overlap $\ge 0.35$):} Computes token Jaccard similarity across skill descriptions to catch colliding triggers.
-  }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Before vs.\ After Reference-First Consolidation}}\\[6pt]
-    $\bullet$ \textbf{Before (Overloaded — 5 Skills, +10.1 pp Regime):}\\[3pt]
-    \code{git-commit-msg} (22L), \code{git-branch-name} (18L), \code{git-pr-template} (28L), \code{git-rebase-flow} (31L), \code{anthropic-brand} (95L).\\[5pt]
-    $\bullet$ \textbf{After (Consolidated — 2 Skills, +19.0 pp Peak Regime):}\\[3pt]
-    \code{git-workflow/SKILL.md} (110L) + \code{references/\{commit,branch,pr,rebase\}.md} and \code{anthropic-brand/SKILL.md} (95L).
+\slideshell{24 / 36}{MODULE 06: ERGONOMIC MCP \& META-MCP ``CODE MODE''}{Ergonomic MCP Tool Design \& Meta-MCP ``Code Mode'' ($>$90\% Token Savings)}{Why 1-to-1 REST CRUD wrappers fail and how Stanford CS146S Lecture 4's 4 Rules cut tool tokens by $>$90\%}{
+  % Left: The 4 Rules of Ergonomic Agent Tools (CS146S Lecture 4)
+  \bcard{0}{0}{7.4}{4.15}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{The 4 Rules of Ergonomic Agent Tools (CS146S Lecture 4)}}\\[5pt]
+    {\fontsize{11.2}{14.6}\selectfont
+    \textbf{1. Design Around Outcomes, Not Granular REST CRUD:}\\[2pt]
+    Replace 3 chained REST lookups (\code{get\_user} $\to$ \code{get\_wallet} $\to$ \code{post\_tx}) with 1 outcome tool (\code{send\_payment\_to\_email}) or consolidated \code{search\_resource(type=...)}.\\[3pt]
+    \textbf{2. Enforce Strict Typed Schemas (\code{Pydantic} / TypeScript):}\\[2pt]
+    Ban \code{*args, **kwargs} and untyped \code{dict} payloads; constrain enums and value bounds.\\[3pt]
+    \textbf{3. Return Actionable, Self-Repairing Error Messages:}\\[2pt]
+    Instead of \code{HTTP 400 Bad Request}, return exact parameter remediation instructions.\\[3pt]
+    \textbf{4. Expose Meta-MCP ``Code Mode'' (\code{search} + \code{execute}):}\\[2pt]
+    Instead of loading 150 tool schemas upfront, expose only \code{search(query)} (to fetch 1--2 relevant schemas on demand) and \code{execute(script)} (running chained calls in a sandbox VM).}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Result: Zero Startup Token Increase \& Zero Routing Ambiguity}}\\[4pt]
-    $\bullet$ Moving 4 micro-skills into \code{references/*.md} under one CUJ parent cuts startup metadata tokens by 60\% and restores the \textbf{+19.0 pp} peak lift.
+  % Right: Visual Bar Chart Comparing Token Overhead
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.0in, minimum height=4.15in] at (7.7,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (7.92,-0.16) {Context Tokens Consumed by 5-Step Multi-Tool Workflow};
+  % Bar 1: Naive 150-CRUD MCP
+  \node[anchor=west, font=\fontsize{10}{12}\selectfont\bfseries, text=gdark] at (7.92,-0.80) {1. Naive 150-CRUD MCP (5 Round-Trips):};
+  \fill[gred] (7.92,-1.35) rectangle (14.40,-0.98);
+  \node[font=\fontsize{10}{12}\selectfont\bfseries, text=white] at (11.16,-1.16) {48,500 Tokens (100\% Baseline)};
+  % Bar 2: Consolidated Outcome Tools
+  \node[anchor=west, font=\fontsize{10}{12}\selectfont\bfseries, text=gdark] at (7.92,-1.80) {2. Consolidated Outcome Tools (15 Tools):};
+  \fill[gyellow, draw=gdark] (7.92,-2.35) rectangle (10.10,-1.98);
+  \node[anchor=west, font=\fontsize{10}{12}\selectfont\bfseries, text=gdark] at (10.22,-2.16) {9,200 Tokens ($-$81\%)};
+  % Bar 3: Meta-MCP Code Mode (search + execute)
+  \node[anchor=west, font=\fontsize{10}{12}\selectfont\bfseries, text=ggreen] at (7.92,-2.80) {3. Meta-MCP ``Code Mode'' (\texttt{search} + \texttt{execute}):};
+  \fill[ggreen] (7.92,-3.35) rectangle (8.45,-2.98);
+  \node[anchor=west, font=\fontsize{10.5}{13}\selectfont\bfseries, text=ggreen] at (8.58,-3.16) {2,100 Tokens ($-$95.7\% Reduction!)};
+  \node[anchor=north west, text width=6.5in, font=\fontsize{9.8}{12.5}\selectfont, text=gmuted] at (7.92,-3.50) {Code Mode executes intermediate pagination and filtering loops inside the sandbox VM so only the final distilled result enters the LLM context window.};
+
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Why Meta-MCP ``Code Mode'' Is the Architecture Standard for Large Tool Catalogs}}\\[4pt]
+    $\bullet$ LLMs are far better at writing a 6-line Python/TypeScript script inside \code{execute()} that loops over paginated API responses than issuing 12 sequential JSON tool-call round-trips across the context window.
   }
 }
 
 % SLIDE 25
-\slideshell{25 / 36}{MODULE 05: LAB 04 STEP-BY-STEP (4 / 5)}{Lab 04 Step 3 (\texttt{REQ-0405}): Signal Detection Theory ($d'$, Criterion Bias $c$, Utility $U$)}{Calibrating skill trigger descriptions mathematically with Hautus (1995) $+0.5$ smoothing}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Hautus (1995) Smoothed SDT Equations (\texttt{compute\_sdt\_metrics})}}\\[6pt]
-    $\bullet$ Given Hits ($H$), Misses ($M$), False Alarms ($FA$), and Correct Rejections ($CR$) on a 60/40 train/test split:\\[4pt]
-    $$\text{HR}_{\text{adj}} = \frac{H + 0.5}{H + M + 1.0}, \qquad \text{FA}_{\text{adj}} = \frac{FA + 0.5}{FA + CR + 1.0}$$\\[2pt]
-    $$d' = \Phi^{-1}(\text{HR}_{\text{adj}}) - \Phi^{-1}(\text{FA}_{\text{adj}}), \qquad c = -\frac{1}{2}\left[\Phi^{-1}(\text{HR}_{\text{adj}}) + \Phi^{-1}(\text{FA}_{\text{adj}})\right]$$\\[2pt]
-    $$U = 2.0 \cdot d' - 0.5 \cdot |c - c_{\text{target}}|$$
-  }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Interpreting $d'$ and Criterion Bias $c$}}\\[6pt]
-    $\bullet$ \textbf{Sensitivity $d'$ (Discriminability):}\\[3pt]
-    -- $d' > 2.0$: Strong separation between positive and distractor prompts.\\[2pt]
-    -- $d' \le 0$: Trigger is no better than random coin tossing.\\[5pt]
-    $\bullet$ \textbf{Criterion Bias $c$ (Threshold Placement):}\\[3pt]
-    -- $c > +0.25$: \code{"conservative"} (under-triggering / misses).\\[2pt]
-    -- $c < -0.25$: \code{"liberal"} (over-triggering / false alarms).\\[2pt]
-    -- $|c| \le 0.25$: \code{"balanced"} (optimal operating point).
+\slideshell{25 / 36}{MODULE 06: \texttt{SkillsBench} EMPIRICAL SCIENCE}{Empirical Skill Science (\texttt{SkillsBench} arXiv:2602.12670) \& \texttt{eval-viewer}}{Why focused curated skills add \textbf{+16.6pp} (\texttt{2--3} skills peak at \textbf{+19.0pp}) while self-generated skills hurt (\textbf{$-$8.1 to $-$11.5pp})}{
+  % Left: Visual Bar Chart of SkillsBench Pass-Rate Deltas
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.4in, minimum height=4.10in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-0.16) {\texttt{SkillsBench} Pass-Rate Delta vs.\ No-Skill Baseline (87 Tasks, 9,396 Runs)};
+  % Zero baseline vertical axis at x=4.25 (labels end at x=2.78, negative bars live in 2.88..4.25, positive bars in 4.25..6.55)
+  \draw[gdark, line width=1.1pt] (4.25,-3.75) -- (4.25,-0.55);
+  \node[anchor=south, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gdark] at (4.25,-0.55) {0.0pp Baseline};
+  % Row 1: 2-3 Curated Skills (+19.0pp)
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gdark] at (2.78,-0.92) {2--3 Focused Curated Skills:};
+  \fill[ggreen] (4.25,-1.10) rectangle (6.52,-0.75);
+  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont\bfseries, text=ggreen] at (6.56,-0.92) {+19.0pp};
+  % Row 2: Overall Curated Skills (+16.6pp)
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gdark] at (2.78,-1.52) {Curated Skills (Overall Avg):};
+  \fill[gblue] (4.25,-1.70) rectangle (6.22,-1.35);
+  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gblue] at (6.26,-1.52) {+16.6pp};
+  % Row 3: Monolithic Documentation Dump (+4.2pp)
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (2.78,-2.12) {Monolithic Doc Dump ($>$800L):};
+  \fill[gyellow, draw=gdark] (4.25,-2.30) rectangle (4.78,-1.95);
+  \node[anchor=west, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (4.84,-2.12) {+4.2pp};
+  % Row 4: >10 Overlapping Skills (-2.4pp)
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont, text=gdark] at (2.78,-2.72) {$>$10 Overlapping Skills:};
+  \fill[gred!70] (3.92,-2.90) rectangle (4.25,-2.55);
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gred] at (3.86,-2.72) {$-$2.4pp};
+  % Row 5: Self-Generated Skills (-8.1 to -11.5pp)
+  \node[anchor=east, font=\fontsize{9.2}{11}\selectfont\bfseries, text=gred] at (2.78,-3.32) {LLM Self-Generated Skills:};
+  \fill[gred] (2.88,-3.50) rectangle (4.25,-3.15);
+  \node[font=\fontsize{8.6}{10.5}\selectfont\bfseries, text=white] at (3.565,-3.32) {$-$8.1 to $-$11.5pp};
+
+  % Right: Paired eval-viewer & Trigger Calibration
+  \bcard{7.6}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Why Self-Generated Skills Fail \& How to Evaluate}}\\[5pt]
+    {\fontsize{11.3}{14.8}\selectfont
+    $\bullet$ \textbf{Why Self-Generated Skills Hurt (\textbf{$-$8.1 to $-$11.5pp}):} When asked to write its own skill before solving a task, an LLM emits generic pretraining platitudes or locks in hallucinated API flags.\\[4pt]
+    $\bullet$ \textbf{Why $>10$ Skills Degrade Routing:} Overlapping descriptions cause trigger collisions and blow past the active context budget.\\[4pt]
+    $\bullet$ \textbf{Paired \code{eval-viewer} Ablation (\code{benchmark.json}):}\\[2pt]
+    1. Run every eval prompt \textbf{paired}: \code{with\_skill} vs.\ \code{without\_skill} baseline.\\[2pt]
+    2. Measure \code{delta\_pass\_rate}, \code{delta\_tokens}, and trigger discrimination (\code{should\_trigger} vs.\ \code{should\_not\_trigger} false-alarm rate).}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Zero External Dependencies: Rational Acklam Inverse Normal $\Phi^{-1}(p)$ in Python \texttt{math}}}\\[4pt]
-    $\bullet$ Lab 04 implements $\Phi^{-1}(p)$ to $< 1.15 \times 10^{-9}$ relative error using only Python's standard \code{math} module.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Experience Before Theory: Craft Skills from Real Failure Trajectories \& Keep Active Skills at \texttt{2--3}}}\\[4pt]
+    $\bullet$ Only promote a skill to the team repository if its paired \code{benchmark.json} demonstrates a strictly positive \code{delta\_pass\_rate} without inflating token consumption on non-matching tasks.
   }
 }
 
 % SLIDE 26
-\slideshell{26 / 36}{MODULE 05: LAB 04 STEP-BY-STEP (5 / 5)}{Lab 04 Step 4 (\texttt{REQ-0406}): Rendering \texttt{eval-viewer} HTML \& Lab 04 Verification}{Generating the self-contained \texttt{Outputs} + \texttt{Benchmark} HTML review report}{
-  \bcard{0}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{\texttt{render\_eval\_viewer\_html()} (\texttt{REQ-0406})}}\\[6pt]
-    $\bullet$ Mirrors Anthropic's \code{skills/skill-creator/eval-viewer/generate\_review.py} HTML benchmark viewer:\\[5pt]
-    $\bullet$ \textbf{Tab 1 (\code{Outputs}):} Side-by-side qualitative inspection of \code{with\_skill} vs.\ \code{without\_skill} outputs and per-assertion evidence.\\[5pt]
-    $\bullet$ \textbf{Tab 2 (\code{Benchmark}):} Aggregate pass-rate lift (\code{+45.0 pp}), token delta, regressions count, SDT $d'$, bias $c$, and promotion badge.
+\slideshell{26 / 36}{MODULE 06: LAB 06 WALKTHROUGH}{Lab 06: Progressive Skills, \texttt{chub} Annotations \& Meta-MCP (\texttt{skill\_and\_mcp\_harness.py})}{Walking through \texttt{labs/lab\_06\_skills\_chub\_and\_meta\_mcp\_code\_mode/} step by step}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: \texttt{agentskills.io} Validator \& \texttt{chub} Grounding}}\\[6pt]
+    $\bullet$ \textbf{Step 1 -- 3-Level Skill Package Validator (\code{validate\_skill\_package}):}\\[2pt]
+    Verifies YAML frontmatter (\code{name}, positive/negative \code{description} triggers), $\le 500$-line \code{SKILL.md} body, one-level-deep \code{references/} links, and rejects self-generated filler platitudes.\\[4pt]
+    $\bullet$ \textbf{Step 2 -- Self-Annotating Doc Store (\code{ChubDocRegistry}):}\\[2pt]
+    Implements \code{search()}, versioned \code{get(id, lang, with\_annotations=True)}, local \code{annotate(id, note)} persistence, and \code{feedback(id, vote)}.
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Running Lab 04 Self-Diagnosis (\texttt{self\_diagnose.sh})}}\\[6pt]
-    $\bullet$ \textbf{Command:}\\[3pt]
-    \code{./labs/lab\_04\_skill\_evaluation\_and\_trigger\_calibration/self\_diagnose.sh}\\[5pt]
-    $\bullet$ \textbf{Verified Invariants (\code{REQ-0401..0406}):}\\[3pt]
-    -- Paired benchmark blocks promotion when any baseline pass regresses.\\[2pt]
-    -- \code{>= 4} skills and $< 50$-line micro-skills are flagged.\\[2pt]
-    -- SDT $d'$, $c$, and $U$ rank balanced descriptions above noisy ones.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: Meta-MCP ``Code Mode'' \& \texttt{benchmark.json}}}\\[6pt]
+    $\bullet$ \textbf{Step 3 -- Meta-MCP \code{search} + \code{execute} Harness (\code{MetaMcpCodeMode}):}\\[2pt]
+    1. Exposes only 2 meta-tools (\code{search\_tools} and \code{execute\_code\_plan}) over a catalog of 120 backend tools.\\[2pt]
+    2. Proves \textbf{$>$90\% schema token reduction} while enforcing strict typed input validation and actionable remediation errors.\\[4pt]
+    $\bullet$ \textbf{Step 4 -- Paired Ablation Report \& Self-Diagnosis:}\\[2pt]
+    \code{./labs/lab\_06\_skills\_chub\_and\_meta\_mcp\_code\_mode/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Module 05 Complete $\to$ Next: Multi-Agent Collaboration with \texttt{feature-dev} (Lab 05)}}\\[4pt]
-    $\bullet$ How do we coordinate specialized read-only subagents (\code{code-explorer}, \code{code-architect}, \code{code-reviewer}) across a 7-phase feature development workflow?
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Lab 06 Key Takeaway: On-Demand Progressive Disclosure Applies to Both Skills and MCP Tools}}\\[4pt]
+    $\bullet$ Loading skills via Level-1 YAML and loading tools via Meta-MCP \code{search} + \code{execute} ensures your agent scales to 100+ capabilities while keeping $>85\%$ of its context window free.
   }
 }
 
 % ============================================================================
-% MODULE 06: LAB 05 STEP-BY-STEP — MULTI-AGENT FEATURE-DEV (SLIDES 27-31)
+% MODULE 07 (SLIDES 27-30): HARNESS ENGINEERING LAYER 3: SUBAGENTS AS CONTEXT
+% FIREWALLS, MULTI-AGENT PR TRIAGE, LLM COUNCILS & WORKTREE ISOLATION (LAB 07)
 % ============================================================================
 
 % SLIDE 27
-\slideshell{27 / 36}{MODULE 06: LAB 05 STEP-BY-STEP (1 / 5)}{Lab 05 Problem: Why Single-Window Vibe Coding Fails on Multi-File Features}{How Anthropic's \texttt{feature-dev} plugin and Antigravity's Agent Manager isolate context across 7 phases}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Why Single-Session Monolithic Prompts Degrade}}\\[6pt]
-    \textbf{1. Search Pollution Pushes Context Past 60\%:}\\[3pt]
-    $\bullet$ Running 25 raw grep/glob searches in the main agent thread fills 40,000 tokens before a single line of code is written.\\[4pt]
-    \textbf{2. Coding Before Clarifying (Missing Phase 3 Gate):}\\[3pt]
-    $\bullet$ Without a hard clarifying-questions gate, the agent guesses ambiguous edge cases and builds the wrong architecture.\\[4pt]
-    \textbf{3. Self-Review Confirmation Bias:}\\[3pt]
-    $\bullet$ An agent reviewing its own code in the same context window rubber-stamps its own bugs or floods the user with low-confidence nitpicks.
+\slideshell{27 / 36}{MODULE 07: SUBAGENTS AS CONTEXT FIREWALLS}{The Interaction Method Decision Matrix \& Subagents as Context Firewalls}{Choosing between Conversational Prompts, One-Off Prompts, and Subagents (\texttt{rmvDxxNubIg} \& Skills Map 3.2)}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Conversational Prompts}}\\[5pt]
+    \textbf{When to Use Interactive Turns:}\\[3pt]
+    $\bullet$ High-ambiguity requirement discovery (\code{/grill-me}) and architectural trade-off selection.\\[3pt]
+    $\bullet$ Iterative UI/UX refinement where human judgment steers each step.\\[3pt]
+    $\bullet$ \emph{Warning:} Never use conversational turns for broad 30-file search sweeps!
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Solution: The 7-Phase \texttt{feature-dev} Multi-Agent Pipeline}}\\[6pt]
-    $\bullet$ \textbf{Phase 1:} Discovery \& Todo Initialization.\\[3pt]
-    $\bullet$ \textbf{Phase 2:} Parallel Read-Only \code{code-explorer} Subagents (\code{file:line}).\\[3pt]
-    $\bullet$ \textbf{Phase 3:} \textbf{Mandatory Clarifying Questions Gate (STOP)}.\\[3pt]
-    $\bullet$ \textbf{Phase 4:} Tri-Lens \code{code-architect} (\code{minimal\_changes}, \code{clean\_architecture}, \code{pragmatic\_balance}).\\[3pt]
-    $\bullet$ \textbf{Phase 5:} Implementation \& Test Verification.\\[3pt]
-    $\bullet$ \textbf{Phase 6:} Parallel \code{code-reviewer} (\code{confidence >= 80} filter).\\[3pt]
-    $\bullet$ \textbf{Phase 7:} Final Summary \& Traceability Report.
+  \bcard{5.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. One-Off Bounded Prompts}}\\[5pt]
+    \textbf{When to Use Single-Shot / Headless:}\\[3pt]
+    $\bullet$ Well-specified transformations with deterministic verification (\code{agy -p} / \code{claude -p}).\\[3pt]
+    $\bullet$ Generating commit messages, changelog entries, or single-file unit test suites.\\[3pt]
+    $\bullet$ Zero multi-turn history accumulation.
+  }
+  \bcard{10.0}{0}{4.7}{4.10}{gbgred}{gred}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{3. Subagents = Context Firewalls}}\\[5pt]
+    \textbf{Dex Horthy's Subagent Law:}\\[3pt]
+    $\bullet$ \textbf{Never anthropomorphize subagents} into cute roleplay personas (\emph{``Frontend Bob''}, \emph{``PM Alice''}).\\[3pt]
+    $\bullet$ Subagents exist for one physical purpose: \textbf{Context Isolation}.\\[3pt]
+    $\bullet$ Child burns \textbf{50,000 tokens} searching files/logs $\to$ returns a \textbf{500-token cited summary} to the parent window!
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Subagent Isolation Principle: Subagents Explore Deeply, Return Compact Summaries (\texttt{< 1,000} Tokens)}}\\[4pt]
-    $\bullet$ Each \code{code-explorer}, \code{code-architect}, and \code{code-reviewer} runs in its own isolated context window with read-only tools (\code{Glob, Grep, Read}).
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Context Firewall Compression Ratio: $50,000\text{ Child Exploration Tokens} \longrightarrow 500\text{ Parent Handoff Tokens}$ (100:1 Savings)}}\\[4pt]
+    $\bullet$ Because the child subagent's context window is garbage-collected the moment it returns its structured findings, the parent orchestrator stays at $<15\%$ context utilization!
   }
 }
 
 % SLIDE 28
-\slideshell{28 / 36}{MODULE 06: LAB 05 STEP-BY-STEP (2 / 5)}{Lab 05 Step 1 (\texttt{REQ-0501..0502}): Subagent Frontmatter \& \texttt{code-explorer}}{Validating read-only subagent definitions and merging parallel \texttt{file:line} exploration traces}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Subagent Frontmatter (\texttt{parse\_agent\_definition})}}\\[6pt]
-    $\bullet$ Stored in \code{.claude/agents/<name>.md} (\code{claude}) and \code{.agents/agents/<name>.md} (\code{agy}):\\[4pt]
-    \code{---}\\[1pt]
-    \code{name: code-explorer}\\[1pt]
-    \code{description: Traces execution paths with file:line citations}\\[1pt]
-    \code{tools: Glob, Grep, Read}\\[1pt]
-    \code{model: sonnet}\\[1pt]
-    \code{color: yellow}\\[1pt]
-    \code{---}\\[4pt]
-    $\bullet$ \textbf{Least-Privilege Guard (\code{REQ-0501}):} Rejects any explorer/architect/reviewer agent that requests write/shell tools (\code{Write}, \code{Edit}, \code{Bash}).
+\slideshell{28 / 36}{MODULE 07: \texttt{feature-dev} \& MULTI-AGENT PR TRIAGE}{Anthropic's 7-Phase \texttt{feature-dev} \& Stanford CS146S Multi-Agent PR Triage}{Orchestrating \texttt{code-explorer}, \texttt{code-architect}, and 5 specialized \texttt{code-reviewer} subagents}{
+  % Top Visual Pipeline: 7-Phase feature-dev
+  \bcard{0.00}{0}{4.70}{3.95}{gbgblue}{gblue}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gblue}{Phases 1--3: Explore \& Clarify}}\\[5pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{Phase 1 (Discovery):} Frame feature intent.\\[2pt]
+    $\bullet$ \textbf{Phase 2 (\code{code-explorer}):} 2--3 parallel \textbf{read-only} subagents (\code{Read}, \code{Grep}, \code{Glob} only; \code{Write}/\code{Edit} forbidden) map execution paths with \code{file:line} citations.\\[2pt]
+    $\bullet$ \textbf{Phase 3 (Clarification Gate):} Hard STOP until all open questions are answered.}
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Phase 2 Aggregation (\texttt{aggregate\_exploration\_reports})}}\\[6pt]
-    $\bullet$ Spawns 2--3 parallel \code{code-explorer} subagents (e.g.\ \emph{entry-points \& call-chains} vs.\ \emph{domain invariants \& tests}).\\[5pt]
-    $\bullet$ \textbf{Citation Validator (\code{REQ-0502}):} Verifies every trace entry matches \code{\textasciicircum{}[a-zA-Z0-9\_./-]+:[0-9]+\$} (e.g.\ \code{src/ledger/batch.py:42}).\\[5pt]
-    $\bullet$ Deduplicates \code{key\_files\_to\_read} in deterministic order so the orchestrator reads only the essential files.
+  \bcard{5.00}{0}{4.70}{3.95}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Phases 4--5: Architect \& Build}}\\[5pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{Phase 4 (\code{code-architect}):} Evaluates Minimal-Change vs.\ Clean-Architecture vs.\ Pragmatic lenses; locks file-and-line blueprint + \code{Out of Scope} list.\\[2pt]
+    $\bullet$ \textbf{Phase 5 (Implementation):} Executes surgical edits against the approved blueprint and runs deterministic test suites.}
+  }
+  \bcard{10.00}{0}{4.70}{3.95}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Phases 6--7: 5-Agent PR Triage}}\\[5pt]
+    {\fontsize{11}{14.2}\selectfont
+    $\bullet$ \textbf{Phase 6 (\code{code-reviewer} Fan-Out):} Spawns 5 parallel review subagents: \textbf{Security}, \textbf{Performance}, \textbf{Architecture}, \textbf{Style}, and \textbf{Edge Cases}.\\[2pt]
+    $\bullet$ Filters out noise below \textbf{confidence $\ge 80$}.\\[2pt]
+    $\bullet$ \textbf{Phase 7 (Summary):} Synthesizes final Run Receipt.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Dual-Harness Execution: \texttt{/feature-dev} in Claude Code \& Antigravity Agent Manager}}\\[4pt]
-    $\bullet$ Both harnesses spawn the parallel read-only explorers concurrently and return structured \code{file:line} architectural maps to the parent session.
+  % Bottom Severity Triage Strip (CS146S Must Fix / Recommended / Consider)
+  \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Stanford CS146S Multi-Agent PR Triage Taxonomy (Confidence $\ge 80$ Gate)}}\\[5pt]
+    $\bullet$ \textbf{\textcolor{gred}{[RED] Must Fix (Confidence $\ge 90$, Critical/High):}} Security vulnerabilities, data-loss bugs, race conditions, or broken invariants (blocks merge).\\[2pt]
+    $\bullet$ \textbf{\textcolor{gdark}{[YELLOW] Recommended (Confidence $\ge 80$, Medium):}} Missing boundary test cases, N+1 query inefficiencies, or error-handling gaps.\\[2pt]
+    $\bullet$ \textbf{\textcolor{ggreen}{[GREEN] Consider (Confidence $\ge 80$, Low):}} Optional readability simplifications; everything with confidence $< 80$ is automatically suppressed!
   }
 }
 
 % SLIDE 29
-\slideshell{29 / 36}{MODULE 06: LAB 05 STEP-BY-STEP (3 / 5)}{Lab 05 Step 2 (\texttt{REQ-0503}): Phase 3 Mandatory Clarifying Questions Gate}{Why Phase 4 Architecture and Phase 5 Implementation MUST raise \texttt{ClarificationGateError} until answered}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{The Most Important Gate in \texttt{feature-dev}: Phase 3 STOP}}\\[6pt]
-    $\bullet$ From Anthropic's official \code{plugins/feature-dev/commands/feature-dev.md}:\\[4pt]
-    \emph{``CRITICAL: This is one of the most important phases. DO NOT SKIP. Wait for user answers before proceeding to architecture design.''}\\[5pt]
-    $\bullet$ \textbf{What Phase 3 Synthesizes:} Edge cases, error-handling contracts, backward compatibility, and performance bounds discovered during Phase 2 exploration.
+\slideshell{29 / 36}{MODULE 07: \texttt{llm-council} \& \texttt{git worktree} ISOLATION}{Karpathy's \texttt{llm-council} (Anonymized Peer Review) \& \texttt{git worktree} Isolation}{3-stage anonymized cross-model peer ranking and running parallel subagents in isolated worktrees}{
+  % Left: Karpathy's llm-council 3-Stage Protocol
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Karpathy's \texttt{llm-council}: 3-Stage Verification Protocol}}\\[6pt]
+    $\bullet$ \textbf{Why Single-Model Self-Review Fails:} A single model evaluating its own design exhibits strong self-preference bias and misses its own blind spots.\\[4pt]
+    $\bullet$ \textbf{Stage 1 -- Independent First Opinions:} Query $K$ diverse models/agents in parallel on the architectural problem.\\[3pt]
+    $\bullet$ \textbf{Stage 2 -- Anonymized Cross-Model Peer Review:} Strip model identities (\code{Response A}, \code{Response B}, \code{Response C}) so reviewers \textbf{cannot play favorites}, and score each on accuracy, simplicity, and edge-case coverage.\\[3pt]
+    $\bullet$ \textbf{Stage 3 -- Chairman Synthesis:} Aggregate Borda count rankings + peer critiques into one unified architectural decision.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Deterministic State-Machine Enforcement (\texttt{REQ-0503})}}\\[6pt]
-    $\bullet$ In \code{FeatureDevSession}, calling \code{run\_phase4\_architecture()} or \code{run\_phase5\_implementation()} while any question in \code{pending\_questions} lacks a non-empty answer in \code{clarification\_answers} raises \textbf{\code{ClarificationGateError}}!\\[5pt]
-    $\bullet$ Only after \code{submit\_clarifications(answers)} resolves every open question does the session transition to \code{Phase4\_Architecture}.
+  % Right: Parallel git worktree Isolation
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Workspace Isolation: \texttt{inherit} vs.\ \texttt{git worktree}}}\\[6pt]
+    $\bullet$ \textbf{Read-Only Subagents (\code{inherit}):} \code{code-explorer} and \code{code-reviewer} share the main working tree safely because write tools are disabled.\\[4pt]
+    $\bullet$ \textbf{Parallel Write Subagents (\code{git worktree}):} When 2+ agents implement disjoint features or competing prototypes simultaneously, sharing one working tree causes index lock collisions and interleaved edits.\\[4pt]
+    $\bullet$ \textbf{Native Harness Support:}\\[2pt]
+    1. \textbf{Google Antigravity 2.0:} Spawn parallel isolated worktree agents in \textbf{Mission Control (Agent Manager)}.\\[2pt]
+    2. \textbf{Claude Code:} Run \code{claude --worktree} or set \code{isolation: worktree} in \code{.claude/agents/*.md}.
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Antigravity Equivalent: Plan Mode Implementation Artifact Review \& \texttt{.agents/workflows/feature-dev.md}}}\\[4pt]
-    $\bullet$ In Antigravity, Phase 3 pauses in \code{/plan} mode or \code{/feature-dev} for explicit human sign-off on every underspecified requirement before writing code.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Rule of Parallel Agent Execution: Never Run Concurrent Write Agents in the Same Working Tree}}\\[4pt]
+    $\bullet$ Enforce disjoint file ownership or dedicated \code{git worktree add ../wt-<feature> -b feat/<feature>} branches whenever running parallel implementation agents.
   }
 }
 
 % SLIDE 30
-\slideshell{30 / 36}{MODULE 06: LAB 05 STEP-BY-STEP (4 / 5)}{Lab 05 Step 3 (\texttt{REQ-0504..0505}): Tri-Lens \texttt{code-architect} \& Implementation}{Comparing \texttt{minimal\_changes}, \texttt{clean\_architecture}, and \texttt{pragmatic\_balance} before coding}{
-  \bcard{0}{0}{4.7}{4.15}{gbgblue}{gblue}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. \texttt{minimal\_changes}}}\\[6pt]
-    \textbf{Smallest Diff \& Fastest Delivery:}\\[4pt]
-    $\bullet$ Reuses existing classes and call paths with minimal refactoring.\\[4pt]
-    $\bullet$ Lowest blast radius for urgent hotfixes or small features.
+\slideshell{30 / 36}{MODULE 07: LAB 07 WALKTHROUGH}{Lab 07: Context-Firewall Subagents \& Peer Council (\texttt{subagent\_council.py})}{Walking through \texttt{labs/lab\_07\_subagent\_firewalls\_and\_peer\_council/} step by step}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Step 1 \& 2: Read-Only Firewall \& 3-Tier PR Triage}}\\[6pt]
+    $\bullet$ \textbf{Step 1 -- Subagent Context Firewall (\code{run\_isolated\_subagent}):}\\[2pt]
+    1. Enforces strict tool allowlists (\code{code-explorer} blocks \code{Write}/\code{Edit}/\code{Bash}).\\[2pt]
+    2. Discards the child's multi-thousand-token exploration trace and returns only a bounded $\le 500$-token cited handoff summary.\\[4pt]
+    $\bullet$ \textbf{Step 2 -- Multi-Agent PR Triage (\code{synthesize\_pr\_triage}):}\\[2pt]
+    Aggregates findings from Security, Performance, Architecture, Style, and Edge-Case reviewers, drops findings with \code{confidence < 80}, and buckets into \code{MUST\_FIX}, \code{RECOMMENDED}, and \code{CONSIDER}.
   }
-  \bcard{5.0}{0}{4.7}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{2. \texttt{clean\_architecture}}}\\[6pt]
-    \textbf{Long-Term Maintainability:}\\[4pt]
-    $\bullet$ Introduces clean port/adapter boundaries and decoupled interfaces.\\[4pt]
-    $\bullet$ Best when building foundational domain modules.
-  }
-  \bcard{10.0}{0}{4.7}{4.15}{gbgyellow}{gyellow}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gdark}{3. \texttt{pragmatic\_balance}}}\\[6pt]
-    \textbf{Recommended Default:}\\[4pt]
-    $\bullet$ Balances delivery speed with clean interfaces and 100\% unit testability.\\[4pt]
-    $\bullet$ Human selects lens via \code{select\_architecture\_lens(lens)}.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Step 3 \& 4: Anonymized \texttt{llm-council} \& Worktree Check}}\\[6pt]
+    $\bullet$ \textbf{Step 3 -- Anonymized Borda Peer Council (\code{run\_anonymized\_council}):}\\[2pt]
+    1. Scrubs model/agent names into \code{Candidate\_A..N} before cross-review.\\[2pt]
+    2. Computes Borda count scores across peer ballots while blocking self-voting manipulation, and synthesizes the winning design.\\[4pt]
+    $\bullet$ \textbf{Step 4 -- Parallel Worktree Collision Guard (\code{verify\_worktree\_isolation}):}\\[2pt]
+    Blocks concurrent write subagents that share a working tree or have overlapping file globs.\\[3pt]
+    $\bullet$ \textbf{Verify Lab 07 in $< 0.05\text{s}$:}\\[2pt]
+    \code{./labs/lab\_07\_subagent\_firewalls\_and\_peer\_council/self\_diagnose.sh}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Phase 5 Implementation Gate (\texttt{REQ-0505}): Requires Both Approved Lens \& Passing Verification}}\\[4pt]
-    $\bullet$ \code{run\_phase5\_implementation()} raises \code{PhaseOrderError} if \code{selected\_lens is None} or if \code{tests\_passed=False}.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gborder}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Lab 07 Key Takeaway: Multi-Agent Architecture = Context Isolation + Bias-Free Verification}}\\[4pt]
+    $\bullet$ Subagent firewalls keep the parent context window clean, while anonymized peer review and confidence-filtered PR triage catch subtle architectural defects before merge.
   }
 }
+
+% ============================================================================
+% MODULE 08 (SLIDES 31-36): HARNESS ENGINEERING LAYER 4: 4-TIER GOVERNANCE,
+% REMEDIATION LINTERS, AUTORESEARCH RATCHETS & WHY SOFTWARE FACTORIES FAIL (LAB 08)
+% ============================================================================
 
 % SLIDE 31
-\slideshell{31 / 36}{MODULE 06: LAB 05 STEP-BY-STEP (5 / 5)}{Lab 05 Step 4 (\texttt{REQ-0506}): \texttt{code-reviewer} (\texttt{confidence >= 80}) \& Verification}{Filtering review noise and running \texttt{./labs/lab\_05.../self\_diagnose.sh}}{
-  \bcard{0}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Phase 6 Quality Review (\texttt{filter\_review\_findings})}}\\[6pt]
-    $\bullet$ Spawns 3 parallel \code{code-reviewer} subagents auditing:\\[3pt]
-    1. \emph{Simplicity / DRY / Elegance}\\[2pt]
-    2. \emph{Functional Correctness \& Edge-Case Bugs}\\[2pt]
-    3. \emph{\code{CLAUDE.md} / \code{GEMINI.md} Convention Compliance}.\\[4pt]
-    $\bullet$ \textbf{Strict Noise Filter (\code{REQ-0506}):} Suppresses any finding with \code{confidence < 80} ($0..100$ scale) and sorts high-confidence issues by severity (\code{critical} $\to$ \code{major}) and confidence descending.
+\slideshell{31 / 36}{MODULE 08: 4-TIER ``GOVERNED BY DESIGN'' HARNESS}{4-Tier ``Governed by Design'' Harness (\texttt{openworker}) \& Lifecycle Hooks}{Hard Floors, Earned Autonomy, Provenance Audit Trails, and \texttt{OpenShell} Container Sandboxing}{
+  % 4 Visual Tier Pillars across top (y=0 to -3.95)
+  \bcard{0.00}{0}{3.42}{3.95}{gbgred}{gred}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gred}{Tier 1: Hard Floors}}\\[5pt]
+    {\fontsize{10.6}{13.8}\selectfont
+    \textbf{Unbypassable Gates:}\\[2pt]
+    $\bullet$ \emph{``The fixer is never the only checker.''}\\[2pt]
+    $\bullet$ \code{PreToolUse} hook returning \textbf{Exit Code \code{2}} deterministically blocks edits to locked tests, secrets, or prod configs.\\[2pt]
+    $\bullet$ No prompt or \code{auto} mode can talk past a Hard Floor.}
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Running Lab 05 Self-Diagnosis (\texttt{self\_diagnose.sh})}}\\[6pt]
-    $\bullet$ \textbf{Command:}\\[3pt]
-    \code{./labs/lab\_05\_multi\_agent\_feature\_dev\_orchestration/self\_diagnose.sh}\\[5pt]
-    $\bullet$ \textbf{Verified Invariants (\code{REQ-0501..0506}):}\\[3pt]
-    -- Write tools (\code{Bash}, \code{Edit}) rejected on read-only subagents.\\[2pt]
-    -- Missing \code{file:line} citations rejected.\\[2pt]
-    -- Phase 3 \code{ClarificationGateError} blocks premature coding.\\[2pt]
-    -- Findings with \code{confidence < 80} filtered out; Phase 7 summary generated.
+  \bcard{3.76}{0}{3.42}{3.95}{gbgyellow}{gyellow}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gdark}{Tier 2: Earned Autonomy}}\\[5pt]
+    {\fontsize{10.6}{13.8}\selectfont
+    \textbf{Reviewer \& Circuit Breaker:}\\[2pt]
+    $\bullet$ Routine actions graduate from manual approval $\to$ standing allowlist.\\[2pt]
+    $\bullet$ Independent reviewer model + deterministic scanner (\code{semgrep}) gates auto-mode.\\[2pt]
+    $\bullet$ Consecutive denials trip the \textbf{circuit breaker}.}
+  }
+  \bcard{7.52}{0}{3.42}{3.95}{gbgblue}{gblue}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{gblue}{Tier 3: Audit Provenance}}\\[5pt]
+    {\fontsize{10.6}{13.8}\selectfont
+    \textbf{Tamper-Evident Ledger:}\\[2pt]
+    $\bullet$ Every tool invocation is logged with \code{user-approved}, \code{auto-approved}, or \code{denied}.\\[2pt]
+    $\bullet$ Records exact command hash, reviewer rationale, and git tree state.\\[2pt]
+    $\bullet$ Enables full post-incident replay.}
+  }
+  \bcard{11.28}{0}{3.42}{3.95}{gbggreen}{ggreen}{
+    {\fontsize{13}{16}\selectfont\bfseries\textcolor{ggreen}{Tier 4: OS Sandboxing}}\\[5pt]
+    {\fontsize{10.6}{13.8}\selectfont
+    \textbf{\texttt{NVIDIA OpenShell} / OS Box:}\\[2pt]
+    $\bullet$ Agent commands execute inside a container mounting \emph{only} the workspace folder and allow-listed network.\\[2pt]
+    $\bullet$ Model API keys and cloud credentials stay \textbf{outside the wall} so prompt injection lands in an empty box.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Module 06 Complete $\to$ Next: Versioned Plugins, MCP, Hooks \& The Bridge to SDD (Lab 06 Capstone)}}\\[4pt]
-    $\bullet$ How do we package our skills, subagents, hooks, and MCP servers into a versioned plugin---and when do we graduate to Spec-Driven Development?
+  \bcard{0}{-4.20}{14.7}{2.10}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{Deterministic Lifecycle Hooks Across \texttt{claude} (\texttt{.claude/settings.json}) and \texttt{agy} (\texttt{.agents/plugins/})}}\\[4pt]
+    $\bullet$ \textbf{\code{PreToolUse} (Feedforward Gate):} Inspects tool JSON on stdin; \code{exit 0} allows, \textbf{\code{exit 2} blocks} and feeds \code{stderr} back to the agent.\\[2pt]
+    $\bullet$ \textbf{\code{PostToolUse} (Feedback Sensor):} Runs auto-formatters and remediation linters immediately after every \code{Write}/\code{Edit}. \quad $\bullet$ \textbf{\code{Stop}:} Blocks turn completion until tests pass.
   }
 }
 
-% ============================================================================
-% MODULE 07: LAB 06 STEP-BY-STEP — PLUGINS, MCP & THE SDD BRIDGE (SLIDES 32-36)
-% ============================================================================
-
 % SLIDE 32
-\slideshell{32 / 36}{MODULE 07: LAB 06 STEP-BY-STEP (1 / 5)}{Lab 06 Problem: Skills vs.\ Versioned Plugins (\texttt{plugin.json} + MCP + Hooks)}{When to use a standalone \texttt{SKILL.md} vs.\ a versioned plugin bundle across \texttt{claude} and \texttt{agy}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Standalone Skill vs.\ Versioned Plugin Bundle}}\\[6pt]
-    $\bullet$ \textbf{Standalone Skill (\code{.claude/skills/<name>/} or \code{.agents/skills/<name>/}):}\\[3pt]
-    -- Pure Markdown instruction manual (\code{SKILL.md} + \code{references/}).\\[2pt]
-    -- Invoked via \code{/skill-name}; ideal for project-local or single-workflow guidance.\\[5pt]
-    $\bullet$ \textbf{Versioned Plugin (\code{.claude-plugin/plugin.json} or \code{.agents/plugins/<name>/plugin.json}):}\\[3pt]
-    -- SemVer package (\code{1.2.0}) bundling \code{skills/}, \code{agents/}, \code{commands/} or \code{rules/}, \code{hooks/hooks.json}, and \textbf{MCP servers} (\code{.mcp.json} / \code{mcp\_config.json}).\\[2pt]
-    -- Namespaced (\code{/plugin-name:skill-name}) for org-wide distribution.
+\slideshell{32 / 36}{MODULE 08: REMEDIATION-AWARE ARCHITECTURAL LINTERS}{Remediation-Aware Architectural Linters (OpenAI Harness Engineering)}{Why standard linter messages fail agents, and how to emit \texttt{[VIOLATION] $\to$ [WHY] $\to$ [HOW TO FIX]} recipes}{
+  \bcard{0}{0}{7.1}{4.10}{gbgred}{gred}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{Why Traditional Human Linter Messages Fail Agents}}\\[6pt]
+    $\bullet$ \textbf{Cryptic Error Codes:} A standard linter outputs:\\[3pt]
+    \code{src/api/orders.py:42: E901 Forbidden import db.session}\\[4pt]
+    $\bullet$ \textbf{What the Coding Agent Does Next:}\\[3pt]
+    1. Does not know \emph{which} module it is supposed to call instead.\\[2pt]
+    2. Wastes 4 tool calls grepping the codebase for workarounds, or worse, adds \code{\# noqa} / \code{pylint: disable} to silence the check!\\[2pt]
+    3. Pollutes the context window with trial-and-error guesses.
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Anatomy of \texttt{vibe-engineering-kit} (v1.2.0 in Lab 06)}}\\[6pt]
-    \code{vibe-engineering-plugin/}\\[2pt]
-    \code{|-- .claude-plugin/plugin.json} \quad (\& \code{.agents/plugins/.../plugin.json})\\[2pt]
-    \code{|-- .mcp.json} \quad (\code{ledger-schema-mcp} stdio JSON-RPC server)\\[2pt]
-    \code{|-- hooks/hooks.json} \quad (\code{PreToolUse} immutable-verifier guard)\\[2pt]
-    \code{|-- skills/anthropic-brand/SKILL.md}\\[2pt]
-    \code{|-- agents/\{code-explorer,code-architect,code-reviewer\}.md}\\[2pt]
-    \code{`-- commands/feature-dev.md}
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{OpenAI's Remediation-Aware Linter Pattern}}\\[6pt]
+    $\bullet$ \textbf{Write Linter Errors for an LLM Reader (\code{[VIOLATION] $\to$ [WHY] $\to$ [HOW TO FIX]}):}\\[3pt]
+    \code{[VIOLATION] Direct import of `db.session` in `src/api/orders.py:42` violates Layer Boundary Rule ARCH-03 (API $\not\to$ DB).}\\[3pt]
+    \code{[WHY] Route handlers must remain stateless and testable without a live database connection.}\\[3pt]
+    \code{[HOW TO FIX] Replace `from db.session import query` with `from services.order\_service import OrderRepository` and inject via `Depends(get\_order\_repo)`.}\\[4pt]
+    $\bullet$ Enables \textbf{single-turn autonomous self-repair} on the very next step!
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{Why Plugins Bundle Skills + MCP Together}}\\[4pt]
-    $\bullet$ \textbf{MCP Servers} give the agent deterministic \emph{hands and eyes} (live schema/API tools); \textbf{Skills} give the agent the \emph{procedural brain} explaining when and how to call those tools.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgblue}{gblue}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gblue}{Encoding Architectural Invariants as Fast AST / Regex Structural Checks}}\\[4pt]
+    $\bullet$ Enforce layer dependency DAGs (\code{ui $\to$ api $\to$ service $\to$ repo}), ban raw floats in monetary modules, require structured logging, and forbid \code{\# noqa} suppressions via deterministic \code{PostToolUse} checks.
   }
 }
 
 % SLIDE 33
-\slideshell{33 / 36}{MODULE 07: LAB 06 STEP-BY-STEP (2 / 5)}{Lab 06 Step 1 (\texttt{REQ-0601..0602}): Validating \texttt{plugin.json} \& Bundled MCP Servers}{Enforcing SemVer manifests and stdio JSON-RPC MCP tool contracts in \texttt{harness\_flywheel.py}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{Plugin Manifest Validator (\texttt{validate\_plugin\_bundle})}}\\[6pt]
-    $\bullet$ \textbf{Kebab-Case Name (\code{REQ-0601}):} Validates \code{\textasciicircum{}[a-z0-9]+(-[a-z0-9]+)*\$} (e.g.\ \code{vibe-engineering-kit}).\\[5pt]
-    $\bullet$ \textbf{Strict SemVer Version:} Validates \code{\textasciicircum{}\textbackslash{}d+\textbackslash{}.\textbackslash{}d+\textbackslash{}.\textbackslash{}d+\$} (e.g.\ \code{1.2.0}); rejects \code{"latest"} or unversioned bundles.\\[5pt]
-    $\bullet$ \textbf{Component Resolution:} Verifies that every skill, subagent (\code{.md}), command, hook config, and MCP server referenced by the plugin exists on disk.
+\slideshell{33 / 36}{MODULE 08: KARPATHY'S \texttt{autoresearch} \& \texttt{program.md}}{Bounded Autonomous Loops: Karpathy's \texttt{autoresearch} \& \texttt{program.md}}{The 3-File Harness Separation, The Simplicity Criterion, and the Automated Git Keep-or-Revert Ratchet}{
+  % Top 3 Cards: 3-File Harness Separation
+  \bcard{0.00}{0}{4.70}{3.75}{gbgred}{gred}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gred}{1. \texttt{prepare.py} (Immutable Sensor)}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ \textbf{Read-Only Ground Truth:} Contains dataset prep, fixed 5-minute wall-clock budget, and \code{evaluate\_bpb()}.\\[3pt]
+    $\bullet$ Protected by \code{PreToolUse} Exit-Code-2 Hard Floor: the agent is \textbf{strictly forbidden from editing the evaluator} or installing packages.}
   }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{Bundled MCP Server (\texttt{.mcp.json} / \texttt{mcp\_config.json})}}\\[6pt]
-    $\bullet$ \textbf{Validation (\code{REQ-0602}):} Ensures every MCP server defines a non-empty \code{command}, \code{args} list, and \code{tools} schema.\\[5pt]
-    $\bullet$ \textbf{Included Reference Server (\code{mcp\_ledger\_server.py}):} Implements a zero-dependency stdio JSON-RPC 2.0 server exposing \code{query\_ubiquitous\_Show\_schema} and \code{check\_fx\_rate\_bps} so agents query live domain truth instead of guessing.
+  \bcard{5.00}{0}{4.70}{3.75}{gbgblue}{gblue}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gblue}{2. \texttt{train.py} (Bounded Action Space)}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ \textbf{Single Mutable File:} The \emph{only} file the autonomous agent is permitted to edit (model architecture, optimizer, schedule).\\[3pt]
+    $\bullet$ Eliminates cross-repo blast radius so every experiment is a clean, self-contained diff.}
+  }
+  \bcard{10.00}{0}{4.70}{3.75}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{3. \texttt{program.md} (``Research Org Code'')}}\\[5pt]
+    {\fontsize{10.8}{14}\selectfont
+    $\bullet$ \textbf{Human-Authored Harness Spec:} The Markdown instructions programming the autonomous research loop.\\[3pt]
+    $\bullet$ Enforces output backpressure (\code{> run.log 2>\&1}) and the \textbf{Simplicity Criterion}.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gborder}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gnavy}{Starter Bug in \texttt{starter/harness\_flywheel.py}: Accepting Unversioned \& Broken Bundles}}\\[4pt]
-    $\bullet$ The broken starter accepted \code{version: "latest"}, missing subagent files, and empty MCP server definitions without raising \code{PluginValidationError}.
+  % Bottom Visual Ratchet Loop + Simplicity Criterion
+  \bcard{0}{-3.95}{14.7}{2.35}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{The Automated Git Keep-or-Revert Ratchet ($\sim$12 Experiments/Hr, $\sim$100 Overnight) \& The Simplicity Criterion}}\\[5pt]
+    {\fontsize{11.3}{14.8}\selectfont
+    $\bullet$ \textbf{Closed-Loop Ratchet:} \code{1. Propose Hypothesis} $\to$ \code{2. Edit train.py \& git commit} $\to$ \code{3. Run 5-min budget (> run.log 2>\&1)} $\to$ \code{4. Parse val\_bpb \& log to untracked results.tsv} $\to$ \textbf{If improved \& passes Simplicity Criterion:} \textcolor{ggreen}{\textbf{KEEP commit (ratchet advances)}} $\to$ \textbf{If worse or crash:} \textcolor{gred}{\textbf{\code{git reset --hard HEAD\textasciicircum{}} (instant revert)}}!\\[3pt]
+    $\bullet$ \textbf{Karpathy's Simplicity Criterion:} \emph{``All else being equal, simpler is better. A 0.001 improvement that adds 20 lines of hacky code? Revert. A 0.001 improvement from deleting code? Definitely keep!''}}
   }
 }
 
 % SLIDE 34
-\slideshell{34 / 36}{MODULE 07: LAB 06 STEP-BY-STEP (3 / 5)}{Lab 06 Step 2 (\texttt{REQ-0603}): Deterministic \texttt{PreToolUse} Guardrail Hooks}{Blocking sycophantic self-testing by failing closed on \texttt{adversarial\_tests/} and \texttt{chmod -w}}{
-  \bcard{0}{0}{7.1}{4.15}{gbgred}{gred}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gred}{Why Prompt Rules Alone Cannot Protect Verifiers}}\\[6pt]
-    $\bullet$ Under heavy pressure to make a failing test suite pass, an unconstrained coding agent may edit the test assertion (\code{assert False -> assert True}) or run \code{chmod +w adversarial\_tests/}.\\[5pt]
-    $\bullet$ Advisory instructions in \code{CLAUDE.md} or \code{GEMINI.md} are probabilistic; security and verifier integrity must be \textbf{deterministic}.
-  }
-  \bcard{7.6}{0}{7.1}{4.15}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{\texttt{evaluate\_pre\_tool\_use\_hook()} (\texttt{REQ-0603})}}\\[6pt]
-    $\bullet$ Intercepts \code{Write}, \code{Edit}, \code{MultiEdit}, \code{Bash}, and \code{run\_command} before execution:\\[4pt]
-    1. Blocks any write/edit targeting \code{adversarial\_tests/}, \code{self\_diagnose.sh}, or \code{.git/}.\\[3pt]
-    2. Blocks shell commands containing \code{chmod}, \code{rm -rf}, \code{git push --force}, or \code{adversarial\_tests}.\\[4pt]
-    $\bullet$ Returns \code{\{"decision": "block", "exit\_code": 2, "reason": "..."\}}.
+\slideshell{34 / 36}{MODULE 08: WHY ``LIGHTS-OFF'' SOFTWARE FACTORIES FAIL}{Why ``Lights-Off'' Software Factories Fail (\texttt{Ib5GBkD555M}): The RLVR Horizon Gap}{Why optimizing solely for $t=0$ test pass causes Week-8 architectural collapse, and the 4-Phase Front-Loaded Fix}{
+  % Left: Visual Dual-Curve Chart (Dark Factory Collapse vs Front-Loaded Program Design)
+  \node[anchor=north west, fill=gbggray, draw=gborder, line width=1pt, rounded corners=6pt, minimum width=7.3in, minimum height=4.10in] at (0,0) {};
+  \node[anchor=north west, font=\fontsize{12.5}{15}\selectfont\bfseries, text=gnavy] at (0.20,-0.16) {Feature Velocity \& Maintainability Over Time (Weeks 1--12)};
+  % Week 8 collapse line
+  \draw[gred, dashed, line width=1.2pt] (4.85,-3.45) -- (4.85,-0.55);
+  \node[anchor=north east, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (4.80,-0.60) {Week 8 Collapse};
+  % Axes
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-3.45) -- (7.05,-3.45);
+  \draw[-{Latex[length=2.5mm]}, line width=1pt, gdark] (0.75,-3.45) -- (0.75,-0.55);
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (1.10,-3.50) {Wk 1};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (2.95,-3.50) {Wk 4};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (4.85,-3.50) {Wk 8};
+  \node[anchor=north, font=\fontsize{8.5}{10}\selectfont, text=gdark] at (6.65,-3.50) {Wk 12};
+  % Red Curve: Lights-Off Dark Factory (fast start -> collapse)
+  \draw[gred, line width=2.3pt] (0.90,-3.10) .. controls (1.80,-1.20) and (3.20,-1.05) .. (4.20,-1.55) .. controls (5.00,-2.30) and (5.80,-3.15) .. (6.80,-3.32);
+  \node[anchor=south, font=\fontsize{8.5}{10}\selectfont\bfseries, text=gred] at (2.55,-1.15) {``Lights-Off'' Factory};
+  % Green Curve: Lights-On Front-Loaded Alignment
+  \draw[ggreen, line width=2.4pt] (0.90,-3.20) .. controls (2.20,-2.30) and (4.00,-1.40) .. (6.80,-0.80);
+  \node[anchor=south east, font=\fontsize{8.5}{10}\selectfont\bfseries, text=ggreen] at (6.80,-0.82) {``Lights-On'' Program Design};
+
+  % Right: The RLVR Reward Horizon Gap & 4-Phase Front-Loaded Alignment
+  \bcard{7.6}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{The RLVR Reward Horizon Gap (\texttt{Ib5GBkD555M})}}\\[5pt]
+    {\fontsize{11.2}{14.6}\selectfont
+    $\bullet$ \textbf{Why Dark Factories Collapse at Week 8:} RLVR trains models to maximize \textbf{$t=0$ immediate rewards} (passing current tests, compiling cleanly).\\[3pt]
+    $\bullet$ But software architecture lives on a \textbf{$t=6\text{ month}$ horizon}! Left unattended in a ``lights-off'' factory, agents duplicate abstractions, copy-paste 400-line handlers, and create spaghetti coupling that passes $t=0$ tests until the codebase collapses.\\[4pt]
+    $\bullet$ \textbf{Deterministic Harnesses Raise the Floor, Not the Ceiling:}\\[2pt]
+    Linters and tests prevent syntax/layer bugs (floor), but \textbf{humans must own the architectural ceiling} via 4-Phase Front-Loaded Alignment.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{Architectural Rule: Prompts Guide Behavior; \texttt{PreToolUse} Hooks Enforce Hard Boundaries}}\\[4pt]
-    $\bullet$ Both \code{.claude/settings.json} and \code{.agents/plugins/vibe-engineering-kit/hooks/hooks.json} wire \code{pre\_tool\_use\_guard.py} into the live harness.
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggreen}{ggreen}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{ggreen}{Keeping the ``Lights On'': Dex Horthy's 4-Phase Front-Loaded Alignment}}\\[4pt]
+    $\bullet$ \textbf{Phase 1: Product} (User value) $\longrightarrow$ \textbf{Phase 2: Architecture} (System boundaries) $\longrightarrow$ \textbf{Phase 3: Program Design} (\textbf{Exact types, interfaces, file-trees, and call-stacks co-designed with the human!}) $\longrightarrow$ \textbf{Phase 4: Vertical Slices} (Bounded agent implementation).
   }
 }
 
 % SLIDE 35
-\slideshell{35 / 36}{MODULE 07: LAB 06 STEP-BY-STEP (4 / 5)}{Lab 06 Step 3 (\texttt{REQ-0604..0605}): The ``On-the-Loop'' Harness Flywheel Router}{Routing every observed agent failure to the right harness layer in \texttt{recommend\_flywheel\_upgrade()}}{
-  \bcard{0}{0}{4.7}{2.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{1. \texttt{ROOT\_CONTEXT\_RULE}}}\\[5pt]
-    \textbf{Trigger:} \code{wrong\_test\_command}\\[3pt]
-    $\bullet$ Agent runs wrong build/test CLI.\\[2pt]
-    $\bullet$ \textbf{Fix:} Add 1-line command to top of \code{CLAUDE.md} / \code{GEMINI.md}.
+\slideshell{35 / 36}{MODULE 08: RECURSIVE SELF-IMPROVEMENT \& HOLDOUTS}{Closing the Loop: Recursive Self-Improvement \& Out-of-Tree Holdouts}{Anthropic's 52x Kernel RSI Loop, StrongDM's Out-of-Tree Scenario Holdouts, and Amdahl's Law}{
+  \bcard{0}{0}{4.7}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{1. Anthropic's 52x RSI Loop}}\\[5pt]
+    \textbf{\code{recursive-self-improvement}:}\\[3pt]
+    $\bullet$ When optimizing a production CPU training kernel with an exact deterministic benchmark sensor, an autonomous Claude loop achieved a \textbf{52x speedup in 8 hours} (vs.\ a \textbf{4x} human engineer baseline).\\[3pt]
+    $\bullet$ Why it succeeded: bounded single-kernel action space + objective hardware cycle timer + automatic revert ratchet.
   }
-  \bcard{5.0}{0}{4.7}{2.95}{gbggreen}{ggreen}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{ggreen}{2. \texttt{AUTO\_MEMORY}}}\\[5pt]
-    \textbf{Trigger:} \code{repeated\_user\_correction}\\[3pt]
-    $\bullet$ User repeats a preference across turns.\\[2pt]
-    $\bullet$ \textbf{Fix:} Persist to \code{MEMORY.md} / \code{KNOWLEDGE.md} with \code{\#direct}.
+  \bcard{5.0}{0}{4.7}{4.10}{gbgred}{gred}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gred}{2. Out-of-Tree Holdouts}}\\[5pt]
+    \textbf{Defeating Reward Hacking (StrongDM):}\\[3pt]
+    $\bullet$ If an autonomous agent can read the exact test assertions it is graded against, RLVR optimization pressure can induce \textbf{reward hacking} (special-casing test inputs or weakening assertions).\\[3pt]
+    $\bullet$ \textbf{Solution:} Evaluate candidate commits against \textbf{Out-of-Tree Scenario Holdouts} stored outside the agent's readable workspace mount!
   }
-  \bcard{10.0}{0}{4.7}{2.95}{gbgyellow}{gyellow}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gdark}{3. \texttt{CURATED\_SKILL}}}\\[5pt]
-    \textbf{Trigger:} \code{domain\_procedure\_error}\\[3pt]
-    $\bullet$ Repeatable workflow/gotcha failure.\\[2pt]
-    $\bullet$ \textbf{Fix:} Encode Delta in \code{SKILL.md} \& verify in \code{eval-viewer}.
+  \bcard{10.0}{0}{4.7}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{3. Amdahl's Law in 2026}}\\[5pt]
+    \textbf{Where Human Engineers Create Value:}\\[3pt]
+    $\bullet$ As code generation speed approaches $8\text{x}..50\text{x}$, Amdahl's Law dictates that total delivery speed is bottlenecked by the \textbf{non-automated steps}:\\[2pt]
+    1. \textbf{Program Design} (types, interfaces, call-trees).\\[2pt]
+    2. \textbf{Harness \& Sensor Engineering}.\\[2pt]
+    3. \textbf{Holdout Verification \& Architecture Review}.
   }
-  \bcard{0}{-3.20}{4.7}{2.95}{gbgred}{gred}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gred}{4. \texttt{PRE\_TOOL\_USE\_HOOK}}}\\[5pt]
-    \textbf{Trigger:} \code{modified\_locked\_tests}\\[3pt]
-    $\bullet$ Agent attempts to edit locked tests.\\[2pt]
-    $\bullet$ \textbf{Fix:} Block deterministically in \code{hooks.json} (\code{exit\_code: 2}).
-  }
-  \bcard{5.0}{-3.20}{4.7}{2.95}{gbgblue}{gblue}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{gblue}{5. \texttt{PLUGIN\_MCP\_TOOL}}}\\[5pt]
-    \textbf{Trigger:} \code{missing\_live\_schema\_tool}\\[3pt]
-    $\bullet$ Agent guesses live database/FX state.\\[2pt]
-    $\bullet$ \textbf{Fix:} Expose deterministic JSON-RPC tool in \code{.mcp.json}.
-  }
-  \bcard{10.0}{-3.20}{4.7}{2.95}{gbggreen}{ggreen}{
-    {\fontsize{14.0}{17.5}\selectfont\bfseries\textcolor{ggreen}{6. \texttt{ESCALATE\_TO\_SDD\_SPEC}}}\\[5pt]
-    \textbf{Trigger:} $\ge 3$ services or breaking API\\[3pt]
-    $\bullet$ Conversational vibe coding hits its ceiling.\\[2pt]
-    $\bullet$ \textbf{Fix:} Escalate to \textbf{\code{SDD-Crash-Course}}!
+
+  \bcard{0}{-4.30}{14.7}{2.00}{gbggray}{gnavy}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gnavy}{When Autonomous Loops Succeed vs.\ When Humans Must Steer}}\\[4pt]
+    $\bullet$ \textbf{Use Bounded Autonomous Loops (\code{autoresearch} / \code{/goal}):} When the objective is a scalar metric (latency, \code{val\_bpb}, coverage) inside a fixed interface.\\[2pt]
+    $\bullet$ \textbf{Use Human-in-the-Loop Program Design (\code{RePPIT}):} Whenever introducing new domain concepts, public APIs, or cross-service boundaries.
   }
 }
 
 % SLIDE 36
-\slideshell{36 / 36}{MODULE 07: LAB 06 STEP-BY-STEP (5 / 5)}{Lab 06 Step 4 (\texttt{REQ-0606}): The Escalation Bridge to \texttt{SDD-Crash-Course}}{Knowing exactly when to graduate from Disciplined Vibe Coding to Spec-Driven Development}{
-  \bcard{0}{0}{7.1}{4.1}{gbgblue}{gblue}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{gblue}{When Disciplined Vibe Coding Suffices}}\\[6pt]
-    $\bullet$ Single-service features, UI prototypes, self-contained utilities, and bounded refactorings ($1..2$ services, no breaking wire/schema contracts).\\[5pt]
-    $\bullet$ Governed by our 5 Vibe-Coding Harnesses: Ubiquitous Language types (\code{Lab 01}), $\le 40$-line root context + Auto-Memory (\code{Lab 02}), curated skills (\code{Lab 03}), \code{eval-viewer} + SDT $d'$ (\code{Lab 04}), and \code{feature-dev} subagents (\code{Lab 05}).
+\slideshell{36 / 36}{MODULE 08: LAB 08 WALKTHROUGH \& MASTER VERIFICATION}{Lab 08 (\texttt{autoresearch\_harness.py}) \& Full Course Verification (\texttt{./self\_diagnose\_all.sh})}{Walking through Lab 08's 4-Tier Governance \& Keep-or-Revert Ratchet and verifying all 8 labs in $< 1\text{s}$}{
+  \bcard{0}{0}{7.1}{4.10}{gbgblue}{gblue}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gblue}{Lab 08 Step-by-Step (\texttt{autoresearch\_harness.py})}}\\[6pt]
+    $\bullet$ \textbf{1. \code{PreToolUse} Exit-Code-2 Hard Floor (\code{evaluate\_pre\_tool\_use}):}\\[2pt]
+    Blocks edits to immutable evaluators (\code{prepare.py}, \code{holdout\_scenarios/}) and logs tamper-evident provenance records.\\[3pt]
+    $\bullet$ \textbf{2. Remediation Linter (\code{run\_remediation\_linter}):}\\[2pt]
+    Detects layer boundary and float-money violations and formats \code{[VIOLATION] $\to$ [WHY] $\to$ [HOW TO FIX]} instructions.\\[3pt]
+    $\bullet$ \textbf{3. Program Design \& Simplicity Criterion (\code{evaluate\_ratchet\_step}):}\\[2pt]
+    Weighs metric improvement against net LOC added and Out-of-Tree Holdout pass rate to decide \code{KEEP\_COMMIT} vs.\ \code{GIT\_REVERT}.
   }
-  \bcard{7.6}{0}{7.1}{4.1}{gbggreen}{ggreen}{
-    {\fontsize{15.0}{18.5}\selectfont\bfseries\textcolor{ggreen}{When to Escalate to \texttt{SDD-Crash-Course} (\texttt{REQ-0606})}}\\[6pt]
-    $\bullet$ When \code{services\_touched >= 3} OR \code{has\_breaking\_schema\_or\_api\_change=True} OR \code{requires\_clean\_room\_rebuild\_ssot=True}:\\[4pt]
-    1. \textbf{Conductor (\code{conductor/tracks/<id>/}):} Context-driven \code{spec.md} + phased TDD \code{plan.md}.\\[3pt]
-    2. \textbf{OpenSpec (\code{openspec/changes/<id>/}):} Normative RFC 2119 + Gherkin capability deltas.\\[3pt]
-    3. \textbf{\code{SPEC.md} (SSOT):} 8-section Clean-Room Rebuild blueprint.
+  \bcard{7.6}{0}{7.1}{4.10}{gbggreen}{ggreen}{
+    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{ggreen}{Master Course Verification (\texttt{./self\_diagnose\_all.sh})}}\\[6pt]
+    {\fontsize{11.2}{14.6}\selectfont
+    $\bullet$ \textbf{Run All 8 Labs + Dual-Track Suites in $< 1\text{s}$:}\\[3pt]
+    \code{./self\_diagnose\_all.sh}\\[4pt]
+    $\bullet$ \textbf{Phase 1 Labs (01--04):} \code{prompt\_steerer.py} $\cdot$ \code{wire\_trace\_inspector.py} $\cdot$ \code{reppit\_orchestrator.py} $\cdot$ \code{context\_compactor.py} --- \textcolor{ggreen}{\textbf{PASS}}\\[2pt]
+    $\bullet$ \textbf{Phase 2 Labs (05--08):} \code{context\_compiler.py} $\cdot$ \code{skill\_and\_mcp\_harness.py} $\cdot$ \code{subagent\_council.py} $\cdot$ \code{autoresearch\_harness.py} --- \textcolor{ggreen}{\textbf{PASS}}\\[3pt]
+    $\bullet$ \textbf{Next Step in the Curriculum Track:} For formal multi-service brownfield specifications, continue to the companion Spec-Driven Development course.}
   }
 
-  \bcard{0}{-4.35}{14.7}{1.95}{gbggray}{gnavy}{
-    {\fontsize{14.5}{18}\selectfont\bfseries\textcolor{gnavy}{Course Complete! Run \texttt{./self\_diagnose\_all.sh} ($6/6$ Labs, $54$ Tests in $< 0.1\text{s}$) \& Proceed to \texttt{SDD-Crash-Course}}}\\[4pt]
-    $\bullet$ \code{git checkout agy} (Antigravity Track) \quad $|$ \quad \code{git checkout claude} (Claude Code Track) \quad $|$ \quad \code{./self\_diagnose\_all.sh} $\to$ \textbf{\code{[ALL PASSED] 6/6 Labs Verified!}}
+  \bcard{0}{-4.30}{14.7}{2.00}{gbgyellow}{gyellow}{
+    {\fontsize{13.5}{17}\selectfont\bfseries\textcolor{gdark}{Course Complete! Thank You — Alejandro Kaspar, AI Forward Deployed Engineer (\texttt{CC BY 4.0} / \texttt{Apache 2.0})}}\\[4pt]
+    $\bullet$ Clone the repository, switch between the \code{agy} (Google Antigravity) and \code{claude} (Anthropic Claude Code) branches, and apply Phase 1 Vibe Coding and Phase 2 Harness Engineering to your production systems!
   }
 }
 

@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Builds the 7 Step-by-Step Module Videos and the Master 36-Slide Course Lecture Video.
+"""Builds the 8 Step-by-Step Module Videos and the Master 36-Slide Course Lecture Video.
 
 Pipeline:
 1. Parses all 36 `VERBAL SCRIPT` entries from `SPEAKER_NOTES.md`.
@@ -22,14 +22,15 @@ Pipeline:
      - `GEMINI_API_KEY=<key>`  the public Gemini API (`gemini-2.5-flash-preview-tts`, REST via urllib)
    Existing `audio/*.wav` files are reused, so re-rendering slides never needs a backend.
 3. Renders `segments/seg-01.mp4` .. `segments/seg-36.mp4` in parallel via `ffmpeg` (`1920x1080`).
-4. Concatenates each module's slides into 7 standalone MP4 videos under `modules/`:
-   - `Module_01_Foundations_and_Dual_Harnesses.mp4` (Slides 01-06)
-   - `Module_02_Lab01_Vocabulary_and_Language_Games.mp4` (Slides 07-11)
-   - `Module_03_Lab02_Persistent_Context_and_Auto_Memory.mp4` (Slides 12-16)
-   - `Module_04_Lab03_Crafting_Skills_Manually.mp4` (Slides 17-21)
-   - `Module_05_Lab04_Eval_Viewer_Overload_and_SDT.mp4` (Slides 22-26)
-   - `Module_06_Lab05_Multi_Agent_Feature_Dev.mp4` (Slides 27-31)
-   - `Module_07_Lab06_Plugins_MCP_and_SDD_Bridge.mp4` (Slides 32-36)
+4. Concatenates each module's slides into 8 standalone MP4 videos under `modules/`:
+   - `Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4` (Slides 01-05)
+   - `Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4` (Slides 06-09)
+   - `Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4` (Slides 10-13)
+   - `Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4` (Slides 14-17)
+   - `Module_05_Context_Primitives_Memory_and_Lab05.mp4` (Slides 18-21)
+   - `Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4` (Slides 22-26)
+   - `Module_07_Subagent_Firewalls_Council_and_Lab07.mp4` (Slides 27-30)
+   - `Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4` (Slides 31-36)
 5. Concatenates all 36 segments into `Vibe_Coding_Course_Lecture.mp4`.
 
 The rendered MP4s are release assets (not tracked in git); see `slides/README.md`.
@@ -75,13 +76,14 @@ NO_BACKEND_HELP = (
 )
 
 MODULES = [
-    ("Module_01_Foundations_and_Dual_Harnesses.mp4", 1, 6),
-    ("Module_02_Lab01_Vocabulary_and_Language_Games.mp4", 7, 11),
-    ("Module_03_Lab02_Persistent_Context_and_Auto_Memory.mp4", 12, 16),
-    ("Module_04_Lab03_Crafting_Skills_Manually.mp4", 17, 21),
-    ("Module_05_Lab04_Eval_Viewer_Overload_and_SDT.mp4", 22, 26),
-    ("Module_06_Lab05_Multi_Agent_Feature_Dev.mp4", 27, 31),
-    ("Module_07_Lab06_Plugins_MCP_and_SDD_Bridge.mp4", 32, 36),
+    ("Module_01_Language_Evolution_Skills_Map_and_Lab01.mp4", 1, 5),
+    ("Module_02_Agent_Loop_Agy_Claude_101_and_Lab02.mp4", 6, 9),
+    ("Module_03_RePPIT_Daily_Workflow_and_Lab03.mp4", 10, 13),
+    ("Module_04_Context_Physics_Dumb_Zone_and_Lab04.mp4", 14, 17),
+    ("Module_05_Context_Primitives_Memory_and_Lab05.mp4", 18, 21),
+    ("Module_06_Skills_Chub_Meta_MCP_and_Lab06.mp4", 22, 26),
+    ("Module_07_Subagent_Firewalls_Council_and_Lab07.mp4", 27, 30),
+    ("Module_08_Governance_Linters_Autoresearch_and_Lab08.mp4", 31, 36),
 ]
 
 
@@ -325,7 +327,7 @@ def main() -> int:
       total_dur += dur
       print(f"  [SEG] Slide {idx:02d}/{len(scripts):02d}: {dur:.1f}s", flush=True)
 
-  print("[4/4] Assembling 7 Module Videos + Master Full-Course Video...", flush=True)
+  print("[4/4] Assembling 8 Module Videos + Master Full-Course Video...", flush=True)
   for mod_name, s_idx, e_idx in MODULES:
     mod_path = MODULES_DIR / mod_name
     dur = concat_segments(mod_path, s_idx, e_idx)

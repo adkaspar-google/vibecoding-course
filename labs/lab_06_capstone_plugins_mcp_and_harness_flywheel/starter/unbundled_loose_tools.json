@@ -1,9 +1,0 @@
-{
-  "problem": "Loose unversioned scripts and ad-hoc prompts copied manually between repos",
-  "missing_primitives": [
-    "No semantic version or plugin.json manifest",
-    "No PreToolUse hook blocking edits to adversarial_tests/",
-    "No MCP server exposing deterministic harness tools",
-    "No On-the-Loop flywheel routing failures into durable harness upgrades or SDD specs"
-  ]
-}

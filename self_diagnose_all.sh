@@ -18,16 +18,18 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "========================================================================"
-echo "  Vibe-Coding-Course: Running Master Self-Diagnosis Across All 6 Labs"
+echo "  Vibe-Coding-Course: Running Master Self-Diagnosis Across All 8 Labs"
 echo "========================================================================"
 
 LABS=(
-  "lab_01_vocabulary_and_bounded_language_games"
-  "lab_02_persistent_context_and_memory_hygiene"
-  "lab_03_crafting_agent_skills_progressive_disclosure"
-  "lab_04_skill_evaluation_and_trigger_calibration"
-  "lab_05_multi_agent_feature_dev_orchestration"
-  "lab_06_capstone_plugins_mcp_and_harness_flywheel"
+  "lab_01_vibe_coding_and_earned_autonomy"
+  "lab_02_agent_loop_and_harness_wire_trace"
+  "lab_03_reppit_workflow_and_reflection"
+  "lab_04_context_physics_and_rpi_compaction"
+  "lab_05_context_primitives_and_memory"
+  "lab_06_skills_chub_and_meta_mcp_code_mode"
+  "lab_07_subagent_firewalls_and_peer_council"
+  "lab_08_governance_linters_and_autoresearch_ratchet"
 )
 
 PASSED=0

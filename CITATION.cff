@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "Vibe Coding & Agentic Harness Engineering: Two-Phase Hands-On Course (agy & claude)"
+message: "If you use this course, playground repository, coursebook, or slide deck, please cite it as below."
+type: software
+authors:
+  - family-names: "Kaspar"
+    given-names: "Alejandro"
+    affiliation: "AI Forward Deployed Engineer"
+version: 2.0.0
+date-released: "2026-10-09"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+repository-code: "https://github.com/alejandro-kaspar/Vibe-Coding-Course"

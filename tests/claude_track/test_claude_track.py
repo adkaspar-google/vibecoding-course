@@ -18,7 +18,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import re
 import shutil
 import subprocess
 import tempfile
@@ -27,12 +26,14 @@ import unittest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 LAB_NAMES = [
-    "lab_01_vocabulary_and_bounded_language_games",
-    "lab_02_persistent_context_and_memory_hygiene",
-    "lab_03_crafting_agent_skills_progressive_disclosure",
-    "lab_04_skill_evaluation_and_trigger_calibration",
-    "lab_05_multi_agent_feature_dev_orchestration",
-    "lab_06_capstone_plugins_mcp_and_harness_flywheel",
+    "lab_01_vibe_coding_and_earned_autonomy",
+    "lab_02_agent_loop_and_harness_wire_trace",
+    "lab_03_reppit_workflow_and_reflection",
+    "lab_04_context_physics_and_rpi_compaction",
+    "lab_05_context_primitives_and_memory",
+    "lab_06_skills_chub_and_meta_mcp_code_mode",
+    "lab_07_subagent_firewalls_and_peer_council",
+    "lab_08_governance_linters_and_autoresearch_ratchet",
 ]
 
 
@@ -48,7 +49,7 @@ class TestClaudeCodeTrack(unittest.TestCase):
         check=False,
     )
     self.assertEqual(proc.returncode, 0, msg=proc.stdout + "\n" + proc.stderr)
-    self.assertIn("[ALL PASSED] 6/6", proc.stdout)
+    self.assertIn("[ALL PASSED] 8/8", proc.stdout)
 
   def test_req_claude_02_empty_target_fails(self) -> None:
     for lab in LAB_NAMES:
@@ -89,17 +90,20 @@ class TestClaudeCodeTrack(unittest.TestCase):
     for ref in (
         "@docs/architecture.md",
         "@docs/testing-conventions.md",
-        "@docs/wittgenstein-language-games.md",
-        "@docs/skillsbench-empirical-guide.md",
+        "@docs/language-and-code-foundations.md",
+        "@docs/skillsbench-and-harness-guide.md",
     ):
       self.assertIn(ref, text)
       ref_path = REPO_ROOT / ref.lstrip("@")
       self.assertTrue(ref_path.is_file(), f"Missing referenced doc: {ref_path}")
 
   def test_req_claude_05_skills_agents_and_plugin_present(self) -> None:
-    brand_dir = REPO_ROOT / ".claude" / "skills" / "anthropic-brand"
-    for fname in ("SKILL.md", "docs.md", "slides-deck.md", "apply_template.md"):
-      self.assertTrue((brand_dir / fname).is_file(), f"Missing {fname}")
+    skills_dir = REPO_ROOT / ".claude" / "skills"
+    for skill_name in ("context-hub-docs", "reppit-workflow", "architecture-guard", "harness-audit"):
+      self.assertTrue(
+          (skills_dir / skill_name / "SKILL.md").is_file(),
+          f"Missing .claude/skills/{skill_name}/SKILL.md",
+      )
 
     for agent in ("code-explorer.md", "code-architect.md", "code-reviewer.md"):
       self.assertTrue((REPO_ROOT / ".claude" / "agents" / agent).is_file())
@@ -133,7 +137,18 @@ class TestClaudeCodeTrack(unittest.TestCase):
     self.assertTrue(playbook.is_file())
     pb_text = playbook.read_text(encoding="utf-8")
     self.assertLessEqual(len(pb_text.splitlines()), 150)
-    for token in ("/context", "/memory", "/anthropic-brand", "/feature-dev", "plan mode", "/clear"):
+    for token in (
+        "/context",
+        "/memory",
+        "/btw",
+        "/rewind",
+        "/context-hub-docs",
+        "/reppit-workflow",
+        "/architecture-guard",
+        "/feature-dev",
+        "plan mode",
+        "/clear",
+    ):
       self.assertIn(token, pb_text)
 
     for lab in LAB_NAMES:
