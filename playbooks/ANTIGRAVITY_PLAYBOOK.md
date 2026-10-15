@@ -53,7 +53,12 @@ This playbook documents how **Vibe-Coding-Course** runs natively in **Google Ant
 
 ---
 
-## 4. Guarantees & Verification Authority
+## 4. Guarantees, Official Codelab Mapping & Verification Authority
 
 - **Hard Floors & Exit-Code-2 Hooks**: `adversarial_tests/` is protected both by OS `chmod -w` permissions and by the `PreToolUse` Exit-Code-2 hook in `.agents/plugins/vibe-engineering-kit/hooks.json`.
 - **Deterministic Authority**: Conversational completion claims are never sufficient; the deterministic authority is always `./labs/<lab>/self_diagnose.sh` (and `./self_diagnose_all.sh` across all 8 labs).
+- **Official Google Antigravity Codelab Companion Map**:
+  - **Labs 01–02 (Foundations & CLI Loop)**: [*Getting Started with Google Antigravity*](https://codelabs.developers.google.com/getting-started-google-antigravity#0) & [*Hands-on with Antigravity CLI*](https://codelabs.developers.google.com/antigravity-cli-hands-on)
+  - **Labs 03–04 (`RePPIT`, `/grill-me` & `/browser` Verification)**: [*Build and Deploy to Google Cloud with Antigravity*](https://codelabs.developers.google.com/build-and-deploy-gcp-with-antigravity) & [*VibeCode Frontend with Antigravity*](https://codelabs.developers.google.com/vibecode-frontend-with-antigravity)
+  - **Lab 06 (Progressive Skills & Live Documentation MCP)**: [*Getting Started with Antigravity Skills*](https://codelabs.developers.google.com/getting-started-with-antigravity-skills) & [*Developer Knowledge MCP with Antigravity*](https://codelabs.developers.google.com/developer-knowledge-mcp-antigravity)
+  - **Lab 08 (Governance, Security Hooks & TDD Ratchets)**: [*Secure Agentic Coding*](https://codelabs.developers.google.com/secure-agentic-coding) (persistent security rules, STRIDE threat-modeling skills, and pre-commit `Semgrep`/`pytest` hooks)

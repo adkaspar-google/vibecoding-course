@@ -55,7 +55,7 @@ class TestBuildVideoTtsBackends(unittest.TestCase):
   def setUp(self) -> None:
     self.bv = _load_build_video()
 
-  def test_speaker_notes_yield_36_verbal_scripts(self) -> None:
+  def test_speaker_notes_yield_42_verbal_scripts(self) -> None:
     scripts = self.bv.parse_scripts(REPO_ROOT / "slides" / "SPEAKER_NOTES.md")
     self.assertEqual(len(scripts), 42)
     self.assertTrue(all(len(s) > 40 for s in scripts))
