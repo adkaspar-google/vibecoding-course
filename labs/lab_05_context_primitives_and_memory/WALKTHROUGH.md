@@ -96,21 +96,3 @@ Evaluate `entry.commit_sha and entry.commit_sha in stale_set and not entry.is_ex
    ```bash
    ./labs/lab_05_context_primitives_and_memory/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, inspect `CLAUDE.md` and `.claude/rules/` alongside `starter/monolithic_claude_md_dump.py`, and run `/memory` to view active memory files.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_05_context_primitives_and_memory/work/context_compiler.py` and `test_context_compiler.py`, then verify:
-   ```bash
-   ./labs/lab_05_context_primitives_and_memory/self_diagnose.sh work
-   ```

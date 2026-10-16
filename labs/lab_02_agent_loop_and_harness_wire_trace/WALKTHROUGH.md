@@ -101,21 +101,3 @@ Even though all three `LoopPhase` values appear in `turns`, Turn `3` performs a 
    ```bash
    ./labs/lab_02_agent_loop_and_harness_wire_trace/self_diagnose.sh work
    ```
-
----
-
-## Claude Code Track
-
-1. Launch Claude Code in learner mode from the repository root:
-   ```bash
-   claude --settings .claude/learner.settings.json
-   ```
-2. In `plan mode`, run `/context` to inspect how system prompts, `CLAUDE.md`, MCP tools, and messages consume context tokens, then read `starter/bloated_wire_agent.py`.
-3. Verify no files were modified during exploration:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_02_agent_loop_and_harness_wire_trace/work/wire_trace_inspector.py` and `test_wire_trace_inspector.py`, then verify:
-   ```bash
-   ./labs/lab_02_agent_loop_and_harness_wire_trace/self_diagnose.sh work
-   ```
