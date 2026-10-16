@@ -81,24 +81,6 @@ Both proposals share the exact same `mechanism_axis="database_pessimistic_lock"`
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Use `/grill-me` and `/plan` to inspect `starter/impulsive_feature_coder.py` and draft an `Implementation Plan` Artifact with an `Out of Scope / Do NOT Touch` section.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_03_reppit_workflow_and_reflection/work/reppit_orchestrator.py` and `test_reppit_orchestrator.py`, then run:
-   ```bash
-   ./labs/lab_03_reppit_workflow_and_reflection/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

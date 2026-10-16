@@ -81,24 +81,6 @@ Evaluate `entry.commit_sha and entry.commit_sha in stale_set and not entry.is_ex
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `GEMINI.md`, `AGENTS.md`, and `.agents/rules/` alongside `starter/monolithic_claude_md_dump.py` in `/plan` mode, and check `/memory show`.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_05_context_primitives_and_memory/work/context_compiler.py` and `test_context_compiler.py`, then run:
-   ```bash
-   ./labs/lab_05_context_primitives_and_memory/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:

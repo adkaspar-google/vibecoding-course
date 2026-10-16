@@ -86,24 +86,6 @@ Even though all three `LoopPhase` values appear in `turns`, Turn `3` performs a 
 
 ---
 
-## Antigravity Track
-
-1. Launch Antigravity from the repository root:
-   ```bash
-   agy --workspace .
-   ```
-2. Inspect `starter/bloated_wire_agent.py` in `/plan` mode and run `/stats` to observe live session token breakdown across system instructions, tool schemas, and messages.
-3. Verify your workspace is clean before implementation:
-   ```bash
-   git status --short
-   ```
-4. Implement `labs/lab_02_agent_loop_and_harness_wire_trace/work/wire_trace_inspector.py` and `test_wire_trace_inspector.py`, then run:
-   ```bash
-   ./labs/lab_02_agent_loop_and_harness_wire_trace/self_diagnose.sh work
-   ```
-
----
-
 ## Claude Code Track
 
 1. Launch Claude Code in learner mode from the repository root:
