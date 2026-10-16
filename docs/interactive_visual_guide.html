@@ -410,6 +410,132 @@ body {
   display: block;
 }
 
+
+/* Stage 4 Metaskill: Everyday Metaphor vs. Under-the-Hood Perspective Toggle */
+.perspective-wrap {
+  margin-bottom: 18px;
+}
+.toggle-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.toggle-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--steel);
+  margin-right: 4px;
+}
+.btn-toggle {
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid var(--border-strong);
+  background: #FFF;
+  color: var(--steel);
+  transition: all 0.15s ease;
+}
+.btn-toggle.active {
+  background: var(--navy);
+  color: #FFF;
+  border-color: var(--navy);
+}
+.btn-toggle:hover:not(.active) {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.perspective-box {
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  background: var(--blue-soft);
+  border: 1.5px solid var(--blue-border);
+  border-left: 4px solid var(--blue);
+  color: var(--navy);
+}
+.perspective-box.reality-mode {
+  background: var(--indigo-soft);
+  border-color: #C7D2FE;
+  border-left: 4px solid var(--indigo);
+}
+
+/* Stage 4 Metaskill: Interactive Self-Check Quiz & 3-Rung Graduated Hint Ladder */
+.quiz-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.quiz-opt {
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #CBD5E1;
+  background: #FFF;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  transition: all 0.15s ease;
+}
+.quiz-opt:hover {
+  border-color: var(--blue);
+  background: #F8FAFC;
+}
+.quiz-opt.correct {
+  border-color: var(--green);
+  background: var(--green-bg);
+  color: #065F46;
+  font-weight: 700;
+}
+.quiz-opt.wrong {
+  border-color: var(--red);
+  background: var(--red-bg);
+  color: #991B1B;
+}
+.hint-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-hint {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #93C5FD;
+  background: #FFF;
+  cursor: pointer;
+  color: var(--indigo);
+  transition: all 0.15s ease;
+}
+.btn-hint:hover, .btn-hint.active {
+  background: var(--indigo);
+  color: #FFF;
+  border-color: var(--indigo);
+}
+.hint-box {
+  display: none;
+  margin-top: 8px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: #FFFBEB;
+  border-left: 3px solid var(--amber);
+  font-size: 12px;
+  color: #78350F;
+  line-height: 1.45;
+}
+
 /* Lab Sandbox Preview Card */
 .lab-card {
   background: #0F172A;
@@ -570,6 +696,10 @@ body {
         <button class="cli-pill-btn" onclick="filterCliMode('agy', this)">Google Antigravity (agy)</button>
         <button class="cli-pill-btn" onclick="filterCliMode('claude', this)">Claude Code (claude)</button>
       </div>
+      <div class="cli-pill-toggle" id="global-perspective-toggle">
+        <button class="cli-pill-btn active" onclick="setPerspective('metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="cli-pill-btn" onclick="setPerspective('reality', this)">⚙️ Under the Hood (agy + claude Mechanics)</button>
+      </div>
       <a href="../slides/interactive_slides.html" style="background:#FFF; color:#0F172A; text-decoration:none; font-size:12px; font-weight:800; padding:8px 14px; border-radius:8px;">Open 42-Slide Interactive Deck &rarr;</a>
     </div>
   </header>
@@ -581,6 +711,21 @@ body {
         <h2 class="module-title">Module 1: What Vibe Coding Is — Philosophy & Language Games</h2>
         <div class="module-subtitle">Andrej Karpathy's Paradigm Shift, Wittgenstein's Language Games, and Anthropic's 5-Stage Human-to-Model Loop</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-1">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(1, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(1, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-1" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Film Director vs. Camera Operator</div>
+        <div><strong>Known:</strong> A film director doesn't manually focus the lens or adjust every light stand; they call out scene intent (<em>'High-contrast noir lighting, tight close-up on the protagonist'</em>), inspect the monitor playback, and call <em>'Cut — reset the key light!'</em><br><strong>Target:</strong> Vibe Coding shifts you from keystroke typist to architectural director. Your prompt is an operational <em>Sprachspiel</em> move that triggers an agentic loop, and your test suite is the monitor playback.</div>
+      </div>
+      <div id="persp-reality-1" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Cybernetic Prompt Steering</div>
+        <div><strong>Mechanics:</strong> When you run <code>agy -p</code> or <code>claude</code>, your natural-language prompt is compiled with repository state into a structured tool-use loop. Across 145 frontier models (SearchIntel), the 50% autonomous task horizon doubles every ~129 days (reaching 3.5h–5.5h), governed by <code>PromptSteerer</code> constraints (Role, I/O Contract, Boundary Invariants, and Test Oracle).</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -958,15 +1103,26 @@ body {
         <div style="font-size:13px; color:#064E3B; font-weight:500;">Professional vibe coding shifts human rigor from typing boilerplate syntax to designing deterministic verification harnesses (tests, types, linters) that constrain the language game.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-1">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does Wittgenstein's builder-and-assistant analogy ('Slab!', 'Pillar!') explain why vague prompts fail in an agentic CLI?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does Wittgenstein's builder-and-assistant analogy ('Slab!', 'Pillar!') explain why vague prompts fail in an agentic CLI?</div>
+          <div class="quiz-opts" id="quiz-opts-1">
+            <button class="quiz-opt" onclick="checkModQuiz(1, this, false)">A. Treat natural-language prompts as self-verifying specifications and skip unit tests.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(1, this, true)">B. Pair bounded prompt steering (explicit I/O contracts + invariants) with a deterministic sub-second test oracle (pytest).</button>
+            <button class="quiz-opt" onclick="checkModQuiz(1, this, false)">C. Increase model temperature to 1.0 so the agent explores more creative syntax variations.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(1, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(1, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(1, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(1, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-1" class="hint-box"></div>
           <div class="reveal-box" id="reveal-1">
             <strong>Key Takeaway:</strong> Because a language-game only succeeds when the utterance is coupled to clear operational rules and shared context. Without explicit acceptance criteria or test scripts in the workspace, the agent cannot verify whether the 'stone' it brought fits the architecture.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(1, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1004,6 +1160,21 @@ claude -p "Implement the intent-to-action parser in starter/main.py so pytest pa
         <h2 class="module-title">Module 2: How Natural Language Correlates to Code & Actions</h2>
         <div class="module-subtitle">The 5-Step Wire-Level Tool Loop, JSON Schema Contracts, and Sandboxed Action Execution</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-2">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(2, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(2, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-2" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Chef Reading a Recipe vs. Tasting the Soup</div>
+        <div><strong>Known:</strong> A chatbot is like a cookbook author who writes a recipe from memory and walks away without ever turning on the stove. An agentic harness is a chef in a real kitchen who chops, simmers, tastes the broth, sees it needs salt, and adjusts before serving.<br><strong>Target:</strong> The <code>while(stop_reason == 'tool_use')</code> loop lets the model act on the codebase, read real stderr/stdout, and self-correct.</div>
+      </div>
+      <div id="persp-reality-2" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Wire-Level JSON-RPC & Meta-MCP</div>
+        <div><strong>Mechanics:</strong> The host harness serializes tool declarations into the API request, intercepts <code>stop_reason == 'tool_use'</code>, executes the local bash/AST tool in a sandbox, and appends a <code>role: 'user'</code> message containing a <code>tool_result</code> block. Using a 2-tool Meta-MCP discovery gateway (<code>search_tools</code> + <code>call_tool</code>) slashes upfront schema bloat from ~55,000 tokens to ~500 tokens (-99.1%).</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -1115,15 +1286,26 @@ claude -p "Implement the intent-to-action parser in starter/main.py so pytest pa
         <div style="font-size:13px; color:#064E3B; font-weight:500;">The LLM is a pure stateless text-to-JSON transducer; the local deterministic harness parses `tool_use` blocks, enforces security boundaries, executes OS calls, and returns `tool_result` payloads.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-2">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">What happens if a tool schema has vague parameter descriptions or returns a 10,000-line raw stack trace in `tool_result`?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">What happens if a tool schema has vague parameter descriptions or returns a 10,000-line raw stack trace in `tool_result`?</div>
+          <div class="quiz-opts" id="quiz-opts-2">
+            <button class="quiz-opt" onclick="checkModQuiz(2, this, false)">A. The LLM directly executes bash commands inside its GPU weights during token generation.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(2, this, true)">B. The LLM emits a declarative JSON tool_use payload and pauses; the host harness executes the command and returns a tool_result message.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(2, this, false)">C. The MCP server rewrites the model's attention weights before the prompt is sent.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(2, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(2, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(2, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(2, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-2" class="hint-box"></div>
           <div class="reveal-box" id="reveal-2">
             <strong>Key Takeaway:</strong> Vague schemas cause malformed tool arguments, while a 10,000-line raw stack trace floods the attention window and pushes the session straight into the >40% 'Dumb Zone'.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(2, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1161,6 +1343,21 @@ claude -p "Complete the wire-level tool_use dispatcher and schema validator in s
         <h2 class="module-title">Module 3: Hands-On Vibe Coding in Google Antigravity (`agy`) & Claude Code (`claude`)</h2>
         <div class="module-subtitle">Side-by-Side Architecture, Configuration Hierarchy, and Slash Commands (`/plan`, `/grill-me`, `/compact`)</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-3">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(3, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(3, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-3" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Aircraft Cockpit Checklists & Autopilot Modes</div>
+        <div><strong>Known:</strong> Airline pilots don't fly cross-country by yanking the yoke raw; they file a flight plan, run pre-flight checklists, and switch cockpit modes between Ground Taxi, Climb, and Autopilot Cruise.<br><strong>Target:</strong> Commands like <code>/plan</code>, <code>/grill-me</code>, and <code>/compact</code> are your cockpit mode switches in <code>agy</code> and <code>claude</code>, while <code>AGENTS.md</code> / <code>GEMINI.md</code> / <code>CLAUDE.md</code> serve as the aircraft's standing operating checklist.</div>
+      </div>
+      <div id="persp-reality-3" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Dual-CLI Config Hierarchy & Slash Loops</div>
+        <div><strong>Mechanics:</strong> Both <code>agy</code> (<code>~/.gemini/antigravity-cli/settings.json</code>, <code>GEMINI.md</code>, <code>.agents/rules/*.md</code>) and <code>claude</code> (<code>~/.claude/settings.json</code>, <code>CLAUDE.md</code>, <code>.claude/rules/*.md</code>) inject root constitution files into system context, gate read-only architectural exploration via <code>/plan</code> and <code>/grill-me</code>, and compact context trajectories via <code>/compress</code> or <code>/compact</code>.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -1208,15 +1405,26 @@ claude -p "Complete the wire-level tool_use dispatcher and schema validator in s
         <div style="font-size:13px; color:#064E3B; font-weight:500;">By placing core architectural constraints in `AGENTS.md` and domain playbooks in `.agents/skills/<name>/SKILL.md`, a single repository configures both `agy` and `claude` simultaneously.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-3">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">When should you invoke `/grill-me` in Antigravity before running `/plan`?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">When should you invoke `/grill-me` in Antigravity before running `/plan`?</div>
+          <div class="quiz-opts" id="quiz-opts-3">
+            <button class="quiz-opt" onclick="checkModQuiz(3, this, false)">A. Let the agent immediately edit 12 production files in auto-edit mode and debug failures later.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(3, this, true)">B. Enter read-only /plan or /grill-me mode first to surface edge cases and lock the target file diff matrix before writing code.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(3, this, false)">C. Paste the entire 50,000-line repository into a single prompt without an AGENTS.md file.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(3, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(3, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(3, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(3, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-3" class="hint-box"></div>
           <div class="reveal-box" id="reveal-3">
             <strong>Key Takeaway:</strong> Whenever requirements have hidden edge cases or ambiguous architectural trade-offs; `/grill-me` flips the interaction so the agent interviews you to lock down decisions before generating the implementation plan.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(3, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1254,6 +1462,21 @@ claude -p "Audit and unify GEMINI.md, CLAUDE.md, and AGENTS.md workspace configs
         <h2 class="module-title">Module 4: Vibe Coding Workflows, Prompting Patterns & Verification Loops</h2>
         <div class="module-subtitle">Plan-First Execution, Deterministic Test Oracles, and Git Checkpoint Discipline</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-4">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(4, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(4, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-4" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Bowling with Bumpers & Instant Pin Reset</div>
+        <div><strong>Known:</strong> Imagine bowling in the dark where you only find out 15 minutes later if you hit any pins, versus bowling in a brightly lit lane with gutter bumpers that bounce errant throws back on track in half a second.<br><strong>Target:</strong> Sub-second verification scripts (<code>pytest -q</code>, <code>ruff</code>, <code>mypy</code>) are the lane bumpers that keep high-velocity Vibe Coding loops from drifting into the gutter.</div>
+      </div>
+      <div id="persp-reality-4" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): RePPIT Loop & Sub-Second Test Oracles</div>
+        <div><strong>Mechanics:</strong> The 5-step RePPIT loop (Research → Plan → Prompt → Implement → Test) bounds blast radius to ≤60 LOC per iteration. When verification runs in <code>&lt;1s</code>, the agent executes 10–15 closed-loop repair cycles per minute; when CI takes 10 minutes, context drifts and compounding errors spike.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -1305,15 +1528,26 @@ claude -p "Audit and unify GEMINI.md, CLAUDE.md, and AGENTS.md workspace configs
         <div style="font-size:13px; color:#064E3B; font-weight:500;">Piling failed attempts into the same transcript poisons attention with broken diffs. Instead, revert to your last green git checkpoint, refine the plan or test constraint, and run in a clean context.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-4">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why is a <1-second local `./self_diagnose.sh` script vastly superior to waiting for a 15-minute CI pipeline during vibe coding?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why is a <1-second local `./self_diagnose.sh` script vastly superior to waiting for a 15-minute CI pipeline during vibe coding?</div>
+          <div class="quiz-opts" id="quiz-opts-4">
+            <button class="quiz-opt" onclick="checkModQuiz(4, this, false)">A. Rely on a 12-minute end-to-end cloud staging pipeline as the agent's primary inner-loop check.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(4, this, true)">B. Build a hermetic <1s local verification command (pytest + ruff + AST invariants) that runs after every atomic diff.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(4, this, false)">C. Disable linters and type-checkers during agentic sessions to maximize token generation speed.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(4, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(4, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(4, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(4, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-4" class="hint-box"></div>
           <div class="reveal-box" id="reveal-4">
             <strong>Key Takeaway:</strong> Because agentic iteration speed and convergence accuracy depend on tight cybernetic feedback; sub-second local test oracles let the agent detect and repair regressions on the spot before moving to the next file.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(4, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1351,6 +1585,21 @@ claude -p "Run the TDD verification loop to fix the pricing engine bug in starte
         <h2 class="module-title">Module 5: Context Engineering, the 40% 'Dumb Zone' & RPI Loops</h2>
         <div class="module-subtitle">Quadratic Attention Dilution, Frequent Intentional Compaction (FIC), and Research–Plan–Implement</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-5">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(5, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(5, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-5" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Workbench Clutter vs. Clean Blueprint Sheet</div>
+        <div><strong>Known:</strong> If a carpenter never sweeps sawdust, bent nails, and scrap wood off their workbench, once the table is 40% buried in junk, they start mismeasuring cuts and losing their tape measure.<br><strong>Target:</strong> The LLM context window is your workbench. Sweeping out raw grep dumps and failed stack traces via Frequent Intentional Compaction leaves only a crisp 1,500-token Markdown Blueprint on the table.</div>
+      </div>
+      <div id="persp-reality-5" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Softmax Dilution & 40% Dumb Zone</div>
+        <div><strong>Mechanics:</strong> Transformer self-attention computes $O(N^2)$ pairwise scores normalized by Softmax. As irrelevant tool logs accumulate past ~40% of the context window (~80k/200k tokens), attention entropy rises and multi-hop recall drops (Chroma 'Context Rot' & Liu et al. 'Lost in the Middle'). The RPI Sawtooth resets utilization from ~38% down to ~4% via <code>/compact</code> or <code>/compress</code>.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -1583,15 +1832,26 @@ claude -p "Run the TDD verification loop to fix the pricing engine bug in starte
         <div style="font-size:13px; color:#064E3B; font-weight:500;">Effective reasoning degrades sharply past ~40% context utilization ('The Dumb Zone'). High-leverage engineers use Frequent Intentional Compaction (`research.md` -> `plan.md` -> `/clear`) to stay under 35%.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-5">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why should your harness run `pytest > /tmp/test.log 2>&1` and extract only failing tracebacks instead of streaming raw test output into chat?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why should your harness run `pytest > /tmp/test.log 2>&1` and extract only failing tracebacks instead of streaming raw test output into chat?</div>
+          <div class="quiz-opts" id="quiz-opts-5">
+            <button class="quiz-opt" onclick="checkModQuiz(5, this, false)">A. Wait until the context window reaches 95% capacity and let automatic truncation drop the oldest messages.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(5, this, true)">B. Trigger Frequent Intentional Compaction at the end of Research/Plan phases (~35–40% fill) to distill state into a structured spec artifact.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(5, this, false)">C. Append raw 10,000-line log files directly into the main agent thread so nothing is missed.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(5, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(5, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(5, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(5, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-5" class="hint-box"></div>
           <div class="reveal-box" id="reveal-5">
             <strong>Key Takeaway:</strong> Because 2,000 passing test lines waste ~15,000 tokens of prime attention capacity on zero-information noise; backpressure redirection injects only the 20 lines of actionable failure traceback.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(5, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1629,6 +1889,21 @@ claude -p "Implement the RPI context budget estimator and log backpressure filte
         <h2 class="module-title">Module 6: Building the Harness — Memory, Rules, Skills, Hooks & Meta-MCP</h2>
         <div class="module-subtitle">The 150-Instruction Cliff, PreToolUse/PostToolUse Hooks, Meta-MCP Code Mode (-95.7% Tokens), and SkillsBench</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-6">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(6, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(6, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-6" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Pocket Reference Card vs. On-Demand Library Binder</div>
+        <div><strong>Known:</strong> A surgeon doesn't tape a 2,000-page medical encyclopedia to their operating visor; they keep a 1-page vital signs checklist in view and pull specific procedure binders off the shelf only when performing that exact operation.<br><strong>Target:</strong> Keep your root <code>AGENTS.md</code> under 60 lines (the visor card) and load domain procedures on demand via <code>.agents/skills/&lt;name&gt;/SKILL.md</code>.</div>
+      </div>
+      <div id="persp-reality-6" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): 150-Instruction Cliff, SkillsBench & Hooks</div>
+        <div><strong>Mechanics:</strong> Instruction compliance decays sharply past ~150 simultaneous rules. SkillsBench (86 tasks, 7,308 trajectories) proves that curated 2–3 module skills boost pass rates by <strong>+16.2 pp</strong> while auto-generated skills degrade by <strong>-1.3 pp</strong>. Deterministic lifecycle hooks (<code>PreToolUse</code> exit code <code>2</code>, <code>PostToolUse</code> auto-lint) enforce invariants at 100% reliability.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -1886,15 +2161,26 @@ claude -p "Implement the RPI context budget estimator and log backpressure filte
         <div style="font-size:13px; color:#064E3B; font-weight:500;">SkillsBench (7,308 trajectories) proves that self-generated skills actually hurt performance (`-1.3pp`) because models cannot invent missing domain SOPs; human-curated 2–3 module skills boost pass rates by `+16.2pp` (`+18.6pp` peak).</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-6">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why should code formatting (`ruff format`) and secret-file blocking (`rm -rf`, `.env`) be implemented as lifecycle Hooks rather than lines in `AGENTS.md`?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why should code formatting (`ruff format`) and secret-file blocking (`rm -rf`, `.env`) be implemented as lifecycle Hooks rather than lines in `AGENTS.md`?</div>
+          <div class="quiz-opts" id="quiz-opts-6">
+            <button class="quiz-opt" onclick="checkModQuiz(6, this, false)">A. Put 400 detailed coding rules into a single 3,000-line root AGENTS.md file and load 25 MCP servers upfront.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(6, this, true)">B. Keep root AGENTS.md ≤60 lines, load focused 2–3 module SKILL.md packages progressively, and enforce hard safety rules via PreToolUse/PostToolUse hooks.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(6, this, false)">C. Have the LLM auto-generate a new skill file before every single prompt.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(6, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(6, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(6, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(6, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-6" class="hint-box"></div>
           <div class="reveal-box" id="reveal-6">
             <strong>Key Takeaway:</strong> Because prompt instructions are probabilistic and compete for the ~150-instruction budget, whereas `PreToolUse` and `PostToolUse` hooks execute deterministically in the OS shell with 100% compliance and zero context token cost.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(6, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -1932,6 +2218,21 @@ claude -p "Implement the PreToolUse safety hook, SKILL.md loader, and Meta-MCP d
         <h2 class="module-title">Module 7: Subagents, Jujutsu (`jj`) Workspaces & Durable Execution</h2>
         <div class="module-subtitle">Context Firewalling, Conflict-Free Algebraic Rebase in `jj`, Temporal/DBOS/LangGraph/Restate/Inngest, and Multi-Agent PR Triage</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-7">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(7, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(7, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-7" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Lead Detective & Field Scouts vs. Photocopied Case Notes</div>
+        <div><strong>Known:</strong> A lead detective doesn't read 50,000 pages of raw CCTV logs personally; they dispatch field scouts to separate precincts, and each scout returns a 1-page verified incident report to the command board.<br><strong>Target:</strong> Subagents act as **Context Firewalls** — burning 40,000 tokens of search noise in isolated child windows and returning only a 1,000-token JSON digest to the parent orchestrator.</div>
+      </div>
+      <div id="persp-reality-7" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Subagent Firewalls, jj VCS & Durable Checkpoints</div>
+        <div><strong>Mechanics:</strong> Multi-agent councils (Implementer + Adversarial Verifier + Spec Auditor) run in parallel worktrees. Jujutsu (<code>jj</code>) automatically snapshots working-copy state into an operation log (<code>jj op log</code> / <code>jj undo</code>) and treats conflicts as first-class algebraic trees, while durable execution engines (Temporal, LangGraph, DBOS, Restate) persist deterministic step journals across crashes.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -2104,15 +2405,26 @@ claude -p "Implement the PreToolUse safety hook, SKILL.md loader, and Meta-MCP d
         <div style="font-size:13px; color:#064E3B; font-weight:500;">Subagents exist for **Context Firewalling**: isolating high-entropy exploratory file reads in a disposable child window so the parent orchestrator receives only a compact, verified summary.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-7">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does `git rebase` break autonomous multi-agent workflows when two parallel workers modify overlapping lines, and how does Jujutsu (`jj`) solve this?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does `git rebase` break autonomous multi-agent workflows when two parallel workers modify overlapping lines, and how does Jujutsu (`jj`) solve this?</div>
+          <div class="quiz-opts" id="quiz-opts-7">
+            <button class="quiz-opt" onclick="checkModQuiz(7, this, false)">A. Subagents share the exact same mutable token array as the parent agent so every raw grep line is duplicated.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(7, this, true)">B. Each subagent runs in an isolated context window (Context Firewall), consuming 30k–50k exploration tokens and returning only a compact 1k-token structured digest.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(7, this, false)">C. Subagents bypass version control and overwrite the same file simultaneously without worktree isolation.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(7, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(7, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(7, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(7, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-7" class="hint-box"></div>
           <div class="reveal-box" id="reveal-7">
             <strong>Key Takeaway:</strong> `git rebase` aborts mid-operation and writes textual `<<<<<<<` markers that break compilers; `jj` represents commits as algebraic trees `(A + B) - C`, allowing dependent commits to rebase cleanly while a dedicated resolver agent fixes the conflict node.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(7, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -2150,6 +2462,21 @@ claude -p "Implement the durable step checkpoint journal and multi-agent PR refe
         <h2 class="module-title">Module 8: Autonomous Loops & Recursive Self-Improvement (RSI)</h2>
         <div class="module-subtitle">Karpathy's `autoresearch` (83 Experiments), RLVR Verification Taxonomies, and Anthropic's Empirical RSI Feedback Loops</div>
       </div>
+    <div class="perspective-wrap" id="persp-wrap-8">
+      <div class="toggle-row">
+        <span class="toggle-label">Perspective Lens:</span>
+        <button class="btn-toggle btn-persp-metaphor active" onclick="setModPerspective(8, 'metaphor', this)">💡 Blueprint / Everyday Metaphor (Intuition)</button>
+        <button class="btn-toggle btn-persp-reality" onclick="setModPerspective(8, 'reality', this)">⚙️ Under the Hood (agy + claude Harness Mechanics)</button>
+      </div>
+      <div id="persp-metaphor-8" class="perspective-box">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--blue); margin-bottom:4px;">Everyday Metaphor (Known → Target): Automated Wind Tunnel & Precision Lap Stopwatch</div>
+        <div><strong>Known:</strong> Formula 1 engineers don't argue for weeks about whether a wing tweak feels faster; they test the part in a wind tunnel for 5 minutes, check the downforce gauge, and immediately bolt it on or scrap it.<br><strong>Target:</strong> Karpathy's <code>autoresearch</code> loop turns an agent into an autonomous wind tunnel: propose a patch in <code>train.py</code>, run a fixed 5-minute GPU budget, check <code>val_bpb</code> + the Simplicity Criterion, and <code>git commit</code> or <code>git reset --hard HEAD^</code>.</div>
+      </div>
+      <div id="persp-reality-8" class="perspective-box reality-mode" style="display:none;">
+        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.4px; color:var(--indigo); margin-bottom:4px;">Under the Hood (agy + claude Harness Mechanics): Autoresearch, Simplicity Gate & RLVR Anti-Patterns</div>
+        <div><strong>Mechanics:</strong> Across 83 autonomous experiments, <code>autoresearch</code> kept 15 commits and reverted 68 (~18% keep rate), driving <code>val_bpb</code> from <code>0.9979</code> to <code>0.9697</code>. The Simplicity Gate rejects marginal gains that bloat LOC. Crucially, 'lights-off' dark factories collapse under RLVR Goodharting (deleting tests, hardcoding asserts) unless anchored by human-steered 4-Phase Program Design and immutable test ownership.</div>
+      </div>
+    </div>
     </div>
 
     <div class="diagram-box">
@@ -2475,15 +2802,26 @@ claude -p "Implement the durable step checkpoint journal and multi-agent PR refe
         <div style="font-size:13px; color:#064E3B; font-weight:500;">If the agent can edit the evaluator (`prepare.py` or test assertions), Goodhart's Law guarantees it will 'optimize' the metric by deleting assertions or shrinking validation data. The evaluation oracle must be strictly read-only.</div>
       </div>
 
-      <div class="stop-think-card">
+      <div class="stop-think-card" id="quiz-card-8">
         <div>
-          <div class="st-header">💭 Stop &amp; Think — Active Reflection</div>
-          <div style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does Karpathy's `autoresearch` enforce a fixed 5-minute wall-clock training budget rather than a fixed number of training epochs?</div>
+          <div class="st-header">💭 Stop &amp; Think — Active Reflection • Self-Check Quiz &amp; 3-Rung Hint Ladder</div>
+          <div class="quiz-q" style="font-size:13.5px; font-weight:700; color:var(--navy);">Why does Karpathy's `autoresearch` enforce a fixed 5-minute wall-clock training budget rather than a fixed number of training epochs?</div>
+          <div class="quiz-opts" id="quiz-opts-8">
+            <button class="quiz-opt" onclick="checkModQuiz(8, this, false)">A. Allow the autonomous coding agent to modify both production code and the pytest evaluation suite so all tests pass.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(8, this, true)">B. Enforce an immutable evaluation oracle (read-only eval_bpb.py / locked tests) plus a Simplicity Gate that reverts complexity bloat.</button>
+            <button class="quiz-opt" onclick="checkModQuiz(8, this, false)">C. Commit every single agent patch to main regardless of whether the validation metric improved.</button>
+          </div>
+          <div class="hint-row">
+            <button class="btn-hint" onclick="showModHint(8, 1, this)">Rung 1: Spotlight Hint</button>
+            <button class="btn-hint" onclick="showModHint(8, 2, this)">Rung 2: N=1 Toy Case</button>
+            <button class="btn-hint" onclick="showModHint(8, 3, this)">Rung 3: Walkthrough</button>
+            <button class="reveal-btn" style="margin-top:0;" onclick="toggleReveal(8, this)">Reveal Engineering Answer</button>
+          </div>
+          <div id="hint-box-8" class="hint-box"></div>
           <div class="reveal-box" id="reveal-8">
             <strong>Key Takeaway:</strong> Because a fixed epoch budget penalizes fast architectural innovations and rewards slow, compute-heavy models; a fixed 5-minute wall-clock budget forces the agent to optimize true hardware-aware Pareto efficiency on your exact GPU.
           </div>
         </div>
-        <button class="reveal-btn" onclick="toggleReveal(8, this)">Reveal Engineering Answer</button>
       </div>
     </div>
 
@@ -2641,6 +2979,80 @@ function selectPin(modNum, idx, btnEl) {
   container.querySelectorAll('.pin-btn').forEach(b => b.classList.remove('active'));
   btnEl.classList.add('active');
   document.getElementById('digest-text-' + modNum).textContent = btnEl.getAttribute('data-desc');
+}
+
+
+const MOD_QUIZ_HINTS = {
+  1: { 1: 'Rung 1 (Spotlight Hint): Look at Stage 3 & Stage 4 of the diagram above — what separates a stochastic LLM guess from verified engineering?', 2: 'Rung 2 (N=1 Toy Case): Suppose an agent generates 1 line of regex for email validation. Without running a test case on \'user@bad\', how do you know if it works?', 3: 'Rung 3 (Walkthrough): Because LLM synthesis is probabilistic while compilers are deterministic, pairing bounded prompt contracts with an automated <1s pytest oracle catches hallucinations on every turn.' },
+  2: { 1: 'Rung 1 (Spotlight Hint): Trace Arrows ② and ③ in the Wire-Level Sequence Diagram above — who actually spawns the OS subshell?', 2: 'Rung 2 (N=1 Toy Case): Trace 1 tool call (`read_file(\'app.py\')`): the model outputs JSON `{name: \'read_file\'}`, stops generating (`stop_reason: \'tool_use\'`), and waits for the harness.', 3: 'Rung 3 (Walkthrough): LLMs are stateless token predictors; they never execute OS code directly. They emit structured `tool_use` requests that the deterministic harness runs and returns via `tool_result`.' },
+  3: { 1: 'Rung 1 (Spotlight Hint): Compare the cost of fixing an architectural flaw in a 20-line plan vs. reverting 12 half-edited source files.', 2: 'Rung 2 (N=1 Toy Case): If you ask for \'rate limiting\' without `/grill-me`, the agent guesses in-memory state instead of Redis, breaking multi-worker deploys.', 3: 'Rung 3 (Walkthrough): Read-only `/plan` and `/grill-me` force the agent to inspect the repo and resolve design ambiguities before mutating a single line of source code.' },
+  4: { 1: 'Rung 1 (Spotlight Hint): Check Hotspot ③ in the Module 4 diagram — what happens to agent loop velocity when test latency exceeds 5 seconds?', 2: 'Rung 2 (N=1 Toy Case): Over 20 tool turns, a 0.4s pytest suite takes 8 seconds total; a 3-minute test suite stalls the session for 60 minutes.', 3: 'Rung 3 (Walkthrough): Sub-second hermetic test oracles allow the harness to verify every atomic edit immediately and self-repair before errors compound across files.' },
+  5: { 1: 'Rung 1 (Spotlight Hint): Look at the red dashed vertical threshold line at 40% on the Context Utilization curve above.', 2: 'Rung 2 (N=1 Toy Case): At 80k tokens of noisy grep output, attention weights spread across thousands of dead-end tokens, causing the model to forget line 12 of your prompt.', 3: 'Rung 3 (Walkthrough): Intentional compaction before crossing the 40% \'Dumb Zone\' replaces noisy exploration transcripts with a high-signal Markdown artifact (~1.5k tokens), restoring peak recall.' },
+  6: { 1: 'Rung 1 (Spotlight Hint): Check the SkillsBench empirical deltas (+16.2 pp vs. -1.3 pp) and the 150-Instruction Cliff in the Module 6 diagram.', 2: 'Rung 2 (N=1 Toy Case): If you want to block `rm -rf /`, a prompt rule works ~92% of the time under heavy load, whereas a `PreToolUse` bash hook returning exit code `2` blocks it 100% of the time.', 3: 'Rung 3 (Walkthrough): Combining a concise ≤60-line root map, progressive 2–3 module skills, Meta-MCP lazy discovery, and deterministic OS hooks maximizes both compliance and context headroom.' },
+  7: { 1: 'Rung 1 (Spotlight Hint): Look at the \'Context Firewall\' boundary between the Parent Orchestrator and the 3 Subagent Workers in the diagram above.', 2: 'Rung 2 (N=1 Toy Case): If 3 subagents each read 40,000 tokens of code and return a 1,000-token summary, the parent context grows by only 3,000 tokens instead of 120,000 tokens!', 3: 'Rung 3 (Walkthrough): Subagents isolate high-entropy search and verification logs inside disposable child windows, keeping the parent orchestrator\'s context well below the 40% Dumb Zone.' },
+  8: { 1: 'Rung 1 (Spotlight Hint): Look at why 68 of 83 experiments in Karpathy\'s `autoresearch` were reverted and why \'Lights-Off\' factories fail in Week 6+.', 2: 'Rung 2 (N=1 Toy Case): If an RLVR-trained agent can edit `test_auth.py` and gets rewarded for `exit code 0`, its shortest path is `assert True`!', 3: 'Rung 3 (Walkthrough): Recursive self-improvement only works when the metric oracle (`eval_bpb.py` / test suite) is strictly read-only to the agent and guarded by a Simplicity Criterion.' },
+};
+
+function setModPerspective(modNum, mode, btnEl) {
+  const wrap = document.getElementById('persp-wrap-' + modNum);
+  if (wrap && btnEl) {
+    wrap.querySelectorAll('.btn-toggle').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+  const mBox = document.getElementById('persp-metaphor-' + modNum);
+  const rBox = document.getElementById('persp-reality-' + modNum);
+  if (mBox) mBox.style.display = (mode === 'metaphor') ? 'block' : 'none';
+  if (rBox) rBox.style.display = (mode === 'reality') ? 'block' : 'none';
+}
+
+function setPerspective(mode, btnEl) {
+  const grp = document.getElementById('global-perspective-toggle');
+  if (grp && btnEl) {
+    grp.querySelectorAll('.cli-pill-btn').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+  for (let m = 1; m <= 8; m++) {
+    const wrap = document.getElementById('persp-wrap-' + m);
+    if (wrap) {
+      wrap.querySelectorAll('.btn-toggle').forEach(b => b.classList.remove('active'));
+      const targetBtn = wrap.querySelector(mode === 'metaphor' ? '.btn-persp-metaphor' : '.btn-persp-reality');
+      if (targetBtn) targetBtn.classList.add('active');
+    }
+    setModPerspective(m, mode, null);
+  }
+}
+
+function checkModQuiz(modNum, btn, isCorrect) {
+  const container = document.getElementById('quiz-opts-' + modNum) || btn.parentElement;
+  container.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('correct', 'wrong'));
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  if (isCorrect) {
+    const rev = document.getElementById('reveal-' + modNum);
+    if (rev) rev.classList.add('open');
+  }
+}
+
+function checkQuiz(btn, isCorrect) {
+  const card = btn.closest('.stop-think-card');
+  const modMatch = card && card.id ? card.id.match(/quiz-card-(\d+)/) : null;
+  const modNum = modMatch ? parseInt(modMatch[1], 10) : 1;
+  checkModQuiz(modNum, btn, isCorrect);
+}
+
+function showModHint(modNum, rung, btnEl) {
+  if (btnEl && btnEl.parentElement) {
+    btnEl.parentElement.querySelectorAll('.btn-hint').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+  }
+  const box = document.getElementById('hint-box-' + modNum);
+  if (box && MOD_QUIZ_HINTS[modNum] && MOD_QUIZ_HINTS[modNum][rung]) {
+    box.style.display = 'block';
+    box.textContent = MOD_QUIZ_HINTS[modNum][rung];
+  }
+}
+
+function showHint(rung) {
+  showModHint(1, rung, null);
 }
 
 function toggleReveal(modNum, btnEl) {

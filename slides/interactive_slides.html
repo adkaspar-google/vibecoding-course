@@ -748,6 +748,58 @@
       cursor: pointer;
     }
     .la-wrong-txt, .la-right-txt, .la-think-q { margin: 3px 0; }
+    .pill-metaphor {
+      background: #FEF3C7;
+      color: #92400E;
+      font-weight: 800;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+    .la-metaphor-box {
+      margin-top: 6px;
+      padding-top: 5px;
+      border-top: 1px dashed #F5D5C8;
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .la-hint-row {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .la-hint-btn {
+      background: #FFFFFF;
+      color: var(--gnavy);
+      border: 1px solid #93C5FD;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 9.8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .la-hint-btn:hover, .la-hint-btn.active {
+      background: var(--gnavy);
+      color: #FFFFFF;
+      border-color: var(--gnavy);
+    }
+    .la-hint-box {
+      display: none;
+      margin-top: 5px;
+      padding: 5px 8px;
+      background: #FFFBEB;
+      border-left: 3px solid #D97706;
+      border-radius: 4px;
+      font-size: 10.8px;
+      color: #78350F;
+      line-height: 1.35;
+    }
+
     .la-think-a {
       margin-top: 6px;
       padding-top: 6px;
@@ -1021,13 +1073,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(1, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(1, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(1, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(1, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(1, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-1"></div>
                   <div class="la-think-a editable-node" id="la-ans-1" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1135,13 +1189,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(2, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(2, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(2, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(2, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(2, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-2"></div>
                   <div class="la-think-a editable-node" id="la-ans-2" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1402,13 +1458,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(3, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(3, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(3, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(3, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(3, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-3"></div>
                   <div class="la-think-a editable-node" id="la-ans-3" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1502,13 +1560,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(4, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(4, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(4, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(4, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(4, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-4"></div>
                   <div class="la-think-a editable-node" id="la-ans-4" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1733,13 +1793,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(5, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(5, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(5, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(5, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(5, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-5"></div>
                   <div class="la-think-a editable-node" id="la-ans-5" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1848,13 +1910,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(6, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(6, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(6, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(6, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(6, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-6"></div>
                   <div class="la-think-a editable-node" id="la-ans-6" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -1961,13 +2025,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Vibe coding means accepting every diff blindly without software engineering knowledge, and prompt engineering tricks are tied to a single model snapshot.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Pure &#x27;accept-all&#x27; vibe coding works only for throwaway weekend prototypes (Tier 0). Production engineering requires Pillar 2 SE vocabulary (latency, consistency, idempotency, blast radius) and model-agnostic harnesses because a new frontier flagship model ships every 17 days.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a film director calling scene intent and checking the monitor playback rather than manually adjusting every camera lens — your prompt is a <em>Sprachspiel</em> move and <code>pytest</code> is your playback monitor.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 01: Language, Code &amp; Evolution (Lab 01))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(7, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(7, 1, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(7, 1, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(7, 1, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(7, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does leaving a prompt underspecified (&#x27;build a webhook handler&#x27;) fail in production even when the LLM writes syntactically valid Python?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-7"></div>
                   <div class="la-think-a editable-node" id="la-ans-7" style="display:none">
                     <b>✓ Architectural Answer:</b> Because an LLM optimizes for token plausibility, not operational invariants. Without explicit SE constraints, it defaults to non-idempotent database writes, float currency math, unbounded retry loops, and unverified payload signatures—accumulating severe Cognitive Debt.
                   </div>
@@ -2101,13 +2167,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Mounting 150 specialized REST CRUD MCP tools makes a coding agent more capable because it has a dedicated tool for every API endpoint.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Mounting 150 CRUD MCP tools injects 10,000+ lines (~42,000 tokens) of JSON schema definitions into every request before the user says hello. Consolidating to 5–8 composable &#x27;Swiss Army Knife&#x27; primitives (Bash, Read, Write, Edit, Grep, Glob, LSP) keeps 88% of the context window free for reasoning.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A chatbot is a cookbook author who writes a recipe and walks away; an agentic harness is a chef in a kitchen who tastes the broth (<code>tool_result</code>) and adjusts seasoning in a loop until the dish passes.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 02: Inside the Agentic Loop &amp; Wire Trace (Lab 02))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(8, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(8, 2, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(8, 2, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(8, 2, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(8, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">When an agent begins oscillating between two broken edits in a loop, why should you inspect the JSONL wire trace (/stats or /context) instead of typing &#x27;Try harder&#x27;?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-8"></div>
                   <div class="la-think-a editable-node" id="la-ans-8" style="display:none">
                     <b>✓ Architectural Answer:</b> Because &#x27;Try harder&#x27; appends another noisy turn onto an already polluted message array. Inspecting the wire trace reveals whether MCP schema bloat or repeated identical tool calls have degraded attention, allowing you to trip a circuit breaker and reset cleanly.
                   </div>
@@ -2215,13 +2283,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Mounting 150 specialized REST CRUD MCP tools makes a coding agent more capable because it has a dedicated tool for every API endpoint.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Mounting 150 CRUD MCP tools injects 10,000+ lines (~42,000 tokens) of JSON schema definitions into every request before the user says hello. Consolidating to 5–8 composable &#x27;Swiss Army Knife&#x27; primitives (Bash, Read, Write, Edit, Grep, Glob, LSP) keeps 88% of the context window free for reasoning.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A chatbot is a cookbook author who writes a recipe and walks away; an agentic harness is a chef in a kitchen who tastes the broth (<code>tool_result</code>) and adjusts seasoning in a loop until the dish passes.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 02: Inside the Agentic Loop &amp; Wire Trace (Lab 02))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(9, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(9, 2, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(9, 2, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(9, 2, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(9, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">When an agent begins oscillating between two broken edits in a loop, why should you inspect the JSONL wire trace (/stats or /context) instead of typing &#x27;Try harder&#x27;?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-9"></div>
                   <div class="la-think-a editable-node" id="la-ans-9" style="display:none">
                     <b>✓ Architectural Answer:</b> Because &#x27;Try harder&#x27; appends another noisy turn onto an already polluted message array. Inspecting the wire trace reveals whether MCP schema bloat or repeated identical tool calls have degraded attention, allowing you to trip a circuit breaker and reset cleanly.
                   </div>
@@ -2329,13 +2399,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Mounting 150 specialized REST CRUD MCP tools makes a coding agent more capable because it has a dedicated tool for every API endpoint.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Mounting 150 CRUD MCP tools injects 10,000+ lines (~42,000 tokens) of JSON schema definitions into every request before the user says hello. Consolidating to 5–8 composable &#x27;Swiss Army Knife&#x27; primitives (Bash, Read, Write, Edit, Grep, Glob, LSP) keeps 88% of the context window free for reasoning.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A chatbot is a cookbook author who writes a recipe and walks away; an agentic harness is a chef in a kitchen who tastes the broth (<code>tool_result</code>) and adjusts seasoning in a loop until the dish passes.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 02: Inside the Agentic Loop &amp; Wire Trace (Lab 02))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(10, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(10, 2, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(10, 2, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(10, 2, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(10, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">When an agent begins oscillating between two broken edits in a loop, why should you inspect the JSONL wire trace (/stats or /context) instead of typing &#x27;Try harder&#x27;?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-10"></div>
                   <div class="la-think-a editable-node" id="la-ans-10" style="display:none">
                     <b>✓ Architectural Answer:</b> Because &#x27;Try harder&#x27; appends another noisy turn onto an already polluted message array. Inspecting the wire trace reveals whether MCP schema bloat or repeated identical tool calls have degraded attention, allowing you to trip a circuit breaker and reset cleanly.
                   </div>
@@ -2442,13 +2514,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Mounting 150 specialized REST CRUD MCP tools makes a coding agent more capable because it has a dedicated tool for every API endpoint.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Mounting 150 CRUD MCP tools injects 10,000+ lines (~42,000 tokens) of JSON schema definitions into every request before the user says hello. Consolidating to 5–8 composable &#x27;Swiss Army Knife&#x27; primitives (Bash, Read, Write, Edit, Grep, Glob, LSP) keeps 88% of the context window free for reasoning.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A chatbot is a cookbook author who writes a recipe and walks away; an agentic harness is a chef in a kitchen who tastes the broth (<code>tool_result</code>) and adjusts seasoning in a loop until the dish passes.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 02: Inside the Agentic Loop &amp; Wire Trace (Lab 02))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(11, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(11, 2, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(11, 2, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(11, 2, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(11, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">When an agent begins oscillating between two broken edits in a loop, why should you inspect the JSONL wire trace (/stats or /context) instead of typing &#x27;Try harder&#x27;?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-11"></div>
                   <div class="la-think-a editable-node" id="la-ans-11" style="display:none">
                     <b>✓ Architectural Answer:</b> Because &#x27;Try harder&#x27; appends another noisy turn onto an already polluted message array. Inspecting the wire trace reveals whether MCP schema bloat or repeated identical tool calls have degraded attention, allowing you to trip a circuit breaker and reset cleanly.
                   </div>
@@ -2555,13 +2629,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> When an agent proposes two architectural options (Proposal A and Proposal B) and you reply &#x27;Let&#x27;s do Proposal B&#x27;, you should immediately tell it to start writing code in the same chat.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Leaving Rejected Proposal A in the active context window causes attention bleed—the model accidentally blends Proposal A&#x27;s data structures into Proposal B&#x27;s implementation. Always execute a Post-Proposal Context Reset to purge rejected proposals before Step 3 (Plan) and Step 4 (Implement).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a pilot filing a flight plan and running a cockpit checklist before takeoff plus lane bumpers that catch drift in under a second — RePPIT + <code>/plan</code> + <code>&lt;1s pytest</code> prevent multi-file nose-dives.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 03: The 5-Step RePPIT Workflow (Lab 03))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(12, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(12, 3, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(12, 3, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(12, 3, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(12, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why is an explicit &#x27;Out of Scope / Do NOT Touch&#x27; section mandatory in Step 3 (Plan) of the RePPIT loop?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-12"></div>
                   <div class="la-think-a editable-node" id="la-ans-12" style="display:none">
                     <b>✓ Architectural Answer:</b> RLHF-trained coding agents try to be &#x27;extra helpful&#x27; by performing drive-by refactors on adjacent modules. Explicitly listing forbidden files and modules in the plan allows deterministic post-edit hooks to block any out-of-scope file modifications.
                   </div>
@@ -2668,13 +2744,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> When an agent proposes two architectural options (Proposal A and Proposal B) and you reply &#x27;Let&#x27;s do Proposal B&#x27;, you should immediately tell it to start writing code in the same chat.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Leaving Rejected Proposal A in the active context window causes attention bleed—the model accidentally blends Proposal A&#x27;s data structures into Proposal B&#x27;s implementation. Always execute a Post-Proposal Context Reset to purge rejected proposals before Step 3 (Plan) and Step 4 (Implement).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a pilot filing a flight plan and running a cockpit checklist before takeoff plus lane bumpers that catch drift in under a second — RePPIT + <code>/plan</code> + <code>&lt;1s pytest</code> prevent multi-file nose-dives.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 03: The 5-Step RePPIT Workflow (Lab 03))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(13, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(13, 3, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(13, 3, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(13, 3, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(13, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why is an explicit &#x27;Out of Scope / Do NOT Touch&#x27; section mandatory in Step 3 (Plan) of the RePPIT loop?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-13"></div>
                   <div class="la-think-a editable-node" id="la-ans-13" style="display:none">
                     <b>✓ Architectural Answer:</b> RLHF-trained coding agents try to be &#x27;extra helpful&#x27; by performing drive-by refactors on adjacent modules. Explicitly listing forbidden files and modules in the plan allows deterministic post-edit hooks to block any out-of-scope file modifications.
                   </div>
@@ -2781,13 +2859,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> When an agent proposes two architectural options (Proposal A and Proposal B) and you reply &#x27;Let&#x27;s do Proposal B&#x27;, you should immediately tell it to start writing code in the same chat.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Leaving Rejected Proposal A in the active context window causes attention bleed—the model accidentally blends Proposal A&#x27;s data structures into Proposal B&#x27;s implementation. Always execute a Post-Proposal Context Reset to purge rejected proposals before Step 3 (Plan) and Step 4 (Implement).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a pilot filing a flight plan and running a cockpit checklist before takeoff plus lane bumpers that catch drift in under a second — RePPIT + <code>/plan</code> + <code>&lt;1s pytest</code> prevent multi-file nose-dives.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 03: The 5-Step RePPIT Workflow (Lab 03))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(14, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(14, 3, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(14, 3, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(14, 3, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(14, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why is an explicit &#x27;Out of Scope / Do NOT Touch&#x27; section mandatory in Step 3 (Plan) of the RePPIT loop?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-14"></div>
                   <div class="la-think-a editable-node" id="la-ans-14" style="display:none">
                     <b>✓ Architectural Answer:</b> RLHF-trained coding agents try to be &#x27;extra helpful&#x27; by performing drive-by refactors on adjacent modules. Explicitly listing forbidden files and modules in the plan allows deterministic post-edit hooks to block any out-of-scope file modifications.
                   </div>
@@ -2894,13 +2974,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> When an agent proposes two architectural options (Proposal A and Proposal B) and you reply &#x27;Let&#x27;s do Proposal B&#x27;, you should immediately tell it to start writing code in the same chat.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Leaving Rejected Proposal A in the active context window causes attention bleed—the model accidentally blends Proposal A&#x27;s data structures into Proposal B&#x27;s implementation. Always execute a Post-Proposal Context Reset to purge rejected proposals before Step 3 (Plan) and Step 4 (Implement).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like a pilot filing a flight plan and running a cockpit checklist before takeoff plus lane bumpers that catch drift in under a second — RePPIT + <code>/plan</code> + <code>&lt;1s pytest</code> prevent multi-file nose-dives.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 03: The 5-Step RePPIT Workflow (Lab 03))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(15, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(15, 3, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(15, 3, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(15, 3, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(15, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why is an explicit &#x27;Out of Scope / Do NOT Touch&#x27; section mandatory in Step 3 (Plan) of the RePPIT loop?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-15"></div>
                   <div class="la-think-a editable-node" id="la-ans-15" style="display:none">
                     <b>✓ Architectural Answer:</b> RLHF-trained coding agents try to be &#x27;extra helpful&#x27; by performing drive-by refactors on adjacent modules. Explicitly listing forbidden files and modules in the plan allows deterministic post-edit hooks to block any out-of-scope file modifications.
                   </div>
@@ -3040,13 +3122,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> If a frontier model advertises a 1,000,000-token context window, it will reason just as accurately at 750,000 tokens as it does at 50,000 tokens.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Every turn computes NextAction = LLM(ContextWindow). Past ~40% context utilization, attention over early architectural constraints and type invariants degrades sharply into the &#x27;Dumb Zone&#x27; (Context Rot). Frequent Intentional Compaction (RPI) and output-redirection backpressure (&gt; run.log 2&gt;&amp;1) keep utilization in the green Smart Zone (&lt;40%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like sweeping sawdust and scrap wood off a carpenter's workbench before it gets 40% buried — Frequent Intentional Compaction clears raw grep logs and leaves a crisp 1,500-token Markdown Blueprint.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 04: Context Window Physics &amp; 40% Dumb Zone (Lab 04))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(16, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(16, 4, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(16, 4, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(16, 4, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(16, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does reviewing 1 line of research.md or 10 lines of plan.md have 100x higher leverage than reviewing a 1,000-line generated PR?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-16"></div>
                   <div class="la-think-a editable-node" id="la-ans-16" style="display:none">
                     <b>✓ Architectural Answer:</b> A single false assumption in research.md corrupts the entire system architecture, and 10 bad lines in plan.md corrupt module boundaries. Catching the error at the top of the Human Leverage Pyramid takes 30 seconds and prevents 1,000 lines of broken code from ever being generated.
                   </div>
@@ -3154,13 +3238,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> If a frontier model advertises a 1,000,000-token context window, it will reason just as accurately at 750,000 tokens as it does at 50,000 tokens.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Every turn computes NextAction = LLM(ContextWindow). Past ~40% context utilization, attention over early architectural constraints and type invariants degrades sharply into the &#x27;Dumb Zone&#x27; (Context Rot). Frequent Intentional Compaction (RPI) and output-redirection backpressure (&gt; run.log 2&gt;&amp;1) keep utilization in the green Smart Zone (&lt;40%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like sweeping sawdust and scrap wood off a carpenter's workbench before it gets 40% buried — Frequent Intentional Compaction clears raw grep logs and leaves a crisp 1,500-token Markdown Blueprint.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 04: Context Window Physics &amp; 40% Dumb Zone (Lab 04))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(17, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(17, 4, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(17, 4, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(17, 4, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(17, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does reviewing 1 line of research.md or 10 lines of plan.md have 100x higher leverage than reviewing a 1,000-line generated PR?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-17"></div>
                   <div class="la-think-a editable-node" id="la-ans-17" style="display:none">
                     <b>✓ Architectural Answer:</b> A single false assumption in research.md corrupts the entire system architecture, and 10 bad lines in plan.md corrupt module boundaries. Catching the error at the top of the Human Leverage Pyramid takes 30 seconds and prevents 1,000 lines of broken code from ever being generated.
                   </div>
@@ -3305,13 +3391,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> If a frontier model advertises a 1,000,000-token context window, it will reason just as accurately at 750,000 tokens as it does at 50,000 tokens.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Every turn computes NextAction = LLM(ContextWindow). Past ~40% context utilization, attention over early architectural constraints and type invariants degrades sharply into the &#x27;Dumb Zone&#x27; (Context Rot). Frequent Intentional Compaction (RPI) and output-redirection backpressure (&gt; run.log 2&gt;&amp;1) keep utilization in the green Smart Zone (&lt;40%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like sweeping sawdust and scrap wood off a carpenter's workbench before it gets 40% buried — Frequent Intentional Compaction clears raw grep logs and leaves a crisp 1,500-token Markdown Blueprint.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 04: Context Window Physics &amp; 40% Dumb Zone (Lab 04))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(18, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(18, 4, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(18, 4, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(18, 4, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(18, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does reviewing 1 line of research.md or 10 lines of plan.md have 100x higher leverage than reviewing a 1,000-line generated PR?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-18"></div>
                   <div class="la-think-a editable-node" id="la-ans-18" style="display:none">
                     <b>✓ Architectural Answer:</b> A single false assumption in research.md corrupts the entire system architecture, and 10 bad lines in plan.md corrupt module boundaries. Catching the error at the top of the Human Leverage Pyramid takes 30 seconds and prevents 1,000 lines of broken code from ever being generated.
                   </div>
@@ -3418,13 +3506,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> If a frontier model advertises a 1,000,000-token context window, it will reason just as accurately at 750,000 tokens as it does at 50,000 tokens.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Every turn computes NextAction = LLM(ContextWindow). Past ~40% context utilization, attention over early architectural constraints and type invariants degrades sharply into the &#x27;Dumb Zone&#x27; (Context Rot). Frequent Intentional Compaction (RPI) and output-redirection backpressure (&gt; run.log 2&gt;&amp;1) keep utilization in the green Smart Zone (&lt;40%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like sweeping sawdust and scrap wood off a carpenter's workbench before it gets 40% buried — Frequent Intentional Compaction clears raw grep logs and leaves a crisp 1,500-token Markdown Blueprint.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 04: Context Window Physics &amp; 40% Dumb Zone (Lab 04))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(19, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(19, 4, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(19, 4, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(19, 4, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(19, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does reviewing 1 line of research.md or 10 lines of plan.md have 100x higher leverage than reviewing a 1,000-line generated PR?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-19"></div>
                   <div class="la-think-a editable-node" id="la-ans-19" style="display:none">
                     <b>✓ Architectural Answer:</b> A single false assumption in research.md corrupts the entire system architecture, and 10 bad lines in plan.md corrupt module boundaries. Catching the error at the top of the Human Leverage Pyramid takes 30 seconds and prevents 1,000 lines of broken code from ever being generated.
                   </div>
@@ -3583,13 +3673,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> The best CLAUDE.md or GEMINI.md file is a comprehensive 600-line encyclopedia covering every coding style rule, database schema, and edge case in the repository.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Instruction compliance stays near 98% up to ~60 lines, hits the 150-Instruction Cliff, and collapses on 500+ line monoliths that overfit exploration. Treat root CLAUDE.md / GEMINI.md like L1 CPU cache (&lt;=60 lines: build/test commands, top-level map, @docs/*.md pointers) and move domain rules into path-scoped rules/*.md.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A surgeon keeps a 1-page vital signs card on their visor (<code>AGENTS.md ≤60 lines</code>), not a 2,000-page medical encyclopedia, and pulls procedure binders off the shelf only when needed.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 05: Context Primitives, 60-Line Map &amp; Memory (Lab 05))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(20, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(20, 5, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(20, 5, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(20, 5, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(20, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">According to Böckeler &amp; Morris&#x27;s 2x2 Cybernetic Control Matrix, when should you write a prose rule in CLAUDE.md/GEMINI.md versus a deterministic CPU hook or linter?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-20"></div>
                   <div class="la-think-a editable-node" id="la-ans-20" style="display:none">
                     <b>✓ Architectural Answer:</b> Never use an Inferential Guide (prose instructions) for an invariant that a Computational Guide or Sensor (PreToolUse Exit-Code-2 hook, static typechecker, or structural AST linter) can enforce deterministically with 100% reliability and zero token overhead.
                   </div>
@@ -3715,13 +3807,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> The best CLAUDE.md or GEMINI.md file is a comprehensive 600-line encyclopedia covering every coding style rule, database schema, and edge case in the repository.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Instruction compliance stays near 98% up to ~60 lines, hits the 150-Instruction Cliff, and collapses on 500+ line monoliths that overfit exploration. Treat root CLAUDE.md / GEMINI.md like L1 CPU cache (&lt;=60 lines: build/test commands, top-level map, @docs/*.md pointers) and move domain rules into path-scoped rules/*.md.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A surgeon keeps a 1-page vital signs card on their visor (<code>AGENTS.md ≤60 lines</code>), not a 2,000-page medical encyclopedia, and pulls procedure binders off the shelf only when needed.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 05: Context Primitives, 60-Line Map &amp; Memory (Lab 05))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(21, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(21, 5, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(21, 5, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(21, 5, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(21, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">According to Böckeler &amp; Morris&#x27;s 2x2 Cybernetic Control Matrix, when should you write a prose rule in CLAUDE.md/GEMINI.md versus a deterministic CPU hook or linter?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-21"></div>
                   <div class="la-think-a editable-node" id="la-ans-21" style="display:none">
                     <b>✓ Architectural Answer:</b> Never use an Inferential Guide (prose instructions) for an invariant that a Computational Guide or Sensor (PreToolUse Exit-Code-2 hook, static typechecker, or structural AST linter) can enforce deterministically with 100% reliability and zero token overhead.
                   </div>
@@ -3828,13 +3922,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> The best CLAUDE.md or GEMINI.md file is a comprehensive 600-line encyclopedia covering every coding style rule, database schema, and edge case in the repository.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Instruction compliance stays near 98% up to ~60 lines, hits the 150-Instruction Cliff, and collapses on 500+ line monoliths that overfit exploration. Treat root CLAUDE.md / GEMINI.md like L1 CPU cache (&lt;=60 lines: build/test commands, top-level map, @docs/*.md pointers) and move domain rules into path-scoped rules/*.md.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A surgeon keeps a 1-page vital signs card on their visor (<code>AGENTS.md ≤60 lines</code>), not a 2,000-page medical encyclopedia, and pulls procedure binders off the shelf only when needed.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 05: Context Primitives, 60-Line Map &amp; Memory (Lab 05))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(22, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(22, 5, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(22, 5, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(22, 5, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(22, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">According to Böckeler &amp; Morris&#x27;s 2x2 Cybernetic Control Matrix, when should you write a prose rule in CLAUDE.md/GEMINI.md versus a deterministic CPU hook or linter?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-22"></div>
                   <div class="la-think-a editable-node" id="la-ans-22" style="display:none">
                     <b>✓ Architectural Answer:</b> Never use an Inferential Guide (prose instructions) for an invariant that a Computational Guide or Sensor (PreToolUse Exit-Code-2 hook, static typechecker, or structural AST linter) can enforce deterministically with 100% reliability and zero token overhead.
                   </div>
@@ -3941,13 +4037,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> The best CLAUDE.md or GEMINI.md file is a comprehensive 600-line encyclopedia covering every coding style rule, database schema, and edge case in the repository.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Instruction compliance stays near 98% up to ~60 lines, hits the 150-Instruction Cliff, and collapses on 500+ line monoliths that overfit exploration. Treat root CLAUDE.md / GEMINI.md like L1 CPU cache (&lt;=60 lines: build/test commands, top-level map, @docs/*.md pointers) and move domain rules into path-scoped rules/*.md.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A surgeon keeps a 1-page vital signs card on their visor (<code>AGENTS.md ≤60 lines</code>), not a 2,000-page medical encyclopedia, and pulls procedure binders off the shelf only when needed.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 05: Context Primitives, 60-Line Map &amp; Memory (Lab 05))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(23, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(23, 5, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(23, 5, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(23, 5, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(23, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">According to Böckeler &amp; Morris&#x27;s 2x2 Cybernetic Control Matrix, when should you write a prose rule in CLAUDE.md/GEMINI.md versus a deterministic CPU hook or linter?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-23"></div>
                   <div class="la-think-a editable-node" id="la-ans-23" style="display:none">
                     <b>✓ Architectural Answer:</b> Never use an Inferential Guide (prose instructions) for an invariant that a Computational Guide or Sensor (PreToolUse Exit-Code-2 hook, static typechecker, or structural AST linter) can enforce deterministically with 100% reliability and zero token overhead.
                   </div>
@@ -4055,13 +4153,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(24, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(24, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(24, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(24, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(24, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-24"></div>
                   <div class="la-think-a editable-node" id="la-ans-24" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4168,13 +4268,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(25, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(25, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(25, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(25, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(25, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-25"></div>
                   <div class="la-think-a editable-node" id="la-ans-25" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4308,13 +4410,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(26, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(26, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(26, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(26, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(26, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-26"></div>
                   <div class="la-think-a editable-node" id="la-ans-26" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4491,13 +4595,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(27, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(27, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(27, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(27, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(27, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-27"></div>
                   <div class="la-think-a editable-node" id="la-ans-27" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4650,13 +4756,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(28, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(28, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(28, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(28, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(28, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-28"></div>
                   <div class="la-think-a editable-node" id="la-ans-28" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4763,13 +4871,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Asking an LLM to auto-generate its own SKILL.md files before solving a task is an easy way to boost accuracy without human curation.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> In SkillsBench (N=7,308 trajectories across 84 tasks), self-generated skills degraded performance by -1.3pp on average (and -5.6pp on Codex+GPT-5.2), whereas human-curated 2–3 modular skills boosted pass rates by +16.2pp (+18.6pp peak) and enabled fast models (Haiku 4.5 + Skills: 27.7%) to beat frontier models without skills (Opus 4.5: 22.0%).</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Progressive skills are like pull-down workshop manuals for specific power tools, while <code>PreToolUse</code> / <code>PostToolUse</code> hooks are physical circuit breakers that trip at 100% reliability.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 06: Progressive Skills, chub &amp; Meta-MCP (Lab 06))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(29, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(29, 6, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(29, 6, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(29, 6, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(29, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">How does Meta-MCP &#x27;Code Mode&#x27; (search + execute) reduce tool token consumption by 95.7% (48,500 -&gt; 2,100 tokens) on a 5-step workflow?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-29"></div>
                   <div class="la-think-a editable-node" id="la-ans-29" style="display:none">
                     <b>✓ Architectural Answer:</b> Instead of preloading 150 JSON schemas and streaming 5 verbose intermediate REST payloads through the LLM context window, the agent calls search() for only the 2 needed schemas and sends a short Python/TS script to execute() inside a sandbox VM, returning only the distilled final result.
                   </div>
@@ -4877,13 +4987,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Subagents should be designed as anthropomorphic roleplay personas (&#x27;Frontend Bob&#x27;, &#x27;Product Manager Alice&#x27;) that chat back and forth in a shared context.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Subagents exist for one physical purpose: acting as a Context Firewall. A read-only code-explorer subagent burns 50,000 tokens searching 25 files inside an isolated child window that is immediately garbage-collected, returning only a 500-token cited summary (100:1 compression) to the parent orchestrator.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A lead detective dispatches field scouts to separate precincts who read 40,000 pages of raw logs and return only a 1-page verified brief — Subagents are **Context Firewalls**.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 07: Subagent Firewalls, Councils &amp; jj VCS (Lab 07))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(30, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(30, 7, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(30, 7, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(30, 7, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(30, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does colocated Jujutsu (jj git init --colocate) eliminate the integration deadlocks that freeze parallel git worktree subagents?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-30"></div>
                   <div class="la-think-a editable-node" id="la-ans-30" style="display:none">
                     <b>✓ Architectural Answer:</b> In Git, rebasing a 4-branch agent stack hits a text conflict and aborts mid-rebase (REBASE 1/4), halting the unattended agent. Jujutsu models conflicts as a first-class Conflict Algebra (B + C - A) stored inside commit objects so rebases never fail and descendant commits auto-rebase immediately.
                   </div>
@@ -4991,13 +5103,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Subagents should be designed as anthropomorphic roleplay personas (&#x27;Frontend Bob&#x27;, &#x27;Product Manager Alice&#x27;) that chat back and forth in a shared context.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Subagents exist for one physical purpose: acting as a Context Firewall. A read-only code-explorer subagent burns 50,000 tokens searching 25 files inside an isolated child window that is immediately garbage-collected, returning only a 500-token cited summary (100:1 compression) to the parent orchestrator.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A lead detective dispatches field scouts to separate precincts who read 40,000 pages of raw logs and return only a 1-page verified brief — Subagents are **Context Firewalls**.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 07: Subagent Firewalls, Councils &amp; jj VCS (Lab 07))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(31, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(31, 7, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(31, 7, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(31, 7, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(31, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does colocated Jujutsu (jj git init --colocate) eliminate the integration deadlocks that freeze parallel git worktree subagents?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-31"></div>
                   <div class="la-think-a editable-node" id="la-ans-31" style="display:none">
                     <b>✓ Architectural Answer:</b> In Git, rebasing a 4-branch agent stack hits a text conflict and aborts mid-rebase (REBASE 1/4), halting the unattended agent. Jujutsu models conflicts as a first-class Conflict Algebra (B + C - A) stored inside commit objects so rebases never fail and descendant commits auto-rebase immediately.
                   </div>
@@ -5105,13 +5219,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Subagents should be designed as anthropomorphic roleplay personas (&#x27;Frontend Bob&#x27;, &#x27;Product Manager Alice&#x27;) that chat back and forth in a shared context.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Subagents exist for one physical purpose: acting as a Context Firewall. A read-only code-explorer subagent burns 50,000 tokens searching 25 files inside an isolated child window that is immediately garbage-collected, returning only a 500-token cited summary (100:1 compression) to the parent orchestrator.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A lead detective dispatches field scouts to separate precincts who read 40,000 pages of raw logs and return only a 1-page verified brief — Subagents are **Context Firewalls**.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 07: Subagent Firewalls, Councils &amp; jj VCS (Lab 07))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(32, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(32, 7, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(32, 7, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(32, 7, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(32, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does colocated Jujutsu (jj git init --colocate) eliminate the integration deadlocks that freeze parallel git worktree subagents?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-32"></div>
                   <div class="la-think-a editable-node" id="la-ans-32" style="display:none">
                     <b>✓ Architectural Answer:</b> In Git, rebasing a 4-branch agent stack hits a text conflict and aborts mid-rebase (REBASE 1/4), halting the unattended agent. Jujutsu models conflicts as a first-class Conflict Algebra (B + C - A) stored inside commit objects so rebases never fail and descendant commits auto-rebase immediately.
                   </div>
@@ -5246,13 +5362,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Subagents should be designed as anthropomorphic roleplay personas (&#x27;Frontend Bob&#x27;, &#x27;Product Manager Alice&#x27;) that chat back and forth in a shared context.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Subagents exist for one physical purpose: acting as a Context Firewall. A read-only code-explorer subagent burns 50,000 tokens searching 25 files inside an isolated child window that is immediately garbage-collected, returning only a 500-token cited summary (100:1 compression) to the parent orchestrator.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A lead detective dispatches field scouts to separate precincts who read 40,000 pages of raw logs and return only a 1-page verified brief — Subagents are **Context Firewalls**.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 07: Subagent Firewalls, Councils &amp; jj VCS (Lab 07))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(33, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(33, 7, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(33, 7, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(33, 7, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(33, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does colocated Jujutsu (jj git init --colocate) eliminate the integration deadlocks that freeze parallel git worktree subagents?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-33"></div>
                   <div class="la-think-a editable-node" id="la-ans-33" style="display:none">
                     <b>✓ Architectural Answer:</b> In Git, rebasing a 4-branch agent stack hits a text conflict and aborts mid-rebase (REBASE 1/4), halting the unattended agent. Jujutsu models conflicts as a first-class Conflict Algebra (B + C - A) stored inside commit objects so rebases never fail and descendant commits auto-rebase immediately.
                   </div>
@@ -5359,13 +5477,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Subagents should be designed as anthropomorphic roleplay personas (&#x27;Frontend Bob&#x27;, &#x27;Product Manager Alice&#x27;) that chat back and forth in a shared context.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> Subagents exist for one physical purpose: acting as a Context Firewall. A read-only code-explorer subagent burns 50,000 tokens searching 25 files inside an isolated child window that is immediately garbage-collected, returning only a 500-token cited summary (100:1 compression) to the parent orchestrator.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> A lead detective dispatches field scouts to separate precincts who read 40,000 pages of raw logs and return only a 1-page verified brief — Subagents are **Context Firewalls**.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 07: Subagent Firewalls, Councils &amp; jj VCS (Lab 07))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(34, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(34, 7, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(34, 7, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(34, 7, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(34, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">Why does colocated Jujutsu (jj git init --colocate) eliminate the integration deadlocks that freeze parallel git worktree subagents?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-34"></div>
                   <div class="la-think-a editable-node" id="la-ans-34" style="display:none">
                     <b>✓ Architectural Answer:</b> In Git, rebasing a 4-branch agent stack hits a text conflict and aborts mid-rebase (REBASE 1/4), halting the unattended agent. Jujutsu models conflicts as a first-class Conflict Algebra (B + C - A) stored inside commit objects so rebases never fail and descendant commits auto-rebase immediately.
                   </div>
@@ -5474,13 +5594,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(35, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(35, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(35, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(35, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(35, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-35"></div>
                   <div class="la-think-a editable-node" id="la-ans-35" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -5633,13 +5755,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(36, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(36, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(36, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(36, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(36, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-36"></div>
                   <div class="la-think-a editable-node" id="la-ans-36" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -5746,13 +5870,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(37, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(37, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(37, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(37, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(37, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-37"></div>
                   <div class="la-think-a editable-node" id="la-ans-37" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -5902,13 +6028,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(38, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(38, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(38, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(38, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(38, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-38"></div>
                   <div class="la-think-a editable-node" id="la-ans-38" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -6037,13 +6165,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(39, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(39, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(39, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(39, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(39, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-39"></div>
                   <div class="la-think-a editable-node" id="la-ans-39" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -6210,13 +6340,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(40, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(40, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(40, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(40, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(40, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-40"></div>
                   <div class="la-think-a editable-node" id="la-ans-40" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -6381,13 +6513,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(41, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(41, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(41, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(41, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(41, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-41"></div>
                   <div class="la-think-a editable-node" id="la-ans-41" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -6494,13 +6628,15 @@
                   </div>
                   <p class="la-wrong-txt editable-node"><b>Misconception:</b> Because RLVR-trained coding agents can pass unit tests autonomously, we can run a &#x27;lights-off&#x27; dark software factory with zero human architectural oversight.</p>
                   <p class="la-right-txt editable-node"><b>Reality:</b> RLVR optimizes for t=0 immediate test pass, whereas software maintainability lives on a t=6-month horizon. Unattended dark factories suffer Week-8 architectural collapse from duplicated abstractions and spaghetti coupling. Sustainable velocity requires 4-Phase Front-Loaded Alignment (Product -&gt; Architecture -&gt; Program Design -&gt; Vertical Slices), Remediation Linters, and Out-of-Tree Holdouts.</p>
+                  <div class="la-metaphor-box editable-node"><span class="pill-metaphor">💡 Everyday Metaphor</span> <strong>Everyday Metaphor (Known → Target):</strong> Like an automated Formula 1 wind tunnel with a stopwatch and weight limit — <code>autoresearch</code> tests a patch for 5 minutes, checks <code>val_bpb</code> + the Simplicity Gate, and commits or reverts automatically.</div>
                 </div>
                 <div class="la-stopthink-card">
                   <div class="la-ped-hdr">
                     <span class="pill-think">💭 Stop &amp; Think — Active Reflection (Module 08: 4-Tier Governance, Omnigent, Autoresearch &amp; RSI (Lab 08))</span>
-                    <button type="button" class="reveal-btn" onclick="toggleRevealAnswer(42, this)">Reveal Answer ▾</button>
+                    <div class="la-hint-row"><button class="la-hint-btn" onclick="showSlideHint(42, 8, 1, this)">Rung 1: Spotlight</button><button class="la-hint-btn" onclick="showSlideHint(42, 8, 2, this)">Rung 2: N=1 Toy Case</button><button class="la-hint-btn" onclick="showSlideHint(42, 8, 3, this)">Rung 3: Walkthrough</button><button type="button" class="reveal-btn" onclick="toggleRevealAnswer(42, this)">Reveal Answer ▾</button></div>
                   </div>
                   <p class="la-think-q editable-node">In Karpathy&#x27;s autoresearch ratchet (83 overnight experiments, 15 kept improvements from 0.9979 -&gt; 0.9773 val_bpb), why would the harness revert an experiment that improved val_bpb by 0.0004?</p>
+                  <div class="la-hint-box editable-node" id="la-hint-42"></div>
                   <div class="la-think-a editable-node" id="la-ans-42" style="display:none">
                     <b>✓ Architectural Answer:</b> Because of Karpathy&#x27;s Simplicity Criterion in program.md: a tiny metric improvement that adds 25 lines of brittle, hacky code increases maintenance surface and degrades future mutation velocity, whereas a tiny improvement that deletes code is unconditionally kept.
                   </div>
@@ -6851,6 +6987,29 @@
       document.querySelectorAll('#rsi-tier-svg .rsi-line').forEach(el => {
         el.style.opacity = (tier === 'ALL' || el.dataset.tier === tier) ? '1' : '0.18';
       });
+    }
+
+    const MODULE_PEDAGOGY = {
+      1: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Inspect the feedback arrow between the Deterministic Harness and the AI Model on this slide — what grounds probabilistic text?', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> Trace 1 prompt without an I/O contract vs. 1 prompt with a 4-part <code>PromptSteerer</code> contract and a <code>pytest</code> check.', 3: '<strong>Rung 3 (Walkthrough):</strong> Natural language prompts become reliable engineering operators only when paired with explicit boundary invariants and a deterministic test oracle.' },
+      2: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Look at the JSON wire payload between <code>stop_reason: \'tool_use\'</code> and <code>role: \'user\' (tool_result)</code>.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> Compare loading 50 MCP tool schemas upfront (~55,000 tokens) vs. 2 Meta-MCP gateway tools (<code>search_tools</code> + <code>call_tool</code>, ~500 tokens).', 3: '<strong>Rung 3 (Walkthrough):</strong> The LLM never executes OS code directly; it emits declarative JSON tool calls that the host harness executes and returns via <code>tool_result</code>.' },
+      3: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Compare the 5 stages of the RePPIT state machine (Research → Plan → Prompt → Implement → Test) on this slide.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> If an edit touches 45 lines vs. 600 lines across 12 files, which diff can a <code>&lt;1s</code> test suite isolate and self-repair?', 3: '<strong>Rung 3 (Walkthrough):</strong> Bounding iterations to ≤60 LOC after a read-only <code>/plan</code> or <code>/grill-me</code> gate turns compounding error decay into near-100% convergence.' },
+      4: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Locate the 40% context utilization threshold (~80k / 200k tokens) where the Smart Zone transitions into the Dumb Zone.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> When 60,000 tokens of dead-end stack traces sit in the middle of context, Softmax $O(N^2)$ attention dilutes weight on your core constraints.', 3: '<strong>Rung 3 (Walkthrough):</strong> Compacting after Research and Plan phases produces the RPI Sawtooth trajectory, keeping every implementation turn inside the Smart Zone (&lt;40% fill).' },
+      5: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Check the 150-Instruction Compliance Cliff and the 3-tier context hierarchy on this slide.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> If you stuff 350 rules into root <code>AGENTS.md</code>, compliance drops below 70% and burns 15k tokens on every turn before you type a word.', 3: '<strong>Rung 3 (Walkthrough):</strong> Keep root <code>AGENTS.md</code> / <code>GEMINI.md</code> / <code>CLAUDE.md</code> under 60 lines (Commands, Architecture Map, Boundaries) and delegate domain rules to scoped files.' },
+      6: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Compare the SkillsBench empirical bars (+16.2 pp curated vs. -1.3 pp self-generated) and hook exit code <code>2</code>.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> A prompt instruction to \'never edit migration files\' can be forgotten at 50% context; a <code>PreToolUse</code> hook returning exit code <code>2</code> blocks it 100% of the time.', 3: '<strong>Rung 3 (Walkthrough):</strong> Focused 2–3 module <code>SKILL.md</code> packages provide procedural expertise on demand, while deterministic OS hooks enforce non-negotiable safety and lint gates.' },
+      7: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Trace the token reduction across the Subagent Context Firewall (40k child exploration tokens → 1k JSON digest to parent).', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> In Jujutsu (<code>jj</code>), two parallel subagent branches touching the same file record a first-class conflict tree without halting rebases, and <code>jj undo</code> rolls back any op.', 3: '<strong>Rung 3 (Walkthrough):</strong> Combining isolated subagent councils (Implementer + Adversarial Verifier), <code>jj</code> algebraic VCS, and durable step journals enables multi-hour crash-safe execution.' },
+      8: { 1: '<strong>Rung 1 (Spotlight Hint):</strong> Examine the keep/revert staircase (15 kept / 68 reverted) and the Week 6+ \'Lights-Off\' Dark Factory collapse curve.', 2: '<strong>Rung 2 (N=1 Toy Case):</strong> If a patch improves <code>val_bpb</code> by <code>-0.0001</code> but adds <code>+45 LOC</code> of brittle hacks, the Simplicity Gate executes <code>git reset --hard HEAD^</code>.', 3: '<strong>Rung 3 (Walkthrough):</strong> Autonomous optimization succeeds only when bounded to a single mutable file, evaluated by an immutable read-only oracle, and steered by human 4-Phase Program Design.' },
+    };
+
+    function showSlideHint(slideNum, modNum, rung, btnEl) {
+      if (btnEl && btnEl.parentElement) {
+        btnEl.parentElement.querySelectorAll('.la-hint-btn').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+      const box = document.getElementById('la-hint-' + slideNum);
+      if (box && MODULE_PEDAGOGY[modNum] && MODULE_PEDAGOGY[modNum][rung]) {
+        box.style.display = 'block';
+        box.innerHTML = MODULE_PEDAGOGY[modNum][rung];
+      }
     }
 
     // Global Hoverover Tooltip Delegation

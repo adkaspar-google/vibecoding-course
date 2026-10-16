@@ -1,59 +1,83 @@
-# Lab 05: Harness Engineering Layer 1 — The Three Context Primitives, 60-Line Map & Persistent Memory
+# Lab 05 Walkthrough: Harness Engineering Layer 1 — The Three Context Primitives, 60-Line Map & Persistent Memory (`TaskFlow` Standing Context & Memory Compiler)
 
-## 1. Learning Objectives & Conceptual Motivation
+## 1. Headache-Before-Aspirin & Spiral Retrieval Bridge
 
-1. **The Harness Equation & The Three Context Primitives (`martinfowler.com` & Skills Map 3.4)**:
-   $$\text{Agent} = \text{Model} + \text{Harness}$$
-   A production harness separates context into three distinct primitives based on activation frequency and token weight:
-   - **Prompts & Slash Commands (`PROMPT_OR_SLASH_COMMAND`)**: Ephemeral, per-turn task intent (`/plan`, `/grill-me`, `/feature-dev`).
-   - **Standing Rules (`STANDING_RULE`)**: Always-on or path-glob-scoped invariants (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`, `.agents/rules/*.md`, `.claude/rules/*.md`).
-   - **Lazy-Loaded Skills (`LAZY_LOADED_SKILL`)**: Multi-step procedural manuals (`SKILL.md`) whose body tokens load **only** when triggered.
+### Spiral Retrieval Bridge (From Lab 04 $\to$ Lab 05)
+In **Lab 04**, we kept individual `TaskFlow` coding sessions inside the **$\le 40\%$ Smart Zone** by applying output-redirection backpressure (`> run.log 2>&1`) and **Frequent Intentional Compaction (`RPI`: `research.md` + `plan.md`)**. However, `research.md` and `plan.md` are ephemeral task artifacts. How do we architect **Harness Engineering Layer 1** ($\text{Agent} = \text{Model} + \text{Harness}$) so durable `TaskFlow` project conventions (`CLAUDE.md`, `GEMINI.md`, `AGENTS.md`) and cross-session memory (`MEMORY.md`, `KNOWLEDGE.md`) persist across hundreds of sessions without triggering the **150-Instruction Compliance Cliff**?
 
-2. **The 150-Instruction Compliance Cliff & The Minimalist 60-Line Map Rule (OpenAI & Stanford CS146S)**:
-   Instruction-following studies show that once a prompt accumulates **>150 simultaneous rules**, model compliance drops sharply across *all* rules. Rather than stuffing 500 lines of prose into `CLAUDE.md` or `GEMINI.md`, treat root context files as a **$\le 60$-line table of contents** containing:
-   - Exact build, test, and linter commands (`CI=true ./self_diagnose_all.sh`)
-   - High-level directory map
-   - Lazy `@docs/*.md` pointers (`@docs/architecture.md`, `@docs/testing-conventions.md`, `@docs/language-and-code-foundations.md`, `@docs/skillsbench-and-harness-guide.md`) loaded on demand.
+### The Headache (Monolithic 250-Rule Instruction Dumps & Unverified Memory Poisoning)
+When a team maintains `TaskFlow`'s project context using [`starter/monolithic_claude_md_dump.py`](./starter/monolithic_claude_md_dump.py):
+- **The 150-Instruction Compliance Cliff:** Dumping 250 inline rules into a single monolithic `CLAUDE.md` or `GEMINI.md` file causes LLM instruction compliance to plummet across *all* rules (including critical `TaskFlow` integer-cent billing invariants).
+- **Fake `#direct` Provenance Poisoning:** Allowing an agent to tag its own speculative codebase guesses with `#direct` permanently elevates transient hypotheses to the same authority as explicit human architecture directives.
+- **Unbounded Memory Growth & Stale Commits:** Appending raw session observations past 200 lines without pruning entries tied to superseded Git commits pollutes startup context with obsolete `TaskFlow` schema facts.
 
-3. **Cross-Session Memory (`MEMORY.md` & `KNOWLEDGE.md`) with Provenance Hygiene**:
-   - **Claude Code Auto-Memory**: `~/.claude/projects/<project>/memory/MEMORY.md` (shared across `git worktree` checkouts, capped at 200 lines at startup).
-   - **Google Antigravity Knowledge Base**: `~/.gemini/antigravity/knowledge/<project>/KNOWLEDGE.md` (`/memory show|add|refresh`).
-   - **Provenance Tagging Discipline**: Reserve `#direct` **strictly** for explicit user instructions; tag agent-observed codebase facts with `#commit:<sha>`, `#time:<YYYY-MM-DD>`, and `#session:<id>`, and prune stale entries when commits are superseded.
+### The Everyday Metaphor (`Known -> Target`)
+Think of **The 60-Line Root Context Map & Provenance-Tagged Memory** like **an emergency cockpit quick-reference laminated card vs. a 500-page aircraft maintenance binder** (*Known* $\to$ *Target*). If you tape all 500 pages onto the windshield (*monolithic 250-rule `CLAUDE.md`*), the pilot cannot see the runway; instead, the laminated card holds only the **$\le 60$-line essential checklist and tab pointers** (`@docs/architecture.md`, `@docs/testing-conventions.md`) that open the exact binder section on demand.
 
 ---
 
-## 2. Inspecting the Flawed Baseline (`starter/monolithic_claude_md_dump.py`)
+## 2. Inspecting the Flawed Baseline & Step-by-Step Implementation
 
-Inspect `starter/monolithic_claude_md_dump.py`. Notice three Layer-1 harness anti-patterns:
-- **Monolithic 400-Line `CLAUDE.md`**: Dumps 220 conflicting rules into a single root file with zero `@docs/*.md` lazy imports.
-- **Fake `#direct` Tagging**: Labels speculative agent guesses with `#direct`, permanently poisoning future sessions.
-- **Unbounded `MEMORY.md` Growth**: Appends raw session logs past 500 lines without pruning superseded commits.
+### Inspecting `starter/monolithic_claude_md_dump.py`
+Open [`starter/monolithic_claude_md_dump.py`](./starter/monolithic_claude_md_dump.py) (`lines 20–22`). Notice how `generate_bloated_claude_md()` emits 250 inline rules in a single string (`>150` cliff threshold) with zero `@docs/*.md` lazy references or scoped rule frontmatter.
 
----
+### Implementing `context_compiler.py` (`REQ-0501` through `REQ-0506`)
+Implement [`expected_output/context_compiler.py`](./expected_output/context_compiler.py) (or your custom `work/context_compiler.py`) to satisfy all 6 requirements for `TaskFlow`'s Layer-1 context and memory compiler:
 
-## 3. Step-by-Step Implementation (`context_compiler.py`)
-
-Implement `context_compiler.py` satisfying `REQ-0501` through `REQ-0506`:
 1. **`REQ-0501` (Three Context Primitives Classifier)**:
-   - `ContextPrimitive` (`PROMPT_OR_SLASH_COMMAND`, `STANDING_RULE`, `LAZY_LOADED_SKILL`) and `classify_context_primitive(is_per_turn_intent, is_multi_step_procedure, applies_every_session)`.
-2. **`REQ-0502` (150-Instruction Cliff Auditor & 60-Line Root Map Compiler)**:
-   - `audit_instruction_compliance_budget(instruction_count, cliff_threshold=150)` and `compile_root_context_map(project_name, commands, architecture_items, on_demand_docs, max_lines=60)`.
-3. **`REQ-0503` (Dual-Harness Scoped Rule Validator)**:
-   - `validate_scoped_rule(frontmatter, body)` supporting `.agents/rules/*.md` (`trigger: always_on | model_decision | glob | manual`) and `.claude/rules/*.md` (`paths: [...]`).
+   - Implement `ContextPrimitive` (`PROMPT_OR_SLASH_COMMAND`, `STANDING_RULE`, `LAZY_LOADED_SKILL`) and `classify_context_primitive(is_per_turn_intent, is_multi_step_procedure, applies_every_session)`.
+2. **`REQ-0502` (150-Instruction Compliance Cliff Auditor & 60-Line Root Map Compiler)**:
+   - Implement `audit_instruction_compliance_budget(instruction_count, cliff_threshold=150)` and `compile_root_context_map(project_name, commands, architecture_items, on_demand_docs, max_lines=60)` enforcing $\le 60$ lines and `@docs/*.md` lazy references.
+3. **`REQ-0503` (Dual-Harness Path-Scoped Rule Validator)**:
+   - Implement `validate_scoped_rule(frontmatter, body)` validating both Antigravity `.agents/rules/*.md` (`trigger: always_on | model_decision | glob | manual`, requiring `globs` when `trigger == "glob"`) and Claude Code `.claude/rules/*.md` (`paths: [...]`).
 4. **`REQ-0504` (Provenance-Tagged Memory Formatter)**:
-   - `MemoryEntry` and `format_memory_entry(entry)` enforcing `#direct` strictly for explicit user directives and `#commit`/`#time`/`#session` for indirect observations.
-5. **`REQ-0505` (200-Line Startup Cap & Stale Commit Pruner)**:
-   - `prune_and_cap_memory(entries, superseded_commits, max_lines=200)`.
+   - Implement `MemoryEntry` and `format_memory_entry(entry)` reserving `#direct` strictly for `is_explicit_user_directive=True` and requiring at least one relativity tag (`#commit:<sha>`, `#time:<YYYY-MM-DD>`, or `#session:<id>`) on indirect agent observations.
+5. **`REQ-0505` (200-Line Startup Memory Cap & Stale Commit Pruner)**:
+   - Implement `prune_and_cap_memory(entries, superseded_commits, max_lines=200)` pruning indirect observations whose `commit_sha` is in `superseded_commits` (while preserving `#direct` user directives) and splitting lines beyond `max_lines=200` into `overflow_topic_lines`.
 6. **`REQ-0506` (Worktree-Shared Memory Path Resolver)**:
-   - `resolve_project_memory_paths(project_slug)` returning canonical `claude` and `agy` memory paths.
+   - Implement `resolve_project_memory_paths(project_slug)` returning canonical memory paths for `claude` (`~/.claude/projects/<slug>/memory/MEMORY.md`) and `agy` (`~/.gemini/antigravity/knowledge/<slug>/KNOWLEDGE.md`).
+
+### Verification Commands
+```bash
+# Verify the reference solution
+./labs/lab_05_context_primitives_and_memory/self_diagnose.sh
+
+# Grade your own implementation in work/
+./labs/lab_05_context_primitives_and_memory/self_diagnose.sh work
+```
 
 ---
 
-## 4. Verification Command
+## 3. Common Misconception (`✕` vs. `✓`)
 
-```bash
-./labs/lab_05_context_primitives_and_memory/self_diagnose.sh
-```
+> **✕ Myth:** *"Every time the coding agent discovers a useful fact about `TaskFlow`'s codebase, it should append that fact to `CLAUDE.md` / `GEMINI.md` or tag it with `#direct` in memory so future sessions never forget it."*
+>
+> **✓ Reality:** Appending every observation to root context files rapidly pushes the harness over the **150-instruction compliance cliff** and >60-line budget. Worse, tagging agent-inferred codebase observations with `#direct` prevents automatic pruning when a commit is superseded. Only explicit human statements earn `#direct`; codebase observations belong in `MEMORY.md` / `KNOWLEDGE.md` anchored with `#commit:<sha>` so stale facts are pruned automatically when code evolves.
+
+---
+
+## 4. Self-Check Quiz & 3-Rung Hint Ladder
+
+**Question (`Predict-the-Outcome`):** Suppose `prune_and_cap_memory(entries, superseded_commits={"old111"}, max_lines=200)` is called with two entries that both reference `commit_sha="old111"`:
+1. `MemoryEntry("SettlementBatch uses legacy v1 table", is_explicit_user_directive=False, commit_sha="old111")`
+2. `MemoryEntry("Never use float for TaskFlow currency", is_explicit_user_directive=True, commit_sha="old111")`
+
+Which of these two entries is pruned, which survives into `active_lines`, and why?
+
+<details>
+<summary><strong>Rung 1 Hint (Spotlight — Where to Look)</strong></summary>
+Inspect the `if` condition inside the `for entry in entries:` loop of `prune_and_cap_memory()` in [`expected_output/context_compiler.py`](./expected_output/context_compiler.py) (`lines 195–199`).
+</details>
+
+<details>
+<summary><strong>Rung 2 Hint (N=1 Toy Case)</strong></summary>
+Evaluate `entry.commit_sha and entry.commit_sha in stale_set and not entry.is_explicit_user_directive` for Entry 1 (`is_explicit_user_directive=False`) and Entry 2 (`is_explicit_user_directive=True`).
+</details>
+
+<details>
+<summary><strong>Rung 3 Hint (Full Walkthrough & Answer)</strong></summary>
+**Entry 1 is pruned** (`pruned_stale_count = 1`) because it is an indirect codebase observation (`is_explicit_user_directive=False`) anchored to superseded commit `"old111"`. **Entry 2 survives** in `active_lines` (`"- Never use float for TaskFlow currency #direct #commit:old111"`) because explicit user directives (`#direct`) represent durable human policy that outlives individual code commits.
+</details>
 
 ---
 
